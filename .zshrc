@@ -112,6 +112,6 @@ source $ZSH/oh-my-zsh.sh
 alias vim=nvim
 alias omz="vim ~/.oh-my-zsh/"
 alias todo="vim ~/Documents/TODO.*"
-alias vimconf="cd ~/.config/nvim/"
+alias vimconf="cd ~/.config"
 alias workdir="cd ~/Projects/"
 alias tmux-help="cat ~/Documents/helper/tmux-help.txt"
