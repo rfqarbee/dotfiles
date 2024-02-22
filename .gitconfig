@@ -2,4 +2,4 @@
 	email = rfqarbee@gmail.com
 	name = Rafiq Arbee
 [credential]
-	helper = cache
+	helper = store
