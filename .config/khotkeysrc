@@ -142,7 +142,6 @@ DataCount=3
 Comment=KMenuEdit Global Shortcuts
 DataCount=1
 Enabled=true
-ImportId=defaults
 Name=KMenuEdit
 SystemGroup=1
 Type=ACTION_DATA_GROUP
@@ -997,6 +996,8 @@ Type=GESTURE
 [General]
 ColorScheme[$d]
 ColorSchemeHash[$d]
+XftHintStyle[$d]
+XftSubPixel[$d]
 fixed[$d]
 font[$d]
 menuFont[$d]
@@ -1007,6 +1008,10 @@ toolBarFont[$d]
 Disabled=true
 MouseButton=2
 Timeout=300
+
+[GesturesExclude]
+Comment=
+WindowsCount=0
 
 [Icons]
 Theme[$d]
@@ -1021,6 +1026,26 @@ widgetStyle[$d]
 action/start_new_session[$d]
 action/switch_user[$d]
 
+[KFileDialog Settings]
+Allow Expansion[$d]
+Automatically select filename extension[$d]
+Breadcrumb Navigation[$d]
+Decoration position[$d]
+LocationCombo Completionmode[$d]
+PathCombo Completionmode[$d]
+Show Bookmarks[$d]
+Show Full Path[$d]
+Show Inline Previews[$d]
+Show Preview[$d]
+Show Speedbar[$d]
+Show hidden files[$d]
+Sort by[$d]
+Sort directories first[$d]
+Sort hidden files last[$d]
+Sort reversed[$d]
+Speedbar Width[$d]
+View Style[$d]
+
 [Main]
 AlreadyImported=defaults,kde32b1,konqueror_gestures_kde321
 Disabled=false
@@ -1032,6 +1057,7 @@ Shortcut=
 [WM]
 activeBackground[$d]
 activeBlend[$d]
+activeFont[$d]
 activeForeground[$d]
 inactiveBackground[$d]
 inactiveBlend[$d]

@@ -1,0 +1,12 @@
+[MainWindow]
+2 screens: Height=590
+2 screens: Width=514
+2 screens: XPosition=835
+2 screens: YPosition=204
+DP-0 DP-2=DP-0
+State=AAAA/wAAAAD9AAAAAAAAAgIAAAIwAAAABAAAAAQAAAAIAAAACPwAAAAA
+ToolBarsMovable=Disabled
+
+[WalletEditor]
+AlwaysShowContents=false
+SplitterSize=227,260
