@@ -1,5 +1,6 @@
-##Backup Configs
+## Backup Configs
 
+## Installations
 Make sure git and stow is installed
 ```
 dnf install git
@@ -17,7 +18,7 @@ CD ~/.dotfiles
 stow .
 ```
 
-##Issues
+## Issues
 If somehow when trying to stow has conflicts
 ```
 stow --adopt .
