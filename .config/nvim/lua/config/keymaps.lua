@@ -3,9 +3,8 @@ local map = vim.keymap.set
 map("n", "<leader><leader>", vim.cmd.Ex)
 
 --not sure i prefer jk or Ctrl+c or even kj
---map("i", "jk", "<Esc>")
+map("i", "<C-c>", "<Esc>")
 --map("i", "<C-c>", "<Esc>")
-map("i", "jh", "<Esc>")
 
 --remapped for :w and :update
 map("n", "<C-q>","<cmd>:q<CR>")

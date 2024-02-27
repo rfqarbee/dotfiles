@@ -8,7 +8,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="rbtheme"
+ZSH_THEME="awesomepanda"
+#ZSH_THEME="rbtheme"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -69,16 +70,15 @@ ZSH_THEME="rbtheme"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode zsh-256color)
+plugins=(git vi-mode)
 
 #PLUGINS
-#MODE_INDICATOR="%F{yellow}+%f"
-#INSERT_MODE_INDICATOR="%F{white}+%f"
-#VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
-VI_MODE_SET_CURSOR=true
-VI_MODE_CURSOR_INSERT=1
+VI_MODE_CURSOR_INSERT=0
 VI_MODE_CURSOR_NORMAL=2
 VI_MODE_CURSOR_VISUAL=2
+VI_MODE_SET_CURSOR=true
+PROMPT="$PROMPT\$(vi_mode_prompt_info)"
+RPROMPT="\$(vi_mode_prompt_info)$RPROMPT"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,8 +110,9 @@ source $ZSH/oh-my-zsh.sh
 
 #ALIAS
 alias vim=nvim
-alias omz="vim ~/.oh-my-zsh/"
-alias todo="vim ~/Documents/TODO.*"
+alias omz="cd ~/.oh-my-zsh/ && vim ."
+alias todo="cd ~/Documents/ && vim ."
 alias vimconf="cd ~/.config/nvim"
 alias workdir="cd ~/Projects/"
-alias tm="tmux attach"
+alias tma="tmux attach"
+alias tmk="tmux kill-session -t"

@@ -56,6 +56,11 @@ wallpaperplugin=org.kde.image
 immutability=1
 plugin=org.kde.plasma.digitalclock
 
+[Containments][3][Applets][21][Configuration]
+PreloadWeight=60
+popupHeight=450
+popupWidth=396
+
 [Containments][3][Applets][22]
 immutability=1
 plugin=org.kde.plasma.showdesktop
@@ -123,8 +128,8 @@ immutability=1
 lastScreen=0
 location=4
 plugin=org.kde.plasma.private.systemtray
-popupHeight=432
-popupWidth=432
+popupHeight=448
+popupWidth=448
 wallpaperplugin=org.kde.image
 
 [Containments][9][Applets][10]
@@ -181,12 +186,15 @@ migrated=true
 immutability=1
 plugin=org.kde.plasma.nightcolorcontrol
 
+[Containments][9][Applets][23][Configuration]
+PreloadWeight=10
+
 [Containments][9][Applets][24]
 immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][9][Applets][24][Configuration]
-PreloadWeight=65
+PreloadWeight=95
 
 [Containments][9][Applets][25]
 immutability=1
@@ -204,7 +212,7 @@ immutability=1
 plugin=org.kde.plasma.mediacontroller
 
 [Containments][9][Applets][27][Configuration]
-PreloadWeight=23
+PreloadWeight=0
 
 [Containments][9][General]
 extraItems=dev.jhyub.supergfxctl,org.kde.kdeconnect,org.kde.kscreen,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.plasma.notifications,org.kde.plasma.printmanager,org.kde.plasma.vault,org.kde.plasma.volume
