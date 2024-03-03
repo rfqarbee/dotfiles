@@ -139,11 +139,11 @@ ForegroundVisited=124,183,255
 ColorSchemeHash=caf9814ce486ec8051875daf6dbac7aac7f820f3
 XftHintStyle=hintslight
 XftSubPixel=none
-fixed=JetBrainsMono Nerd Font,10,-1,5,50,0,0,0,0,0
-font=JetBrainsMono Nerd Font,10,-1,5,50,0,0,0,0,0
-menuFont=JetBrainsMono Nerd Font,10,-1,5,50,0,0,0,0,0
-smallestReadableFont=JetBrainsMono Nerd Font,8,-1,5,50,0,0,0,0,0
-toolBarFont=JetBrainsMono Nerd Font,10,-1,5,50,0,0,0,0,0
+fixed=JetBrainsMono Nerd Font,10,-1,5,75,0,0,0,0,0,Bold
+font=JetBrainsMono Nerd Font,10,-1,5,75,0,0,0,0,0,Bold
+menuFont=JetBrainsMono Nerd Font,10,-1,5,75,0,0,0,0,0,Bold
+smallestReadableFont=JetBrainsMono Nerd Font,8,-1,5,75,0,0,0,0,0,Bold
+toolBarFont=JetBrainsMono Nerd Font,10,-1,5,75,0,0,0,0,0,Bold
 
 [KDE]
 LookAndFeelPackage=Andromeda
@@ -152,7 +152,7 @@ LookAndFeelPackage=Andromeda
 Allow Expansion=false
 Automatically select filename extension=true
 Breadcrumb Navigation=true
-Decoration position=2
+Decoration position=0
 LocationCombo Completionmode=5
 PathCombo Completionmode=5
 Show Bookmarks=false
@@ -166,12 +166,12 @@ Sort directories first=true
 Sort hidden files last=false
 Sort reversed=false
 Speedbar Width=163
-View Style=DetailTree
+View Style=Simple
 
 [WM]
 activeBackground=47,52,63
 activeBlend=47,52,63
-activeFont=JetBrainsMono Nerd Font,10,-1,5,50,0,0,0,0,0
+activeFont=JetBrainsMono Nerd Font,10,-1,5,75,0,0,0,0,0,Bold
 activeForeground=211,218,227
 inactiveBackground=47,52,63
 inactiveBlend=47,52,63

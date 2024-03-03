@@ -4,10 +4,17 @@ DefaultProfile=Zsh.profile
 [General]
 ConfigVersion=1
 
+[KFileDialog Settings]
+Recent Files[$e]=eula.png,file:$HOME/Pictures/eula.png
+Recent URLs[$e]=file:$HOME/Pictures/
+detailViewIconSize=16
+iconViewIconSize=64
+listViewIconSize=256
+
 [MainWindow]
 1920x1080 screen: Window-Maximized=true
-2 screens: Height=659
-2 screens: Width=1272
+2 screens: Height=1080
+2 screens: Width=1920
 2 screens: Window-Maximized=true
 2 screens: XPosition=324
 2 screens: YPosition=201

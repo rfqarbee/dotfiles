@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -8,7 +15,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="awesomepanda"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 #ZSH_THEME="rbtheme"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -70,15 +77,9 @@ ZSH_THEME="awesomepanda"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode)
+plugins+=(git svn zsh-vi-mode zsh-autosuggestions web-search zsh-syntax-highlighting)
 
 #PLUGINS
-VI_MODE_CURSOR_INSERT=0
-VI_MODE_CURSOR_NORMAL=2
-VI_MODE_CURSOR_VISUAL=2
-VI_MODE_SET_CURSOR=true
-PROMPT="$PROMPT\$(vi_mode_prompt_info)"
-RPROMPT="\$(vi_mode_prompt_info)$RPROMPT"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,9 +111,13 @@ source $ZSH/oh-my-zsh.sh
 
 #ALIAS
 alias vim=nvim
-alias omz="cd ~/.oh-my-zsh/ && vim ."
+alias ohzsh="cd ~/.oh-my-zsh/ && vim ."
 alias todo="cd ~/Documents/ && vim ."
 alias vimconf="cd ~/.config/nvim"
 alias workdir="cd ~/Projects/"
 alias tma="tmux attach"
 alias tmk="tmux kill-session -t"
+alias obsidian="~/Downloads/Obsidian-1.5.8.AppImage"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -4,9 +4,12 @@ Recent URLs[$e]=file:$HOME/Pictures/
 detailViewIconSize=16
 
 [PlasmaTransientsConfig]
-PreloadWeight=34
+PreloadWeight=26
 
 [PlasmaViews][Panel 3][Defaults]
+thickness=44
+
+[PlasmaViews][Panel 31][Defaults]
 thickness=44
 
 [Updates]

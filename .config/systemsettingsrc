@@ -1,9 +1,18 @@
+[KFileDialog Settings]
+Recent Files[$e]=emacs,file:///usr/bin/emacs
+Recent URLs[$e]=file:///usr/bin/
+listViewIconSize=64
+
+[KPropertiesDialog]
+2 screens: Height=529
+2 screens: Width=482
+
 [MainWindow]
-2 screens: Height=700
-2 screens: Width=1345
-2 screens: XPosition=365
-2 screens: YPosition=138
+2 screens: Height=770
+2 screens: Width=1414
+2 screens: XPosition=293
+2 screens: YPosition=185
 DP-0 DP-2=DP-0
 MenuBar=Disabled
-State=AAAA/wAAAAD9AAAAAAAABUEAAAK8AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+State=AAAA/wAAAAD9AAAAAAAABYYAAAMCAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
 ToolBarsMovable=Disabled
