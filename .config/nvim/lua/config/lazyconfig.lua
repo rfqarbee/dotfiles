@@ -31,22 +31,5 @@ require("lazy").setup({
 		{ import = "plugins.lsp-config" },
 		{ import = "plugins.qol-config" },
 		{ import = "plugins.ui-config" },
-		--[[
-		{ import = "plugins.fidget-config" },
-		{ import = "plugins.format-config" },
-		--{ import = "plugins.lint-config" },
-		{ import = "plugins.lsp-config" },
-		{ import = "plugins.lualine-config" },
-		{ import = "plugins.bufferline-config" },
-		--{import = "plugins.nvimtree-config"},
-		{ import = "plugins.trouble-config" },
-		{ import = "plugins.comment-config" },
-		{ import = "plugins.telescope-config" },
-		{ import = "plugins.harpoon-config" },
-		{ import = "plugins.whichkey-config" },
-		{ import = "plugins.treesitter-config" },
-		{ import = "plugins.undotree-config" },
-		{ import = "plugins.autopairs-config" },
-        --]]
 	},
 })

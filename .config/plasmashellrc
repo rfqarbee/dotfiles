@@ -3,9 +3,6 @@ Recent Files[$e]=eula.png,file:$HOME/Pictures/eula.png
 Recent URLs[$e]=file:$HOME/Pictures/
 detailViewIconSize=16
 
-[PlasmaTransientsConfig]
-PreloadWeight=26
-
 [PlasmaViews][Panel 3][Defaults]
 thickness=44
 

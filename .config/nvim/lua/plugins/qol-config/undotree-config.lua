@@ -8,11 +8,11 @@ return {
 			position = "right",
 			-- this one could be useful i think
 			ignore_filetype = {},
-			window = {
-				winblend = 30,
-				width = 550,
-				height = 550,
-			},
+			-- window = {
+			-- 	winblend = 30,
+			-- 	width = 550,
+			-- 	height = 550,
+			-- },
 		})
 	end,
 	keys = { -- load the plugin only when using it's keybinding:
