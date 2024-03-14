@@ -137,8 +137,8 @@ ForegroundVisited=124,183,255
 
 [General]
 ColorSchemeHash=caf9814ce486ec8051875daf6dbac7aac7f820f3
-XftHintStyle=hintslight
-XftSubPixel=none
+XftHintStyle=hintmedium
+XftSubPixel=rgb
 fixed=JetBrainsMono Nerd Font,10,-1,5,75,0,0,0,0,0,Bold
 font=JetBrainsMono Nerd Font,10,-1,5,75,0,0,0,0,0,Bold
 menuFont=JetBrainsMono Nerd Font,10,-1,5,75,0,0,0,0,0,Bold

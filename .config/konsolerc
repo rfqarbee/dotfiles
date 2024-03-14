@@ -5,11 +5,11 @@ DefaultProfile=Zsh.profile
 ConfigVersion=1
 
 [KFileDialog Settings]
-Recent Files[$e]=eula.png,file:$HOME/Pictures/eula.png
-Recent URLs[$e]=file:$HOME/Pictures/
+Recent Files[$e]=file:$HOME/Pictures/eula.png
+Recent URLs[$e]=file:$HOME/Pictures/,file:$HOME/
 detailViewIconSize=16
 iconViewIconSize=64
-listViewIconSize=256
+listViewIconSize=48
 
 [MainWindow]
 1920x1080 screen: Window-Maximized=true
@@ -20,7 +20,6 @@ listViewIconSize=256
 2 screens: YPosition=201
 DP-0 DP-2=DP-0
 MenuBar=Disabled
-State=AAAA/wAAAAD9AAAAAQAAAAAAAAAAAAAAAPwCAAAAAvsAAAAiAFEAdQBpAGMAawBDAG8AbQBtAGEAbgBkAHMARABvAGMAawAAAAAA/////wAAAXwBAAAD+wAAABwAUwBTAEgATQBhAG4AYQBnAGUAcgBEAG8AYwBrAAAAAAD/////AAABFQEAAAMAAAT4AAACkwAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAACAAAAFgBtAGEAaQBuAFQAbwBvAGwAQgBhAHIAAAAAAP////8AAAAAAAAAAAAAABwAcwBlAHMAcwBpAG8AbgBUAG8AbwBsAGIAYQByAAAAAAD/////AAAAAAAAAAA=
 ToolBarsMovable=Disabled
 
 [Notification Messages]

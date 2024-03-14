@@ -116,6 +116,7 @@ alias todo="cd ~/Documents/ && vim ."
 alias vimconf="cd ~/.config/nvim"
 alias workdir="cd ~/Projects/"
 alias tma="tmux attach"
+alias tmd="tmux detach"
 alias tmk="tmux kill-session -t"
 alias obsidian="~/Downloads/Obsidian-1.5.8.AppImage"
 

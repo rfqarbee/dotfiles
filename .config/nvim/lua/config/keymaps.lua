@@ -3,7 +3,7 @@ local map = vim.keymap.set
 map("n", "<leader><leader>", vim.cmd.Ex)
 
 --escape key
-map("i", "jk", "<Esc>")
+map("i", "<C-c>", "<Esc>")
 
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight on search when Esc in normal mode" })
 --remapped for :w and :update
