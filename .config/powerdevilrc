@@ -1,8 +1,0 @@
-[AC][Display]
-DimDisplayWhenIdle=false
-DisplayBrightness=25
-TurnOffDisplayWhenIdle=false
-UseProfileSpecificDisplayBrightness=true
-
-[AC][SuspendAndShutdown]
-AutoSuspendAction=0
