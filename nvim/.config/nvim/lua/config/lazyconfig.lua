@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+
 	spec = {
 		--Direct plugins
 		{ "ThePrimeagen/vim-be-good" },
