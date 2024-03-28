@@ -1,4 +1,7 @@
 #ignore plugins in zsh
-zsh/.config/zsh/plugins/*
+zsh/.histfile
+zsh/.config/zsh/plugins/
+tmux/.config/tmux/.tmux/
+nvim/.config/nvim/undodir/
 
 

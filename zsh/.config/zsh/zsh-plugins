@@ -1,0 +1,13 @@
+//vi-mode
+function zvm_config() {
+    ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+    ZVM_VI_INSERT_ESCAPE_BINDKYE=jk
+    ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
+
+}
+
+# from pacman repo, i recommend building from source next time
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+//you should use, also recommend build from source next time
+source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
