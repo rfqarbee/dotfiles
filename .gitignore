@@ -1,0 +1,4 @@
+#ignore plugins in zsh
+zsh/.config/zsh/plugins/*
+
+
