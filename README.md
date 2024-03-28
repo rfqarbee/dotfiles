@@ -3,20 +3,19 @@
 ---
 ### Installations
 
-Make sure `git` and `stow` is installed
-
+Install `git` and `stow` using respective repository
 ```
 pacman -S stow
 ```
-
 Clone in `$HOME ~/dotfiles`
 
 ```
 git clone https://github.com/rfqarbee/dotfiles.git $HOME/dotfiles
 ```
 
-CD `~/dotfiles` and `stow`
+Navigate to `dotfiles` and `stow`
 
-`stow .` or `stow $DIR`
+* `stow .`
+* `stow $DIR`
 
 
