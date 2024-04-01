@@ -1,8 +1,181 @@
 * {
+    background-color : #11111e;
     border : none;
-    border-radius : 10;
+    border-radius : 5px;
     font-family : "JetbrainsMono Nerd Font" ;
-    font-size : 12px;
-    min-height : 8px;
+    font-size : 15px;
+    min-height : 2px;
+}
+
+#window {
+    margin-top: 2px;
+    padding-left : 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    transition: none;
+}
+
+window#waybar{
+    background-color : transparent;
+    color : #FFFFFF;
+}
+
+/* make window module transparent when no windows present */
+window#waybar.empty #window {
+    background-color: transparent;
+}
+
+window#waybar.Alacritty {
+    color : #ffffff;
+}
+window#waybar.firefox {
+    color : #FF9500;
+}
+window#waybar.discord {
+    color : #7289d9;
+}
+window#waybar.steam {
+    color : #66c0f4
+}
+
+/* workspaces css */
+
+#workspaces button {
+    padding :  0.25rem 0.25rem;
+    background-color : @surface0;
+    color : @text;
+    margin : 0.25rem;
+}
+
+#workspaces button.active {
+    border-radius : 5px;
+    color : green;
+    background : green;
+}
+
+#workspaces button.empty {
+    color : @overlay0;
+}
+
+#workspaces button.visible {
+    color : @blue;
+}
+
+#workspaces button.urgent{
+    background-color : @red;
+    border-radius: 1em;
+    color : @text;
+}
+
+#keyboard-state {
+    padding : 0 0.5rem;
+    background-color : @surface0;
+    color : @text;
+    margin : 0.25rem;
+}
+
+#network {
+    margin-top: 6px;
+    margin-left: 8px;
+    padding-left: 10px;
+    padding-right: 5px;
+    border-radius: 10px;
+    transition: none;
+    color : white;
+    background: #161320;
+}
+
+#wireplumber {
+    margin-top: 6px;
+    margin-left: 8px;
+    padding-left: 10px;
+    padding-right: 5px;
+    border-radius: 10px;
+    transition: none;
+    background: #161320;
+}
+#wireplumber.muted{
+    color: red;
+}
+#wireplumber.low {
+    color: red;
+}
+#wireplumber.mid {
+    color: #89DCEB;
+}
+#wireplumber.high {
+    color: green;
+}
+
+#clock {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	border-radius: 10px;
+	transition: none;
+	/* color: #161320; */
+	color: #89DCEB;
+	/* background: #ABE9B3; */
+	background: #161320;
+	/* background: #1A1826; */
+}
+
+#memory {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	margin-bottom: 0px;
+	padding-right: 10px;
+	border-radius: 10px;
+	transition: none;
+	color: #161320;
+	background: #DDB6F2;
+}
+#cpu {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	margin-bottom: 0px;
+	padding-right: 10px;
+	border-radius: 10px;
+	transition: none;
+	color: #161320;
+	background: #96CDFB;
+}
+
+#custom-launcher {
+    font-size : 20px;
+    margin-left: 8px;
+    padding-left: 10px;
+    padding-right: 5px;
+    border-radius: 10px;
+    transition: none;
+    color: #89DCEB;
+    background: #161320;
+}
+
+#custom-power {
+    font-size : 20px;
+    margin-left: 8px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 10px;
+    transition: none;
+    color: #89DCEB;
+    background: #161320;
+}
+
+#custom-updates{
+    font-size : 20px;
+    margin-top: 6px;
+    margin-left: 8px;
+    padding-left: 10px;
+    padding-right: 5px;
+    border-radius: 10px;
+    transition: none;
+    color: #89DCEB;
+    background: #161320;
 }
 

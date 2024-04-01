@@ -96,12 +96,11 @@ return {
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 		local servers = {
-			clangd = {},
 			-- gopls = {},
 			-- pyright = {},
+			clangd = {},
 			rust_analyzer = {},
-			tsserver = {},
-
+			 tsserver = {},
 			lua_ls = {
 				-- cmd = {...},
 				-- filetypes { ...},
@@ -143,9 +142,9 @@ return {
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"stylua",
-			"vimls",
 			"rust_analyzer",
-			"tsserver",
+			-- "vimls",
+			-- "tsserver",
 			"clangd",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
