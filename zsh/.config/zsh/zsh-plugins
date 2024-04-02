@@ -1,6 +1,7 @@
+#this file does not need to exit, only shows the config and custom plugins for dotfiles
 //vi-mode
 function zvm_config() {
-    ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+    ZVM_LINE_INIT_MODE=$ZVM_MODE_LAST
     ZVM_VI_INSERT_ESCAPE_BINDKYE=jk
     ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
 
