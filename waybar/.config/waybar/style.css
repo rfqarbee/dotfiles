@@ -167,6 +167,17 @@ window#waybar.steam {
     background: #161320;
 }
 
+#custom-cliphist{
+    font-size : 20px;
+    margin-top: 6px;
+    margin-left: 8px;
+    padding-left: 10px;
+    padding-right: 5px;
+    border-radius: 10px;
+    transition: none;
+    color: #89DCEB;
+    background: #161320;
+}
 #custom-updates{
     font-size : 20px;
     margin-top: 6px;

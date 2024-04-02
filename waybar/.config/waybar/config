@@ -2,16 +2,16 @@
     "layer" : "top", //always let top to display front of windows
     "modules-left" : ["custom/launcher","hyprland/workspaces"],
     "modules-center" : ["hyprland/window"],
-    "modules-right" : ["custom/updates","wireplumber","network","clock","custom/power"],
+    "modules-right" : ["custom/cliphist","custom/updates","wireplumber","network","clock","custom/power"],
 
 /*workspaces*/
     "hyprland/workspaces": {
-        "format": "{name}:{windows}",
+        "format": "{name}-{windows}",
         "window-rewrite-default": " " ,
         "window-format": "<span>{windows}</span>",
         "window-rewrite": {
             "class<firefox>": " ",
-            "class<discord>": " ",
+            "class<vesktop>": " ",
             "class<alacritty>": " ",
             "class<kitty>": " ",
             "class<steam>":" ",
@@ -38,7 +38,7 @@
          "rewrite": {
                 "(.*) — Mozilla Firefox": " ",
                 "Alacritty": " ",
-                "(.*) - Discord" : " ",
+                "Discord - (.*)" : " ",
                 "steam":" ",
                 "volume Control":" ",
                 "Home":" ",
@@ -108,8 +108,8 @@
        "format": "{icon} {}",
        "return-type": "json",
        "format-icons": {
-       "has-updates": "󱍷",
-            "updated": "󰂪"
+       "has-updates": " ",
+            "updated": "󰂪 "
        },
        "exec-if": "which waybar-module-pacman-updates",
        "exec": "waybar-module-pacman-updates  --interval-seconds 5 --network-interval-seconds 300"
@@ -119,6 +119,13 @@
      "format":" ",
      "on-click":"wlogout --protocol layer-shell"
      },
+
+  "custom/cliphist" :{
+    "format" :"󱓥 ",
+    "tooltip":false,
+    "on-click": "cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+  },
+
 
 /*later*/
     "cpu": {
