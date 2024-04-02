@@ -1,5 +1,5 @@
 * {
-    background-color : #11111e;
+    /* background-color : #11111e; */
     border : none;
     border-radius : 5px;
     font-family : "JetbrainsMono Nerd Font" ;
@@ -48,8 +48,7 @@ window#waybar.steam {
 }
 
 #workspaces button.active {
-    border-radius : 5px;
-    color : green;
+    border-radius : 8px;
     background : green;
 }
 
