@@ -10,26 +10,19 @@ Arch
 pacman -S stow
 ```
 
-Debian Based
-```
-apt-get install stow
-```
-
 Fedora
 ```
 dnf install -y stow
 ```
 
-OpenSUSE
-```
-sudo zypper in neovim
-```
+---
 Clone in `$HOME ~/dotfiles`
 
 ```
 git clone https://github.com/rfqarbee/dotfiles.git $HOME/dotfiles
 ```
 
+---
 Navigate to `dotfiles` and `stow`
 
 * All Dirs
