@@ -2,7 +2,7 @@
 
 typeset -U path PATH
 
-path=($HOME/bin /usr/local/bin $HOME/.local/bin $path)
+path=($HOME/bin /usr/local/bin $HOME/.local/bin $HOME/.local $path)
 cdpath=(. $HOME $HOME/.config $HOME/.local)
 
 export PATH
