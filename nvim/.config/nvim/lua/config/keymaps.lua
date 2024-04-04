@@ -57,8 +57,3 @@ map("n", "<leader>wq", "<C-w>q", { desc = "Quit Window" })
 -- map("n", "<S-Tab>", "<cmd>bprev<CR>", { desc = "Previous Tab" })
 -- map("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next Tab" })
 map("n", "<leader>bq", "<cmd>bd<CR>", { desc = "Quit Tab" })
-
---TODO - look up for this
---ig doesnt work anymore? idk
---switch project from vim, got it from theprimeagen
---map("n","<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")

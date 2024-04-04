@@ -100,7 +100,7 @@ return {
 			-- pyright = {},
 			clangd = {},
 			rust_analyzer = {},
-			 tsserver = {},
+			tsserver = {},
 			lua_ls = {
 				-- cmd = {...},
 				-- filetypes { ...},
@@ -143,8 +143,8 @@ return {
 		vim.list_extend(ensure_installed, {
 			"stylua",
 			"rust_analyzer",
-			-- "vimls",
-			-- "tsserver",
+			"vimls",
+			"tsserver",
 			"clangd",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
