@@ -5,16 +5,6 @@
 
 Install `git` and `stow` using respective repository
 
-Arch
-```
-pacman -S stow
-```
-
-Fedora
-```
-dnf install -y stow
-```
-
 ---
 Clone in `$HOME ~/dotfiles`
 
@@ -31,4 +21,13 @@ Navigate to `dotfiles` and `stow`
 * Specific Dirs
 `stow $DIR`
 
+---
+#### Extra
+
+* Dont forget to get tpm before running tmux
+```
+git clone https://github.com/tmux-plugins/tpm
+```
+
+* Zsh plugins before running `plug`
 
