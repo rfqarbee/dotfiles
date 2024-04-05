@@ -6,20 +6,22 @@ SAVEHIST=5000
 setopt autocd beep extendedglob nomatch notify
 #zle_highlight=('paste:none')
 
+# Load and initialise completion system
 zstyle :compinstall filename '/home/rafiq/.config/zsh/.zshrc'
 autoload -Uz compinit
 compinit
 
 # source custom file
-#plug $ZDOTDIR/ohmyzsh.zsh
-plug $ZDOTDIR/aliases.zsh
+source $ZDOTDIR/aliases.zsh
 
-# Plugins
+# plugins
 plug "$ZDOTDIR/plugins/zsh-vi-mode/zsh-vi-mode.zsh"
 plug "$ZDOTDIR/plugins/zsh-you-should-use/zsh-you-should-use.zsh"
-plug "$ZDOTDIR/plugins/powerlevel10k/powerlevel10k.zsh-theme"
-plug "$ZDOTDIR/plugins/zsh-autosuggestions"
-plug "$ZDOTDIR/plugins/zsh-syntax-highlighting"
-#plug "MichaelAquilina/zsh-auto-notify"
+plug "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+plug "zsh-users/zsh-autosuggestions"
+plug "zap-zsh/zap-prompt"
+plug "romkatv/powerlevel10k"
+# source "$ZDOTDIR/plugins/powerlevel10k/powerlevel10k.zsh-theme"
+# source "MichaelAquilina/zsh-auto-notify"
 eval "$(fzf --zsh)"
 

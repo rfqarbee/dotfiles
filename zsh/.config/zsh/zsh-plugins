@@ -9,6 +9,7 @@ function zvm_config() {
 
 # from pacman repo, i recommend building from source next time
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 
 //you should use, also recommend build from source next time
 source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
