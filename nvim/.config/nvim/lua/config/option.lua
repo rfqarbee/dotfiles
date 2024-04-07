@@ -45,7 +45,10 @@ opt.smartindent = true
 --backup for undodir accessible by undotree
 opt.swapfile = false
 opt.backup = false
+--im too lazy to make a function for this
 opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
+--for windows
+--opt.undodir = os.getenv("HOME") .. "AppData/Local/nvim/undodir"
 opt.undofile = true
 
 opt.termguicolors = true

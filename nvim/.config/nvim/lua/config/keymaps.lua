@@ -7,7 +7,6 @@ map("i", "<C-c>", "<Esc>")
 
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight on search when Esc in normal mode" })
 --remapped for :w and :update
-map("n", "<leader>q", "<cmd>:q<CR>")
 map("n", "zx", "<cmd>w<CR>")
 
 --visual block to move around
