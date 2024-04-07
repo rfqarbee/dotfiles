@@ -15,9 +15,9 @@ compinit
 source $ZDOTDIR/aliases.zsh
 
 # plugins
-plug "$ZDOTDIR/plugins/zsh-vi-mode/zsh-vi-mode.zsh"
-plug "$ZDOTDIR/plugins/zsh-you-should-use/zsh-you-should-use.zsh"
-plug "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+plug "$ZDOTDIR/plugins/zsh-vi-mode.zsh"
+plug "$ZDOTDIR/plugins/should-use.zsh"
+plug "$ZDOTDIR/plugins/syntax-highlighting.zsh"
 plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/zap-prompt"
 plug "romkatv/powerlevel10k"
