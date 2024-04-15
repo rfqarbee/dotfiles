@@ -14,7 +14,7 @@ export XDG_WORK_DIR=$HOME/code
 export XDG_REPOS_DIR=$HOME/repos
 export XDG_DOCUMENTS_DIR=$HOME/Documents
 export XDG_DOWNLOAD_DIR=$HOME/Downloads
-
+export MARIADB_HISTFILE=$HOME/.cache/mariadb_history
 #npm
 export npm_config_prefix="$HOME/.local"
 # rust custom path
