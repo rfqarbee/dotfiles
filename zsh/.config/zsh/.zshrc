@@ -8,7 +8,10 @@ fi
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 
-source $HOME/.config/zsh/zshrc.zsh
+source $ZDOTDIR/zshrc.zsh
+# Load and initialise completion system
+autoload -Uz compinit
+compinit
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
