@@ -4,15 +4,10 @@
 
 ### Installations
 
-Install `git` and `stow`
+* Install `git` and `stow`
 
----
+* Clone in `$HOME ~/dotfiles`
 
-Clone in `$HOME ~/dotfiles`
+* Navigate to `dotfiles` and `stow`
 
----
-
-Navigate to `dotfiles` and `stow`
-
----
 
