@@ -1,6 +1,6 @@
 #ignore plugins in zsh
 zsh/.config/zsh/.histfile
-/zsh/.config/zsh/.zcompdump
+zsh/.config/zsh/.zcompdump
 #zsh/.config/zsh/.p10k.zsh
 #zsh/.config/zsh/plugins/
 tmux/.config/tmux/.tmux/
