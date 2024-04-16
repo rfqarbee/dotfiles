@@ -3,6 +3,7 @@ HISTFILE=~/.config/zsh/.histfile
 HISTSIZE=10000
 SAVEHIST=5000
 
+setopt hist_ignore_all_dups
 setopt autocd beep extendedglob nomatch notify
 #zle_highlight=('paste:none')
 
