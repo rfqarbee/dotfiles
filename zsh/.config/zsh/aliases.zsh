@@ -2,6 +2,7 @@
 alias srz="source ~/.config/zsh/.zshrc"
 alias vim=nvim
 alias nvimrc='nvim ~/.config/nvim'
+alias note="nvim ~/Documents/notesidian/"
 alias tma="tmux attach"
 alias tmd="tmux detach"
 alias tmk="tmux kill-session -t"
