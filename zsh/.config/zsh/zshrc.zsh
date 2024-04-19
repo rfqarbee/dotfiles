@@ -22,7 +22,6 @@ plug "$ZDOTDIR/plugins/syntax-highlighting.zsh"
 plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/zap-prompt"
 plug "romkatv/powerlevel10k"
-# source "$ZDOTDIR/plugins/powerlevel10k/powerlevel10k.zsh-theme"
 # source "MichaelAquilina/zsh-auto-notify"
 eval "$(fzf --zsh)"
 
