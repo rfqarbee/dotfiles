@@ -19,22 +19,24 @@
         "window-format": "<span>{windows}</span>",
         "window-rewrite": {
             "class<firefox>": " ",
+            "class<obsidian>": " ",
             "class<vesktop>": " ",
-            "class<alacritty>": "",
-            "class<kitty>": " ",
+            "class<alacritty>": " ",
+            "class<kitty>": " ",
             "class<steam>":" ",
             "class<pavucontrol>":" ",
+            "class<blueman-manager>":" ",
             "class<nemo>":" ",
         },
         "persistent-workspaces": {
             "*": 2, // 2 workspaces by default on every monitor
-            "DP-1" : [1,2],
-            "DP-2" : [3,4,5,6]
+            "DP-1" : [1,2,3],
+            "DP-2" : [4,5,6]
         },
         "format-icons": {
             "1": " ",
             "2": " ",
-            "3": " ",
+            "3": " ",
             "4": " ",
             "5": " ",
             "default": " "
@@ -46,9 +48,11 @@
          "rewrite": {
                 "(.*) — Mozilla Firefox": " ",
                 "Alacritty": " ",
+                "zsh": " ",
                 "(.*) Discord (.*)" : " ",
                 "steam":" ",
                 "volume Control":" ",
+                "blueman-manager":" ",
                 "Home":" ",
             },
         "separate-outputs" : true
