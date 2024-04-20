@@ -7,21 +7,14 @@ setopt hist_ignore_all_dups
 setopt autocd beep extendedglob nomatch notify
 #zle_highlight=('paste:none')
 
-# Load and initialise completion system
-zstyle :compinstall filename '/home/rafiq/.config/zsh/.zshrc'
-autoload -Uz compinit
-compinit
-
 # source custom file
 source $ZDOTDIR/aliases.zsh
 
 # plugins
 plug "$ZDOTDIR/plugins/zsh-vi-mode.zsh"
 plug "$ZDOTDIR/plugins/should-use.zsh"
-plug "$ZDOTDIR/plugins/syntax-highlighting.zsh"
 plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/zap-prompt"
 plug "romkatv/powerlevel10k"
 # source "MichaelAquilina/zsh-auto-notify"
-eval "$(fzf --zsh)"
 
