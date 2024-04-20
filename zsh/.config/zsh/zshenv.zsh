@@ -1,10 +1,11 @@
 #PATH for ZSH
 typeset -U path PATH
-
 path=($HOME/bin /usr/local/bin $HOME/.local/bin $HOME/.local $path)
-cdpath=(. $HOME $HOME/.config $HOME/.local/scripts)
-
+cdpath=(. $HOME/.config $HOME/.local/scripts $HOME $HOME/code $HOME/Documents)
 export PATH
+# asdf
+. "$HOME/.config/asdf/asdf.sh"
+fpath=(${ASDF_DIR}/completions $fpath)
 
 # nvidia
 export __GL_SHADER_DISK_CACHE_PATH=$HOME/.cache/nv
@@ -12,6 +13,9 @@ export __GL_SHADER_DISK_CACHE_PATH=$HOME/.cache/nv
 # w3m
 export W3M_DIR=$HOME/.cache/w3m
 export WWW_HOME="google.com"
+
+# asdf
+export ASDF_DATA_DIR=$HOME/.config/asdf
 
 export ZDOTDIR=$HOME/.config/zsh
 export XDG_CONFIG_HOME=$HOME/.config
@@ -35,3 +39,6 @@ export RUSTUP_HOME=$HOME/.config/rustup
 
 # open man in neovim
 export MANPAGER="nvim +Man!"
+
+# steam
+export ASDF_PROTONGE_STEAM_COMPAT_DIR=~/.steam/steam/compatibilitytools.d/
