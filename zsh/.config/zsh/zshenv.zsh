@@ -1,7 +1,7 @@
 #PATH for ZSH
 typeset -U path PATH
 path=($HOME/bin /usr/local/bin $HOME/.local/bin $HOME/.local $path)
-cdpath=(. $HOME/.config $HOME/.local/scripts $HOME $HOME/code $HOME/Documents)
+cdpath=(. $HOME/.config $HOME/.local $HOME $HOME/code $HOME/Documents)
 export PATH
 # asdf
 . "$HOME/.config/asdf/asdf.sh"
@@ -19,6 +19,7 @@ export ASDF_DATA_DIR=$HOME/.config/asdf
 
 export ZDOTDIR=$HOME/.config/zsh
 export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CONFIG_DIRS=/etc/xdg
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_BIN_HOME=$HOME/.local/bin
 
