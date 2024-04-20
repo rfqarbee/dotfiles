@@ -2,13 +2,13 @@
     "layer" : "top", //always let top to display front of windows
     "modules-left" : ["custom/launcher","hyprland/workspaces"],
     "modules-center" : ["hyprland/window"],
-    "modules-right" : ["custom/cliphist","custom/updates","group/control","custom/power"],
+    "modules-right" : ["custom/cliphist","group/control","custom/power"],
 
 
     "group/control" : {
       "orientation" : "horizontal",
       "modules" : [
-          "wireplumber","network","clock"
+          "wireplumber","network","custom/updates","clock"
       ]
     },
 
