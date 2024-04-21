@@ -1,6 +1,6 @@
 #PATH for ZSH
 typeset -U path PATH
-path=($HOME/bin /usr/local/bin $HOME/.local/bin $HOME/.local $path)
+path=($HOME/bin /usr/local/bin $HOME/.local/bin $HOME/.local/scripts $path)
 cdpath=(. $HOME/Media/Pictures $HOME/.config $HOME/.local $HOME $HOME/code $HOME/Documents)
 export PATH
 # asdf
@@ -10,7 +10,7 @@ fpath=(${ASDF_DIR}/completions $fpath)
 # open man in neovim
 export MANPAGER="nvim +Man!"
 # grim
-export GRIM_DEFAULT_DIR=$HOME/Media/Pictures/screenshot
+export GRIM_DEFAULT_DIR=$HOME/Media/Pictures/saved
 # w3m
 export W3M_DIR=$HOME/.cache/w3m
 export WWW_HOME="google.com"
