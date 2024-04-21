@@ -35,6 +35,7 @@ export XDG_REPOS_DIR=$HOME/repos
 export XDG_DOCUMENTS_DIR=$HOME/Documents
 export XDG_DOWNLOAD_DIR=$HOME/Downloads
 
+export TMPDIR=/tmp/
 # export mariadb hist ; i fucking hate it at $HOME
 export MARIADB_HISTFILE=$HOME/.cache/mariadb_history
 # npm
