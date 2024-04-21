@@ -9,4 +9,3 @@
 - Clone in `$HOME ~/dotfiles`
 
 - Navigate to `dotfiles` and `stow`
-HUH
