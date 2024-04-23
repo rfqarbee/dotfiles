@@ -4,9 +4,10 @@ path=($HOME/bin /usr/local/bin $HOME/.local/bin $HOME/.local/scripts $path)
 cdpath=(. $HOME/Media/Pictures $HOME/.config $HOME/.local $HOME $HOME/code $HOME/Documents)
 export PATH
 # asdf
-. "$HOME/.config/asdf/asdf.sh"
-fpath=(${ASDF_DIR}/completions $fpath)
+#. "$HOME/.config/asdf/asdf.sh"
+#fpath=(${ASDF_DIR}/completions $fpath)
 
+export GNUPGHOME=$HOME/.local/share/gnupg
 # open man in neovim
 export MANPAGER="nvim +Man!"
 # grim
@@ -18,7 +19,7 @@ export WWW_HOME="google.com"
 export ASDF_DATA_DIR=$HOME/.config/asdf
 
 # xdg
-export ZDOTDIR=$HOME/.config/zsh
+#export ZDOTDIR=$HOME/.config/zsh
 export XDG_PICTURES_DIR=$HOME/Media/Pictures/
 export XDG_BIN_HOME=$HOME/.local/bin
 
