@@ -99,7 +99,6 @@ return {
 		vim.list_extend(ensure_installed, {
 			"stylua",
 			"rust_analyzer",
-			"vimls",
 			"tsserver",
 			"clangd",
 		})
