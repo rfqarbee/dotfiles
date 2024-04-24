@@ -40,7 +40,8 @@ export TMPDIR=/tmp/
 # export mariadb hist ; i fucking hate it at $HOME
 export MARIADB_HISTFILE=$HOME/.cache/mariadb_history
 # npm
-export npm_config_prefix="$HOME/.local"
+export npm_config_prefix="$HOME/.local/npm"
+export npm_config_cache="$HOME/.cache/npm"
 # rust custom path
 export CARGO_HOME=$HOME/.config/cargo
 export RUSTUP_HOME=$HOME/.config/rustup
