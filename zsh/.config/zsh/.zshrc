@@ -11,12 +11,13 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 source $ZDOTDIR/zshrc.zsh
 
-eval "$(fzf --zsh)"
 # Load and initialise completion system
 autoload -Uz compinit
 compinit
 
-# z-sy-h must be source after compinit or it wont work
+# load after completions
+eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
 plug "$ZDOTDIR/plugins/syntax-highlighting.zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
