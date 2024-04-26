@@ -8,6 +8,7 @@ alias tmd="tmux detach"
 alias tmk="tmux kill-session -t"
 
 # colorize output
+alias cd="z"
 alias ls="ls --color=auto"
 alias la="ls -A --color=auto"
 alias ll="ls -l --color=auto"

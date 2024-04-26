@@ -1,11 +1,11 @@
 #PATH for ZSH
 typeset -U path PATH
 path=($HOME/bin /usr/local/bin $HOME/.local/bin $HOME/.local/scripts $path)
-cdpath=(. $HOME/Media/Pictures $HOME/.config $HOME/.local $HOME $HOME/code $HOME/Documents)
+# cdpath=(. $HOME/Media/Pictures $HOME/.config $HOME/.local $HOME $HOME/code $HOME/Documents)
 export PATH
-# asdf
-#. "$HOME/.config/asdf/asdf.sh"
-#fpath=(${ASDF_DIR}/completions $fpath)
+## asdf
+. "$HOME/.config/asdf/asdf.sh"
+fpath=(${ASDF_DIR}/completions $fpath)
 
 export GNUPGHOME=$HOME/.local/share/gnupg
 # open man in neovim
@@ -49,5 +49,6 @@ export RUSTUP_HOME=$HOME/.config/rustup
 export ASDF_PROTONGE_STEAM_COMPAT_DIR=~/.steam/steam/compatibilitytools.d/
 # nvidia
 export __GL_SHADER_DISK_CACHE_PATH=$HOME/.cache/nv
+export TERMINAL=/usr/bin/kitty
 
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0"
