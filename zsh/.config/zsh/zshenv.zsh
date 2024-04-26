@@ -50,3 +50,4 @@ export ASDF_PROTONGE_STEAM_COMPAT_DIR=~/.steam/steam/compatibilitytools.d/
 # nvidia
 export __GL_SHADER_DISK_CACHE_PATH=$HOME/.cache/nv
 
+export GTK2_RC_FILES="$HOME/.config/gtk-2.0"
