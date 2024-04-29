@@ -3,6 +3,7 @@ local opt = vim.opt
 vim.opt.termguicolors = true
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.g.have_nerd_font = true
 --vim key opts
 opt.guicursor = "n-v-c:block-nCursor,i-ci-ve:block-blinkwait300-blinkon50-blinkoff50,r-cr:hor20,o:hor50"
 
@@ -25,15 +26,14 @@ opt.signcolumn = "yes"
 
 opt.splitright = true
 opt.splitbelow = true
-
 opt.list = true
-opt.listchars = { tab = "- ", trail = "·", nbsp = "␣" }
--- "» "
+opt.listchars = { tab = "- ", trail = ".", nbsp = "␣" }
+
 opt.inccommand = "split"
 
 opt.cursorline = true
 
-opt.scrolloff = 13
+opt.scrolloff = 7
 opt.colorcolumn = "80"
 opt.tabstop = 2
 opt.softtabstop = 2
@@ -53,7 +53,7 @@ opt.undofile = true
 
 opt.termguicolors = true
 opt.isfname:append("@-@")
-opt.updatetime = 50
+opt.updatetime = 100
 
 local autocmd = vim.api.nvim_create_autocmd
 local AuGroup = vim.api.nvim_create_augroup("replaceGroup", { clear = true })
@@ -114,6 +114,7 @@ autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 -- 		vim.keymap.set("n", "<leader>f", function()
 -- 			vim.lsp.buf.format({ async = true })
 -- 		end, opts)
+--
 --         --]]
 -- 	end,
 -- })
