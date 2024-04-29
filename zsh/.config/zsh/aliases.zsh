@@ -11,11 +11,12 @@ alias tmk="tmux kill-session -t"
 alias cd="z"
 alias ls="ls --color=auto"
 alias la="ls -A --color=auto"
-alias ll="ls -l --color=auto"
-alias lla="ls -lA --color=auto"
+alias ll="ls -lA --color=auto"
+alias lah="ls -lAh --color=auto"
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
+alias zgrep='fgrep --color=auto'
 
 # confirm before overwriting
 alias mv='mv -i'
