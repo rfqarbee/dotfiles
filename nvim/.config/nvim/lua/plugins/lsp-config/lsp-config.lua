@@ -130,7 +130,6 @@ return {
 				["<C-f>"] = cmp.mapping.confirm({ select = true }),
 				["<C-Space>"] = cmp.mapping.complete({}),
 				["<C-e>"] = cmp.mapping.abort(),
-
 				--  TODO: aint reading allat,
 				-- -- <c-l> will move you to the right of each of the expansion locations.
 				-- -- <c-h> is similar, except moving you backwards.
