@@ -1,7 +1,7 @@
 {
     "layer" : "top", //always let top to display front of windows
-    "modules-left" : ["custom/launcher","hyprland/workspaces"],
-    "modules-center" : ["hyprland/window"],
+    "modules-left" : ["custom/launcher","hyprland/window"],
+    "modules-center" : ["hyprland/workspaces"],
     "modules-right" : ["custom/cliphist","group/control","custom/power"],
 
 
@@ -14,33 +14,32 @@
 
 /*workspaces*/
     "hyprland/workspaces": {
-        "format": "{name} {windows}",
-        "window-rewrite-default": " " ,
+        "format": "{name} {icon}{windows}",
+        "window-rewrite-default": "" ,
+        "show-special": true,
+        "active-only" : false,
         "window-format": "<span>{windows}</span>",
+        //special window
         "window-rewrite": {
             "class<firefox>": " ",
             "class<obsidian>": " ",
-            "class<vesktop>": " ",
-            "class<alacritty>": " ",
-            "class<kitty>": " ",
-            "class<steam>":" ",
-            "class<pavucontrol>":" ",
-            "class<blueman-manager>":" ",
-            "class<nemo>":" ",
-        },
-        "persistent-workspaces": {
-            "*": 2, // 2 workspaces by default on every monitor
-            "DP-1" : [1,2,3],
-            "DP-2" : [4,5,6]
+            "class<libreoffice>":" ",
+            "class<Alacritty>" : " ",
         },
         "format-icons": {
-            "1": " ",
-            "2": " ",
+            "1": " ",
+            "2": " ",
             "3": " ",
             "4": " ",
-            "5": " ",
-            "default": " "
-        },
+            "5": " ",
+            "6": " ",
+            "7": " ",
+            "8": " ",
+            "9": " ",
+            "10": " ",
+            "default": " ",
+            "special": ""
+            },
     },
 
     "hyprland/window" : {
@@ -58,7 +57,7 @@
         "separate-outputs" : true
     },
 
-/*must be member of the input group*/
+/*must be member of the input group
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -71,6 +70,7 @@
             "unlocked": " "
         }
     },
+*/
 
 /*time*/
     "clock": {
