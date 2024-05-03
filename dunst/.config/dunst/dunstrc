@@ -3,14 +3,14 @@
 [global]
     ### Monitor ###
     monitor = 1
-    follow = mouse
+    follow = none
 
     ### Geometry ###
 
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = 300
+    width = (0,300)
     # The maximum height of a single notification, excluding the frame.
     height = 300
 
@@ -164,7 +164,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%s</b>\n%b"
+    format = "<b>%a\n%s</b>\n<span>%b</span>"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
