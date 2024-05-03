@@ -58,7 +58,6 @@ export TERMINAL=/usr/bin/kitty
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0"
 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-   --preview "bat --color=always --style=numbers --line-range=:500 {}"
    --height=60%
    --color=fg:#6fb1a9,fg+:#d0d0d0,bg:#121212,bg+:#262626
    --color=hl:#70b8ff,hl+:#71dbff,info:#afaf87,marker:#87ff00
