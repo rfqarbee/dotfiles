@@ -12,7 +12,7 @@ export GNUPGHOME=$HOME/.local/share/gnupg
 # man sweet sweet flavour
 export MANPAGER="nvim +Man!"
 # grim
-export GRIM_DEFAULT_DIR=$HOME/Media/Pictures/saved
+export GRIM_DEFAULT_DIR=$HOME/Media/Pictures/screenshot
 # w3m
 export W3M_DIR=$HOME/.cache/w3m
 export WWW_HOME="google.com"
@@ -31,6 +31,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
+export XDG_LOCAL_HOME=$HOME/.local
 
 # name's shit, wip on it
 export XDG_WORK_DIR=$HOME/code

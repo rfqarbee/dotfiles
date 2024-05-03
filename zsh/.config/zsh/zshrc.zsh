@@ -16,5 +16,6 @@ plug "$ZDOTDIR/plugins/should-use.zsh"
 plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/zap-prompt"
 plug "romkatv/powerlevel10k"
-# source "MichaelAquilina/zsh-auto-notify"
 
+#bindkeys
+bindkey -s "^F" "create-tmux-session\n"
