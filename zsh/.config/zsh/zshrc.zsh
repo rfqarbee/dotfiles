@@ -18,4 +18,4 @@ plug "zap-zsh/zap-prompt"
 plug "romkatv/powerlevel10k"
 
 #bindkeys
-bindkey -s "^F" "create-tmux-session\n"
+bindkey -s "^f" "create-tmux-session\n"

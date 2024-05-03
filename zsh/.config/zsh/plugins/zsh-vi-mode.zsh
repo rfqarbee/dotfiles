@@ -10,5 +10,8 @@ function zvm_after_init() {
     source /usr/share/fzf/key-bindings.zsh
     source /usr/share/fzf/completion.zsh
 }
-
+  # zvm_bindkey viins '^P' up-line-or-history
+  # zvm_bindkey viins '^N' down-line-or-history
+  # ZVM_ESCAPE_NEWLINE='^J'
+  # ZVM_ESCAPE_NEWLINE='^K' zvm_forward_kill_line
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
