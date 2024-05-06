@@ -14,31 +14,58 @@
 
 /*workspaces*/
     "hyprland/workspaces": {
-        "format": "{name} {icon}{windows}",
-        "window-rewrite-default": "" ,
+        "format": "{icon} {name} {windows}",
+        "window-rewrite-default": " ",
         "show-special": true,
         "active-only" : false,
         "window-format": "<span>{windows}</span>",
         //special window
         "window-rewrite": {
+            //browser
             "class<firefox>": " ",
-            "class<obsidian>": " ",
-            "class<libreoffice>":" ",
+            "class<firefox> title<.*Picture-in-Picture.*>" : " ",
+            //word editor
+            "class<obsidian>": " ",
+            "class<.*libreoffice-writer.*>":" ",
+            "class<.*libreoffice-calc.*>":" ",
+            "class<.*libreoffice-draw.*>":" " ,
+            "class<.*libreoffice-impress.*>":" ",
+            "class<.*libreoffice-math.*>":" ",
+            //term
             "class<Alacritty>" : " ",
+            "class<kitty>" :" ",
+            //settings
+            "class<pavucontrol>" : " ",
+            "class<blueman-manager>" : " ",
+            "class<qt5ct>" : "QT5",
+            "class<qt6ct>" : "QT6",
+            "class<nwg-look>" : "GTK",
+            "class<nm-connection-editor>" : " ",
+            //steam
+            "class<steam>" : " ",
+            "class<steam> title<.*Friends List.*>" : " ",
+            "class<steam> title<.*Friends List.*>" : " ",
+            //discord
+            "class<vesktop>" : " ",
+            //misc
+            "class<nemo>" : " ",
+            "class<Display> title<.*ImageMagick.*>" : " ",
+            "class<mpv>" : " ",
+            "class<Nsxiv>" : " "
         },
         "format-icons": {
-            "1": " ",
-            "2": " ",
+            "1": " ",
+            "2": " ",
             "3": " ",
-            "4": " ",
-            "5": " ",
+            "4": " ",
+            "5": " ",
             "6": " ",
             "7": " ",
             "8": " ",
-            "9": " ",
+            "9": " ",
             "10": " ",
             "default": " ",
-            "special": ""
+            "special": " "
             },
     },
 
@@ -49,6 +76,7 @@
                 "Alacritty": " ",
                 "zsh": " ",
                 "(.*) Discord (.*)" : " ",
+                "Picture-in-Picture" : " ",
                 "steam":" ",
                 "volume Control":" ",
                 "blueman-manager":" ",
