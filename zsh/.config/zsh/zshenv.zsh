@@ -11,6 +11,7 @@ export GNUPGHOME=$HOME/.local/share/gnupg
 
 # man sweet sweet flavour
 export MANPAGER="nvim +Man!"
+export MANWIDTH=999
 # grim
 export GRIM_DEFAULT_DIR=$HOME/Media/Pictures/screenshot
 # w3m
@@ -40,10 +41,10 @@ export XDG_DOCUMENTS_DIR=$HOME/Documents
 export XDG_DOWNLOAD_DIR=$HOME/Downloads
 
 export TMPDIR=/tmp/
-
-# export mariadb hist ; i fucking hate it at $HOME
+export FFMPEG_DATADIR="$XDG_CONFIG_HOME"/ffmpeg
+# export hist file
 export MARIADB_HISTFILE=$HOME/.cache/mariadb_history
-
+export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 # npm
 export npm_config_cache="$HOME/.cache/npm"
 # rust custom path
@@ -52,7 +53,8 @@ export RUSTUP_HOME=$HOME/.config/rustup
 # steam
 export ASDF_PROTONGE_STEAM_COMPAT_DIR=~/.steam/steam/compatibilitytools.d/
 # nvidia
-export __GL_SHADER_DISK_CACHE_PATH=$HOME/.cache/nv
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+# export __GL_SHADER_DISK_CACHE_PATH=$HOME/.cache/nv
 export TERMINAL=/usr/bin/kitty
 
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0"
