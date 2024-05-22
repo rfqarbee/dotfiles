@@ -164,7 +164,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%a\n%s</b>\n<span>%b</span>"
+    format = "<b>%i%s</b>\n<span>%b</span>"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -218,7 +218,7 @@
     max_icon_size = 128
 
     # Paths to default icons (only necessary when not using recursive icon lookup)
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/home/rafiq/Media/Pictures/icons/
     ### History ###
 
     # Should a notification popped up from history be sticky or timeout
@@ -338,6 +338,7 @@
     override_pause_level = 30
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon
+    default_icon = /home/rafiq/Media/Pictures/icons/bell-solid.svg
 
 [urgency_critical]
     # background = "#900000"
