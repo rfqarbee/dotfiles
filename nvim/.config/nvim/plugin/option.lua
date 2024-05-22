@@ -84,7 +84,7 @@ autocmd("TextYankPost", {
 --[[
 autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 	group = lintGroup,
-	pattern = { "*.ts, *.js, *.tsx, *.c" },
+	pattern = { "*.ts, *.js, *.tsx" },
 	callback = function()
 		require("lint").try_lint()
 	end,
