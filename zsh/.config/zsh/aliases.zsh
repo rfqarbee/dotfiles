@@ -19,6 +19,8 @@ alias fgrep='fgrep --color=auto'
 alias zgrep='fgrep --color=auto'
 alias lg="lazygit"
 alias gs="git status"
+alias update="sudo pacman -Syu"
+alias pacman="sudo pacman"
 
 # confirm before overwriting
 alias mv='mv -i'
