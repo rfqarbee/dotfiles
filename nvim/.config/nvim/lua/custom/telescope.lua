@@ -26,6 +26,6 @@ vim.keymap.set("n", "<leader>/", function()
 	})
 end, { desc = "Live grep open files" })
 
-vim.keymap.set("n", "<leader>fn", function()
+vim.keymap.set("n", "<leader>nc", function()
 	builtin.find_files({ cwd = vim.fn.stdpath("config") })
-end, { desc = "neovim config" })
+end, { desc = "Neovim config" })

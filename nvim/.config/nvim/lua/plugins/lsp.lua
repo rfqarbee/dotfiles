@@ -39,10 +39,10 @@ return {
 
 				map("gI", require("telescope.builtin").lsp_implementations, "Goto implementation")
 
-				map("<leader>ls", require("telescope.builtin").lsp_document_symbols, "Document symbols")
-				map("<leader>lw", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Workspace symbols")
+				map("<leader>cs", require("telescope.builtin").lsp_document_symbols, "Document symbols")
+				map("<leader>cw", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Workspace symbols")
 
-				map("<leader>rn", vim.lsp.buf.rename, "Rename var")
+				map("<leader>cn", vim.lsp.buf.rename, "Rename var")
 				map("<leader>ca", vim.lsp.buf.code_action, "Code action")
 
 				map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type definition")

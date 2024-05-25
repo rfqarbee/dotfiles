@@ -11,12 +11,7 @@ w.register({
 	g = {
 		name = "Commands",
 	},
-	r = {
-		name = "Lsp",
-		n = "rename",
-	},
 	c = {
 		name = "Lsp",
-		a = "code action",
 	},
 }, { prefix = "<leader>" })
