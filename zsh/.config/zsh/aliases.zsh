@@ -6,6 +6,7 @@ alias note="nvim ~/Documents/notesidian/"
 alias tma="tmux attach"
 alias tmd="tmux detach"
 alias tmk="tmux kill-session -t"
+alias tks="tmux kill-server"
 
 # colorize output
 alias cd="z"
