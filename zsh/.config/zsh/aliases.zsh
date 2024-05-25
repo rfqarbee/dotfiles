@@ -22,6 +22,7 @@ alias lg="lazygit"
 alias gs="git status"
 alias update="sudo pacman -Syu"
 alias pacman="sudo pacman"
+alias cat="bat"
 
 # confirm before overwriting
 alias mv='mv -i'
