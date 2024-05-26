@@ -1,1 +1,1 @@
-source $ZDOTDIR/profile.zsh
+# export EDITOR=nvim

@@ -2,23 +2,69 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# zap
-[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+# zinit
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
 # nvm
 [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source /usr/share/nvm/nvm.sh && source /usr/share/nvm/bash_completion && source /usr/share/nvm/install-nvm-exec
 
-source $ZDOTDIR/zshrc.zsh
+# plugins
+zinit ice depth"1" # powerlevel10k
+zinit light romkatv/powerlevel10k
+
+source $ZDOTDIR/zsh-vi-mode.zsh # zsh-vi-mode options
+zinit ice depth=1 # zsh-vi-mode
+zinit light jeffreytse/zsh-vi-mode
+
+zinit light MichaelAquilina/zsh-you-should-use
+zinit light Aloxaf/fzf-tab # before plugsins wrap widgets
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma-continuum/fast-syntax-highlighting
 
 # Load and initialise completion system
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
+zinit cdreplay -q # reload all completion
 
-# load after completions
+# run p10k configure
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
+# key binds
+bindkey -s "^E" "create-tmux-session\n"
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+
+# set options for history
+ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
+
+HISTFILE=~/.config/zsh/.histfile
+HISTSIZE=10000
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space # wont save any input that starts with space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+# setopt autocd beep extendedglob nomatch notify
+# completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' menu no # if use fzf-tab
+zstyle ':fzf-tab:complete:*' fzf-min-height 500
+zstyle ':fzf-tab:*' fzf-bindings 'ctrl-f:accept' 'ctrl-o:select'
+zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1 -lA --color=always  $realpath' # zoxide
+zstyle ':fzf-tab:complete:ls:*' fzf-preview 'eza -1 -lA --color=always $realpath'
+#zle_highlight=('paste:none')
+
+source $ZDOTDIR/aliases.zsh
+
+# Configuration
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
-plug "$ZDOTDIR/plugins/syntax-highlighting.zsh"
-
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
