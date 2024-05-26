@@ -2,6 +2,9 @@
 zsh/.config/zsh/.histfile
 zsh/.config/zsh/.zsh_history
 zsh/.config/zsh/.zcompdump
+zsh/.config/zsh/zshrc
+zsh/.config/zsh/zshenv
+zsh/.config/zsh/zprofile
 
 hypr/.config/hypr/nah
 tmux/.config/tmux/.tmux/
