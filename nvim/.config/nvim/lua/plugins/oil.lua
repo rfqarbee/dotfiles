@@ -35,7 +35,7 @@ return {
 			use_default_keymaps = false,
 		})
 
-		vim.keymap.set("n", "<space>-", require("oil").toggle_float, { desc = "Oil Float" })
-		vim.keymap.set("n", "<space><space>", require("oil").open)
+		vim.keymap.set("n", "<space><space>", require("oil").toggle_float, { desc = "Oil Float" })
+		vim.keymap.set("n", "<space>-", require("oil").open)
 	end,
 }
