@@ -4,8 +4,10 @@ path=($HOME/bin /usr/local/bin $HOME/.local/bin $HOME/.local/scripts $path)
 # cdpath=(. $HOME/Media/Pictures $HOME/.config $HOME/.local $HOME $HOME/code $HOME/Documents)
 export PATH
 ## asdf
+if [[ -s "$HOME/.config/asdf/asdf.sh" ]]; then
 . "$HOME/.config/asdf/asdf.sh"
 fpath=(${ASDF_DIR}/completions $fpath)
+fi
 
 export EDITOR=nvim
 # asdf
