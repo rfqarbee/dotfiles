@@ -10,8 +10,14 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 
 # nvm
+checkOS=$(grep -iw "name" /etc/os-release | awk -F '=' '{ gsub("\"","");print $2}')
 [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && source /usr/share/nvm/nvm.sh && source /usr/share/nvm/bash_completion && source /usr/share/nvm/install-nvm-exec
+if [[ -n $checkOS ]] && [[ $checkOS == 'Arch Linux' ]]; then
+  [ -s "$NVM_DIR/nvm.sh" ] && source /usr/share/nvm/nvm.sh && source /usr/share/nvm/bash_completion && source /usr/share/nvm/install-nvm-exec
+else
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
 
 # plugins
 zinit ice depth"1" # powerlevel10k
@@ -67,5 +73,14 @@ zstyle ':fzf-tab:complete:ls:*' fzf-preview 'eza -1 -lA --color=always $realpath
 source $ZDOTDIR/aliases.zsh
 
 # Configuration
-eval "$(fzf --zsh)"
+
+# if fzf is below 0.48.0 (ex : debian)
+fzf_ver=$(fzf --version | awk -F '.' '{print $2}') # get the version
+
 eval "$(zoxide init zsh)"
+if [[ -n $(command -v fzf) ]] && [[ $fzf_ver -lt 48 ]]; then
+  source /usr/share/doc/fzf/examples/key-bindings.zsh
+  source /usr/share/doc/fzf/examples/completion.zsh
+else
+  source <(fzf --zsh)
+fi
