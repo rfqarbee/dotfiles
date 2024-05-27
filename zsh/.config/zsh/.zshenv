@@ -10,6 +10,7 @@ fpath=(${ASDF_DIR}/completions $fpath)
 fi
 
 export EDITOR=nvim
+export PAGER='less'
 # asdf
 export ASDF_DATA_DIR=$HOME/.config/asdf
 # xdg
@@ -47,12 +48,5 @@ export GNUPGHOME=$HOME/.local/share/gnupg
 export W3M_DIR=$HOME/.cache/w3m
 export WWW_HOME="google.com"
 
-# export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-#   --height=60%
-#   --color=fg:#eae7e7,fg+:#70da64,bg:#121212,bg+:#262626
-#   --color=hl:#5d8fc0,hl+:#5efff2,info:#b0a787,marker:#87ff00
-#   --color=prompt:#d7005f,spinner:#af5fff,pointer:#af5fff,header:#9db3cc
-#   --color=border:#262626,label:#aeaeae,query:#d9d9d9
-#   --border="thinblock" --border-label="" --preview-window="border-bold" --prompt=">>"
-#   --marker=">" --pointer="◆" --separator="─" --scrollbar="│"
-#   --info="right"'
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+   --height=60%'
