@@ -20,6 +20,8 @@ else
 fi
 
 # plugins
+zinit light Aloxaf/fzf-tab # before plugsins wrap widgets
+
 zinit ice depth"1" # powerlevel10k
 zinit light romkatv/powerlevel10k
 
@@ -28,7 +30,6 @@ zinit ice depth=1 # zsh-vi-mode
 zinit light jeffreytse/zsh-vi-mode
 
 zinit light MichaelAquilina/zsh-you-should-use
-zinit light Aloxaf/fzf-tab # before plugsins wrap widgets
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
@@ -52,6 +53,8 @@ HISTFILE=~/.config/zsh/.histfile
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
+
+# options
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space # wont save any input that starts with space
@@ -60,14 +63,20 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 # setopt autocd beep extendedglob nomatch notify
+
 # completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
 zstyle ':completion:*' menu no # if use fzf-tab
-zstyle ':fzf-tab:complete:*' fzf-min-height 500
 zstyle ':fzf-tab:*' fzf-bindings 'ctrl-f:accept' 'ctrl-o:select'
-zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1 -lA --color=always  $realpath' # zoxide
-zstyle ':fzf-tab:complete:ls:*' fzf-preview 'eza -1 -lA --color=always $realpath'
+zstyle ':fzf-tab:*' switch-group ',' '.'
+zstyle ':fzf-tab:*' fzf-min-height 50
+zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
+export LESSOPEN="|~/.local/scripts/lessfilter.sh %s"
+
+# zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1 -lA --color=always  $realpath' # zoxide
+# zstyle ':fzf-tab:complete:ls:*' fzf-preview 'eza -1 -lA --color=always $realpath'
 #zle_highlight=('paste:none')
 
 source $ZDOTDIR/aliases.zsh

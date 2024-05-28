@@ -15,7 +15,7 @@ alias grep='grep --color=always'
 alias egrep='egrep --color=always'
 alias fgrep='fgrep --color=always'
 alias zgrep='fgrep --color=always'
-alias lg="lazygit"
+alias lg=lazygit
 alias gs="git status"
 alias update="sudo pacman -Syu"
 alias pacman="sudo pacman"
