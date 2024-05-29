@@ -1,11 +1,10 @@
 local map = vim.keymap.set
 --migrate this one soon, try use lazy keymaps
-map("n", "<C>", "<cmd>Oil<CR>")
-
-map("i", "<C-c>", "<Esc>")
+-- map("i", "<C-c>", "<Esc>")
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight on search when Esc in normal mode" })
 
-map("n", "zx", "<cmd>w<CR>")
+map("n", "<C-q>", "<cmd>q<CR>", { desc = "Quit Neovim" })
+map("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
 
 map("i", "<C-k>", "<Up>", { desc = "Navigate in insert" })
 map("i", "<C-j>", "<Down>", { desc = "Navigate in insert" })
@@ -13,6 +12,14 @@ map("i", "<C-h>", "<Left>", { desc = "Navigate in insert" })
 map("i", "<C-l>", "<Right>", { desc = "Navigate in insert" })
 map("i", "<C-x>", "<Bs>", { desc = "Delete 1 character in inside" })
 
+-- execute
+map({ "n", "v" }, "<leader>x", "<cmd>:source %<CR>", { desc = "Source & Execute" })
+
+-- resize window
+map("n", "<C-,>", "<C-w><", { desc = "Shift left window size" })
+map("n", "<C-.>", "<C-w>>", { desc = "Shift right window size" })
+map("n", "<C-->", "<C-w>-", { desc = "Decrease window size" })
+map("n", "<C-=>", "<C-w>+", { desc = "Increase window size" })
 --visual block to move around
 map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Selected Line Below" })
 map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Selected Line Below" })
@@ -27,7 +34,8 @@ map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 --paste without override by next text
 --yank into system clipboard instead of vim
-map("x", "<leader>p", '"_dP', { desc = "Paste w/o Clipboard" })
+-- map("x", "<leader>p", '"_dP', { desc = "Paste w/o Clipboard" })
+map("x", "<leader>p", '"+p', { desc = "Paste w/o Clipboard" })
 map("n", "<leader>y", '"+y', { desc = "Yank into clipboard" })
 map("n", "<leader>Y", '"+Y', { desc = "Yank . to end in clipboard" })
 map("v", "<leader>y", '"+y', { desc = "Yank into clipboard (v)" })

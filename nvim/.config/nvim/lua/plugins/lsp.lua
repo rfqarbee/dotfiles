@@ -24,7 +24,8 @@ return {
 				"saadparwaiz1/cmp_luasnip",
 			},
 		},
-		{ "j-hui/fidget.nvim", opts = {} },
+		-- NOTE: trying other notification
+		-- { "j-hui/fidget.nvim", opts = {} },
 	},
 	config = function()
 		-- diff -> `:help lsp-vs-treesitter`
@@ -46,7 +47,7 @@ return {
 				map("<leader>ca", vim.lsp.buf.code_action, "Code action")
 
 				map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type definition")
-				map("K", vim.lsp.buf.hover, "Hover Documentation")
+				-- map("K", vim.lsp.buf.hover, "Hover Documentation")
 
 				map("gD", vim.lsp.buf.declaration, "Goto declaration")
 
