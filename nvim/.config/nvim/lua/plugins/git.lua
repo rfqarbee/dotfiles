@@ -1,4 +1,5 @@
 return {
+	-- git signs
 	{
 		"lewis6991/gitsigns.nvim",
 		opts = {
@@ -11,5 +12,6 @@ return {
 			},
 		},
 	},
-	"f-person/git-blame.nvim",
+	-- git blame
+	{ "f-person/git-blame.nvim" },
 }

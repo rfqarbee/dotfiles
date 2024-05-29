@@ -24,7 +24,7 @@ return {
 				"saadparwaiz1/cmp_luasnip",
 			},
 		},
-		{ "j-hui/fidget.nvim", opts = {} },
+		-- { "j-hui/fidget.nvim", opts = {} },
 	},
 	config = function()
 		-- diff -> `:help lsp-vs-treesitter`

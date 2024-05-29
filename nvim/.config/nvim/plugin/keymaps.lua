@@ -2,16 +2,27 @@ local map = vim.keymap.set
 --migrate this one soon, try use lazy keymaps
 map("n", "<C>", "<cmd>Oil<CR>")
 
-map("i", "<C-c>", "<Esc>")
+-- map("i", "<C-c>", "<Esc>")
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight on search when Esc in normal mode" })
 
-map("n", "zx", "<cmd>w<CR>")
+-- execute
+map("n", "<leader>x", "<CMD>source %<CR>", { desc = "Source and execute" })
+
+-- quit (fuck ZZ)
+map("n", "<C-q>", "<cmd>q<CR>", { desc = "Quit" })
+map("n", "<C-s>", "<cmd>w<CR>", { desc = "Write and save" })
 
 map("i", "<C-k>", "<Up>", { desc = "Navigate in insert" })
 map("i", "<C-j>", "<Down>", { desc = "Navigate in insert" })
 map("i", "<C-h>", "<Left>", { desc = "Navigate in insert" })
 map("i", "<C-l>", "<Right>", { desc = "Navigate in insert" })
 map("i", "<C-x>", "<Bs>", { desc = "Delete 1 character in inside" })
+
+-- change window
+map("n", "<C-,>", "<C-w><", { desc = "Shift left window" })
+map("n", "<C-.>", "<C-w>>", { desc = "Shift right window" })
+map("n", "<C-->", "<C-w>-", { desc = "Increase  window" })
+map("n", "<C-=>", "<C-w>+", { desc = "Decrease window" })
 
 --visual block to move around
 map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Selected Line Below" })

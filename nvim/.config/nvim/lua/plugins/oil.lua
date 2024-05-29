@@ -14,12 +14,12 @@ return {
 			keymaps = {
 				["g?"] = "actions.show_help",
 				["<CR>"] = "actions.select",
-				["<C-s>"] = "actions.select_vsplit", -- i like this
-				["<C-t>"] = "actions.select_tab", -- not sure if i like this
+				["<C-w>s"] = "actions.select_vsplit", -- i like this
+				["<C-w>t"] = "actions.select_tab", -- not sure if i like this
 				["<C-p>"] = "actions.preview", -- i like this
 				["<C-c>"] = "actions.close", -- i like this
 				["<space>r"] = "actions.refresh", -- refresh list
-				["-"] = "actions.parent", --not sure if i like the default binds
+				["<Tab>"] = "actions.parent", --not sure if i like the default binds
 				["_"] = "actions.open_cwd", -- same as above
 				-- change project directory
 				["`"] = "actions.cd", -- i like very much
@@ -35,7 +35,7 @@ return {
 			use_default_keymaps = false,
 		})
 
-		vim.keymap.set("n", "<space><space>", require("oil").toggle_float, { desc = "Oil Float" })
+		vim.keymap.set("n", "-", require("oil").toggle_float, { desc = "Oil Float" })
 		vim.keymap.set("n", "<space>-", require("oil").open)
 	end,
 }

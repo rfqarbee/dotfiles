@@ -1,6 +1,7 @@
 -- this is just to show file tree; i wont be using any of its functionality
 return {
 	"nvim-tree/nvim-tree.lua",
+	event = "VeryLazy",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		local api = require("nvim-tree.api")
