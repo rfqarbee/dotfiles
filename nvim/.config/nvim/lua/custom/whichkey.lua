@@ -1,12 +1,12 @@
 local w = require("which-key")
 
 w.register({
-	["<space>"] = "File Explore",
-	["<M-e>"] = "Find files (Telescope)",
-	["<C-q>"] = "Quit Buffer",
-	["<C-s>"] = "Save and Write",
+	["<space>"] = "Harpoon",
+	["<C-s>"] = "Save file",
+	["<C-q>"] = "Quit neovim",
+	["-"] = "Directory (Float)",
 	f = { name = "Telescope" },
-	u = { name = "Undotree" },
+	u = "Undotree",
 	t = {
 		name = "Trouble buffer",
 	},
@@ -14,7 +14,5 @@ w.register({
 	g = {
 		name = "Commands",
 	},
-	c = {
-		name = "Lsp",
-	},
+	c = "Lsp",
 }, { prefix = "<leader>" })

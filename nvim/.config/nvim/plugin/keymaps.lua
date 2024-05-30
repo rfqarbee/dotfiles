@@ -38,7 +38,8 @@ map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 --paste without override by next text
 --yank into system clipboard instead of vim
-map("x", "<leader>p", '"_dP', { desc = "Paste w/o Clipboard" })
+-- map("x", "<leader>p", '"_dP', { desc = "Paste w/o Clipboard" })
+map("x", "<leader>p", '"+p', { desc = "Paste w/o Clipboard" })
 map("n", "<leader>y", '"+y', { desc = "Yank into clipboard" })
 map("n", "<leader>Y", '"+Y', { desc = "Yank . to end in clipboard" })
 map("v", "<leader>y", '"+y', { desc = "Yank into clipboard (v)" })
