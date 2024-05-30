@@ -8,8 +8,8 @@ require("telescope").setup({
 		},
 	},
 })
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = " Go to previous diagnostic" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = " Go to next diagnostic" })
+-- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = " Go to previous diagnostic" })
+-- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = " Go to next diagnostic" })
 vim.keymap.set("n", "<leader>tt", function()
 	require("trouble").toggle()
 end, { desc = "Toggle trouble" })

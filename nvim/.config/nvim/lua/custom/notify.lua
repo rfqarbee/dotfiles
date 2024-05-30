@@ -1,31 +1,30 @@
--- custom config for nvim.notify
--- local function notify_output(command, opts)
--- 	local output = ""
--- 	local notification
--- 	local notify = function(msg, level)
--- 		local notify_opts =
--- 			vim.tbl_extend("keep", opts or {}, { title = table.concat(command, " "), replace = notification })
--- 		notification = vim.notify(msg, level, notify_opts)
--- 	end
--- 	local on_data = function(_, data)
--- 		output = output .. table.concat(data, "\n")
--- 		notify(output, "info")
--- 	end
--- 	vim.fn.jobstart(command, {
--- 		on_stdout = on_data,
--- 		on_stderr = on_data,
--- 		on_exit = function(_, code)
--- 			if #output == 0 then
--- 				notify("No output of command, exit code: " .. code, "warn")
--- 			end
--- 		end,
--- 	})
--- end
---
--- notify_output({ "echo", "hello world" })
--- Utility functions shared between progress reports for LSP and DAP
-vim.notify("test")
+-- asynchronous notify
+local function notify_output(command, opts)
+	local output = ""
+	local notification
+	local notify = function(msg, level)
+		local notify_opts =
+			vim.tbl_extend("keep", opts or {}, { title = table.concat(command, " "), replace = notification })
+		notification = vim.notify(msg, level, notify_opts)
+	end
+	local on_data = function(_, data)
+		output = output .. table.concat(data, "\n")
+		notify(output, "info")
+	end
+	vim.fn.jobstart(command, {
+		on_stdout = on_data,
+		on_stderr = on_data,
+		on_exit = function(_, code)
+			if #output == 0 then
+				notify("No output of command, exit code: " .. code, "warn")
+			end
+		end,
+	})
+end
 
+notify_output({ "echo", "hello world", "test" }, { title = "test" })
+
+-- Utility functions shared between progress reports for LSP and DAP
 local client_notifs = {}
 
 local function get_notif_data(client_id, token)
@@ -54,6 +53,11 @@ local function update_spinner(client_id, token)
 			icon = spinner_frames[new_spinner],
 			replace = notif_data.notification,
 		})
+		-- notif_data.notification = vim.notify(nil, nil, {
+		-- 	hide_from_history = true,
+		-- 	icon = spinner_frames[new_spinner],
+		-- 	replace = notif_data.notification,
+		-- })
 
 		vim.defer_fn(function()
 			update_spinner(client_id, token)
@@ -92,15 +96,30 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
 			timeout = false,
 			hide_from_history = false,
 		})
+		-- notif_data.notification = notify_output(message, {
+		-- 	title = format_title(val.title, vim.lsp.get_client_by_id(client_id).name),
+		-- 	icon = spinner_frames[1],
+		-- 	timeout = false,
+		-- 	hide_from_history = false,
+		-- })
 
 		notif_data.spinner = 1
 		update_spinner(client_id, result.token)
 	elseif val.kind == "report" and notif_data then
+		-- notif_data.notification = notify_output(format_message(val.message, val.percentage), {
+		-- 	replace = notif_data.notification,
+		-- 	hide_from_history = false,
+		-- })
 		notif_data.notification = vim.notify(format_message(val.message, val.percentage), "info", {
 			replace = notif_data.notification,
 			hide_from_history = false,
 		})
 	elseif val.kind == "end" and notif_data then
+		-- notif_data.notification = notify_output(val.message and format_message(val.message) or "Complete", {
+		-- 	icon = "",
+		-- 	replace = notif_data.notification,
+		-- 	timeout = 3000,
+		-- })
 		notif_data.notification = vim.notify(val.message and format_message(val.message) or "Complete", "info", {
 			icon = "",
 			replace = notif_data.notification,
@@ -109,4 +128,14 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
 
 		notif_data.spinner = nil
 	end
+end
+-- table from lsp severity to vim severity.
+local severity = {
+	"error",
+	"warn",
+	"info",
+	"info", -- map both hint and info to info?
+}
+vim.lsp.handlers["window/showMessage"] = function(err, method, params, client_id)
+	vim.notify(method.message, severity[params.type])
 end

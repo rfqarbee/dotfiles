@@ -15,6 +15,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	checker = {
+		enabled = true,
+		notify = true,
+	},
 	spec = {
 		{
 			"folke/tokyonight.nvim",
