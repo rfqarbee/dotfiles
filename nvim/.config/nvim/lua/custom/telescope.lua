@@ -35,6 +35,8 @@ require("telescope").setup({
 pcall(require("telescope").load_extension, "fzf")
 pcall(require("telescope").load_extension, "ui-select")
 
+local builtin = require("telescope.builtin")
+
 vim.keymap.set("n", "<leader>h", builtin.help_tags, { desc = "Help tags" })
 vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Help Keymap" })
 vim.keymap.set("n", "<M-e>", builtin.find_files, { desc = "Find Files" })
