@@ -1,13 +1,13 @@
 local actions = require("telescope.actions")
 local trouble = require("trouble.providers.telescope")
 
-require("telescope").setup({
-	defaults = {
-		mappings = {
-			i = { ["<C-q>"] = trouble.open_with_trouble },
-		},
-	},
-})
+-- require("telescope").setup({
+-- 	defaults = {
+-- 		mappings = {
+-- 			i = { ["<C-q>"] = trouble.open_with_trouble },
+-- 		},
+-- 	},
+-- })
 -- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = " Go to previous diagnostic" })
 -- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = " Go to next diagnostic" })
 vim.keymap.set("n", "<leader>tt", function()

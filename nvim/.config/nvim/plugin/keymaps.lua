@@ -3,7 +3,13 @@ local map = vim.keymap.set
 -- map("i", "<C-c>", "<Esc>")
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight on search when Esc in normal mode" })
 
+-- execute
+map({ "n", "v" }, "<C-x>", "<cmd>:source %<CR>", { desc = "Source & Execute" })
+
+-- more binds
 map("n", "<C-q>", "<cmd>q<CR>", { desc = "Quit Neovim" })
+-- map("n", "<leader>q", "<cmd>qa!<CR>", { desc = "Abort all and quit" })
+map("i", "<C-c>", "<Esc>", { desc = "Insert to normal mode" })
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
 
 map("i", "<C-k>", "<Up>", { desc = "Navigate in insert" })
@@ -12,14 +18,11 @@ map("i", "<C-h>", "<Left>", { desc = "Navigate in insert" })
 map("i", "<C-l>", "<Right>", { desc = "Navigate in insert" })
 map("i", "<C-x>", "<Bs>", { desc = "Delete 1 character in inside" })
 
--- execute
-map({ "n", "v" }, "<leader>x", "<cmd>:source %<CR>", { desc = "Source & Execute" })
-
--- resize window
-map("n", "<C-,>", "<C-w><", { desc = "Shift left window size" })
-map("n", "<C-.>", "<C-w>>", { desc = "Shift right window size" })
-map("n", "<C-->", "<C-w>-", { desc = "Decrease window size" })
-map("n", "<C-=>", "<C-w>+", { desc = "Increase window size" })
+-- resize window; terminal doesnt register C-, (showkey -a)
+map("n", "<M-,>", "<C-w>5>", { desc = "Shift left window size" })
+map("n", "<M-.>", "<C-w>5<", { desc = "Shift right window size" })
+map("n", "<M-->", "<C-w>-", { desc = "Decrease window size" })
+map("n", "<M-=>", "<C-w>+", { desc = "Increase window size" })
 --visual block to move around
 map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Selected Line Below" })
 map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Selected Line Below" })

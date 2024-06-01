@@ -1,16 +1,21 @@
 local builtin = require("telescope.builtin")
+local actions = require("telescope.actions")
 
 require("telescope").setup({
 	defaults = {
-		winblend = 10,
-		initial_mode = "insert",
-		default_mappings = {
+		mappings = {
 			i = {
-				["<Esc>"] = require("telescope.actions").close,
-				["<C-/>"] = false,
+				["<M-e>"] = actions.close,
 				["<C-h>"] = "which_key",
+				["<C-u>"] = false,
+				["<C-k>"] = actions.move_selection_previous,
+				["<C-j>"] = actions.move_selection_next,
+				["<C-p>"] = actions.preview_scrolling_up,
+				["<C-n>"] = actions.preview_scrolling_down,
 			},
 		},
+		winblend = 10,
+		initial_mode = "insert",
 	},
 	extensions = {
 		["ui-select"] = { require("telescope.themes").get_dropdown() },
