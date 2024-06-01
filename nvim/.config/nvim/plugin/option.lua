@@ -1,5 +1,6 @@
 --Set
 local opt = vim.opt
+
 vim.opt.termguicolors = true
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "

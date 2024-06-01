@@ -5,13 +5,35 @@ return {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		-- completion
+		{
+			"hrsh7th/nvim-cmp",
+			event = "InsertEnter",
+			dependencies = {
+				"hrsh7th/cmp-nvim-lsp",
+				"hrsh7th/cmp-buffer",
+				"hrsh7th/cmp-path",
+				"hrsh7th/cmp-cmdline",
+				{
+					"L3MON4D3/LuaSnip",
+					build = (function()
+						if vim.fn.executable("make") == 0 then
+							return
+						end
+						return "make install_jsregexp"
+					end)(),
+				},
+				"saadparwaiz1/cmp_luasnip",
+			},
+		},
 		-- autoformat
 		"stevearc/conform.nvim",
-		-- notif
-		{ "j-hui/fidget.nvim", opts = {} },
+		-- change to nvim-notify
+		-- { "j-hui/fidget.nvim", opts = {} },
 	},
 	config = function()
 		local capabilities = nil
+
 		if pcall(require, "cmp_nvim_lsp") then
 			capabilities = require("cmp_nvim_lsp").default_capabilities()
 		end
@@ -28,7 +50,13 @@ return {
 				filetypes = { "c" },
 			},
 			tsserver = true,
-			lua_ls = true,
+			lua_ls = {
+				settings = {
+					Lua = {
+						diagnostics = { disable = { "missing-fields" } },
+					},
+				},
+			},
 		}
 
 		local servers_to_install = vim.tbl_filter(function(key)
@@ -48,7 +76,7 @@ return {
 		}
 
 		vim.list_extend(ensure_installed, servers_to_install)
-		require("mason-tool-installer").setup({ ensure_installe = ensure_installed })
+		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 		for name, config in pairs(servers) do
 			if config == true then
@@ -65,7 +93,7 @@ return {
 			lua = true,
 		}
 
-		vim.api.nvim_create_autocmd("LspAttach", {
+		vim.api.nvim_create_autocmd({ "LspAttach" }, {
 			group = vim.api.nvim_create_augroup("neovim-lsp-group", { clear = true }),
 			callback = function(event)
 				local bufnr = event.buf
@@ -73,29 +101,19 @@ return {
 				local builtin = require("telescope.builtin")
 
 				local map = function(keys, func, desc)
-					vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+					vim.keymap.set("n", keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
 				end
 
 				-- using telescope
-				-- map("gd", builtin.lsp_definitions, "Goto defintion")
-				-- map("gr", builtin.lsp_references, "Goto references")
-				-- map("gI", builtin.lsp_implementations, "Goto implementation")
-				-- map("<leader>cs", builtin.lsp_document_symbols, "Document symbols")
-				-- map("<leader>cw", builtin.lsp_dynamic_workspace_symbols, "Workspace symbols")
-				-- map("<leader>D", builtin.lsp_type_definitions, "Type definition")
-
-				-- default vim lsp
-				map("<leader>D", vim.lsp.buf, "Type definition")
-				map("gd", vim.lsp.buf.definition, "Goto defintion")
+				map("gd", builtin.lsp_definitions, "Goto defintion")
 				map("gD", vim.lsp.buf.declaration, "Goto declaration")
-				map("gr", vim.lsp.buf.references, "Goto references")
-
-				-- map("gI", vim.lsp.buf, "Goto implementation")
-				-- map("<leader>cs", vim.lsp.buf, "Document symbols")
-				-- map("<leader>cw", vim.lsp.buf, "Workspace symbols")
-				map("<leader>cn", vim.lsp.buf.rename, "Rename var")
-				map("<leader>ca", vim.lsp.buf.code_action, "Code action")
-				--
+				map("gr", builtin.lsp_references, "Goto references")
+				map("gI", builtin.lsp_implementations, "Goto implementation")
+				map("<leader>D", builtin.lsp_type_definitions, "Type definition")
+				map("<leader>cs", builtin.lsp_document_symbols, "Document symbols")
+				map("<leader>cw", builtin.lsp_dynamic_workspace_symbols, "Workspace symbols")
+				map("<leader>cr", vim.lsp.buf.rename, "Rename var")
+				map("<C-p>", vim.lsp.buf.code_action, "Code action")
 				-- i aint reading allat, one day customize maybe, for now its good enough
 				local filetype = vim.bo[bufnr].filetype
 				if disable_semantic_tokens[filetype] then
@@ -126,9 +144,9 @@ return {
 
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			group = vim.api.nvim_create_augroup("test", { clear = true }),
-			callback = function(args)
+			callback = function(event)
 				require("conform").format({
-					bufnr = args.buf,
+					bufnr = event.buf,
 					lsp_fallback = true,
 					quiet = true,
 				})
