@@ -7,32 +7,34 @@ return {
 			columns = {
 				"icon",
 				"size",
-				-- "permissions",
-				-- "mtime",
-			},
-			-- delete_to_trash = true,
-			keymaps = {
-				["g?"] = "actions.show_help",
-				["<CR>"] = "actions.select",
-				["<C-w>s"] = "actions.select_vsplit", -- i like this
-				["<C-w>t"] = "actions.select_tab", -- not sure if i like this
-				["<C-p>"] = "actions.preview", -- i like this
-				["q"] = "actions.close", -- i like this
-				["<space>r"] = "actions.refresh", -- refresh list
-				["<Tab>"] = "actions.parent", --not sure if i like the default binds
-				["_"] = "actions.open_cwd", -- same as above
-				-- change project directory
-				["`"] = "actions.cd", -- i like very much
-				-- change current tab directory
-				["~"] = "actions.tcd", -- meh ok i guess
-				["gs"] = "actions.change_sort", -- its whatevs
-				["g."] = "actions.toggle_hidden", -- its aight
-				["g\\"] = "actions.toggle_trash", -- not sure
 			},
 			view_options = {
 				show_hidden = true,
 			},
+			float = {
+				border = "rounded",
+				win_options = {
+					winblend = 0,
+				},
+			},
 			use_default_keymaps = false,
+			-- delete_to_trash = true,
+			keymaps = {
+				["g?"] = "actions.show_help",
+				["<CR>"] = "actions.select",
+				["<C-w>s"] = "actions.select_vsplit",
+				["<C-w>t"] = "actions.select_tab",
+				["<C-p>"] = "actions.preview",
+				["<C-c>"] = "actions.close",
+				["<space>r"] = "actions.refresh", -- refresh list
+				["<Tab>"] = "actions.parent",
+				["_"] = "actions.open_cwd",
+				["`"] = "actions.cd", -- change project directory
+				["~"] = "actions.tcd", -- change current tab directory
+				["gs"] = "actions.change_sort",
+				["g."] = "actions.toggle_hidden",
+				["g\\"] = "actions.toggle_trash",
+			},
 		})
 
 		vim.keymap.set("n", "-", require("oil").toggle_float, { desc = "Oil Float" })

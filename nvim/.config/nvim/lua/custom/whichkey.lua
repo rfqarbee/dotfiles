@@ -12,6 +12,9 @@ w.register({
 		name = "Trouble buffer",
 	},
 	q = "Quickfix",
+	m = {
+		name = "Format",
+	},
 	g = {
 		name = "Commands",
 	},

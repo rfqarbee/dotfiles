@@ -16,32 +16,32 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
-		{
-			"folke/tokyonight.nvim",
-			lazy = false,
-			priority = 1000,
-			config = function()
-				require("tokyonight").setup({
-					style = "moon",
-					transparent = true,
-				})
-				vim.cmd.colorscheme("tokyonight-storm")
-			end,
-		},
 		-- {
-		-- 	"catppuccin/nvim",
-		-- 	name = "catppuccin",
+		-- 	"folke/tokyonight.nvim",
 		-- 	lazy = false,
 		-- 	priority = 1000,
 		-- 	config = function()
-		-- 		require("catppuccin").setup({
-		-- 			flavour = "mocha",
-		-- 			transparent_background = true,
-		-- 			show_end_of_buffer = true,
+		-- 		require("tokyonight").setup({
+		-- 			style = "moon",
+		-- 			transparent = true,
 		-- 		})
-		-- 		vim.cmd.colorscheme("catppuccin-mocha")
+		-- 		vim.cmd.colorscheme("tokyonight-storm")
 		-- 	end,
 		-- },
+		{
+			"catppuccin/nvim",
+			name = "catppuccin",
+			lazy = false,
+			priority = 1000,
+			config = function()
+				require("catppuccin").setup({
+					flavour = "macchiato",
+					transparent_background = true,
+					show_end_of_buffer = true,
+				})
+				vim.cmd.colorscheme("catppuccin-macchiato")
+			end,
+		},
 		{ import = "plugins" },
 	},
 })

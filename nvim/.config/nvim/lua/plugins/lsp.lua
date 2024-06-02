@@ -5,31 +5,6 @@ return {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
-		-- completion
-		{
-			"hrsh7th/nvim-cmp",
-			event = "InsertEnter",
-			dependencies = {
-				"hrsh7th/cmp-nvim-lsp",
-				"hrsh7th/cmp-buffer",
-				"hrsh7th/cmp-path",
-				"hrsh7th/cmp-cmdline",
-				{
-					"L3MON4D3/LuaSnip",
-					build = (function()
-						if vim.fn.executable("make") == 0 then
-							return
-						end
-						return "make install_jsregexp"
-					end)(),
-				},
-				"saadparwaiz1/cmp_luasnip",
-			},
-		},
-		-- autoformat
-		"stevearc/conform.nvim",
-		-- change to nvim-notify
-		-- { "j-hui/fidget.nvim", opts = {} },
 	},
 	config = function()
 		local capabilities = nil
@@ -58,6 +33,14 @@ return {
 				},
 			},
 		}
+		local servers_to_install = vim.tbl_filter(function(key)
+			local t = servers[key]
+			if type(t) == "table" then
+				return not t.manual_install
+			else
+				return t
+			end
+		end, vim.tbl_keys(servers))
 
 		local servers_to_install = vim.tbl_filter(function(key)
 			local t = servers[key]
@@ -93,13 +76,13 @@ return {
 			lua = true,
 		}
 
+		-- lsp
 		vim.api.nvim_create_autocmd({ "LspAttach" }, {
 			group = vim.api.nvim_create_augroup("neovim-lsp-group", { clear = true }),
 			callback = function(event)
 				local bufnr = event.buf
 				local client = assert(vim.lsp.get_client_by_id(event.data.client_id), "must have valid client")
 				local builtin = require("telescope.builtin")
-
 				local map = function(keys, func, desc)
 					vim.keymap.set("n", keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
 				end
@@ -112,8 +95,10 @@ return {
 				map("<leader>D", builtin.lsp_type_definitions, "Type definition")
 				map("<leader>cs", builtin.lsp_document_symbols, "Document symbols")
 				map("<leader>cw", builtin.lsp_dynamic_workspace_symbols, "Workspace symbols")
-				map("<leader>cr", vim.lsp.buf.rename, "Rename var")
-				map("<C-p>", vim.lsp.buf.code_action, "Code action")
+				map("<leader>cn", vim.lsp.buf.rename, "Rename var")
+				map("<M-p>", vim.lsp.buf.code_action, "Code action")
+				map("<M-n>", vim.diagnostic.open_float, "Diagnostics open float")
+
 				-- i aint reading allat, one day customize maybe, for now its good enough
 				local filetype = vim.bo[bufnr].filetype
 				if disable_semantic_tokens[filetype] then
@@ -133,23 +118,6 @@ return {
 				-- 		callback = vim.lsp.buf.clear_references,
 				-- 	})
 				-- end
-			end,
-		})
-
-		require("conform").setup({
-			formatters_by_ft = {
-				lua = { "stylua" },
-			},
-		})
-
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			group = vim.api.nvim_create_augroup("test", { clear = true }),
-			callback = function(event)
-				require("conform").format({
-					bufnr = event.buf,
-					lsp_fallback = true,
-					quiet = true,
-				})
 			end,
 		})
 	end,
