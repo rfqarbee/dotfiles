@@ -18,7 +18,7 @@ return {
 				vim.api.nvim_win_set_config(win, { zindex = 100 })
 			end,
 		})
-		require("custom.notify")
+		require("custom.lsp-notif")
 		--async example
 		--[[
 		local notify = require("notify").async
