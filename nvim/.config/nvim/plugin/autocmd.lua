@@ -1,23 +1,25 @@
 local autocmd = vim.api.nvim_create_autocmd
 local WhiteSpace = vim.api.nvim_create_augroup("replaceGroup", { clear = true })
 local YankGroup = vim.api.nvim_create_augroup("HiglightYank", { clear = true })
-local helpVert = vim.api.nvim_create_augroup("HelpVert", { clear = true })
+local Helpvert = vim.api.nvim_create_augroup("HelpVert", { clear = true })
+
 --something wrong with eslint_d
 --local lintGroup = vim.api.nvim_create_augroup("lintGroup", { clear = true })
 
-autocmd({ "BufWritePre" }, {
+autocmd("BufWritePre", {
 	desc = "Delete trailing whitespace",
 	pattern = "*",
 	group = WhiteSpace,
 	command = [[%s/\s\+$//e]],
 })
 
-autocmd({ "BufEnter" }, {
+-- :help to vsplit
+autocmd("BufEnter", {
 	desc = "Split Vertical for help files",
-	group = helpVert,
+	group = Helpvert,
 	callback = function()
 		vim.cmd([[
-		   augroup helpVert
+		   augroup Helpvert
 		   autocmd!
 		   autocmd FileType help wincmd L
 		   augroup END
