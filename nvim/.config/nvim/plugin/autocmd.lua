@@ -1,3 +1,4 @@
+-- personal autocmd
 local autocmd = vim.api.nvim_create_autocmd
 local WhiteSpace = vim.api.nvim_create_augroup("replaceGroup", { clear = true })
 local YankGroup = vim.api.nvim_create_augroup("HiglightYank", { clear = true })

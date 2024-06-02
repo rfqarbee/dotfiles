@@ -30,7 +30,7 @@ return {
 			lua_ls = {
 				settings = {
 					Lua = {
-						diagnostics = { globals = { "vim" } },
+						diagnostics = { globals = { "wasd" } },
 					},
 				},
 			},
@@ -86,7 +86,7 @@ return {
 				map("gD", vim.lsp.buf.declaration, "Goto declaration")
 				map("gr", builtin.lsp_references, "Goto references")
 				map("gI", builtin.lsp_implementations, "Goto implementation")
-				map("<leader>D", builtin.lsp_type_definitions, "Type definition")
+				map("<leader>cd", builtin.lsp_type_definitions, "Type definition")
 				map("<leader>cs", builtin.lsp_document_symbols, "Document symbols")
 				map("<leader>cw", builtin.lsp_dynamic_workspace_symbols, "Workspace symbols")
 				map("<leader>cn", vim.lsp.buf.rename, "Rename var")

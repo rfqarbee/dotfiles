@@ -35,12 +35,14 @@ map("n", "<C-u>", "<C-u>zz")
 --search term but text in middle
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
+
+-- dont think need this
 --paste without override by next text
 --yank into system clipboard instead of vim
 -- map("x", "<leader>p", '"_dP', { desc = "Paste w/o Clipboard" })
-map("x", "<leader>p", '"+p', { desc = "Paste w/o Clipboard" })
-map("n", "<leader>y", '"+y', { desc = "Yank into clipboard" })
-map("n", "<leader>Y", '"+Y', { desc = "Yank . to end in clipboard" })
-map("v", "<leader>y", '"+y', { desc = "Yank into clipboard (v)" })
-map("n", "<leader>d", '"_d', { desc = "Delete w/o clipboard" })
-map("v", "<leader>d", '"_d', { desc = "Delete w/o clipboard (v)" })
+-- map("x", "<leader>p", '"+p', { desc = "Paste w/o Clipboard" })
+-- map("n", "<leader>y", '"+y', { desc = "Yank into clipboard" })
+-- map("n", "<leader>Y", '"+Y', { desc = "Yank . to end in clipboard" })
+-- map("v", "<leader>y", '"+y', { desc = "Yank into clipboard (v)" })
+-- map("n", "<leader>d", '"_d', { desc = "Delete w/o clipboard" })
+-- map("v", "<leader>d", '"_d', { desc = "Delete w/o clipboard (v)" })

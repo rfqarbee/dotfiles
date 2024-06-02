@@ -1,5 +1,6 @@
 local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
+local open_trouble = require("trouble.sources.telescope").open
 
 require("telescope").setup({
 	defaults = {
@@ -12,6 +13,10 @@ require("telescope").setup({
 				["<C-n>"] = actions.move_selection_next,
 				["<C-k>"] = actions.preview_scrolling_up,
 				["<C-j>"] = actions.preview_scrolling_down,
+				["<C-t>"] = open_trouble,
+			},
+			n = {
+				["<C-t>"] = open_trouble,
 			},
 		},
 		winblend = 0,
