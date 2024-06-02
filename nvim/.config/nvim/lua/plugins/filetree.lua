@@ -7,7 +7,6 @@ return {
 	config = function()
 		local api = require("nvim-tree.api")
 		require("nvim-tree").setup({
-
 			view = {
 				side = "right",
 				width = 50,

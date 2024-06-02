@@ -25,6 +25,7 @@ trouble.setup({
 	},
 })
 
+-- keymaps
 map("<leader>ld", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Buffer Diagnostics")
 map("<leader>lx", "<cmd>Trouble diagnostics toggle<cr> ", "Workspace Diagnostics")
 map("<leader>ll", "<cmd>Trouble loclist toggle<cr>", "Location list")
@@ -36,15 +37,15 @@ map("<leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", 
 local TroubleGroup = vim.api.nvim_create_augroup("TroubleGroup", { clear = true })
 local OpenDiag = vim.api.nvim_create_augroup("OpenDiag", { clear = true })
 
-vim.api.nvim_create_autocmd("BufRead", {
-	group = OpenDiag,
-	callback = function()
-		vim.cmd([[Trouble diagnostics open filter.buf=0 auto_open=true]])
-	end,
-})
+-- vim.api.nvim_create_autocmd("BufEnter", {
+-- 	-- group = OpenDiag,
+-- 	callback = function()
+-- 		vim.cmd([[Trouble diagnostics open filter.buf=0 auto_open=true]])
+-- 	end,
+-- })
 
 vim.api.nvim_create_autocmd("QuickFixCmdPost", {
-	group = TroubleGroup,
+	-- group = TroubleGroup,
 	callback = function()
 		vim.cmd([[Trouble qflist open]])
 	end,

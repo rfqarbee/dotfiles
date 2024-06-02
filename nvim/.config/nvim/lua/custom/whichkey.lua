@@ -15,8 +15,12 @@ w.register({
 	m = {
 		name = "Format",
 	},
+	l = {
+		name ="Trouble"
+	},
 	g = {
 		name = "Commands",
 	},
 	c = "Lsp",
+	n = "Neovim config"
 }, { prefix = "<leader>" })
