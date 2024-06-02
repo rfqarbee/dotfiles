@@ -17,7 +17,7 @@ return {
 				["<C-w>s"] = "actions.select_vsplit", -- i like this
 				["<C-w>t"] = "actions.select_tab", -- not sure if i like this
 				["<C-p>"] = "actions.preview", -- i like this
-				["<C-c>"] = "actions.close", -- i like this
+				["q"] = "actions.close", -- i like this
 				["<space>r"] = "actions.refresh", -- refresh list
 				["<Tab>"] = "actions.parent", --not sure if i like the default binds
 				["_"] = "actions.open_cwd", -- same as above
