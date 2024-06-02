@@ -25,7 +25,7 @@ return {
 				["<C-w>s"] = "actions.select_vsplit",
 				["<C-w>t"] = "actions.select_tab",
 				["<C-p>"] = "actions.preview",
-				["<C-c>"] = "actions.close",
+				["q"] = "actions.close",
 				["<space>r"] = "actions.refresh", -- refresh list
 				["<Tab>"] = "actions.parent",
 				["_"] = "actions.open_cwd",
