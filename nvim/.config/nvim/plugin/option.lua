@@ -31,6 +31,8 @@ opt.signcolumn = "yes"
 
 opt.splitright = true
 opt.splitbelow = true
+
+opt.clipboard = "unnamedplus"
 opt.list = true
 opt.listchars = { tab = "- ", trail = ".", nbsp = "␣" }
 
