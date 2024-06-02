@@ -28,19 +28,11 @@ return {
 			lua_ls = {
 				settings = {
 					Lua = {
-						diagnostics = { disable = { "missing-fields" } },
+						diagnostics = { globals = { "vim" } },
 					},
 				},
 			},
 		}
-		local servers_to_install = vim.tbl_filter(function(key)
-			local t = servers[key]
-			if type(t) == "table" then
-				return not t.manual_install
-			else
-				return t
-			end
-		end, vim.tbl_keys(servers))
 
 		local servers_to_install = vim.tbl_filter(function(key)
 			local t = servers[key]
