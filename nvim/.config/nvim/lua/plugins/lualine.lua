@@ -2,25 +2,39 @@ return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	opts = {
-		theme = "dracula",
+		options = {
+			theme = "ayu_dark",
+			component_separators = { left = "|", right = "|" },
+			-- section_separators = { left = "|", right = "|" },
+			disabled_filetypes = {
+				statusline = { "trouble", "oil" },
+			},
+		},
 		sections = {
 			lualine_c = {
 				{
 					"buffers",
 					show_modified_status = true,
-					mode = 4,
+					mode = 0,
+					filetype_names = {
+						-- quickfix = "Quickfix",
+						diagnostics = "Diagnostics",
+						trouble = "Trouble",
+						oil = "Oil nvim",
+					},
 				},
 				{
 					"filename",
 					path = 4,
 					symbols = {
-						modified = "[+]",
-						readonly = "[-]",
-						unnamed = "[No Name]",
-						newfile = "[New]",
+						modified = "<+>",
+						readonly = "ReadOnly",
+						unnamed = "",
+						newfile = "<New>",
 					},
 				},
 			},
 		},
+		extensions = { "quickfix", "mason" },
 	},
 }

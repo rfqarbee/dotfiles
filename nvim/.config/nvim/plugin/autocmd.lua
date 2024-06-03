@@ -19,6 +19,7 @@ autocmd("BufWritePost", {
 		local pwd = vim.api.nvim_cmd({ cmd = "pwd" }, { output = true })
 		local name = pwd:match("([^/]+)$")
 
+		--get substring
 		local function getstr(fullpath)
 			local path = fullpath:gsub("^" .. pwd .. "/", "")
 			local function relative_path(key)

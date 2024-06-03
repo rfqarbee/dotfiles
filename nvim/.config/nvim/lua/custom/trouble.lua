@@ -4,12 +4,33 @@ local map = function(key, func, desc)
 end
 
 trouble.setup({
-	win = {
-		type = "split",
-		position = "left",
-		size = 30,
-	},
+	warn_no_results = true,
+	-- win = {
+	-- 	type = "split",
+	-- 	position = "left",
+	-- 	size = 30,
+	-- },
 	modes = {
+		todo = {
+			desc = "Todo List",
+			mode = "todo",
+			win = { size = 35, position = "left" },
+		},
+		diagnostics = {
+			desc = "Diagnostics",
+			mode = "diagnostics",
+			win = { position = "bottom", size = 15 },
+		},
+		quickfix = {
+			desc = "Quickfix list",
+			mode = "quickfix",
+			win = { position = "left", size = 35 },
+		},
+		loclist = {
+			desc = "Location list",
+			mode = "loclist",
+			win = { position = "right" },
+		},
 		cascade = {
 			mode = "diagnostics", -- inherit from diagnostics mode
 			filter = function(items)
@@ -26,10 +47,13 @@ trouble.setup({
 })
 
 -- keymaps
-map("<leader>ld", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Buffer Diagnostics")
-map("<leader>lx", "<cmd>Trouble diagnostics toggle<cr> ", "Workspace Diagnostics")
-map("<leader>ll", "<cmd>Trouble loclist toggle<cr>", "Location list")
-map("<leader>lq", "<cmd>Trouble qflist toggle<cr>", "Quickfix list")
+map("<leader>qc", "<cmd>Trouble cascade toggle<cr>", "Workspace Cascade Diagnostics")
+map("<leader>qd", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Current Diagnostics")
+map("<leader>qx", "<cmd>Trouble diagnostics toggle<cr> ", "Workspace Diagnostics")
+map("<leader>qt", "<cmd>Trouble todo toggle<cr> ", "Todo list")
+map("<leader>ql", "<cmd>Trouble loclist toggle<cr>", "Location list")
+map("<leader>qQ", "<cmd>Trouble qflist toggle<cr>", "Quickfix list")
+map("<leader>qq", "<cmd>Trouble quickfix toggle<cr>", "Quickfix list")
 map("<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols")
 map("<leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "Lsp Defintion/references/....")
 
