@@ -53,7 +53,6 @@ return {
 				{ name = "luasnip" },
 				{ name = "luasnip_choice" },
 				{ name = "path" },
-			}, {
 				{ name = "buffer" },
 			}),
 		})
