@@ -26,6 +26,16 @@ trouble.setup({
 			mode = "quickfix",
 			win = { position = "left", size = 35 },
 		},
+		qflist = {
+			desc = "Quickfix list",
+			mode = "qflist",
+			win = { position = "left", size = 35 },
+		},
+		telescope = {
+			desc = "Telescope Quickfix list",
+			mode = "telescope",
+			win = { position = "left", size = 35 },
+		},
 		loclist = {
 			desc = "Location list",
 			mode = "loclist",
@@ -33,6 +43,7 @@ trouble.setup({
 		},
 		cascade = {
 			mode = "diagnostics", -- inherit from diagnostics mode
+			desc = "Diagnostics (Cascade mode)",
 			filter = function(items)
 				local severity = vim.diagnostic.severity.HINT
 				for _, item in ipairs(items) do
@@ -50,10 +61,11 @@ trouble.setup({
 map("<leader>qc", "<cmd>Trouble cascade toggle<cr>", "Workspace Cascade Diagnostics")
 map("<leader>qd", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Current Diagnostics")
 map("<leader>qx", "<cmd>Trouble diagnostics toggle<cr> ", "Workspace Diagnostics")
-map("<leader>qt", "<cmd>Trouble todo toggle<cr> ", "Todo list")
+map("<leader>qn", "<cmd>Trouble todo toggle<cr> ", "Todo list")
 map("<leader>ql", "<cmd>Trouble loclist toggle<cr>", "Location list")
-map("<leader>qQ", "<cmd>Trouble qflist toggle<cr>", "Quickfix list")
-map("<leader>qq", "<cmd>Trouble quickfix toggle<cr>", "Quickfix list")
+map("<leader>qq", "<cmd>Trouble qflist toggle<cr>", "Quickfix list")
+map("<leader>qQ", "<cmd>Trouble quickfix toggle<cr>", "Quickfix list")
+map("<leader>qt", "<cmd>Trouble telescope toggle<cr>", "Telescope Quickfix list")
 map("<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols")
 map("<leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "Lsp Defintion/references/....")
 
