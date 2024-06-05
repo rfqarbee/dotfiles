@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+--lazy load
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -20,32 +21,32 @@ require("lazy").setup({
 		notify = true,
 	},
 	spec = {
-		{
-			"folke/tokyonight.nvim",
-			lazy = false,
-			priority = 1000,
-			config = function()
-				require("tokyonight").setup({
-					style = "moon",
-					transparent = true,
-				})
-				vim.cmd.colorscheme("tokyonight-storm")
-			end,
-		},
 		-- {
-		-- 	"catppuccin/nvim",
-		-- 	name = "catppuccin",
+		-- 	"folke/tokyonight.nvim",
 		-- 	lazy = false,
 		-- 	priority = 1000,
 		-- 	config = function()
-		-- 		require("catppuccin").setup({
-		-- 			flavour = "mocha",
-		-- 			transparent_background = true,
-		-- 			show_end_of_buffer = true,
+		-- 		require("tokyonight").setup({
+		-- 			style = "moon",
+		-- 			transparent = true,
 		-- 		})
-		-- 		vim.cmd.colorscheme("catppuccin-mocha")
+		-- 		vim.cmd.colorscheme("tokyonight-storm")
 		-- 	end,
 		-- },
+		{
+			"catppuccin/nvim",
+			name = "catppuccin",
+			lazy = false,
+			priority = 1000,
+			config = function()
+				require("catppuccin").setup({
+					flavour = "macchiato",
+					transparent_background = true,
+					show_end_of_buffer = true,
+				})
+				vim.cmd.colorscheme("catppuccin-macchiato")
+			end,
+		},
 		{ import = "plugins" },
 	},
 })

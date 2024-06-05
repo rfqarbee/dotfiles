@@ -4,6 +4,7 @@ w.register({
 	["<space>"] = "Harpoon",
 	["<C-s>"] = "Save file",
 	["<C-q>"] = "Quit neovim",
+	["<C-x>"] = "Source & execute",
 	["-"] = "Directory (Float)",
 	f = { name = "Telescope" },
 	u = "Undotree",
@@ -11,8 +12,15 @@ w.register({
 		name = "Trouble buffer",
 	},
 	q = "Quickfix",
+	m = {
+		name = "Format",
+	},
+	l = {
+		name ="Trouble"
+	},
 	g = {
 		name = "Commands",
 	},
 	c = "Lsp",
+	n = "Neovim config"
 }, { prefix = "<leader>" })
