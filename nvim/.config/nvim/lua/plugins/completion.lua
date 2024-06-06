@@ -51,7 +51,8 @@ return {
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
-				{ name = "luasnip_choice" },
+				{ name = "lazydev", group_index = 0 },
+				-- { name = "luasnip_choice" },
 				{ name = "path" },
 				{ name = "buffer" },
 			}),

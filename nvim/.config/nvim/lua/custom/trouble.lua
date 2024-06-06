@@ -5,11 +5,6 @@ end
 
 trouble.setup({
 	warn_no_results = true,
-	-- win = {
-	-- 	type = "split",
-	-- 	position = "left",
-	-- 	size = 30,
-	-- },
 	modes = {
 		todo = {
 			desc = "Todo List",

@@ -1,11 +1,7 @@
--- personal autocmd
 local autocmd = vim.api.nvim_create_autocmd
 local WhiteSpace = vim.api.nvim_create_augroup("replaceGroup", { clear = true })
 local YankGroup = vim.api.nvim_create_augroup("HiglightYank", { clear = true })
-local Helpvert = vim.api.nvim_create_augroup("HelpVert", { clear = true })
 local SaveAll = vim.api.nvim_create_augroup("SaveAll", { clear = true })
-
---something wrong with eslint_d
 --local lintGroup = vim.api.nvim_create_augroup("lintGroup", { clear = true })
 
 -- save all opened buffers that has changes and notify files saved
@@ -86,21 +82,6 @@ autocmd("BufWritePre", {
 	command = [[%s/\s\+$//e]],
 })
 
--- :help to vsplit
-autocmd("BufEnter", {
-	desc = "Split Vertical for help files",
-	group = Helpvert,
-	callback = function()
-		vim.cmd([[
-		   augroup Helpvert
-		   autocmd!
-		   autocmd FileType help wincmd L
-		   augroup END
-	   ]])
-	end,
-})
-
---highlight text when copy
 autocmd("TextYankPost", {
 	desc = "Highlight when yank",
 	group = YankGroup,
@@ -112,6 +93,7 @@ autocmd("TextYankPost", {
 	end,
 })
 
+-- TODO:
 --linting
 --[[
 autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
