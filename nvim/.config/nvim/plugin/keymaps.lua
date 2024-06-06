@@ -1,9 +1,10 @@
 local map = vim.keymap.set
 --migrate this one soon, try use lazy keymaps
+
 -- map("i", "<C-c>", "<Esc>")
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight on search when Esc in normal mode" })
 
--- execute
+-- source and execute
 map({ "n", "v" }, "<C-x>", "<cmd>:source %<CR>", { desc = "Source & Execute" })
 
 -- more binds
@@ -12,6 +13,7 @@ map("n", "<C-q>", "<cmd>q<CR>", { desc = "Quit Neovim" })
 map("i", "<C-c>", "<Esc>", { desc = "Insert to normal mode" })
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
 
+-- insert navigation; kinda meh
 map("i", "<C-k>", "<Up>", { desc = "Navigate in insert" })
 map("i", "<C-j>", "<Down>", { desc = "Navigate in insert" })
 map("i", "<C-h>", "<Left>", { desc = "Navigate in insert" })
@@ -31,16 +33,15 @@ map("n", "J", "mzJ`z")
 --half page with cursor in middle
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
-
---search term but text in middle
+-- cursor in middle
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
---paste without override by next text
---yank into system clipboard instead of vim
+
+-- dont think need this anymore
 -- map("x", "<leader>p", '"_dP', { desc = "Paste w/o Clipboard" })
-map("x", "<leader>p", '"+p', { desc = "Paste w/o Clipboard" })
-map("n", "<leader>y", '"+y', { desc = "Yank into clipboard" })
-map("n", "<leader>Y", '"+Y', { desc = "Yank . to end in clipboard" })
-map("v", "<leader>y", '"+y', { desc = "Yank into clipboard (v)" })
-map("n", "<leader>d", '"_d', { desc = "Delete w/o clipboard" })
-map("v", "<leader>d", '"_d', { desc = "Delete w/o clipboard (v)" })
+-- map("x", "<leader>p", '"+p', { desc = "Paste w/o Clipboard" })
+-- map("n", "<leader>y", '"+y', { desc = "Yank into clipboard" })
+-- map("n", "<leader>Y", '"+Y', { desc = "Yank . to end in clipboard" })
+-- map("v", "<leader>y", '"+y', { desc = "Yank into clipboard (v)" })
+-- map("n", "<leader>d", '"_d', { desc = "Delete w/o clipboard" })
+-- map("v", "<leader>d", '"_d', { desc = "Delete w/o clipboard (v)" })

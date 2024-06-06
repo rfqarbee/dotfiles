@@ -3,8 +3,10 @@ return {
 	event = "VeryLazy",
 	enabled = true,
 	config = function()
-		vim.notify = require("notify")
-		vim.notify.setup({
+		local notify = require("notify")
+
+		vim.notify = notify
+		notify.setup({
 			fps = 240,
 			stages = "slide",
 			timeout = 5000,
@@ -18,7 +20,21 @@ return {
 				vim.api.nvim_win_set_config(win, { zindex = 100 })
 			end,
 		})
-		require("custom.notify")
+
+		-- NOTE: custom function for lsp notification (WIP)
+		require("custom.lsp-notif")
+
+		-- redirect command output to silent and to notify
+		-- local function command_output(cmd)
+		-- 	vim.cmd("redir => g:_command_output | silent " .. cmd .. " | redir END ")
+		-- 	local output = vim.g._command_output
+		-- 	vim.g._command_output = nil
+		-- 	return output
+		-- end
+		-- --
+		-- vim.notify(command_output("buffers"))
+
+		--test
 		--async example
 		--[[
 		local notify = require("notify").async

@@ -5,6 +5,8 @@ return {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
+
+		-- { "j-hui/fidget.nvim", opts = {} },
 	},
 	config = function()
 		local capabilities = nil
@@ -28,19 +30,11 @@ return {
 			lua_ls = {
 				settings = {
 					Lua = {
-						diagnostics = { disable = { "missing-fields" } },
+						diagnostics = { globals = { "wasd" } },
 					},
 				},
 			},
 		}
-		local servers_to_install = vim.tbl_filter(function(key)
-			local t = servers[key]
-			if type(t) == "table" then
-				return not t.manual_install
-			else
-				return t
-			end
-		end, vim.tbl_keys(servers))
 
 		local servers_to_install = vim.tbl_filter(function(key)
 			local t = servers[key]
@@ -92,12 +86,12 @@ return {
 				map("gD", vim.lsp.buf.declaration, "Goto declaration")
 				map("gr", builtin.lsp_references, "Goto references")
 				map("gI", builtin.lsp_implementations, "Goto implementation")
-				map("<leader>D", builtin.lsp_type_definitions, "Type definition")
+				map("<leader>cd", builtin.lsp_type_definitions, "Type definition")
 				map("<leader>cs", builtin.lsp_document_symbols, "Document symbols")
 				map("<leader>cw", builtin.lsp_dynamic_workspace_symbols, "Workspace symbols")
 				map("<leader>cn", vim.lsp.buf.rename, "Rename var")
-				map("<M-p>", vim.lsp.buf.code_action, "Code action")
-				map("<M-n>", vim.diagnostic.open_float, "Diagnostics open float")
+				map("<C-p>", vim.lsp.buf.code_action, "Code action")
+				map("<C-n>", vim.diagnostic.open_float, "Diagnostics open float")
 
 				-- i aint reading allat, one day customize maybe, for now its good enough
 				local filetype = vim.bo[bufnr].filetype

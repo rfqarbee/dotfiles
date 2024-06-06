@@ -14,7 +14,7 @@ opt.number = true
 opt.relativenumber = true
 opt.wrap = false
 opt.showmode = false --disable show mode cuz status line already show
-opt.cursorline = true
+opt.cursorline = false
 opt.breakindent = true --:h breakindent if u forgot what this is already
 opt.ignorecase = true
 opt.smartcase = true
@@ -31,23 +31,23 @@ opt.fillchars:append({ eob = " " })
 opt.inccommand = "split"
 
 opt.scrolloff = 5
-opt.tabstop = 2
-opt.softtabstop = 2
-opt.shiftwidth = 2
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftwidth = 4
 opt.expandtab = true
 opt.smartindent = true
 --backup for undodir accessible by undotree
 opt.swapfile = false
 opt.backup = false
 opt.undofile = true
-opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
+opt.undodir = os.getenv("HOME") .. "/.cache/undodir"
 opt.isfname:append("@-@")
 opt.updatetime = 100
 
---TODO: another dotod
---WARN:
---FIX:
---PERF:
---NOTE:
---WARNING:
+--TODO another dotod
+--WARN
+--FIX
+--PERF
+--NOTE
+--WARNING
 --
