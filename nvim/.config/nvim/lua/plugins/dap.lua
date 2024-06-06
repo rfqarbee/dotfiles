@@ -6,32 +6,14 @@ return {
 		"theHamsta/nvim-dap-virtual-text",
 	},
 	config = function()
-		local dapui = require("dapui")
 		local dap = require("dap")
+		local dapui = require("dapui")
 
-		dapui.setup()
+		require("dapui").setup()
 		require("nvim-dap-virtual-text").setup({
 			enabled = true,
 		})
-
-		dap.adapters.gdb = {
-			type = "executable",
-			command = "gdb",
-			args = { "-i", "dap" },
-		}
-
-		dap.configurations.c = {
-			{
-				name = "Launch",
-				type = "gdb",
-				request = "launch",
-				program = function()
-					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-				end,
-				cwd = "${workspaceFolder}",
-				stopAtBeginningOfMainSubprogram = false,
-			},
-		}
+		require("custom.dap")
 
 		-- keymap
 		vim.keymap.set("n", "<space>b", function()
@@ -39,28 +21,32 @@ return {
 		end, { desc = "Toggle breakpoint" })
 		vim.keymap.set("n", "<space>gb", function()
 			dap.run_to_cursor()
-		end, { desc = "Toggle breakpoint" })
+		end, { desc = "Run to cursor" })
 		vim.keymap.set("n", "<space>?", function()
 			dapui.eval(nil, { enter = true })
-		end, { desc = "Toggle breakpoint" })
+		end, { desc = "Eval dapui" })
 		vim.keymap.set("n", "<F1>", function()
 			dap.continue()
-		end, { desc = "Toggle breakpoint" })
+		end, { desc = "Continue" })
 		vim.keymap.set("n", "<F2>", function()
 			dap.step_info()
-		end, { desc = "Toggle breakpoint" })
+		end, { desc = "Step into" })
 		vim.keymap.set("n", "<F3>", function()
 			dap.step_over()
-		end, { desc = "Toggle breakpoint" })
+		end, { desc = "Step over" })
 		vim.keymap.set("n", "<F4>", function()
 			dap.step_out()
-		end, { desc = "Toggle breakpoint" })
+		end, { desc = "Step out" })
 		vim.keymap.set("n", "<F5>", function()
 			dap.step_back()
-		end, { desc = "Toggle breakpoint" })
+		end, { desc = "Step back" })
 		vim.keymap.set("n", "<F6>", function()
 			dap.restart()
-		end, { desc = "Toggle breakpoint" })
+		end, { desc = "Restart" })
+
+		vim.keymap.set("n", "<space>dd", function()
+			dapui.toggle()
+		end, { desc = "Dap-ui" })
 
 		dap.listeners.before.attach.dapui_config = function()
 			dapui.open()
