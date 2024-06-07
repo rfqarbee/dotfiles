@@ -90,8 +90,8 @@ return {
 				map("<leader>cs", builtin.lsp_document_symbols, "Document symbols")
 				map("<leader>cw", builtin.lsp_dynamic_workspace_symbols, "Workspace symbols")
 				map("<leader>cn", vim.lsp.buf.rename, "Rename var")
-				map("<M-p>", vim.lsp.buf.code_action, "Code action")
-				map("<M-n>", vim.diagnostic.open_float, "Diagnostics open float")
+				map("<C-p>", vim.lsp.buf.code_action, "Code action")
+				map("<C-n>", vim.diagnostic.open_float, "Diagnostics open float")
 
 				-- i aint reading allat, one day customize maybe, for now its good enough
 				local filetype = vim.bo[bufnr].filetype
