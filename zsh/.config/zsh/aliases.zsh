@@ -7,11 +7,11 @@ alias tmd="tmux detach"
 alias tmk="tmux kill-session -t"
 alias tks="tmux kill-server"
 alias cd=z
-alias eza="eza --color=always"
-alias ls="ls --color=always"
-alias la="ls -A --color=always"
-alias ll="ls -lA --color=always"
-alias lah="ls -lAh --color=always"
+alias ls="eza --color=always"
+alias la="eza -lA --color=always"
+alias l="eza -l --color=always"
+alias lt="eza --tree -lA --color=always"
+# alias lah="eza -lAh --color=always"
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
 alias fgrep='fgrep --color=always'
