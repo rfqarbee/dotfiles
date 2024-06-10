@@ -20,6 +20,7 @@ cmp.setup({
 			follow_cursor = true,
 		},
 	},
+
 	completion = { completeopt = "menu,menuone,noinsert" },
 	mapping = cmp.mapping.preset.insert({
 		["<C-Space>"] = cmp.mapping.complete({}),

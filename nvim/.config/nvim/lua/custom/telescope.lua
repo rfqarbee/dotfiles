@@ -58,6 +58,12 @@ vim.keymap.set("n", "<leader>fo", function()
 	})
 end, { desc = "Live grep open files" })
 
+-- goto neovim config
 vim.keymap.set("n", "<leader>nc", function()
 	builtin.find_files({ cwd = vim.fn.stdpath("config") })
 end, { desc = "Neovim config" })
+
+-- goto obsidian vault
+-- vim.keymap.set("n", "<leader>on", function()
+-- 	builtin.find_files({ cwd = vim.fn.stdpath("log") })
+-- end, { desc = "Neovim config" })
