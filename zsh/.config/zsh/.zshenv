@@ -3,17 +3,20 @@ typeset -U path PATH
 path=($HOME/bin /usr/local/bin $HOME/.local/bin $HOME/.local/scripts $path)
 # cdpath=(. $HOME/Media/Pictures $HOME/.config $HOME/.local $HOME $HOME/code $HOME/Documents)
 export PATH
+
 ## asdf
 if [[ -s "$HOME/.config/asdf/asdf.sh" ]]; then
 . "$HOME/.config/asdf/asdf.sh"
 fpath=(${ASDF_DIR}/completions $fpath)
 fi
 
+# starship
 export EDITOR=nvim
 export PAGER='less'
-# asdf
+export TERMINAL=/usr/bin/kitty
+
+# export dir path
 export ASDF_DATA_DIR=$HOME/.config/asdf
-# xdg
 export XDG_PICTURES_DIR=$HOME/Media/Pictures/
 export XDG_BIN_HOME=$HOME/.local/bin
 export XDG_CONFIG_DIRS=/etc/xdg
@@ -26,27 +29,27 @@ export XDG_WORK_DIR=$HOME/Dev
 export XDG_REPOS_DIR=$HOME/Repos
 export XDG_DOCUMENTS_DIR=$HOME/Documents
 export XDG_DOWNLOAD_DIR=$HOME/Downloads
+export ASDF_PROTONGE_STEAM_COMPAT_DIR=~/.steam/steam/compatibilitytools.d/
+export FFMPEG_DATADIR="$XDG_CONFIG_HOME"/ffmpeg
+export GRIM_DEFAULT_DIR=$HOME/Media/Pictures/screenshot
+export GNUPGHOME=$HOME/.local/share/gnupg
+export W3M_DIR=$HOME/.cache/w3m
 export TMPDIR=/tmp/
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+
 # npm
 export npm_config_cache="$HOME/.cache/npm"
 # rust custom path
 export CARGO_HOME=$HOME/.config/cargo
 export RUSTUP_HOME=$HOME/.config/rustup
+
 # misc configuration
-# export hist file
+export GTK2_RC_FILES="$HOME/.config/gtk-2.0"
 export MARIADB_HISTFILE=$HOME/.cache/mariadb_history
 export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
-export ASDF_PROTONGE_STEAM_COMPAT_DIR=~/.steam/steam/compatibilitytools.d/
-export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
-export TERMINAL=/usr/bin/kitty
-export GTK2_RC_FILES="$HOME/.config/gtk-2.0"
 export MANPAGER="nvim +Man!"
 export MANWIDTH=999
-export GRIM_DEFAULT_DIR=$HOME/Media/Pictures/screenshot
-export FFMPEG_DATADIR="$XDG_CONFIG_HOME"/ffmpeg
-export GNUPGHOME=$HOME/.local/share/gnupg
-export W3M_DIR=$HOME/.cache/w3m
 export WWW_HOME="google.com"
-
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
    --height=60%'

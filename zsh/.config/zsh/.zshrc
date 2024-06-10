@@ -1,7 +1,7 @@
 # change to another
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 # zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -22,8 +22,9 @@ fi
 # plugins
 zinit light Aloxaf/fzf-tab # before plugsins wrap widgets
 
-zinit ice depth"1" # powerlevel10k
-zinit light romkatv/powerlevel10k
+# using starship rs
+# zinit ice depth"1" # powerlevel10k
+# zinit light romkatv/powerlevel10k
 
 source $ZDOTDIR/zsh-vi-mode.zsh # zsh-vi-mode options
 zinit ice depth=1 # zsh-vi-mode
@@ -39,7 +40,7 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q # reload all completion
 
 # run p10k configure
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+# [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 # key binds
 bindkey -s "^E" "create-tmux-session\n"
@@ -93,3 +94,5 @@ if [[ -n $(command -v fzf) ]] && [[ $fzf_ver -lt 48 ]]; then
 else
   source <(fzf --zsh)
 fi
+
+eval "$(starship init zsh)"
