@@ -1,7 +1,7 @@
 # alias
 alias srz="source ~/.config/zsh/.zshrc"
 alias vi=/usr/bin/vim
-alias vim="/usr/bin/nvim"
+alias vim="/usr/local/bin/nvim"
 alias tma="tmux attach"
 alias tmd="tmux detach"
 alias tmk="tmux kill-session -t"
