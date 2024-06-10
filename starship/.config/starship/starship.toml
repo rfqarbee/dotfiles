@@ -1,0 +1,33 @@
+format = """
+$directory\
+$git_branch\
+$git_status
+$character
+"""
+right_format = """
+$all
+"""
+add_newline = true
+
+[character]
+success_symbol = '[➜](bold green)'
+error_symbol = '[✗](bold red) '
+
+[package]
+disabled = false
+
+# [lua]
+# format = "$symbol $name"
+# symbol = ' '
+
+[c]
+format = "$symbol [$name $version]($style)"
+symbol = ' '
+
+# [docker]
+# format = "$symbol"
+# symbol = '󰡨 '
+#
+# [golang]
+# format = "$symbol"
+# symbol = ' '
