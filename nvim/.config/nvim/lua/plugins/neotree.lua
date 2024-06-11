@@ -21,20 +21,34 @@ return {
 				position = "right",
 				width = 45,
 			},
+			filesystem = {
+				follow_current_file = {
+					leave_dirs_open = true,
+				},
+			},
 		})
 
-		vim.keymap.set("n", "<leader>ot", "<cmd>Neotree toggle<cr>", { desc = "Notes File tree" })
+		vim.keymap.set("n", "<leader>on", "<cmd>Neotree focus<cr>", { desc = "Switch to Tree" })
 		-- -- open tree
-		-- vim.api.nvim_create_autocmd("VimEnter", {
-		-- 	callback = function()
-		-- 		local filetype = vim.bo.filetype
-		--
-		-- 		if filetype == "neo-tree" then
-		-- 			vim.opt.number = false
-		-- 			vim.opt.relativenumber = false
-		-- 		end
-		-- 		vim.cmd([[Neotree show]])
-		-- 	end,
-		-- })
+		vim.api.nvim_create_autocmd("BufEnter", {
+			pattern = "*.md",
+			callback = function()
+				vim.cmd([[Neotree show]])
+			end,
+		})
+		vim.api.nvim_create_autocmd("FileType", {
+			callback = function()
+				local neotree = vim.bo.filetype
+				if neotree == "neo-tree" then
+					local buf = vim.api.nvim_get_current_buf()
+					vim.api.nvim_set_option_value("bufhidden", "wipe", tonumber(buf))
+					print("test its in neo tere")
+					vim.opt.number = false
+					vim.opt.relativenumber = false
+					vim.bo.readonly = true
+					vim.bo.modifiable = false
+				end
+			end,
+		})
 	end,
 }
