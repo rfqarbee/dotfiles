@@ -52,7 +52,7 @@ autocmd("BufWritePost", {
 		for _, bufnr in ipairs(bufnum) do
 			if vim.api.nvim_get_option_value("modified", { buf = tonumber(bufnr) }) then
 				local savedFiles = vim.api.nvim_buf_get_name(tonumber(bufnr))
-				vim.notify(getstr(savedFiles), "info", {
+				vim.notify(getstr(savedFiles), vim.log.levels.INFO, {
 					title = "File saved!",
 					timeout = 4500,
 				})

@@ -20,7 +20,6 @@ return {
 			-- 	path = "~/Documents/notesidian/work",
 			-- },
 		},
-
 		-- see below for full list of options 👇
 	},
 }
