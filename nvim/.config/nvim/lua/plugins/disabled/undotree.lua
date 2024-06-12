@@ -1,6 +1,7 @@
 return {
 	"jiaoshijie/undotree",
 	event = "VeryLazy",
+	enabled = false,
 	dependencies = "nvim-lua/plenary.nvim",
 	config = function()
 		require("undotree").setup({

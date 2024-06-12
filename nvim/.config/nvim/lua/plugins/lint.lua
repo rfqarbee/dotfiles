@@ -1,3 +1,4 @@
+-- TODO: setup lint
 return {
 	"mfussenegger/nvim-lint",
 	enabled = false,

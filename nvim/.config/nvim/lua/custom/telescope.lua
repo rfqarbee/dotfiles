@@ -17,6 +17,7 @@ require("telescope").setup({
 			},
 			n = {
 				["<C-t>"] = open_trouble,
+				["<M-e>"] = actions.close,
 			},
 		},
 		winblend = 0,
@@ -30,11 +31,32 @@ require("telescope").setup({
 			override_file_sorter = true,
 			case_mode = "smart_case",
 		},
+		undo = {
+			initial_mode = "normal",
+			mappings = {
+				i = {
+					["<cr>"] = require("telescope-undo.actions").yank_additions,
+					["<C-y>"] = require("telescope-undo.actions").yank_deletions,
+					["<C-f>"] = require("telescope-undo.actions").restore,
+				},
+				n = {
+					["y"] = require("telescope-undo.actions").yank_additions,
+					["Y"] = require("telescope-undo.actions").yank_deletions,
+					["<cr>"] = require("telescope-undo.actions").restore,
+				},
+			},
+			side_by_side = true,
+			layout_strategy = "horizontal",
+			layout_config = {
+				preview_height = 0.8,
+			},
+		},
 	},
 })
 
 pcall(require("telescope").load_extension, "fzf")
 pcall(require("telescope").load_extension, "ui-select")
+pcall(require("telescope").load_extension, "undo")
 
 vim.keymap.set("n", "<M-e>", builtin.find_files, { desc = "Find Files" })
 vim.keymap.set("n", "<M-w>", builtin.grep_string, { desc = "Grep current word" })
@@ -46,6 +68,7 @@ vim.keymap.set("n", "<leader>fs", builtin.builtin, { desc = "Find Telescope buil
 vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Find diagnostics" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Active buffers" })
 vim.keymap.set("n", "<leader>.", builtin.oldfiles, { desc = "Find recent files" })
+vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>", { desc = "Undotree" })
 
 vim.keymap.set("n", "<leader>/", function()
 	builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({ winblend = 5, previewer = false }))
