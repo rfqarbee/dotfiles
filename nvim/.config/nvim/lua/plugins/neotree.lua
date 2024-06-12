@@ -13,7 +13,8 @@ return {
 		local windowPath = "C:\\Users\\muhammadrafiq\\Documents\\Vaults"
 		local defaultOS = "~/Documents/Vaults"
 
-		if string.find(getos:lower(), "windows") then
+		-- this is only for my work laptop
+		if getos ~= nil and string.find(getos:lower(), "windows") then
 			if vim.fn.getcwd() == windowPath then
 				return true
 			end
