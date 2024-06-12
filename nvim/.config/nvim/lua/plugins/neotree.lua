@@ -9,9 +9,20 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	cond = function()
-		if vim.fn.getcwd() == "/home/rafiq/Documents/notesidian" then
-			return true
+		local getos = os.getenv("OS")
+		local windowPath = "C:\\Users\\muhammadrafiq\\Documents\\Vaults"
+		local defaultOS = "~/Documents/Vaults"
+
+		if string.find(getos:lower(), "windows") then
+			if vim.fn.getcwd() == windowPath then
+				return true
+			end
+		else
+			if vim.fn.getcwd() == defaultOS then
+				return true
+			end
 		end
+		-- end
 	end,
 	config = function()
 		require("neo-tree").setup({
@@ -40,13 +51,12 @@ return {
 			callback = function()
 				local neotree = vim.bo.filetype
 				if neotree == "neo-tree" then
-					local buf = vim.api.nvim_get_current_buf()
-					vim.api.nvim_set_option_value("bufhidden", "wipe", tonumber(buf))
-					print("test its in neo tere")
+					-- local buf = vim.api.nvim_get_current_buf()
+					-- vim.api.nvim_set_option_value("bufhidden", "wipe", tonumber(buf))
 					vim.opt.number = false
 					vim.opt.relativenumber = false
-					vim.bo.readonly = true
-					vim.bo.modifiable = false
+					-- vim.bo.readonly = false
+					vim.bo.modifiable = true
 				end
 			end,
 		})

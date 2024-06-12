@@ -12,8 +12,8 @@ return {
 	opts = {
 		workspaces = {
 			{
-				name = "notesidian",
-				path = "~/Documents/notesidian",
+				name = "Vaults",
+				path = "~/Documents/Vaults",
 			},
 		},
 		log_level = vim.log.levels.INFO,
