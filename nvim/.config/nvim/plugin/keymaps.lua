@@ -1,7 +1,6 @@
 local map = vim.keymap.set
---migrate this one soon, try use lazy keymaps
+-- might migrate to lazyvim; might not
 
--- map("i", "<C-c>", "<Esc>")
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight on search when Esc in normal mode" })
 
 -- source and execute
@@ -10,7 +9,7 @@ map({ "n", "v" }, "<C-x>", "<cmd>:source %<CR>", { desc = "Source & Execute" })
 -- more binds
 map("n", "<C-q>", "<cmd>q<CR>", { desc = "Quit Neovim" })
 -- map("n", "<leader>q", "<cmd>qa!<CR>", { desc = "Abort all and quit" })
-map("i", "<C-c>", "<Esc>", { desc = "Insert to normal mode" })
+map("i", "<M-q>", "<Esc>", { desc = "Insert to normal mode" })
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
 
 -- insert navigation; kinda meh
