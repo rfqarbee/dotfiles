@@ -1,10 +1,11 @@
 format = """
-$directory$git_branch$git_status$git_commit$fill$all\
+$directory$git_branch$git_status$git_commit$fill$cmd_duration
 $character
 """
-right_format = """
-$cmd_duration\
-"""
+# right_format = """
+# $cmd_duration\
+# """
+
 add_newline = true
 command_timeout = 10000
 palette = "catppuccin_macchiato"
