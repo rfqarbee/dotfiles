@@ -22,16 +22,17 @@ return {
 					},
 				},
 				use_default_keymaps = false,
-				-- delete_to_trash = true,
+				delete_to_trash = true, -- in $XDG_DATA_HOME/Trash
+				skip_confirm_for_simple_edits = true,
 				keymaps = {
 					["g?"] = "actions.show_help",
-					["<CR>"] = "actions.select",
+					["f"] = "actions.select",
 					["<C-w>s"] = "actions.select_vsplit",
 					["<C-w>t"] = "actions.select_tab",
 					["<C-p>"] = "actions.preview",
 					["q"] = "actions.close",
 					["<space>r"] = "actions.refresh", -- refresh list
-					["<Tab>"] = "actions.parent",
+					["-"] = "actions.parent",
 					["_"] = "actions.open_cwd",
 					["`"] = "actions.cd", -- change project directory
 					["~"] = "actions.tcd", -- change current tab directory

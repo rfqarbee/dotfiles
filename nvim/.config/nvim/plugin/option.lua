@@ -29,7 +29,7 @@ opt.list = true
 opt.listchars = { tab = "▸ ", trail = ".", nbsp = "␣" }
 opt.fillchars:append({ eob = " " })
 opt.inccommand = "split"
-
+opt.clipboard = "unnamedplus"
 opt.scrolloff = 5
 opt.tabstop = 4
 opt.softtabstop = 4

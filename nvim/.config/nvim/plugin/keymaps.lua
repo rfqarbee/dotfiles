@@ -12,6 +12,10 @@ map("n", "<C-q>", "<cmd>q<CR>", { desc = "Quit Neovim" })
 map("i", "<M-q>", "<Esc>", { desc = "Insert to normal mode" })
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
 
+-- navigating tabs
+map("n", "<M-j>", "gt")
+map("n", "<M-k>", "gT")
+
 -- insert navigation; kinda meh
 map("i", "<C-k>", "<Up>", { desc = "Navigate in insert" })
 map("i", "<C-j>", "<Down>", { desc = "Navigate in insert" })

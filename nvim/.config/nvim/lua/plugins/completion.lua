@@ -1,6 +1,8 @@
 return {
 	"hrsh7th/nvim-cmp",
-	event = "InsertEnter",
+	lazy = false,
+	priority = 1000,
+	-- event = {"InsertEnter","CmdlineEnter"},
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
@@ -8,6 +10,7 @@ return {
 		"hrsh7th/cmp-cmdline",
 		{
 			"L3MON4D3/LuaSnip",
+			dependencies = { "rafamadriz/friendly-snippets" },
 			build = (function()
 				if vim.fn.executable("make") == 0 then
 					return
