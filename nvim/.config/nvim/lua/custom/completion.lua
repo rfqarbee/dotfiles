@@ -29,7 +29,7 @@ cmp.setup({
 		["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
 		["<C-b>"] = cmp.mapping.scroll_docs(-5),
 		["<C-d>"] = cmp.mapping.scroll_docs(5),
-		["<C-y>"] = cmp.mapping(function(fallback)
+		["<C-f>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				if luasnip.expandable() then
 					luasnip.expand()
