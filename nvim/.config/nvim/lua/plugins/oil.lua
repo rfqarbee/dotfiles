@@ -27,6 +27,7 @@ return {
 				keymaps = {
 					["g?"] = "actions.show_help",
 					["f"] = "actions.select",
+					["<CR>"] = "actions.select",
 					["<C-w>s"] = "actions.select_vsplit",
 					["<C-w>t"] = "actions.select_tab",
 					["<C-p>"] = "actions.preview",
