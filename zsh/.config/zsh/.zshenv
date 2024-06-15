@@ -1,6 +1,6 @@
 #PATH for ZSH
 typeset -U path PATH
-path=($HOME/bin /usr/local/bin $HOME/.local/bin $HOME/.local/scripts $path)
+path=($HOME/bin /usr/local/bin/flutter/bin /usr/local/bin $HOME/.local/bin $HOME/.local/scripts $path)
 # cdpath=(. $HOME/Media/Pictures $HOME/.config $HOME/.local $HOME $HOME/code $HOME/Documents)
 export PATH
 
@@ -10,11 +10,19 @@ if [[ -s "$HOME/.config/asdf/asdf.sh" ]]; then
 fpath=(${ASDF_DIR}/completions $fpath)
 fi
 
+# export SDKMAN
+export SDKMAN_DIR="/usr/local/sdkman"
 # starship
 export EDITOR=nvim
 export PAGER='less'
 export TERMINAL=/usr/bin/kitty
 
+export ANDROID_HOME=/opt/android-sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export JAVA_HOME=/usr/local/sdkman/candidates/java/current
+export ANDROID_SDK_HOME=$HOME/.config/.android
+export ANDROID_AVD_HOME=$HOME/.config/.android/avd # lancao lu android studio
+export PUB_CACHE=$HOME/.config/pub_cache
 # export dir path
 export ASDF_DATA_DIR=$HOME/.config/asdf
 export XDG_PICTURES_DIR=$HOME/Media/Pictures/

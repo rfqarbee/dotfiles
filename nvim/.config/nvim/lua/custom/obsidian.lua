@@ -39,7 +39,7 @@ obs.setup({
 		min_chars = 2,
 	},
 	templates = {
-		folder = "Templates",
+		folder = "~/Documents/Vaults/Templates",
 		date_format = "%d-%m-%Y",
 		time_format = "%H:%M",
 		-- substitutions = {},
