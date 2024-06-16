@@ -8,8 +8,8 @@ alias tmk="tmux kill-session -t"
 alias tks="tmux kill-server"
 alias cd=z
 alias ls="eza --color=always"
-alias la="eza -lA --color=always"
-alias l="eza -l --color=always"
+alias la="eza -lA --group --color=always"
+alias l="eza -l --group --color=always"
 alias lt="eza --tree -lA --color=always"
 # alias lah="eza -lAh --color=always"
 alias grep='grep --color=always'

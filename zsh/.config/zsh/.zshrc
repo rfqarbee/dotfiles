@@ -1,8 +1,3 @@
-# change to another
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
-
 # zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
@@ -13,7 +8,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 checkOS=$(grep -iw "name" /etc/os-release | awk -F '=' '{ gsub("\"","");print $2}')
 [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.config/nvm"
 if [[ -n $checkOS ]] && [[ $checkOS == 'Arch Linux' ]]; then
-  [ -s "$NVM_DIR/nvm.sh" ] && source /usr/share/nvm/nvm.sh && source /usr/share/nvm/bash_completion && source /usr/share/nvm/install-nvm-exec
+  source /usr/share/nvm/nvm.sh && source /usr/share/nvm/bash_completion && source /usr/share/nvm/install-nvm-exec
 else
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -21,10 +16,6 @@ fi
 
 # plugins
 zinit light Aloxaf/fzf-tab # before plugsins wrap widgets
-
-# using starship rs
-# zinit ice depth"1" # powerlevel10k
-# zinit light romkatv/powerlevel10k
 
 source $ZDOTDIR/zsh-vi-mode.zsh # zsh-vi-mode options
 zinit ice depth=1 # zsh-vi-mode
@@ -39,11 +30,8 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 autoload -Uz compinit && compinit
 zinit cdreplay -q # reload all completion
 
-# run p10k configure
-# [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-
 # key binds
-bindkey -s "^E" "create-tmux-session\n"
+bindkey -s "^E" "tmux-session.sh\n"
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 

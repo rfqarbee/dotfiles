@@ -140,7 +140,7 @@
 /*custom*/
     "custom/launcher" : {
         "format": " ",
-        "on-click": "rofi -show drun",
+        "on-click": "~/.config/rofi/launchers/type-6/launcher.sh",
         "on-click-right": "killall rofi"
     },
 
@@ -163,7 +163,7 @@
   "custom/cliphist" :{
     "format" :"󱓥 ",
     "tooltip":false,
-    "on-click": "cliphist list | rofi -dmenu -p \"Clipboard\" | cliphist decode | wl-copy"
+    "on-click": "~/.local/scripts/clipboard.sh"
   },
 
 
