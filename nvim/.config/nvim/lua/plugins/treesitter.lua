@@ -25,6 +25,8 @@ return {
 				"toml",
 				"lua",
 				"vim",
+				"vimdoc",
+				"markdown_inline",
 				"markdown",
 				"html",
 				"rust",

@@ -61,17 +61,6 @@ autocmd("BufWritePost", {
 				end)
 			end
 		end
-		-- deprecated as of 0.10.0 (nvim_buf_get_option)
-		-- get all buffers
-		-- local bufs = vim.api.nvim_list_bufs()
-		--
-		-- for _, bufnr in ipairs(bufs) do
-		-- 	if vim.api.nvim_buf_get_option(bufnr, "modified") then
-		-- 		vim.api.nvim_buf_call(bufnr, function()
-		-- 			vim.cmd("write")
-		-- 		end)
-		-- 	end
-		-- end
 	end,
 })
 

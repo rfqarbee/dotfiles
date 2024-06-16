@@ -7,6 +7,9 @@ require("telescope").setup({
 		mappings = {
 			i = {
 				["<M-e>"] = actions.close,
+				["<M-d>"] = actions.close,
+				["<M-g>"] = actions.close,
+				["<M-w>"] = actions.close,
 				["<C-h>"] = "which_key",
 				["<C-u>"] = false,
 				["<C-p>"] = actions.move_selection_previous,
@@ -41,7 +44,7 @@ require("telescope").setup({
 				},
 				n = {
 					["y"] = require("telescope-undo.actions").yank_additions,
-					["Y"] = require("telescope-undo.actions").yank_deletions,
+					["d"] = require("telescope-undo.actions").yank_deletions,
 					["<cr>"] = require("telescope-undo.actions").restore,
 				},
 			},
@@ -60,13 +63,13 @@ pcall(require("telescope").load_extension, "undo")
 
 vim.keymap.set("n", "<M-e>", builtin.find_files, { desc = "Find Files" })
 vim.keymap.set("n", "<M-w>", builtin.grep_string, { desc = "Grep current word" })
-vim.keymap.set("n", "<M-f>", builtin.live_grep, { desc = "Live Grep" })
-vim.keymap.set("n", "<leader>i", builtin.commands, { desc = "Help tags" })
-vim.keymap.set("n", "<leader>h", builtin.help_tags, { desc = "Help tags" })
-vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Help Keymap" })
-vim.keymap.set("n", "<leader>fs", builtin.builtin, { desc = "Find Telescope builtin" })
-vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Find diagnostics" })
-vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Active buffers" })
+vim.keymap.set("n", "<M-g>", builtin.live_grep, { desc = "Live Grep" })
+vim.keymap.set("n", "<M-d>", function()
+	builtin.find_files({ find_command = { "fd", "--type", "d" } })
+end, { desc = "Find Directories" })
+vim.keymap.set("n", "<leader>ti", builtin.commands, { desc = "Help tags" })
+vim.keymap.set("n", "<leader>h", "<cmd>tabnew | Telescope help_tags<cr>", { desc = "Help tags" })
+vim.keymap.set("n", "<leader>tb", builtin.buffers, { desc = "Active buffers" })
 vim.keymap.set("n", "<leader>.", builtin.oldfiles, { desc = "Find recent files" })
 vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>", { desc = "Undotree" })
 
@@ -74,7 +77,7 @@ vim.keymap.set("n", "<leader>/", function()
 	builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({ winblend = 5, previewer = false }))
 end, { desc = "Search current buffer" })
 
-vim.keymap.set("n", "<leader>fo", function()
+vim.keymap.set("n", "<leader>to", function()
 	builtin.live_grep({
 		grep_open_files = true,
 		prompt_title = "Live Grep in Open Files",

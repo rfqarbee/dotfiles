@@ -1,5 +1,6 @@
 return {
 	"mfussenegger/nvim-dap",
+	event = "VeryLazy",
 	dependencies = {
 		"rcarriga/nvim-dap-ui",
 		"nvim-neotest/nvim-nio",
@@ -19,7 +20,7 @@ return {
 		vim.keymap.set("n", "<space>b", function()
 			dap.toggle_breakpoint()
 		end, { desc = "Toggle breakpoint" })
-		vim.keymap.set("n", "<space>gb", function()
+		vim.keymap.set("n", "<space>dc", function()
 			dap.run_to_cursor()
 		end, { desc = "Run to cursor" })
 		vim.keymap.set("n", "<space>?", function()
