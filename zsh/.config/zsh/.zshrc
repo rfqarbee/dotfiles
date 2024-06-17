@@ -86,5 +86,5 @@ fi
 eval "$(starship init zsh)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/usr/local/sdkman"
-[[ -s "/usr/local/sdkman/bin/sdkman-init.sh" ]] && source "/usr/local/sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.local/bin/sdkman"
+[[ -s "$HOME/.local/bin/sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.local/bin/sdkman/bin/sdkman-init.sh"

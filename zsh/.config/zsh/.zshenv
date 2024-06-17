@@ -11,7 +11,7 @@ fpath=(${ASDF_DIR}/completions $fpath)
 fi
 
 # export SDKMAN
-export SDKMAN_DIR="/usr/local/sdkman"
+export SDKMAN_DIR="$HOME/.local/bin/sdkman"
 # starship
 export EDITOR=nvim
 export PAGER='less'
