@@ -140,7 +140,7 @@
 /*custom*/
     "custom/launcher" : {
         "format": " ",
-        "on-click": "~/.config/rofi/launchers/type-6/launcher.sh",
+        "on-click": "rofi -show drun -theme \"~/.config/rofi/launchers/sidebar/sidebar.rasi\" ",
         "on-click-right": "killall rofi"
     },
 
