@@ -13,7 +13,7 @@ continuation_prompt = '▶▶ '
 symbol = " "
 
 [character]
-success_symbol = '[ ](bold green)'
+success_symbol = '[ ](bold green)'
 # success_symbol = '[➜](bold green)'
 error_symbol = '[✗](bold red)'
 vimcmd_symbol = '[N](bold blue)'
@@ -27,9 +27,9 @@ min_time_to_notify = 45_000
 notification_timeout = 20_000
 
 [directory]
-truncation_length = 2
+truncation_length = 3
 truncate_to_repo = true
-truncation_symbol = '󰜥 '
+truncation_symbol = '<~ '
 style = 'bold cyan'
 
 [directory.substitutions] # only works for non-repo dir
@@ -54,6 +54,10 @@ staged = '+${count}'
 stashed = '\$${count}'
 modified = '!${count}'
 
+[package]
+format = "[$version]($style) "
+disabled = false
+
 [lua]
 format = "[$symbol $name $version]($style) "
 symbol = ' '
@@ -63,17 +67,29 @@ format = "[$symbol $name $version]($style) "
 symbol = ' '
 
 [docker_context]
-format = "[$symbol $context]($style)"
+format = "[$symbol $context]($style) "
 
 [golang]
 format = "[$symbol ($version)($mod_version)]($style) "
-symbol = '󰟓 '
+symbol = '  '
 
 [nodejs]
-format = '[$symbol ($version)]($style)'
+format = '[$symbol ($version)]($style) '
 
 [rust]
-format = '[$symbol ($version)]($style)'
+format = '[$symbol ($version)]($style) '
+
+[dart]
+format = '[$symbol($version)]($style) '
+
+[kotlin]
+format = '[$symbol($version)]($style) '
+
+[java]
+format = '[$symbol($version)]($style) '
+
+[swift]
+format = '[$symbol($version)]($style) '
 
 [palettes.catppuccin_macchiato]
 rosewater = "#f4dbd6"
