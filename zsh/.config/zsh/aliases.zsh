@@ -25,3 +25,5 @@ alias mv='mv -i'
 alias cp='cp -r'
 alias rm='rm -i'
 
+# set .yarn in config
+alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
