@@ -13,8 +13,8 @@ continuation_prompt = '▶▶ '
 symbol = " "
 
 [character]
-success_symbol = '[ ](bold green)'
-# success_symbol = '[➜](bold green)'
+# success_symbol = '[ ](bold green)'
+success_symbol = '[➜](bold green)'
 error_symbol = '[✗](bold red)'
 vimcmd_symbol = '[N](bold blue)'
 
@@ -29,7 +29,7 @@ notification_timeout = 20_000
 [directory]
 truncation_length = 3
 truncate_to_repo = true
-truncation_symbol = '<~ '
+truncation_symbol = '󰜥 '
 style = 'bold cyan'
 
 [directory.substitutions] # only works for non-repo dir
