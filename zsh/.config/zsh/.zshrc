@@ -60,9 +60,11 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' menu no # if use fzf-tab
 zstyle ':fzf-tab:*' fzf-bindings 'ctrl-f:accept' 'ctrl-o:select'
 zstyle ':fzf-tab:*' switch-group ',' '.'
-zstyle ':fzf-tab:*' fzf-min-height 50
+zstyle ':fzf-tab:*' fzf-min-height 100
+zstyle ':fzf-tab:complete:*:options' fzf-preview
+zstyle ':fzf-tab:complete:*:argument-1' fzf-preview
 zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
-export LESSOPEN="|~/.local/scripts/lessfilter.sh %s"
+export LESSOPEN="|/home/rafiq/.local/scripts/lessfilter.sh %s"
 
 # zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1 -lA --color=always  $realpath' # zoxide
 # zstyle ':fzf-tab:complete:ls:*' fzf-preview 'eza -1 -lA --color=always $realpath'

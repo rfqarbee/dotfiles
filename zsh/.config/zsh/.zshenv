@@ -18,7 +18,8 @@ path=($HOME/bin $HOME/.local/share/mise/shims $HOME/.local/bin/flutter/bin /usr/
 export PATH
 
 # export local env
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --height=80%'
+# export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --height=80%'
+export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
 export TERMINAL=/usr/bin/kitty
 export EDITOR=nvim
 export PAGER='less'
