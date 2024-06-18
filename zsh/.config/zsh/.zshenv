@@ -5,18 +5,20 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
-export XDG_WORK_DIR=$HOME/Dev
+export XDG_PROJECT_DIR=$HOME/Dev
 export XDG_REPOS_DIR=$HOME/Repos
+export XDG_LOCAL_DIR=$HOME/.local
+export XDG_DOCUMENTS_DIR=$HOME/Documents
 export TMPDIR=/tmp
 
 # path
 typeset -U path PATH
-path=($HOME/bin $HOME/.local/bin/flutter/bin /usr/local/bin $HOME/.local/bin $HOME/.local/scripts $path)
+path=($HOME/bin $HOME/.local/share/mise/shims $HOME/.local/bin/flutter/bin /usr/local/bin $HOME/.local/bin $HOME/.local/scripts $path)
 # cdpath=(. $HOME/Media/Pictures $HOME/.config $HOME/.local $HOME $HOME/code $HOME/Documents) # using zoxide
 export PATH
 
 # export local env
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'--height=60%'
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --height=80%'
 export TERMINAL=/usr/bin/kitty
 export EDITOR=nvim
 export PAGER='less'
