@@ -56,7 +56,7 @@ modified = '!${count}'
 
 [package]
 format = "[$version]($style) "
-disabled = false
+disabled = true
 
 [lua]
 format = "[$symbol $name $version]($style) "
@@ -80,7 +80,7 @@ format = '[$symbol ($version)]($style) '
 format = '[$symbol ($version)]($style) '
 
 [dart]
-format = '[$symbol($version)]($style) '
+format = '[$symbol ($version)]($style) '
 
 [kotlin]
 format = '[$symbol($version)]($style) '
