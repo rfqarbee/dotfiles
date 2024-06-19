@@ -1,9 +1,8 @@
 vim.keymap.set({ "n", "v" }, "q", "<cmd>q<cr>", { desc = "Quit help" })
 
-vim.api.nvim_create_autocmd("BufEnter", {
+vim.api.nvim_create_autocmd("BufWinEnter", {
 	group = vim.api.nvim_create_augroup("OpenHelp", { clear = true }),
 	callback = function()
-		print("masuklk e")
 		local filetype = vim.bo.filetype
 		if filetype == "help" then
 			vim.cmd("wincmd L")
