@@ -11,7 +11,18 @@ return {
 			},
 		},
 	},
-	{ "f-person/git-blame.nvim" },
+	{
+		event = "BufEnter",
+		"f-person/git-blame.nvim",
+		config = function()
+			local g = require("gitblame").setup({
+				message_template = "<author> • <date> • <summary>",
+				display_virtual_text = true,
+				-- virtual_text_column = 100, -- if enable, virtualtxt at 100 column
+				date_format = "%d/%m/%Y %H:%M%p %a-%r",
+			})
+		end,
+	},
 	{
 		"NeogitOrg/neogit",
 		dependencies = {
@@ -24,9 +35,10 @@ return {
 			local neogit = require("neogit")
 			neogit.setup({})
 
-			vim.keymap.set("n", "<leader>go", function()
+			vim.keymap.set("n", "<leader>gp", function()
 				neogit.open()
 			end, { desc = "Open Neogit" })
+			vim.keymap.set("n", "<leader>go", "<cmd>Neogit cwd=%:p:h<cr>", { desc = "Open Neogit" })
 		end,
 	},
 }

@@ -1,3 +1,6 @@
+-- gitblame
+local gitblame = require("gitblame")
+
 return {
 	{
 		"nvim-lualine/lualine.nvim",
@@ -5,7 +8,7 @@ return {
 		opts = {
 			options = {
 				theme = "ayu_dark",
-				component_separators = { left = "|", right = "|" },
+				component_separators = { left = " ", right = "" },
 				-- section_separators = { left = "|", right = "|" },
 				disabled_filetypes = {
 					statusline = { "trouble", "oil" },
@@ -22,6 +25,10 @@ return {
 							unnamed = "",
 							newfile = "<New>",
 						},
+					},
+					{
+						gitblame.get_current_blame_text,
+						cond = gitblame.is_blame_text_available,
 					},
 				},
 			},

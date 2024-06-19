@@ -30,12 +30,14 @@ opt.listchars = { tab = "▸ ", trail = ".", nbsp = "␣" }
 opt.fillchars:append({ eob = " " })
 opt.inccommand = "split"
 opt.clipboard = "unnamedplus"
+opt.cursorline = true
 opt.scrolloff = 5
 opt.tabstop = 4
 opt.softtabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 opt.smartindent = true
+
 --backup for undodir accessible by undotree
 opt.swapfile = false
 opt.backup = false

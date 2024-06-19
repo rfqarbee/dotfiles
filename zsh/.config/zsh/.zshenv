@@ -18,13 +18,14 @@ path=($HOME/bin $HOME/.local/share/mise/shims $HOME/.local/bin/flutter/bin /usr/
 export PATH
 
 # export local env
-# export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --height=80%'
 export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
 export TERMINAL=/usr/bin/kitty
 export EDITOR=nvim
 export PAGER='less'
 export MANPAGER="nvim +Man!"
 export MANWIDTH=999
+export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
+export ASDF_DATA_DIR=$XDG_CONFIG_HOME/asdf # mise plugin; asdf
 
 export PULSE_COOKIE=$XDG_CONFIG_HOME/pulse/pulse-cookie
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/"
@@ -33,7 +34,7 @@ export WWW_HOME="google.com"
 export W3M_DIR=$HOME/.cache/w3m
 export GRIM_DEFAULT_DIR=$HOME/Media/Pictures/screenshot
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv # nvidia
-
+export WGETRC=$XDG_CONFIG_HOME/wgetrc
 # changing defaults
 export MARIADB_HISTFILE=$XDG_CACHE_HOME/mariadb_history # mariadb
 export SQLITE_HISTORY=$XDG_CACHE_HOME/sqlite_history # sqlite
