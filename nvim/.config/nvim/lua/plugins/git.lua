@@ -18,8 +18,9 @@ return {
 			local g = require("gitblame").setup({
 				message_template = "<author> • <date> • <summary>",
 				display_virtual_text = true,
-				-- virtual_text_column = 100, -- if enable, virtualtxt at 100 column
-				date_format = "%d/%m/%Y %H:%M%p %a-%r",
+				virtual_text_column = 80, -- if enable, virtualtxt at 100 column
+				-- date_format = "%d/%m/%Y %H:%M%p %r",
+				date_format = "%d-%m-%Y %r",
 			})
 		end,
 	},

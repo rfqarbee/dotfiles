@@ -12,7 +12,7 @@ opt.guicursor = "n-v-c:block-nCursor,i-ci-ve:block-blinkwait300-blinkon50-blinko
 opt.mouse = "a" -- enable mouse all mode
 opt.number = true
 opt.relativenumber = true
-opt.wrap = false
+opt.wrap = true
 opt.showmode = false --disable show mode cuz status line already show
 opt.cursorline = false
 opt.breakindent = true --:h breakindent if u forgot what this is already
@@ -30,7 +30,6 @@ opt.listchars = { tab = "▸ ", trail = ".", nbsp = "␣" }
 opt.fillchars:append({ eob = " " })
 opt.inccommand = "split"
 opt.clipboard = "unnamedplus"
-opt.cursorline = true
 opt.scrolloff = 5
 opt.tabstop = 4
 opt.softtabstop = 4
