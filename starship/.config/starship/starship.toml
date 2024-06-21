@@ -4,7 +4,7 @@ $character
 right_format = """
 $cmd_duration\
 """
-add_newline = true
+add_newline = false
 command_timeout = 20000
 palette = "catppuccin_macchiato"
 continuation_prompt = '▶▶ '

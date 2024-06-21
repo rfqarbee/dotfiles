@@ -1,5 +1,6 @@
 local luasnip = require("luasnip")
 local autopairs = require("nvim-autopairs.completion.cmp")
+local lspkind = require("lspkind")
 local cmp = require("cmp")
 
 luasnip.config.setup({})
@@ -16,11 +17,24 @@ cmp.setup({
 	view = {
 		entries = {
 			name = "custom",
-			selection_order = "near_cursor",
-			follow_cursor = true,
+			-- selection_order = "near_cursor",
+			follow_cursor = false,
 		},
 	},
-
+	formatting = {
+		format = lspkind.cmp_format({
+			mode = "symbol_text",
+			maxwidth = 50,
+			ellipsis_char = "...",
+			show_labelDetails = true,
+			menu = {
+				buffer = "[Buffer]",
+				nvim_lsp = "[LSP]",
+				luasnip = "[LuaSnip]",
+				nvim_lua = "[Lua]",
+			},
+		}),
+	},
 	completion = { completeopt = "menu,menuone,noinsert" },
 	mapping = cmp.mapping.preset.insert({
 		["<C-Space>"] = cmp.mapping.complete({}),
@@ -42,7 +56,7 @@ cmp.setup({
 			else
 				fallback()
 			end
-		end),
+		end, { "i", "s", "c" }),
 		["<C-k>"] = cmp.mapping(function(fallback)
 			if luasnip.locally_jumpable(1) then
 				luasnip.jump(1)
@@ -58,21 +72,22 @@ cmp.setup({
 			end
 		end, { "i", "s" }),
 	}),
+
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp", group_index = 0 },
 		{ name = "lazydev", group_index = 1 },
 		{ name = "luasnip", group_index = 2 },
-		{ name = "buffer" },
 		{ name = "path", group_index = 3 },
 		-- { name = "luasnip_choice" },
+		{
+			{ name = "buffer" },
+		},
 	}),
 })
 
 -- cmdline
 cmp.setup.cmdline(":", {
-	mapping = cmp.mapping.preset.cmdline({
-		["<C-f>"] = cmp.mapping.confirm(),
-	}),
+	mapping = cmp.mapping.preset.cmdline(),
 	sources = cmp.config.sources({
 		{ name = "cmdline" },
 		{ name = "path" },
@@ -87,5 +102,22 @@ cmp.setup.cmdline({ "/", "?" }, {
 	},
 })
 
--- bracket after select function and shit
 cmp.event:on("confirm_done", autopairs.on_confirm_done())
+
+-- vscode color scheme
+-- gray
+vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { bg = "NONE", strikethrough = true, fg = "#808080" })
+-- blue
+vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { bg = "NONE", fg = "#569CD6" })
+vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { link = "CmpIntemAbbrMatch" })
+-- light blue
+vim.api.nvim_set_hl(0, "CmpItemKindVariable", { bg = "NONE", fg = "#9CDCFE" })
+vim.api.nvim_set_hl(0, "CmpItemKindInterface", { link = "CmpItemKindVariable" })
+vim.api.nvim_set_hl(0, "CmpItemKindText", { link = "CmpItemKindVariable" })
+-- pink
+vim.api.nvim_set_hl(0, "CmpItemKindFunction", { bg = "NONE", fg = "#C586C0" })
+vim.api.nvim_set_hl(0, "CmpItemKindMethod", { link = "CmpItemKindFunction" })
+-- front
+vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { bg = "NONE", fg = "#D4D4D4" })
+vim.api.nvim_set_hl(0, "CmpItemKindProperty", { link = "CmpItemKindKeyword" })
+vim.api.nvim_set_hl(0, "CmpItemKindUnit", { link = "CmpItemKindKeyword" })

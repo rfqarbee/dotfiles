@@ -14,7 +14,13 @@ trouble.setup({
 		diagnostics = {
 			desc = "Diagnostics",
 			mode = "diagnostics",
-			win = { position = "bottom", size = 15 },
+			preview = {
+				type = "split",
+				relative = "win",
+				position = "right",
+				size = 0.5,
+			},
+			win = { position = "bottom", size = 10 },
 		},
 		quickfix = {
 			desc = "Quickfix list",
@@ -35,6 +41,21 @@ trouble.setup({
 			desc = "Location list",
 			mode = "loclist",
 			win = { position = "right" },
+		},
+		mydiags = {
+			mode = "diagnostics", -- inherit from diagnostics mode
+			filter = {
+				any = {
+					buf = 0, -- current buffer
+					{
+						severity = vim.diagnostic.severity.ERROR, -- errors only
+						-- limit to files in the current project
+						function(item)
+							return item.dirname:find((vim.loop or vim.uv).cwd(), 1, true)
+						end,
+					},
+				},
+			},
 		},
 		cascade = {
 			mode = "diagnostics", -- inherit from diagnostics mode

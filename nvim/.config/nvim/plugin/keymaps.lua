@@ -1,6 +1,5 @@
 local map = vim.keymap.set
 -- might migrate to lazyvim; might not
-
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight on search when Esc in normal mode" })
 
 -- source and execute
@@ -17,11 +16,11 @@ map("n", "<M-j>", "gt")
 map("n", "<M-k>", "gT")
 
 -- insert navigation; kinda meh
-map("i", "<C-k>", "<Up>", { desc = "Navigate in insert" })
-map("i", "<C-j>", "<Down>", { desc = "Navigate in insert" })
-map("i", "<C-h>", "<Left>", { desc = "Navigate in insert" })
-map("i", "<C-l>", "<Right>", { desc = "Navigate in insert" })
-map("i", "<C-x>", "<Bs>", { desc = "Delete 1 character in inside" })
+-- map("i", "<C-k>", "<Up>", { desc = "Navigate in insert" })
+-- map("i", "<C-j>", "<Down>", { desc = "Navigate in insert" })
+-- map("i", "<C-h>", "<Left>", { desc = "Navigate in insert" })
+-- map("i", "<C-l>", "<Right>", { desc = "Navigate in insert" })
+-- map("i", "<C-x>", "<Bs>", { desc = "Delete 1 character in inside" })
 
 -- resize window; terminal doesnt register C-, (showkey -a)
 map("n", "<M-,>", "<C-w>5>", { desc = "Shift left window size" })

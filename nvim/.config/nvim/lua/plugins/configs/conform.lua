@@ -9,20 +9,11 @@ return {
 				javascript = {
 					"prettier",
 				},
+				dart = {
+					"prettier",
+				},
 			},
 		})
-		-- 		c = { "clang_format" },
-		-- 		typescript = { { "prettierd", "prettier" } },
-		-- 		javascript = { { "prettierd", "prettier" } },
-		-- 		typescriptreact = { { "prettierd", "prettier" } },
-		-- 		svelte = { { "prettierd", "prettier" } },
-		-- 		css = { { "prettierd", "prettier" } },
-		-- 		html = { "prettier" },
-		-- 		json = { "prettier" },
-		-- 		yaml = { "prettier" },
-		-- 		markdown = { "prettier" },
-		-- 		graphql = { "prettier" },
-		-- 		lua = { "stylua" },
 
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			desc = "Conform format",

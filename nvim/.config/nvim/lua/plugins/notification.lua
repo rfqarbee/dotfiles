@@ -22,7 +22,7 @@ return {
 		})
 
 		-- NOTE: custom function for lsp notification (WIP)
-		require("custom.lsp-notif")
+		require("custom.custom-notify")
 
 		-- redirect command output to silent and to notify
 		-- local function command_output(cmd)
