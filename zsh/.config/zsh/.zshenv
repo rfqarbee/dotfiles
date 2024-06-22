@@ -18,7 +18,7 @@ path=($HOME/bin $HOME/.local/share/mise/shims $HOME/.config/pub_cache/bin /usr/l
 export PATH
 
 # export local env
-export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
+# export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
 export TERMINAL=/usr/bin/kitty
 export EDITOR=nvim
 export PAGER='less'
@@ -49,6 +49,7 @@ export MACHINE_STORAGE_PATH="$XDG_DATA_HOME"/docker-machine
 
 # npm
 export npm_config_cache="$XDG_CACHE_HOME/npm"
+export YARNRC=$XDG_CONFIG_HOME/yarn/.yarnrc
 
 # rust custom path
 export CARGO_HOME=$XDG_CONFIG_HOME/cargo

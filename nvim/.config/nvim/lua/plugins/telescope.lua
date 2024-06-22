@@ -13,6 +13,7 @@ return {
 		{ "nvim-telescope/telescope-ui-select.nvim" },
 		{ "nvim-tree/nvim-web-devicons" },
 		{ "debugloop/telescope-undo.nvim" },
+		{ "smartpde/telescope-recent-files" },
 	},
 	config = function()
 		require("custom.telescope")

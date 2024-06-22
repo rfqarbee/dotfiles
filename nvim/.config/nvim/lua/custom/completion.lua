@@ -78,7 +78,6 @@ cmp.setup({
 		{ name = "lazydev", group_index = 1 },
 		{ name = "luasnip", group_index = 2 },
 		{ name = "path", group_index = 3 },
-		-- { name = "luasnip_choice" },
 		{
 			{ name = "buffer" },
 		},

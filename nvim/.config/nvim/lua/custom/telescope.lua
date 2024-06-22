@@ -6,10 +6,8 @@ require("telescope").setup({
 	defaults = {
 		mappings = {
 			i = {
+				-- ["<C-c>"] = actions.close,
 				["<M-e>"] = actions.close,
-				["<M-d>"] = actions.close,
-				["<M-g>"] = actions.close,
-				["<M-w>"] = actions.close,
 				["<C-h>"] = "which_key",
 				["<C-u>"] = false,
 				["<C-p>"] = actions.move_selection_previous,
@@ -17,8 +15,24 @@ require("telescope").setup({
 				["<C-k>"] = actions.preview_scrolling_up,
 				["<C-j>"] = actions.preview_scrolling_down,
 				["<C-t>"] = open_trouble,
+				["<C-f>"] = actions.add_selection,
+				["<C-r>"] = actions.remove_selection,
+				["<C-e>"] = actions.drop_all,
+				["<C-d>"] = actions.delete_buffer,
+				["<C-q>"] = actions.send_selected_to_qflist,
+				["<C-a>"] = actions.add_selected_to_qflist,
+				["<M-q>"] = actions.send_to_qflist,
+				["<M-a>"] = actions.add_to_qflist,
 			},
 			n = {
+				["f"] = actions.add_selection,
+				["r"] = actions.remove_selection,
+				["e"] = actions.drop_all,
+				["d"] = actions.delete_buffer,
+				["q"] = actions.send_selected_to_qflist,
+				["a"] = actions.add_selected_to_qflist,
+				["Q"] = actions.send_to_qflist,
+				["A"] = actions.add_to_qflist,
 				["<C-t>"] = open_trouble,
 				["<M-e>"] = actions.close,
 			},
@@ -35,7 +49,7 @@ require("telescope").setup({
 			case_mode = "smart_case",
 		},
 		undo = {
-			initial_mode = "normal",
+			initial_mode = "insert",
 			mappings = {
 				i = {
 					["<cr>"] = require("telescope-undo.actions").yank_additions,
@@ -60,6 +74,11 @@ require("telescope").setup({
 pcall(require("telescope").load_extension, "fzf")
 pcall(require("telescope").load_extension, "ui-select")
 pcall(require("telescope").load_extension, "undo")
+pcall(require("telescope").load_extension, "recent_files")
+
+vim.keymap.set("n", "<leader>fb", function()
+	require("telescope").extensions.recent_files.pick()
+end, { noremap = true, silent = true })
 
 vim.keymap.set("n", "<M-e>", builtin.find_files, { desc = "Find Files" })
 vim.keymap.set("n", "<M-w>", builtin.grep_string, { desc = "Grep current word" })
@@ -88,12 +107,3 @@ end, { desc = "Live grep open files" })
 vim.keymap.set("n", "<leader>tc", function()
 	builtin.find_files({ cwd = vim.fn.stdpath("config") })
 end, { desc = "Neovim config" })
-
-vim.keymap.set("n", "<leader>tn", function()
-	builtin.find_files({ cwd = vim.fn.stdpath("config_dirs") })
-end, { desc = "Neovim config" })
-
--- goto obsidian vault
--- vim.keymap.set("n", "<leader>on", function()
--- 	builtin.find_files({ cwd = vim.fn.stdpath("log") })
--- end, { desc = "Neovim config" })

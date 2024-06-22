@@ -5,6 +5,10 @@ end
 
 trouble.setup({
 	warn_no_results = true,
+	win = {
+		size = 55,
+		position = "right",
+	},
 	modes = {
 		todo = {
 			desc = "Todo List",
@@ -42,7 +46,7 @@ trouble.setup({
 			mode = "loclist",
 			win = { position = "right" },
 		},
-		mydiags = {
+		workspaceDiags = {
 			mode = "diagnostics", -- inherit from diagnostics mode
 			filter = {
 				any = {
@@ -56,10 +60,17 @@ trouble.setup({
 					},
 				},
 			},
+			preview = {
+				type = "split",
+				relative = "win",
+				position = "right",
+				size = 0.5,
+			},
+			win = { position = "bottom", size = 10 },
 		},
-		cascade = {
+		severefilter = {
 			mode = "diagnostics", -- inherit from diagnostics mode
-			desc = "Diagnostics (Cascade mode)",
+			desc = "Diagnostics on severity ",
 			filter = function(items)
 				local severity = vim.diagnostic.severity.HINT
 				for _, item in ipairs(items) do
@@ -69,35 +80,38 @@ trouble.setup({
 					return item.severity == severity
 				end, items)
 			end,
+			preview = {
+				type = "split",
+				relative = "win",
+				position = "right",
+				size = 0.5,
+			},
+			win = { position = "bottom", size = 10 },
 		},
 	},
 })
 
 -- keymaps
-map("<leader>qc", "<cmd>Trouble cascade toggle<cr>", "Workspace Cascade Diagnostics")
+map("<leader>qc", "<cmd>Trouble severefilter toggle<cr>", "Workspace Cascade Diagnostics")
 map("<leader>qd", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Current Diagnostics")
-map("<leader>qx", "<cmd>Trouble diagnostics toggle<cr> ", "Workspace Diagnostics")
+map("<leader>qw", "<cmd>Trouble diagnostics toggle<cr> ", "Workspace Diagnostics")
 map("<leader>qn", "<cmd>Trouble todo toggle<cr> ", "Todo list")
 map("<leader>ql", "<cmd>Trouble loclist toggle<cr>", "Location list")
 map("<leader>qq", "<cmd>Trouble qflist toggle<cr>", "Quickfix list")
 map("<leader>qQ", "<cmd>Trouble quickfix toggle<cr>", "Quickfix list")
 map("<leader>qt", "<cmd>Trouble telescope toggle<cr>", "Telescope Quickfix list")
-map("<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols")
-map("<leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "Lsp Defintion/references/....")
+--lsp
+map("<leader>ls", "<cmd>Trouble symbols toggle <cr>", "Symbols")
+map("<leader>lS", "<cmd>Trouble lsp_document_symbols toggle <cr>", "Symbols")
+map("<leader>ld", "<cmd>Trouble lsp_definitions toggle <cr>", "Symbols")
+map("<leader>lD", "<cmd>Trouble lsp_declarations toggle <cr>", "Symbols")
+map("<leader>ll", "<cmd>Trouble lsp toggle win.position=right<cr>", "Lsp Defintion/references/....")
 
 -- autocmd
 local TroubleGroup = vim.api.nvim_create_augroup("TroubleGroup", { clear = true })
-local OpenDiag = vim.api.nvim_create_augroup("OpenDiag", { clear = true })
-
--- vim.api.nvim_create_autocmd("BufEnter", {
--- 	-- group = OpenDiag,
--- 	callback = function()
--- 		vim.cmd([[Trouble diagnostics open filter.buf=0 auto_open=true]])
--- 	end,
--- })
 
 vim.api.nvim_create_autocmd("QuickFixCmdPost", {
-	-- group = TroubleGroup,
+	group = TroubleGroup,
 	callback = function()
 		vim.cmd([[Trouble qflist open]])
 	end,
