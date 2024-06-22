@@ -4,16 +4,6 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
-# # nvm
-# checkOS=$(grep -iw "name" /etc/os-release | awk -F '=' '{ gsub("\"","");print $2}')
-# [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.config/nvm"
-# if [[ -n $checkOS ]] && [[ $checkOS == 'Arch Linux' ]]; then
-#   source /usr/share/nvm/nvm.sh && source /usr/share/nvm/bash_completion && source /usr/share/nvm/install-nvm-exec
-# else
-#   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# fi
-
 # plugins
 zinit light Aloxaf/fzf-tab # before plugsins wrap widgets
 
@@ -66,13 +56,8 @@ zstyle ':fzf-tab:complete:*:argument-1' fzf-preview
 zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
 export LESSOPEN="|/home/rafiq/.local/scripts/lessfilter.sh %s"
 
-# zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1 -lA --color=always  $realpath' # zoxide
-# zstyle ':fzf-tab:complete:ls:*' fzf-preview 'eza -1 -lA --color=always $realpath'
-#zle_highlight=('paste:none')
-
 source $ZDOTDIR/aliases.zsh
 
-# Configuration
 # if fzf is below 0.48.0 (ex : debian)
 fzf_ver=$(fzf --version | awk -F '.' '{print $2}') # get the version
 
