@@ -14,7 +14,7 @@ return {
 		require("nvim-dap-virtual-text").setup({
 			enabled = true,
 		})
-		require("custom.dap")
+		require("custom.dapcustom")
 
 		-- keymap
 		vim.keymap.set("n", "<space>b", function()

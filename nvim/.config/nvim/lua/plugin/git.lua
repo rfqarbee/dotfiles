@@ -15,8 +15,8 @@ return {
 		event = "BufEnter",
 		"f-person/git-blame.nvim",
 		config = function()
-			local g = require("gitblame").setup({
-				message_template = "<author> • <date> • <summary>",
+			require("gitblame").setup({
+				message_template = "[<author> • <date> • <summary>]",
 				display_virtual_text = true,
 				virtual_text_column = 80, -- if enable, virtualtxt at 100 column
 				-- date_format = "%d/%m/%Y %H:%M%p %r",
@@ -29,8 +29,7 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim", -- required
 			"sindrets/diffview.nvim", -- optional - Diff integration
-			-- Only one of these is needed, not both.
-			"nvim-telescope/telescope.nvim", -- optional
+			"nvim-telescope/telescope.nvim",
 		},
 		config = function()
 			local neogit = require("neogit")

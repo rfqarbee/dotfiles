@@ -6,7 +6,7 @@ export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 export XDG_PROJECT_DIR=$HOME/dev
-export XDG_REPOS_DIR=$HOME/repo
+export XDG_REPOS_DIR=$HOME/repos
 export XDG_LOCAL_DIR=$HOME/.local
 export XDG_DOCUMENTS_DIR=$HOME/Documents
 export TMPDIR=/tmp
@@ -50,6 +50,7 @@ export MACHINE_STORAGE_PATH="$XDG_DATA_HOME"/docker-machine
 # npm
 export npm_config_cache="$XDG_CACHE_HOME/npm"
 export YARNRC=$XDG_CONFIG_HOME/yarn/.yarnrc
+export NODE_REPL_HISTORY=$XDG_CACHE_HOME/node_repl_history
 
 # rust custom path
 export CARGO_HOME=$XDG_CONFIG_HOME/cargo

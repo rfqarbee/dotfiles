@@ -101,10 +101,10 @@ map("<leader>qq", "<cmd>Trouble qflist toggle<cr>", "Quickfix list")
 map("<leader>qQ", "<cmd>Trouble quickfix toggle<cr>", "Quickfix list")
 map("<leader>qt", "<cmd>Trouble telescope toggle<cr>", "Telescope Quickfix list")
 --lsp
-map("<leader>ls", "<cmd>Trouble symbols toggle <cr>", "Symbols")
-map("<leader>lS", "<cmd>Trouble lsp_document_symbols toggle <cr>", "Symbols")
-map("<leader>ld", "<cmd>Trouble lsp_definitions toggle <cr>", "Symbols")
-map("<leader>lD", "<cmd>Trouble lsp_declarations toggle <cr>", "Symbols")
+map("<leader>ls", "<cmdTrouble symbols toggle <cr>", "Document Symbols")
+map("<leader>ls", "<cmd>Trouble lsp_document_symbols toggle <cr>", "Lsp Document Symbols")
+map("<leader>ld", "<cmd>Trouble lsp_definitions toggle <cr>", "Lsp definition")
+map("<leader>lD", "<cmd>Trouble lsp_declarations toggle <cr>", "Lsp declaration")
 map("<leader>ll", "<cmd>Trouble lsp toggle win.position=right<cr>", "Lsp Defintion/references/....")
 
 -- autocmd
