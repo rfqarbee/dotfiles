@@ -39,9 +39,8 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
--- dont think need this anymore
--- map("x", "<leader>p", '"_dP', { desc = "Paste w/o Clipboard" })
--- map("x", "<leader>p", '"+p', { desc = "Paste w/o Clipboard" })
+map("x", "p", '"_dP', { desc = "Paste w/o Clipboard" })
+map("x", "<leader>p", '"+p', { desc = "Paste and copy into Clipboard" })
 -- map("n", "<leader>y", '"+y', { desc = "Yank into clipboard" })
 -- map("n", "<leader>Y", '"+Y', { desc = "Yank . to end in clipboard" })
 -- map("v", "<leader>y", '"+y', { desc = "Yank into clipboard (v)" })
