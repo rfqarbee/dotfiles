@@ -3,7 +3,7 @@ local map = vim.keymap.set
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight on search when Esc in normal mode" })
 
 -- source and execute
-map({ "n", "v" }, "<C-x>", "<cmd>:source %<CR>", { desc = "Source & Execute" })
+map({ "n", "v" }, "<leader>x", "<cmd>:source %<CR>", { desc = "Source & Execute" })
 
 -- more binds
 map("n", "<C-q>", "<cmd>q<CR>", { desc = "Quit Neovim" })
@@ -41,8 +41,5 @@ map("n", "N", "Nzzzv")
 
 map("x", "p", '"_dP', { desc = "Paste w/o Clipboard" })
 map("x", "<leader>p", '"+p', { desc = "Paste and copy into Clipboard" })
--- map("n", "<leader>y", '"+y', { desc = "Yank into clipboard" })
--- map("n", "<leader>Y", '"+Y', { desc = "Yank . to end in clipboard" })
--- map("v", "<leader>y", '"+y', { desc = "Yank into clipboard (v)" })
--- map("n", "<leader>d", '"_d', { desc = "Delete w/o clipboard" })
--- map("v", "<leader>d", '"_d', { desc = "Delete w/o clipboard (v)" })
+-- map({"n","v"}, "d", '"_d', { desc = "Delete w/o clipboard" })
+-- map({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete w/o clipboard (v)" })

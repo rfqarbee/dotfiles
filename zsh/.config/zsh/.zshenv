@@ -61,7 +61,6 @@ export GOPATH="$XDG_DATA_HOME"/go
 
 # android
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
 export PUB_CACHE=$XDG_CONFIG_HOME/pub_cache
 export ANDROID_HOME=/opt/android-sdk
 export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin

@@ -3,11 +3,11 @@ local obs = require("obsidian")
 obs.setup({
 	workspaces = {
 		-- make dir as workspace
-		{
-			name = "Daily",
-			path = "~/Documents/Vaults/Daily",
-			strict = true,
-		},
+		-- {
+		-- 	name = "Daily",
+		-- 	path = "~/Documents/Vaults/Daily",
+		-- 	strict = true,
+		-- },
 		{
 			name = "Work",
 			path = "~/Documents/Vaults/Work",
@@ -28,8 +28,9 @@ obs.setup({
 	-- notes_subdir = "notes",
 	-- new_notes_location = "notes_subdir",
 	daily_notes = {
-		folder = "Daily",
+		-- folder = "Daily",
 		date_format = "%d-%m-%Y",
+		default_tags = { "daily-notessss" },
 		template = "dailytemplates.md",
 	},
 	completion = {
@@ -39,10 +40,12 @@ obs.setup({
 		min_chars = 2,
 	},
 	templates = {
-		folder = "~/Documents/Vaults/Templates",
+		folder = "~/Documents/Vaults/.templates",
 		date_format = "%d-%m-%Y",
 		time_format = "%H:%M",
-		-- substitutions = {},
+		substitutions = {
+			-- increment -- TODO: increase index for daily template
+		},
 	},
 	preferred_link_style = "wiki",
 })

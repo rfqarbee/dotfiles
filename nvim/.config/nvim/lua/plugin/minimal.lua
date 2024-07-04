@@ -1,6 +1,3 @@
--- gitblame
-local gitblame = require("gitblame")
-
 return {
 	{
 		"nvim-lualine/lualine.nvim",
@@ -25,10 +22,6 @@ return {
 							unnamed = "",
 							newfile = "<New>",
 						},
-					},
-					{
-						gitblame.get_current_blame_text,
-						cond = gitblame.is_blame_text_available,
 					},
 				},
 			},

@@ -44,11 +44,3 @@ opt.undofile = true
 opt.undodir = os.getenv("HOME") .. "/.cache/undodir"
 opt.isfname:append("@-@")
 opt.updatetime = 100
-
---TODO another dotod
---WARN
---FIX
---PERF
---NOTE
---WARNING
---

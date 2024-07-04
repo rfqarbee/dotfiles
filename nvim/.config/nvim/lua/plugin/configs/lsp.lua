@@ -95,6 +95,7 @@ return {
 					map("<leader>rn", vim.lsp.buf.rename, "Rename var")
 					map("<C-p>", vim.lsp.buf.code_action, "Code action")
 					map("<C-n>", vim.diagnostic.open_float, "Diagnostics open float")
+					map("<leader>lr", "<cmd>LspRestart<cr>", "Restart")
 
 					-- i aint reading allat, one day customize maybe, for now its good enough
 					local filetype = vim.bo[bufnr].filetype

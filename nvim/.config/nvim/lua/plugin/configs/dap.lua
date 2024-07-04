@@ -17,13 +17,13 @@ return {
 		require("custom.dapcustom")
 
 		-- keymap
-		vim.keymap.set("n", "<space>b", function()
+		vim.keymap.set("n", "<leader>b", function()
 			dap.toggle_breakpoint()
 		end, { desc = "Toggle breakpoint" })
-		vim.keymap.set("n", "<space>dc", function()
+		vim.keymap.set("n", "<leader>dc", function()
 			dap.run_to_cursor()
 		end, { desc = "Run to cursor" })
-		vim.keymap.set("n", "<space>?", function()
+		vim.keymap.set("n", "<leader>?", function()
 			dapui.eval(nil, { enter = true })
 		end, { desc = "Eval dapui" })
 		vim.keymap.set("n", "<F1>", function()
@@ -45,7 +45,7 @@ return {
 			dap.restart()
 		end, { desc = "Restart" })
 
-		vim.keymap.set("n", "<space>dd", function()
+		vim.keymap.set("n", "<leader>dd", function()
 			dapui.toggle()
 		end, { desc = "Dap-ui" })
 

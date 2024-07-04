@@ -9,18 +9,29 @@ return {
 		require("todo-comments").setup({
 			keywords = {
 				FIX = {
-					icon = " ", -- icon used for the sign, and in search results
-					color = "error", -- can be a hex color, or a named color (see below)
-					alt = { "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
-					-- signs = false, -- configure signs for some keywords individually
+					icon = " ",
+					color = "error",
+					alt = { "BUG", "ISSUE" },
 				},
 				TODO = { icon = " ", color = "info" },
-				SHIT = { icon = " ", color = "warning" },
-				WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
-				PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-				NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+				WARN = { icon = " ", color = "#ffbe3d", alt = { "WARNING", "TEMP" } },
+				PERF = { icon = " ", color = "#5cfe97", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+				NOTE = { icon = " ", color = "#5ca5fe", alt = { "INFO" } },
 				TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
 			},
 		})
 	end,
 }
+
+-- below is the color code and icons
+-- NOTE:
+
+-- TODO:
+
+-- WARN:
+
+-- FIX:
+
+-- TEST:
+
+-- OPTIMIZE:
