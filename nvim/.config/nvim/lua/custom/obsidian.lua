@@ -28,9 +28,9 @@ obs.setup({
 	-- notes_subdir = "notes",
 	-- new_notes_location = "notes_subdir",
 	daily_notes = {
-		-- folder = "Daily",
+		folder = "daily",
 		date_format = "%d-%m-%Y",
-		default_tags = { "daily-notessss" },
+		default_tags = { "daily-notes" },
 		template = "dailytemplates.md",
 	},
 	completion = {
@@ -40,7 +40,7 @@ obs.setup({
 		min_chars = 2,
 	},
 	templates = {
-		folder = "~/Documents/Vaults/.templates",
+		folder = "~/Documents/Vaults/templates",
 		date_format = "%d-%m-%Y",
 		time_format = "%H:%M",
 		substitutions = {

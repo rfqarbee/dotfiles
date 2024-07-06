@@ -105,7 +105,7 @@ map("<leader>ls", "<cmdTrouble symbols toggle <cr>", "Document Symbols")
 map("<leader>ls", "<cmd>Trouble lsp_document_symbols toggle <cr>", "Lsp Document Symbols")
 map("<leader>ld", "<cmd>Trouble lsp_definitions toggle <cr>", "Lsp definition")
 map("<leader>lD", "<cmd>Trouble lsp_declarations toggle <cr>", "Lsp declaration")
-map("<leader>ll", "<cmd>Trouble lsp toggle win.position=right<cr>", "Lsp Defintion/references/....")
+map("<leader>lt", "<cmd>Trouble lsp toggle win.position=right<cr>", "Lsp Defintion/references/....")
 
 -- autocmd
 local TroubleGroup = vim.api.nvim_create_augroup("TroubleGroup", { clear = true })

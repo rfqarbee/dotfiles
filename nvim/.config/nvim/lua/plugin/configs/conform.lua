@@ -5,13 +5,18 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				c = { "clang_format" },
-				typescript = { "prettier" },
-				javascript = {
-					"prettier",
-				},
-				dart = {
-					"prettier",
-				},
+				typescript = { "prettierd", "prettier" },
+				javascript = { "prettierd", "prettier" },
+				typescriptreact = { "prettierd", "prettier" },
+				javascriptreact = { "prettierd", "prettier" },
+				svelte = { "prettierd", "prettier" },
+				css = { "prettierd", "prettier" },
+				html = { "prettierd", "prettier" },
+				json = { "prettierd", "prettier" },
+				yaml = { "prettierd", "prettier" },
+				markdown = { "prettierd", "prettier" },
+				graphql = { "prettierd", "prettier" },
+				dart = { "prettierd", "prettier" },
 			},
 		})
 
