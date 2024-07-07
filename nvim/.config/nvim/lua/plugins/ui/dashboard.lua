@@ -64,6 +64,15 @@ return {
 						{
 							icon = "  ",
 							icon_hl = "Title",
+							desc = "Load Last Session",
+							key = "r",
+							keymap = "SPC w",
+							key_format = " %s", -- remove default surrounding `[]`
+							action = "lua print(3)",
+						},
+						{
+							icon = "  ",
+							icon_hl = "Title",
 							desc = "Neovim Config",
 							key = "c",
 							keymap = "SPC n",

@@ -4,7 +4,7 @@ local Rule = require("nvim-autopairs.rule")
 local cond = require("nvim-autopairs.conds")
 
 autopairs.add_rule(
-	Rule("%(.*%)%s*%=>$", " {  }", { "typescript", "typescriptreact", "javascript" })
-		:use_regex(true)
-		:set_end_pair_length(2)
+  Rule("%(.*%)%s*%=>$", " {  }", { "typescript", "typescriptreact", "javascript" })
+    :use_regex(true)
+    :set_end_pair_length(2)
 )

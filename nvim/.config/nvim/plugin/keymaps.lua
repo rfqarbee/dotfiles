@@ -1,3 +1,4 @@
+--test
 local map = vim.keymap.set
 -- might migrate to lazyvim; might not
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight on search when Esc in normal mode" })
