@@ -15,6 +15,12 @@ return {
         capabilities = require("cmp_nvim_lsp").default_capabilities()
       end
 
+      local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+      for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+      end
+
       local lspconfig = require("lspconfig")
 
       local servers = {
@@ -85,6 +91,28 @@ return {
         lspconfig[name].setup(config)
       end
 
+      lspconfig["dartls"].setup({
+        cmd = {
+            "dart",
+            "language-server",
+            "--protocol=lsp",
+          },
+          filetypes = { "dart" },
+          settings = {
+            dart = {
+              analysisExcludeFolders = {
+                vim.fn.expand("$XDG_CONFIG_HOME/pub_cache"),
+                vim.fn.expand("/opt/homebrew/"),
+                vim.fn.expand("$XDG_DATA_HOME/mise/installs/flutter/"),
+              },
+              updateImportsOnRename = true,
+              completeFunctionCalls = true,
+              showTodos = true,
+            },
+          },
+        }
+      )
+
       local disable_semantic_tokens = {
         lua = true,
       }
@@ -101,7 +129,7 @@ return {
           end
 
           -- using telescope
-          map("gd", builtin.lsp_definitions, "Goto defintion")
+          map("gd", vim.lsp.buf.definition, "Goto defintion")
           map("gD", vim.lsp.buf.declaration, "Goto declaration")
           map("gr", builtin.lsp_references, "Goto references")
           map("gi", builtin.lsp_implementations, "Goto implementation")

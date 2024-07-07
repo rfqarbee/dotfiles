@@ -3,6 +3,7 @@ local WhiteSpace = vim.api.nvim_create_augroup("replaceGroup", { clear = true })
 local YankGroup = vim.api.nvim_create_augroup("HiglightYank", { clear = true })
 local SaveAll = vim.api.nvim_create_augroup("SaveAll", { clear = true })
 
+-- first test
 -- save all opened buffers that has changes and notify files saved
 autocmd("BufWritePost", {
   group = SaveAll,

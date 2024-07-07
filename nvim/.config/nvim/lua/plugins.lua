@@ -83,7 +83,6 @@ return {
     config = function()
       local comment = require("Comment")
       local ts_context_comment = require("ts_context_commentstring.integrations.comment_nvim")
-
       comment.setup({
         pre_hook = ts_context_comment.create_pre_hook(),
       })
@@ -95,11 +94,14 @@ return {
     "rcarriga/nvim-notify",
     event = "VeryLazy",
     enabled = true,
+    keys = {
+      { "<Esc>", "<cmd>lua require('notify').dismiss()<cr>", "Dismiss Notification" },
+    },
     config = function()
       local notify = require("notify")
-
       vim.notify = notify
       notify.setup({
+        render = "minimal",
         fps = 240,
         stages = "slide",
         timeout = 5000,
@@ -117,7 +119,6 @@ return {
   },
 
   -- dressing
-
   {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
@@ -185,6 +186,14 @@ return {
           font = "+2",
         },
       },
+    },
+  },
+
+  -- undotree{
+  {
+    "mbbill/undotree",
+    keys = {
+      { "<leader>u", vim.cmd.UndotreeToggle, desc = "Undo Tree" },
     },
   },
 }

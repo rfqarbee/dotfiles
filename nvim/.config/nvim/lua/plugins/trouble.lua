@@ -102,8 +102,8 @@ return {
     map("<leader>qw", "<cmd>Trouble diagnostics toggle<cr> ", "Workspace Diagnostics")
     map("<leader>qn", "<cmd>Trouble todo toggle<cr> ", "Todo list")
     map("<leader>ql", "<cmd>Trouble loclist toggle<cr>", "Location list")
-    map("<leader>qq", "<cmd>Trouble qflist toggle<cr>", "Quickfix list")
-    map("<leader>qQ", "<cmd>Trouble quickfix toggle<cr>", "Quickfix list")
+    map("<leader>qQ", "<cmd>Trouble qflist toggle<cr>", "Quickfix list") -- still dont know the difference
+    map("<leader>qq", "<cmd>Trouble quickfix toggle<cr>", "Quickfix list")
     map("<leader>qt", "<cmd>Trouble telescope toggle<cr>", "Telescope Quickfix list")
     --lsp
     map("<leader>ls", "<cmdTrouble symbols toggle <cr>", "Document Symbols")

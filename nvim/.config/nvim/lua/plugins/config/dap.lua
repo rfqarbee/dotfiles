@@ -14,7 +14,6 @@ return {
     require("nvim-dap-virtual-text").setup({
       enabled = true,
     })
-    local dap = require("dap")
 
     -- test gdb
     dap.adapters.gdb = {
