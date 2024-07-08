@@ -1,7 +1,7 @@
 --test
 local map = vim.keymap.set
 -- might migrate to lazyvim; might not
-map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight on search when Esc in normal mode" })
+map("n", "<leader><Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight on search when Esc in normal mode" })
 
 -- source and execute
 map({ "n", "v" }, "<leader>x", "<cmd>:source %<CR>", { desc = "Source & Execute" })

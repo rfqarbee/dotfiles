@@ -15,6 +15,7 @@ return {
     local builtin = require("telescope.builtin")
     local actions = require("telescope.actions")
     local open_trouble = require("trouble.sources.telescope").open
+    local themes = require("telescope.themes")
 
     require("telescope").setup({
       defaults = {
@@ -76,7 +77,7 @@ return {
         },
       },
       extensions = {
-        ["ui-select"] = { require("telescope.themes").get_dropdown() },
+        ["ui-select"] = { themes.get_cursor() },
         fzf = {
           fuzzy = true,
           override_generic_sorter = true,
@@ -106,7 +107,7 @@ return {
     vim.keymap.set("n", "<leader>.", builtin.oldfiles, { desc = "Find recent files" })
 
     vim.keymap.set("n", "<leader>/", function()
-      builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({ winblend = 2, previewer = false }))
+      builtin.current_buffer_fuzzy_find(themes.get_dropdown({ winblend = 2, previewer = false }))
     end, { desc = "Search current buffer" })
 
     vim.keymap.set("n", "<leader>to", function()
