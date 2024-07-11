@@ -19,6 +19,13 @@ return {
 
     require("telescope").setup({
       defaults = {
+        preview = {
+          hide_on_startup = false,
+        },
+        path_display = {
+          -- "truncate",
+          shorten = { len = 1, exclude = { 1, 2, -2, -1 } },
+        },
         vimgrep_arguments = {
           "rg",
           "--color=never",
@@ -48,6 +55,7 @@ return {
             ["<C-a>"] = actions.add_selected_to_qflist,
             ["<M-q>"] = actions.send_to_qflist,
             ["<M-a>"] = actions.add_to_qflist,
+            ["<M-p>"] = require("telescope.actions.layout").toggle_preview,
           },
           n = {
             ["f"] = actions.add_selection,
@@ -58,8 +66,9 @@ return {
             ["a"] = actions.add_selected_to_qflist,
             ["Q"] = actions.send_to_qflist,
             ["A"] = actions.add_to_qflist,
-            ["<C-t>"] = open_trouble,
+            ["t"] = open_trouble,
             ["<M-e>"] = actions.close,
+            ["<M-p>"] = require("telescope.actions.layout").toggle_preview,
           },
         },
         winblend = 0,
@@ -107,7 +116,13 @@ return {
     vim.keymap.set("n", "<leader>.", builtin.oldfiles, { desc = "Find recent files" })
 
     vim.keymap.set("n", "<leader>/", function()
-      builtin.current_buffer_fuzzy_find(themes.get_dropdown({ winblend = 2, previewer = false }))
+      builtin.current_buffer_fuzzy_find(themes.get_dropdown({
+        -- layout_strategy = "horizontal",
+        sorting_strategy = "descending",
+        layout_config = { height = 35, width = 100 },
+        winblend = 0,
+        previewer = false,
+      }))
     end, { desc = "Search current buffer" })
 
     vim.keymap.set("n", "<leader>to", function()

@@ -4,6 +4,10 @@ return {
   -- tpope W
   "tpope/vim-sleuth",
 
+  -- nui
+  {
+    "MunifTanjim/nui.nvim",
+  },
   -- auto session
   {
     "rmagatti/auto-session",

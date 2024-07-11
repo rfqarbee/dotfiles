@@ -21,6 +21,7 @@ return {
           untracked = { text = "┆" },
         },
         signs_staged_enable = true,
+        numhl = true,
         current_line_blame = true,
         current_line_blame_opts = {
           virt_text = true,

@@ -2,124 +2,104 @@ return {
   "folke/trouble.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons", "folke/lsp-colors.nvim" },
   cmd = "Trouble",
-  config = function()
-    local trouble = require("trouble")
-    local map = function(key, func, desc)
-      vim.keymap.set("n", key, func, { desc = "Trouble : " .. desc })
-    end
-
-    trouble.setup({
-      warn_no_results = true,
-      win = {
-        size = 55,
-        position = "right",
+  keys = {
+    { "<leader>qs", "<cmd>Trouble diag_priority toggle<cr>", "Project diagnostics on severity" },
+    { "<leader>qd", "<cmd>Trouble diagnostics_buffer toggle<cr>", "Current diagnostics" },
+    { "<leader>qw", "<cmd>Trouble diagnostics toggle<cr>", "Project diagnostics" },
+    { "<leader>qn", "<cmd>Trouble todo toggle<cr>", "Todo list" },
+    { "<leader>qt", "<cmd>Trouble telescope toggle<cr>", "Telescope Quickfix list" },
+    { "<leader>qf", "<cmd>Trouble telescope_files toggle<cr>", "Telescope Files Quickfix list" },
+    { "<leader>qq", "<cmd>Trouble quickfix toggle<cr>", "Toggle Quickfix list" },
+    -- { "<leader>qQ", "<cmd>Trouble qflist toggle<cr>", "Toggle Qflist" },
+    {
+      "<leader>ls",
+      "<cmd>Trouble symbols toggle results.win.relative=win results.win.position=right<cr>",
+      "Document Symbol list",
+    },
+    -- {
+    --   "<leader>lS",
+    --   "<cmd>Trouble lsp_document_symbols toggle<cr>",
+    --   "Telescope Quickfix list",
+    -- },
+    { "<leader>ld", "<cmd>Trouble lsp_definitions toggle<cr>", "Lsp Definition" },
+    { "<leader>lD", "<cmd>Trouble lsp_declarations toggle<cr>", "Lsp Declaration" },
+    { "<leader>lt", "<cmd>Trouble lsp toggle win.position=right<cr>", "Lsp" },
+  },
+  opts = {
+    win = {
+      size = 45,
+      position = "right",
+    },
+    modes = {
+      -- todo
+      todo = {
+        focus = true,
+        mode = "todo",
+        win = { size = 40, position = "left" },
       },
-      modes = {
-        todo = {
-          desc = "Todo List",
-          mode = "todo",
-          win = { size = 35, position = "left" },
+      -- diagnostics change window
+      diagnostics = {
+        mode = "diagnostics",
+        win = { size = 12, position = "bottom" },
+      },
+      -- diagnostics current buffer with preview
+      diagnostics_buffer = {
+        desc = "Current Buffer diagnostics",
+        mode = "diagnostics",
+        focus = true,
+        filter = { buf = 0 },
+        pinned = true,
+        win = {
+          position = "bottom",
+          size = 12,
         },
-        diagnostics = {
-          desc = "Diagnostics",
-          mode = "diagnostics",
-          preview = {
-            type = "split",
-            relative = "win",
-            position = "right",
-            size = 0.5,
-          },
-          win = { position = "bottom", size = 10 },
+        preview = {
+          type = "split",
+          relative = "win",
+          position = "right",
+          size = 0.5,
         },
-        quickfix = {
-          desc = "Quickfix list",
-          mode = "quickfix",
-          win = { position = "left", size = 35 },
+      },
+      -- base on severity
+      diag_priority = {
+        mode = "diagnostics",
+        desc = "Diagnostics on severity",
+        filter = function(items)
+          local severity = vim.diagnostic.severity.HINT
+          for _, item in ipairs(items) do
+            severity = math.min(severity, item.severity)
+          end
+          return vim.tbl_filter(function(item)
+            return item.severity == severity
+          end, items)
+        end,
+        preview = {
+          type = "split",
+          relative = "win",
+          position = "right",
+          size = 0.5,
         },
-        qflist = {
-          desc = "Quickfix list",
-          mode = "qflist",
-          win = { position = "left", size = 35 },
+        win = { position = "bottom", size = 10 },
+      },
+      -- project diagnostics
+      diagnostics_project = {
+        mode = "diagnostics",
+        win = {
+          position = "bottom",
+          size = 12,
         },
-        telescope = {
-          desc = "Telescope Quickfix list",
-          mode = "telescope",
-          win = { position = "left", size = 35 },
-        },
-        loclist = {
-          desc = "Location list",
-          mode = "loclist",
-          win = { position = "right" },
-        },
-        workspaceDiags = {
-          mode = "diagnostics", -- inherit from diagnostics mode
-          filter = {
-            any = {
-              buf = 0, -- current buffer
-              {
-                severity = vim.diagnostic.severity.ERROR, -- errors only
-                -- limit to files in the current project
-                function(item)
-                  return item.dirname:find((vim.loop or vim.uv).cwd(), 1, true)
-                end,
-              },
+        filter = {
+          any = {
+            buf = 0,
+            {
+              severity = vim.diagnostic.severity.ERROR,
+              function(item)
+                return item.filename:find((vim.loop or vim.uv).cwd(), 1, true)
+              end,
             },
           },
-          preview = {
-            type = "split",
-            relative = "win",
-            position = "right",
-            size = 0.5,
-          },
-          win = { position = "bottom", size = 10 },
-        },
-        severefilter = {
-          mode = "diagnostics", -- inherit from diagnostics mode
-          desc = "Diagnostics on severity ",
-          filter = function(items)
-            local severity = vim.diagnostic.severity.HINT
-            for _, item in ipairs(items) do
-              severity = math.min(severity, item.severity)
-            end
-            return vim.tbl_filter(function(item)
-              return item.severity == severity
-            end, items)
-          end,
-          preview = {
-            type = "split",
-            relative = "win",
-            position = "right",
-            size = 0.5,
-          },
-          win = { position = "bottom", size = 10 },
         },
       },
-    })
-
-    -- keymaps
-    map("<leader>qc", "<cmd>Trouble severefilter toggle<cr>", "Workspace Cascade Diagnostics")
-    map("<leader>qd", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Current Diagnostics")
-    map("<leader>qw", "<cmd>Trouble diagnostics toggle<cr> ", "Workspace Diagnostics")
-    map("<leader>qn", "<cmd>Trouble todo toggle<cr> ", "Todo list")
-    map("<leader>ql", "<cmd>Trouble loclist toggle<cr>", "Location list")
-    map("<leader>qQ", "<cmd>Trouble qflist toggle<cr>", "Quickfix list") -- still dont know the difference
-    map("<leader>qq", "<cmd>Trouble quickfix toggle<cr>", "Quickfix list")
-    map("<leader>qt", "<cmd>Trouble telescope toggle<cr>", "Telescope Quickfix list")
-    --lsp
-    map("<leader>ls", "<cmdTrouble symbols toggle <cr>", "Document Symbols")
-    map("<leader>ls", "<cmd>Trouble lsp_document_symbols toggle <cr>", "Lsp Document Symbols")
-    map("<leader>ld", "<cmd>Trouble lsp_definitions toggle <cr>", "Lsp definition")
-    map("<leader>lD", "<cmd>Trouble lsp_declarations toggle <cr>", "Lsp declaration")
-    map("<leader>lt", "<cmd>Trouble lsp toggle win.position=right<cr>", "Lsp Defintion/references/....")
-
-    -- autocmd
-    local TroubleGroup = vim.api.nvim_create_augroup("TroubleGroup", { clear = true })
-
-    vim.api.nvim_create_autocmd("QuickFixCmdPost", {
-      group = TroubleGroup,
-      callback = function()
-        vim.cmd([[Trouble qflist open]])
-      end,
-    })
-  end,
+    },
+  },
 }

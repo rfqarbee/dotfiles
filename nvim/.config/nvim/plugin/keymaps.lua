@@ -9,7 +9,7 @@ map({ "n", "v" }, "<leader>x", "<cmd>:source %<CR>", { desc = "Source & Execute"
 -- more binds
 map("n", "<C-q>", "<cmd>q<CR>", { desc = "Quit Neovim" })
 -- map("n", "<leader>q", "<cmd>qa!<CR>", { desc = "Abort all and quit" })
-map("i", "<M-q>", "<Esc>", { desc = "Insert to normal mode" })
+map("i", "jk", "<Esc>", { desc = "Insert to normal mode" })
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
 
 -- navigating tabs
