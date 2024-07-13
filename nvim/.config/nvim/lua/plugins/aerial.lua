@@ -2,6 +2,7 @@
 
 return {
   "stevearc/aerial.nvim",
+  enabled = false,
   -- Optional dependencies
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
@@ -9,6 +10,11 @@ return {
   },
   config = function()
     require("aerial").setup({
+      layout = {
+        max_width = { 40, 0.2 },
+        min_width = 25,
+      },
+      -- default_direction = "left",
       on_attach = function(bufnr)
         vim.keymap.set("n", "[a", "<cmd>AerialPrev<CR>", { buffer = bufnr })
         vim.keymap.set("n", "]a", "<cmd>AerialNext<CR>", { buffer = bufnr })

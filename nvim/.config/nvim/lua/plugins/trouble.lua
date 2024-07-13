@@ -16,11 +16,11 @@ return {
       "<cmd>Trouble symbols toggle results.win.relative=win results.win.position=right<cr>",
       "Document Symbol list",
     },
-    -- {
-    --   "<leader>lS",
-    --   "<cmd>Trouble lsp_document_symbols toggle<cr>",
-    --   "Telescope Quickfix list",
-    -- },
+    {
+      "<leader>lS",
+      "<cmd>Trouble lsp_document_symbols toggle<cr>",
+      "Lsp Document symbols",
+    },
     { "<leader>ld", "<cmd>Trouble lsp_definitions toggle<cr>", "Lsp Definition" },
     { "<leader>lD", "<cmd>Trouble lsp_declarations toggle<cr>", "Lsp Declaration" },
     { "<leader>lt", "<cmd>Trouble lsp toggle win.position=right<cr>", "Lsp" },

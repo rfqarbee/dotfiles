@@ -4,6 +4,7 @@ return {
   enabled = true,
   keys = {
     { "<leader><Esc>", "<cmd>lua require('notify').dismiss()<cr>", "Dismiss Notification" },
+    -- { "<C-g>", "<cmd>lua show_file_info()<cr>", "Show current file" },
   },
   config = function()
     local notify = require("notify")
@@ -23,5 +24,27 @@ return {
         vim.api.nvim_win_set_config(win, { zindex = 100 })
       end,
     })
+
+    local function show_file_info()
+      local file_path = vim.fn.expand("%:p"):match("([^/]+)$")
+      local modified = vim.bo.modified
+      local total_lines = vim.fn.line("$")
+      local message = ""
+
+      if file_path == nil then
+        return
+      else
+        if modified then
+          message = "[Modified+] File: " .. file_path .. " --" .. total_lines .. " lines"
+        else
+          message = "File: " .. file_path .. " --" .. total_lines .. " lines"
+        end
+        notify(message, "info", { title = "File Information" })
+      end
+    end
+
+    vim.keymap.set("n", "<C-g>", function()
+      show_file_info()
+    end, { desc = "Show current file name" })
   end,
 }
