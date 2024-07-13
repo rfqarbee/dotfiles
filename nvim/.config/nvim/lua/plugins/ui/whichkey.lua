@@ -1,0 +1,38 @@
+return {
+  "folke/which-key.nvim",
+  event = "VeryLazy",
+  -- init = function()
+  --   vim.o.timeout = true
+  --   vim.o.timeoutlen = 300
+  -- end,
+  keys = {
+    {
+      "<leader>k",
+      function()
+        require("which-key").show({ global = false })
+      end,
+      desc = "Buffer Local Keymaps (which-key)",
+    },
+  },
+  config = function()
+    local w = require("which-key")
+    w.setup({
+      plugins = {
+        registers = false,
+        spelling = {
+          enabled = false,
+        },
+      },
+    })
+    w.add({
+      { "<leader>h", group = "Harpoon : " },
+      { "<leader>t", group = "Telescope : " },
+      { "<leader>q", group = "Trouble : " },
+      { "<leader>l", group = "LSP : " },
+      { "<leader>g", group = "Git : " },
+      { "<leader>d", group = "Dap : " },
+      { "<leader>w", group = "Workspace : " },
+      { "<leader>c", group = "Lsp (Telescope) : " },
+    })
+  end,
+}

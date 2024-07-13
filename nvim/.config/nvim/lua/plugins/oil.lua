@@ -44,7 +44,7 @@ return {
       })
 
       vim.keymap.set("n", "-", require("oil").toggle_float, { desc = "Oil Float" })
-      vim.keymap.set("n", "<leader>-", require("oil").open)
+      vim.keymap.set("n", "<leader>-", require("oil").open, { desc = "Oil -> Directory" })
     end,
   },
   -- gx plugin

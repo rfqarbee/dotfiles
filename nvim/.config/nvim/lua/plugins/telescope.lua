@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  tag = "0.1.6",
+  branch = "0.1.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
     {
@@ -10,14 +10,16 @@ return {
     { "nvim-telescope/telescope-ui-select.nvim" },
     { "nvim-tree/nvim-web-devicons" },
     { "smartpde/telescope-recent-files" },
+    { "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0.0," },
   },
   config = function()
+    local telescope = require("telescope")
     local builtin = require("telescope.builtin")
     local actions = require("telescope.actions")
     local open_trouble = require("trouble.sources.telescope").open
     local themes = require("telescope.themes")
 
-    require("telescope").setup({
+    telescope.setup({
       defaults = {
         preview = {
           hide_on_startup = false,
@@ -93,20 +95,30 @@ return {
           override_file_sorter = true,
           case_mode = "smart_case",
         },
+        live_grep_args = {
+          mappings = {
+            i = {
+              ["<c-o"] = require("telescope-live-grep-args.actions").quote_prompt(),
+              ["<c-i>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob " }),
+              ["<c-space"] = actions.to_fuzzy_refine,
+            },
+          },
+        },
       },
     })
 
-    pcall(require("telescope").load_extension, "fzf")
-    pcall(require("telescope").load_extension, "ui-select")
-    pcall(require("telescope").load_extension, "recent_files")
+    pcall(telescope.load_extension, "fzf")
+    pcall(telescope.load_extension, "ui-select")
+    pcall(telescope.load_extension, "recent_files")
+    pcall(telescope.load_extension, "live_grep_args")
 
-    vim.keymap.set("n", "<leader>fb", function()
-      require("telescope").extensions.recent_files.pick()
+    vim.keymap.set("n", "<leader>t.", function()
+      telescope.extensions.recent_files.pick()
     end, { noremap = true, silent = true })
 
     vim.keymap.set("n", "<M-e>", builtin.find_files, { desc = "Find Files" })
     vim.keymap.set("n", "<M-w>", builtin.grep_string, { desc = "Grep current word" })
-    vim.keymap.set("n", "<M-f>", builtin.live_grep, { desc = "Live Grep" })
+    vim.keymap.set("n", "<M-f>", telescope.extensions.live_grep_args.live_grep_args, { desc = "Live Grep" })
     vim.keymap.set("n", "<M-d>", function()
       builtin.find_files({ find_command = { "fd", "--type", "d" } })
     end, { desc = "Find Directories" })
