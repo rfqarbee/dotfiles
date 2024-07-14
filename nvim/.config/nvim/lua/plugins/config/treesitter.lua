@@ -5,40 +5,49 @@ return {
   dependencies = { "windwp/nvim-ts-autotag" },
   config = function()
     local ensure_installed = {
-      "bash",
-      "c",
-      "c_sharp",
-      "cmake",
-      "dart",
-      "dockerfile",
-      "gitignore",
-      "go",
-      "http",
-      "luadoc",
-      "make",
-      "regex",
-      "sql",
-      "svelte",
-      "xml",
-      "toml",
-      "lua",
-      "vim",
-      "vimdoc",
-      "rust",
       "json5",
       "json",
       "typescript",
       "javascript",
-      "tsx",
-      "yaml",
       "html",
       "css",
+      "tsx",
+      "svelte",
       "prisma",
+
+      "bash",
+
+      "c",
+      "c_sharp",
+      "make",
+      "cmake",
+
+      "dart",
+
+      "go",
+
+      "sql",
+      "query",
+      "http",
+
+      "regex",
+
+      "gitignore",
+      "dockerfile",
+
+      "graphql",
+      "toml",
+      "yaml",
+
+      "lua",
+      "luadoc",
+      "vim",
+      "vimdoc",
+
+      "rust",
+
       "markdown_inline",
       "markdown",
-      "svelte",
-      "graphql",
-      "query",
     }
 
     require("nvim-treesitter.configs").setup({

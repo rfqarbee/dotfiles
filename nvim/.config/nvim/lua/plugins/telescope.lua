@@ -112,10 +112,11 @@ return {
     pcall(telescope.load_extension, "recent_files")
     pcall(telescope.load_extension, "live_grep_args")
 
-    vim.keymap.set("n", "<leader>t.", function()
+    vim.keymap.set("n", "<leader>f.", function()
       telescope.extensions.recent_files.pick()
     end, { noremap = true, silent = true })
 
+    vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find Buffers" })
     vim.keymap.set("n", "<M-e>", builtin.find_files, { desc = "Find Files" })
     vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Grep current word" })
     vim.keymap.set("n", "<leader>fg", telescope.extensions.live_grep_args.live_grep_args, { desc = "Live Grep" })

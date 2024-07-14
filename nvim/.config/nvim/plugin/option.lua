@@ -14,11 +14,11 @@ opt.mouse = "a" -- enable mouse all mode
 
 opt.number = true
 opt.relativenumber = true
--- vim.api.nvim_set_hl(0, "LineNr", { fg = "white" })
--- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "brown" })
+
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.softtabstop = 2
+
 opt.expandtab = true
 opt.autoindent = true
 opt.smartindent = true
@@ -53,4 +53,4 @@ opt.backup = false
 opt.undofile = true
 opt.undodir = os.getenv("HOME") .. "/.cache/undodir"
 opt.isfname:append("@-@")
-opt.updatetime = 100
+opt.updatetime = 50

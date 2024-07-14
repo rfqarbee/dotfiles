@@ -20,7 +20,7 @@ return {
       plugins = {
         registers = false,
         spelling = {
-          enabled = false,
+          enabled = true,
         },
       },
     })

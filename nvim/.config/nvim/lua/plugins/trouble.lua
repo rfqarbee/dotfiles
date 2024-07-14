@@ -10,20 +10,20 @@ return {
     { "<leader>qt", "<cmd>Trouble telescope toggle<cr>", "Telescope Quickfix list" },
     { "<leader>qf", "<cmd>Trouble telescope_files toggle<cr>", "Telescope Files Quickfix list" },
     { "<leader>qq", "<cmd>Trouble quickfix toggle<cr>", "Toggle Quickfix list" },
-    -- { "<leader>qQ", "<cmd>Trouble qflist toggle<cr>", "Toggle Qflist" },
+    { "<leader>qQ", "<cmd>Trouble qflist toggle<cr>", "Toggle Qflist" },
     {
-      "<leader>ls",
+      "<leader>ts",
       "<cmd>Trouble symbols toggle results.win.relative=win results.win.position=right<cr>",
       "Document Symbol list",
     },
     {
-      "<leader>lS",
+      "<leader>tS",
       "<cmd>Trouble lsp_document_symbols toggle<cr>",
       "Lsp Document symbols",
     },
-    { "<leader>ld", "<cmd>Trouble lsp_definitions toggle<cr>", "Lsp Definition" },
-    { "<leader>lD", "<cmd>Trouble lsp_declarations toggle<cr>", "Lsp Declaration" },
-    { "<leader>lt", "<cmd>Trouble lsp toggle win.position=right<cr>", "Lsp" },
+    { "<leader>td", "<cmd>Trouble lsp_definitions toggle<cr>", "Lsp Definition" },
+    { "<leader>tD", "<cmd>Trouble lsp_declarations toggle<cr>", "Lsp Declaration" },
+    { "<leader>tt", "<cmd>Trouble lsp toggle win.position=right<cr>", "Lsp" },
   },
   opts = {
     win = {

@@ -93,47 +93,47 @@ return {
   },
 
   -- neotree (only load in vaults)
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    Event = "VeryLazy",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-    },
-    cond = function()
-      local getos = os.getenv("OS")
-      local windowPath = "C:\\Users\\muhammadrafiq\\Documents\\Vaults"
-      local defaultOS = "/home/rafiq/Documents/Vaults"
-
-      -- this is only for my work laptop
-      if getos ~= nil and string.find(getos:lower(), "windows") then
-        if vim.fn.getcwd() == windowPath then
-          return true
-        end
-      else
-        if vim.fn.getcwd() == defaultOS then
-          return true
-        end
-      end
-    end,
-    config = function()
-      require("neo-tree").setup({
-        enable_diagnostics = false,
-        close_if_last_window = true,
-        window = {
-          position = "right",
-          width = 45,
-        },
-        filesystem = {
-          follow_current_file = {
-            leave_dirs_open = true,
-          },
-        },
-      })
-
-      vim.keymap.set("n", "<leader>on", "<cmd>Neotree focus<cr>", { desc = "Switch to Tree" })
-    end,
-  },
+  -- {
+  --   "nvim-neo-tree/neo-tree.nvim",
+  --   branch = "v3.x",
+  --   Event = "VeryLazy",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+  --     "MunifTanjim/nui.nvim",
+  --   },
+  --   cond = function()
+  --     local getos = os.getenv("OS")
+  --     local windowPath = "C:\\Users\\muhammadrafiq\\Documents\\Vaults"
+  --     local defaultOS = "/home/rafiq/Documents/Vaults"
+  --
+  --     -- this is only for my work laptop
+  --     if getos ~= nil and string.find(getos:lower(), "windows") then
+  --       if vim.fn.getcwd() == windowPath then
+  --         return true
+  --       end
+  --     else
+  --       if vim.fn.getcwd() == defaultOS then
+  --         return true
+  --       end
+  --     end
+  --   end,
+  --   config = function()
+  --     require("neo-tree").setup({
+  --       enable_diagnostics = false,
+  --       close_if_last_window = true,
+  --       window = {
+  --         position = "right",
+  --         width = 45,
+  --       },
+  --       filesystem = {
+  --         follow_current_file = {
+  --           leave_dirs_open = true,
+  --         },
+  --       },
+  --     })
+  --
+  --     vim.keymap.set("n", "<leader>on", "<cmd>Neotree focus<cr>", { desc = "Switch to Tree" })
+  --   end,
+  -- },
 }

@@ -27,5 +27,12 @@ return {
     vim.keymap.set("n", "<leader>5", function()
       harpoon:list():select(5)
     end, { desc = "Harpoon list 5" })
+
+    vim.keymap.set("n", "]a", function()
+      harpoon:list():prev()
+    end)
+    vim.keymap.set("n", "[a", function()
+      harpoon:list():next()
+    end)
   end,
 }

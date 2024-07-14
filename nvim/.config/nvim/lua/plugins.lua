@@ -1,5 +1,6 @@
 -- plugins with simple configuration
 return {
+  { "vidocqh/auto-indent.nvim", opts = {} },
   -- tpope W
   { "tpope/vim-sleuth" },
   -- nui

@@ -108,9 +108,7 @@ return {
           { name = "nvim_lsp", group_index = 0 },
           { name = "luasnip", group_index = 2 },
           { name = "path", group_index = 3 },
-          {
-            { name = "buffer" },
-          },
+          { name = "buffer" },
         }),
       })
 
@@ -131,44 +129,25 @@ return {
         },
       })
 
-      -- NOTE: i dont know what the fuck is this
-      -- local ts_node_func_parens_disabled = {
-      -- 	named_imports = true,
-      -- 	use_declaration = true,
-      -- }
-      -- local default_handler = autopairs.filetypes["*"]["("].handler
-      -- autopairs.filetypes["*"]["("].handler = function(char, item, bufnr, rules, commit_character)
-      -- 	local node_type = ts_utils.get_node_at_cursor():type()
-      -- 	if ts_node_func_parens_disabled[node_type] then
-      -- 		if item.data then
-      -- 			item.data.funcParensDisabled = true
-      -- 		else
-      -- 			char = ""
-      -- 		end
-      -- 	end
-      -- 	default_handler(char, item, bufnr, rules, commit_character)
-      -- end
-      -- cmp.event:on("confirm_done", autopairs.on_confirm_done({ sh = false }))
-
       cmp.event:on("confirm_done", autopairs.on_confirm_done())
 
-      -- -- vscode color scheme
-      -- -- gray
-      -- vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { bg = "NONE", strikethrough = true, fg = "#808080" })
-      -- -- blue
-      -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { bg = "NONE", fg = "#569CD6" })
-      -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { link = "CmpIntemAbbrMatch" })
-      -- -- light blue
-      -- vim.api.nvim_set_hl(0, "CmpItemKindVariable", { bg = "NONE", fg = "#9CDCFE" })
-      -- vim.api.nvim_set_hl(0, "CmpItemKindInterface", { link = "CmpItemKindVariable" })
-      -- vim.api.nvim_set_hl(0, "CmpItemKindText", { link = "CmpItemKindVariable" })
-      -- -- pink
-      -- vim.api.nvim_set_hl(0, "CmpItemKindFunction", { bg = "NONE", fg = "#C586C0" })
-      -- vim.api.nvim_set_hl(0, "CmpItemKindMethod", { link = "CmpItemKindFunction" })
-      -- -- front
-      -- vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { bg = "NONE", fg = "#D4D4D4" })
-      -- vim.api.nvim_set_hl(0, "CmpItemKindProperty", { link = "CmpItemKindKeyword" })
-      -- vim.api.nvim_set_hl(0, "CmpItemKindUnit", { link = "CmpItemKindKeyword" })
+      -- vscode color scheme
+      -- gray
+      vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { bg = "NONE", strikethrough = true, fg = "#808080" })
+      -- blue
+      vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { bg = "NONE", fg = "#569CD6" })
+      vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { link = "CmpIntemAbbrMatch" })
+      -- light blue
+      vim.api.nvim_set_hl(0, "CmpItemKindVariable", { bg = "NONE", fg = "#9CDCFE" })
+      vim.api.nvim_set_hl(0, "CmpItemKindInterface", { link = "CmpItemKindVariable" })
+      vim.api.nvim_set_hl(0, "CmpItemKindText", { link = "CmpItemKindVariable" })
+      -- pink
+      vim.api.nvim_set_hl(0, "CmpItemKindFunction", { bg = "NONE", fg = "#C586C0" })
+      vim.api.nvim_set_hl(0, "CmpItemKindMethod", { link = "CmpItemKindFunction" })
+      -- front
+      vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { bg = "NONE", fg = "#D4D4D4" })
+      vim.api.nvim_set_hl(0, "CmpItemKindProperty", { link = "CmpItemKindKeyword" })
+      vim.api.nvim_set_hl(0, "CmpItemKindUnit", { link = "CmpItemKindKeyword" })
     end,
   },
 }

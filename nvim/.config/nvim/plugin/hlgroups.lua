@@ -1,0 +1,2 @@
+-- vim.api.nvim_set_hl(0, "LineNr", { fg = "white" })
+-- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "brown" })

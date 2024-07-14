@@ -8,4 +8,3 @@ autopairs.add_rule(
     :use_regex(true)
     :set_end_pair_length(2)
 )
-

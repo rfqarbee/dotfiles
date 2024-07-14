@@ -93,25 +93,24 @@ return {
 
       lspconfig["dartls"].setup({
         cmd = {
-            "dart",
-            "language-server",
-            "--protocol=lsp",
-          },
-          filetypes = { "dart" },
-          settings = {
-            dart = {
-              analysisExcludeFolders = {
-                vim.fn.expand("$XDG_CONFIG_HOME/pub_cache"),
-                vim.fn.expand("/opt/homebrew/"),
-                vim.fn.expand("$XDG_DATA_HOME/mise/installs/flutter/"),
-              },
-              updateImportsOnRename = true,
-              completeFunctionCalls = true,
-              showTodos = true,
+          "dart",
+          "language-server",
+          "--protocol=lsp",
+        },
+        filetypes = { "dart" },
+        settings = {
+          dart = {
+            analysisExcludeFolders = {
+              vim.fn.expand("$XDG_CONFIG_HOME/pub_cache"),
+              vim.fn.expand("/opt/homebrew/"),
+              vim.fn.expand("$XDG_DATA_HOME/mise/installs/flutter/"),
             },
+            updateImportsOnRename = true,
+            completeFunctionCalls = true,
+            showTodos = true,
           },
-        }
-      )
+        },
+      })
 
       local disable_semantic_tokens = {
         lua = true,
@@ -141,38 +140,23 @@ return {
           map("<C-n>", vim.diagnostic.open_float, "Diagnostics open float")
           map("<leader>lr", "<cmd>LspRestart<cr>", "Restart")
 
-          -- i aint reading allat, one day customize maybe, for now its good enough
           local filetype = vim.bo[bufnr].filetype
           if disable_semantic_tokens[filetype] then
             client.server_capabilities.semanticTokensProvider = nil
           end
 
-          -- comment this out first
-          -- local client = vim.lsp.get_client_by_id(event.data.client_id)
-          -- if client and client.server_capabilities.documentHighlightProvider then
-          -- 	vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-          -- 		buffer = bufnr,
-          -- 		callback = vim.lsp.buf.document_highlight,
-          -- 	})
-          --
-          -- 	vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-          -- 		buffer = bufnr,
-          -- 		callback = vim.lsp.buf.clear_references,
-          -- 	})
-          -- end
+          if client and client.server_capabilities.documentHighlightProvider then
+            vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+              buffer = bufnr,
+              callback = vim.lsp.buf.document_highlight,
+            })
+
+            vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+              buffer = bufnr,
+              callback = vim.lsp.buf.clear_references,
+            })
+          end
         end,
-      })
-    end,
-  },
-  -- typescript specific
-  {
-    "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    config = function()
-      require("typescript-tools").setup({
-        settings = {
-          publish_diagnostic_on = "insert_leave",
-        },
       })
     end,
   },
