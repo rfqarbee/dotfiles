@@ -10,7 +10,43 @@ return {
     local dap = require("dap")
     local dapui = require("dapui")
 
-    require("dapui").setup()
+    require("dapui").setup({
+      layouts = {
+        -- Changing the layout order will give more space to the first element
+        {
+          -- You can change the order of elements in the sidebar
+          elements = {
+            -- { id = "scopes", size = 0.25, },
+            { id = "stacks", size = 0.50 },
+            { id = "breakpoints", size = 0.25 },
+            { id = "watches", size = 0.25 },
+          },
+          size = 56,
+          position = "right", -- Can be "left" or "right"
+        },
+        {
+          elements = {
+            { id = "repl", size = 0.60 },
+            { id = "console", size = 0.50 },
+          },
+          size = 10,
+          position = "bottom", -- Can be "bottom" or "top"
+        },
+      },
+      controls = {
+        icons = {
+          pause = "",
+          play = " (F1)",
+          step_into = " (F2)",
+          step_over = " (F3)",
+          step_out = " (F4)",
+          step_back = " (F5)",
+          run_last = " (F7)",
+          terminate = " (F8)",
+          disconnect = " (F9)",
+        },
+      },
+    })
     require("nvim-dap-virtual-text").setup({
       enabled = true,
     })
@@ -92,7 +128,7 @@ dap.configurations.rust = dap.configurations.cpp
       dap.continue()
     end, { desc = "Continue" })
     vim.keymap.set("n", "<F2>", function()
-      dap.step_info()
+      dap.step_into()
     end, { desc = "Step into" })
     vim.keymap.set("n", "<F3>", function()
       dap.step_over()
@@ -105,6 +141,15 @@ dap.configurations.rust = dap.configurations.cpp
     end, { desc = "Step back" })
     vim.keymap.set("n", "<F6>", function()
       dap.restart()
+    end, { desc = "Restart" })
+    vim.keymap.set("n", "<F7>", function()
+      dap.run_last()
+    end, { desc = "Restart" })
+    vim.keymap.set("n", "<F8>", function()
+      dap.terminate()
+    end, { desc = "Restart" })
+    vim.keymap.set("n", "<F9>", function()
+      dap.disconnect({ terminateDebuggee = false })
     end, { desc = "Restart" })
 
     vim.keymap.set("n", "<leader>dd", function()

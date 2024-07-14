@@ -2,20 +2,37 @@ return {
   {
     "folke/tokyonight.nvim",
     lazy = false,
-    enabled = false,
+    enabled = true,
     priority = 1000,
     config = function()
       require("tokyonight").setup({
         style = "moon",
         transparent = true,
+        styles = {
+          comments = { italic = true },
+          keywords = { italic = false },
+        },
+        plugins = {
+          gitsigns = true,
+          trouble = true,
+        },
+        on_colors = function(colors)
+          colors.hint = colors.cyan
+          colors.error = colors.red
+          colors.warn = colors.orange
+          colors.info = colors.blue
+        end,
       })
-      vim.cmd.colorscheme("tokyonight-storm")
+
+      -- this is a comment
+      vim.cmd.colorscheme("tokyonight")
     end,
   },
   {
     "catppuccin/nvim",
     name = "catppuccin",
     lazy = false,
+    enabled = false,
     priority = 1000,
     config = function()
       require("catppuccin").setup({
