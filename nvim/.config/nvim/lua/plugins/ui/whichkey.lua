@@ -26,7 +26,7 @@ return {
     })
     w.add({
       { "<leader>h", group = "Harpoon : " },
-      { "<leader>t", group = "Telescope : " },
+      { "<leader>f", group = "Telescope : " },
       { "<leader>q", group = "Trouble : " },
       { "<leader>l", group = "LSP : " },
       { "<leader>g", group = "Git : " },

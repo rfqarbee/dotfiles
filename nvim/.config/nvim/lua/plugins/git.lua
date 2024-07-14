@@ -44,7 +44,7 @@ return {
           end
 
           -- Navigation
-          map("n", "]h", function()
+          map("n", "]c", function()
             if vim.wo.diff then
               vim.cmd.normal({ "]h", bang = true })
             else
@@ -52,7 +52,7 @@ return {
             end
           end, { desc = "Next Hunk" })
 
-          map("n", "[h", function()
+          map("n", "[c", function()
             if vim.wo.diff then
               vim.cmd.normal({ "[h", bang = true })
             else
@@ -76,11 +76,11 @@ return {
           map("n", "<leader>hb", function()
             gitsigns.blame_line({ full = true })
           end, { desc = "Blame Hunk" })
-          map("n", "<leader>hd", gitsigns.diffthis, { desc = "Diffview Hunk" })
-          map("n", "<leader>hD", function()
-            gitsigns.diffthis("~")
-          end, { desc = "Diffview Hunk (D)" })
-          map("n", "<leader>td", gitsigns.toggle_deleted, { desc = "Toggle Deleted Hunk" })
+          -- map("n", "<leader>hd", gitsigns.diffthis, { desc = "Diffview Hunk" })
+          -- map("n", "<leader>hD", function()
+          --   gitsigns.diffthis("~")
+          -- end, { desc = "Diffview Hunk (D)" })
+          map("n", "<leader>hd", gitsigns.toggle_deleted, { desc = "Toggle Deleted Hunk" })
 
           -- Text object
           map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Gitsigns select Hunk" })
@@ -97,8 +97,9 @@ return {
       "nvim-telescope/telescope.nvim",
     },
     keys = {
-      { "<leader>gp", "<cmd>Neogit<cr>", desc = "Open Workspace Neogit" },
-      { "<leader>go", "<cmd>Neogit cwd=%:p:h<cr>", desc = "Open Current current work directory Neogit" },
+      { "<leader>go", "<cmd>Neogit cwd=%:p:h<cr>", desc = "Git cwd" },
+      { "<leader>gp", "<cmd>Neogit<cr>", desc = "Git Project root" },
+      { "<leader>gd", "<cmd>Neogit diff<cr>", desc = "Git Project root" },
     },
     opts = {},
   },

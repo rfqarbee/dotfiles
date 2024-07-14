@@ -117,15 +117,13 @@ return {
     end, { noremap = true, silent = true })
 
     vim.keymap.set("n", "<M-e>", builtin.find_files, { desc = "Find Files" })
-    vim.keymap.set("n", "<M-w>", builtin.grep_string, { desc = "Grep current word" })
-    vim.keymap.set("n", "<M-f>", telescope.extensions.live_grep_args.live_grep_args, { desc = "Live Grep" })
-    vim.keymap.set("n", "<M-d>", function()
+    vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Grep current word" })
+    vim.keymap.set("n", "<leader>fg", telescope.extensions.live_grep_args.live_grep_args, { desc = "Live Grep" })
+    vim.keymap.set("n", "<leader>fd", function()
       builtin.find_files({ find_command = { "fd", "--type", "d" } })
     end, { desc = "Find Directories" })
-    vim.keymap.set("n", "<leader>ti", builtin.commands, { desc = "Help tags" })
-    vim.keymap.set("n", "<leader>th", "<cmd>Telescope help_tags<cr>", { desc = "Help tags" })
-    vim.keymap.set("n", "<leader>tb", builtin.buffers, { desc = "Active buffers" })
-    vim.keymap.set("n", "<leader>.", builtin.oldfiles, { desc = "Find recent files" })
+    vim.keymap.set("n", "<leader>fi", builtin.commands, { desc = "Help tags" })
+    vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Help tags" })
 
     vim.keymap.set("n", "<leader>/", function()
       builtin.current_buffer_fuzzy_find(themes.get_dropdown({
@@ -137,7 +135,7 @@ return {
       }))
     end, { desc = "Search current buffer" })
 
-    vim.keymap.set("n", "<leader>to", function()
+    vim.keymap.set("n", "<leader>fo", function()
       builtin.live_grep({
         grep_open_files = true,
         prompt_title = "Live Grep in Open Files",
@@ -145,7 +143,7 @@ return {
     end, { desc = "Live grep open files" })
 
     -- goto neovim config
-    vim.keymap.set("n", "<leader>tc", function()
+    vim.keymap.set("n", "<leader>fc", function()
       builtin.find_files({ cwd = vim.fn.stdpath("config") })
     end, { desc = "Neovim config" })
   end,
