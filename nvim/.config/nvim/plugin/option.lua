@@ -5,6 +5,8 @@ vim.g.have_nerd_font = true
 -- vim.g.loaded_netrw = 1 -- disable netrw
 -- vim.g.loaded_netrwPlugin = 1
 
+opt.showtabline = 2
+
 opt.termguicolors = true
 opt.background = "dark"
 opt.guicursor = "n-v-c:block-nCursor,i-ci-ve:block-blinkwait300-blinkon50-blinkoff50,r-cr:hor20,o:hor50"
