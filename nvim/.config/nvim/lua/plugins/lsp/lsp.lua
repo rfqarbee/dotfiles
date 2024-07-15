@@ -33,7 +33,7 @@ return {
         },
         cssls = true,
         graphql = {
-          filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+          filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact", "typescript" },
         },
         clangd = {
           init_options = { clangdFileStatus = true },
