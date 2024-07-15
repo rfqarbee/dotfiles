@@ -11,6 +11,8 @@ return {
         styles = {
           comments = { italic = true },
           keywords = { italic = false },
+          sidebars = "transparent",
+          floats = "transparent",
         },
         plugins = {
           gitsigns = true,

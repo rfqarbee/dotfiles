@@ -6,10 +6,10 @@ return {
     local harpoon = require("harpoon")
 
     harpoon:setup()
-    vim.keymap.set("n", "<leader>ha", function()
+    vim.keymap.set("n", "<leader>ah", function()
       harpoon:list():add()
     end, { desc = "Harpoon add list" })
-    vim.keymap.set("n", "<space>hh", function()
+    vim.keymap.set("n", "<space><space>", function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end, { desc = "Add harpoon list" })
     vim.keymap.set("n", "<leader>1", function()
