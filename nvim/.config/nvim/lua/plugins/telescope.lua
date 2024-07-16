@@ -114,7 +114,7 @@ return {
 
     vim.keymap.set("n", "<leader>f.", function()
       telescope.extensions.recent_files.pick()
-    end, { noremap = true, silent = true })
+    end, { desc = "Recent files (extension)", noremap = true, silent = true })
 
     vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find Buffers" })
     vim.keymap.set("n", "<M-e>", builtin.find_files, { desc = "Find Files" })

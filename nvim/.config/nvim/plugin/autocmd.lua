@@ -74,6 +74,7 @@ autocmd("TextYankPost", {
 autocmd("QuickFixCmdPost", {
   group = TroubleGroup,
   callback = function()
-    vim.cmd([[Trouble quickfix open]])
+    print("is a quickfix?")
+    -- vim.cmd([[Trouble quickfix open]])
   end,
 })
