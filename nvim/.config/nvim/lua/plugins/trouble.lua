@@ -26,6 +26,8 @@ return {
     { "<leader>tt", "<cmd>Trouble lsp open win.position=right<cr>", "Lsp" },
   },
   opts = {
+    focus = true,
+    follow = true,
     win = {
       size = 45,
       position = "right",
@@ -33,23 +35,18 @@ return {
     modes = {
       -- todo
       todo = {
-        focus = true,
         mode = "todo",
         win = { size = 40, position = "left" },
       },
       -- diagnostics change window
       diagnostics = {
         mode = "diagnostics",
-        focus = true,
-        follow = true,
         win = { size = 12, position = "bottom" },
       },
       -- diagnostics current buffer with preview
       diagnostics_buffer = {
         desc = "Current Buffer diagnostics",
         mode = "diagnostics",
-        focus = true,
-        follow = true,
         filter = { buf = 0 },
         -- pinned = true,
         win = {
@@ -65,8 +62,6 @@ return {
       },
       -- base on severity
       diag_priority = {
-        focus = true,
-        follow = true,
         mode = "diagnostics",
         desc = "Diagnostics on severity",
         filter = function(items)
@@ -88,8 +83,6 @@ return {
       },
       -- project diagnostics
       diagnostics_project = {
-        focus = true,
-        follow = true,
         mode = "diagnostics",
         win = {
           position = "bottom",
