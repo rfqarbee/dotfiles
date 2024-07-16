@@ -62,7 +62,7 @@ source $ZDOTDIR/aliases.zsh
 # if fzf is below 0.48.0 (ex : debian)
 fzf_ver=$(fzf --version | awk -F '.' '{print $2}') # get the version
 
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
 if [[ -n $(command -v fzf) ]] && [[ $fzf_ver -lt 48 ]]; then
   source /usr/share/doc/fzf/examples/key-bindings.zsh
   source /usr/share/doc/fzf/examples/completion.zsh

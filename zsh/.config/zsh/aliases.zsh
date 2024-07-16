@@ -6,7 +6,6 @@ alias tma="tmux attach"
 alias tmd="tmux detach"
 alias tmk="tmux kill-session -t"
 alias tks="tmux kill-server"
-alias cd=z
 alias ls="eza --color=always"
 alias la="eza -lA --group --color=always"
 alias l="eza -l --group --color=always"
@@ -17,7 +16,7 @@ alias egrep='egrep --color=always'
 alias fgrep='fgrep --color=always'
 alias zgrep='fgrep --color=always'
 alias lg=lazygit
-alias gs="git status"
+alias gst="git status"
 alias update="sudo pacman -Syu"
 alias pacman="sudo pacman"
 alias cat="bat"
