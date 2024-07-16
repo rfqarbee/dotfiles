@@ -21,7 +21,7 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q # reload all completion
 
 # key binds
-bindkey -s "^E" "tmux-session.sh\n"
+bindkey -s "^E" "tmux_session.sh\n"
 # bindkey -ar "O"
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
