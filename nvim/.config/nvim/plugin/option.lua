@@ -45,7 +45,7 @@ opt.splitbelow = true
 opt.list = false
 opt.listchars = { tab = "» ", trail = ".", nbsp = "␣" }
 opt.fillchars:append({ eob = " " })
-opt.scrolloff = 7
+opt.scrolloff = 6
 
 --backup for undodir accessible by undotree
 opt.swapfile = false
