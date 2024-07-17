@@ -12,7 +12,7 @@ return {
     { "<leader>qq", "<cmd>Trouble quickfix open<cr>", "Toggle Quickfix list" },
     { "<leader>qQ", "<cmd>Trouble qflist open<cr>", "Toggle Qflist" },
     {
-      "<leader>ts",
+      "<leader>xs",
       "<cmd>Trouble symbols toggle pinned=true results.win.relative=win results.win.position=right<cr>",
       "Document Symbol list",
     },

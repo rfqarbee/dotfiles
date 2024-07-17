@@ -18,6 +18,11 @@ return {
   {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
+    opts = {
+      input = {
+        title_pos = "center",
+      },
+    },
   },
   -- undotree
   {
@@ -27,7 +32,6 @@ return {
     },
     config = function()
       local tree = require("undotree")
-
     end,
   },
 }

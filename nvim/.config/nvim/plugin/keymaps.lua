@@ -17,7 +17,8 @@ map("n", "[q", "<cmd>cprev<cr>", { desc = "Prev quickfix item" })
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "[b", "<cmd>bprev<cr>", { desc = "Prev Buffer" })
 
--- navigating tabs
+-- tabs
+map("n", "<M-n>", "<cmd>tabnew<cr>")
 map("n", "<M-k>", "gt")
 map("n", "<M-j>", "gT")
 
