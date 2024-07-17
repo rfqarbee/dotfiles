@@ -14,7 +14,7 @@ return {
       require("colorizer").setup({})
     end,
   },
-  -- dressing
+  -- i like this
   {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
@@ -25,5 +25,9 @@ return {
     keys = {
       { "<leader>u", vim.cmd.UndotreeToggle, desc = "Undo Tree" },
     },
+    config = function()
+      local tree = require("undotree")
+
+    end,
   },
 }

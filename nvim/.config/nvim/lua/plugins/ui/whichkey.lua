@@ -18,6 +18,7 @@ return {
     local w = require("which-key")
     w.setup({
       plugins = {
+        marks = false,
         registers = false,
         spelling = {
           enabled = true,

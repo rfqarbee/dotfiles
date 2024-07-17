@@ -7,7 +7,6 @@ return {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "make",
     },
-    { "nvim-telescope/telescope-ui-select.nvim" },
     { "nvim-tree/nvim-web-devicons" },
     { "smartpde/telescope-recent-files" },
     { "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0.0," },
@@ -88,7 +87,6 @@ return {
         },
       },
       extensions = {
-        ["ui-select"] = { themes.get_cursor() },
         fzf = {
           fuzzy = true,
           override_generic_sorter = true,
@@ -108,7 +106,6 @@ return {
     })
 
     pcall(telescope.load_extension, "fzf")
-    pcall(telescope.load_extension, "ui-select")
     pcall(telescope.load_extension, "recent_files")
     pcall(telescope.load_extension, "live_grep_args")
 
@@ -121,7 +118,7 @@ return {
     vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Grep current word" })
     vim.keymap.set("n", "<leader>fg", telescope.extensions.live_grep_args.live_grep_args, { desc = "Live Grep" })
     vim.keymap.set("n", "<leader>fd", function()
-      builtin.find_files({ find_command = { "fd", "--type", "d" } })
+      builtin.find_files({ find_command = { "fd", "-mindepth", "1", "--type", "d" } })
     end, { desc = "Find Directories" })
     vim.keymap.set("n", "<leader>fi", builtin.commands, { desc = "Help tags" })
     vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Help tags" })
