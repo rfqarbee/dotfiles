@@ -5,6 +5,7 @@ return {
     name = "render-markdown", -- Only needed if you have another plugin named markdown.nvim
     ft = "markdown",
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+    enabled = false,
     config = function()
       require("render-markdown").setup({})
     end,
@@ -25,7 +26,6 @@ return {
       local windowPath = "C:\\Users\\muhammadrafiq\\Documents\\Vaults"
       local defaultOS = "/home/rafiq/Documents/Vaults"
 
-      -- this is only for my work laptop
       if getos ~= nil and string.find(getos:lower(), "windows") then
         if vim.fn.getcwd() == windowPath then
           return true

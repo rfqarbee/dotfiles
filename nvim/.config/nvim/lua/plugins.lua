@@ -3,10 +3,7 @@ return {
   { "vidocqh/auto-indent.nvim", opts = {} },
   -- tpope W
   { "tpope/vim-sleuth" },
-  -- nui
-  {
-    "MunifTanjim/nui.nvim",
-  },
+
   -- nvim colorizer (nvchad fork)
   {
     "NvChad/nvim-colorizer.lua",
@@ -31,7 +28,9 @@ return {
       { "<leader>u", vim.cmd.UndotreeToggle, desc = "Undo Tree" },
     },
     config = function()
-      local tree = require("undotree")
+      vim.g.undotree_SetFocusWhenToggle = 1
+      vim.g.undotree_WindowLayout = 2
+      vim.g.undotree_DiffpanelHeight = 15
     end,
   },
 }

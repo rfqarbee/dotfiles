@@ -24,6 +24,33 @@ return {
       local lspconfig = require("lspconfig")
 
       local servers = {
+        dartls = {
+          cmd = {
+            "dart",
+            "language-server",
+            "--protocol=lsp",
+          },
+          filetypes = { "dart" },
+          init_options = {
+            closingLabels = true,
+            flutterOutline = true,
+            onlyAnalyzeProjectsWithOpenFiles = true,
+            outline = true,
+            suggestFromUnimportedLibraries = true,
+          },
+          root_dir = lspconfig.util.root_pattern("pubspec.yaml"),
+          settings = {
+            dart = {
+              analysisExcludeFolders = {
+                vim.fn.expand("$XDG_CONFIG_HOME/pub_cache"),
+                vim.fn.expand("$XDG_DATA_HOME/mise/installs/flutter/"),
+              },
+              updateImportsOnRename = true,
+              completeFunctionCalls = true,
+              showTodos = true,
+            },
+          },
+        },
         rust_analyzer = true,
         svelte = {
           pattern = { "*.js", "*.ts" },
@@ -52,6 +79,8 @@ return {
         },
       }
 
+      -- FIX:
+      -- fix the filter to remove auto install for lsp not in mason (dartls)
       local servers_to_install = vim.tbl_filter(function(key)
         local t = servers[key]
         if type(t) == "table" then
@@ -62,6 +91,7 @@ return {
       end, vim.tbl_keys(servers))
 
       require("mason").setup()
+
       local ensure_installed = {
         "lua_ls",
         "clangd",
@@ -90,27 +120,6 @@ return {
 
         lspconfig[name].setup(config)
       end
-
-      lspconfig["dartls"].setup({
-        cmd = {
-          "dart",
-          "language-server",
-          "--protocol=lsp",
-        },
-        filetypes = { "dart" },
-        settings = {
-          dart = {
-            analysisExcludeFolders = {
-              vim.fn.expand("$XDG_CONFIG_HOME/pub_cache"),
-              vim.fn.expand("/opt/homebrew/"),
-              vim.fn.expand("$XDG_DATA_HOME/mise/installs/flutter/"),
-            },
-            updateImportsOnRename = true,
-            completeFunctionCalls = true,
-            showTodos = true,
-          },
-        },
-      })
 
       local disable_semantic_tokens = {
         lua = true,

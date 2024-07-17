@@ -17,6 +17,7 @@ return {
         plugins = {
           gitsigns = true,
           trouble = true,
+          lualine = true,
         },
         on_colors = function(colors)
           colors.hint = colors.cyan
