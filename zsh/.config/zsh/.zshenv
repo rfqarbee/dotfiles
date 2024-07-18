@@ -24,6 +24,7 @@ export EDITOR=nvim
 export PAGER='less'
 export MANPAGER="nvim +Man!"
 export MANWIDTH=200
+export BROWSER=firefox
 export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 export ASDF_DATA_DIR=$XDG_CONFIG_HOME/asdf # mise plugin; asdf
 

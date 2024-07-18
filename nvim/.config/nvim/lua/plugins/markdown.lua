@@ -14,8 +14,7 @@ return {
   {
     "epwalsh/obsidian.nvim",
     version = "*",
-    lazy = true,
-    ft = "markdown",
+    -- lazy = ,
     dependencies = {
       -- Required.
       "nvim-lua/plenary.nvim",
@@ -23,8 +22,8 @@ return {
     },
     cond = function()
       local getos = os.getenv("OS")
-      local windowPath = "C:\\Users\\muhammadrafiq\\Documents\\Vaults"
-      local defaultOS = "/home/rafiq/Documents/Vaults"
+      local windowPath = "C:\\Users\\muhammadrafiq\\Documents\\vaults"
+      local defaultOS = "/home/rafiq/Documents/vaults"
 
       if getos ~= nil and string.find(getos:lower(), "windows") then
         if vim.fn.getcwd() == windowPath then
@@ -36,70 +35,68 @@ return {
         end
       end
     end,
-    config = function()
-      local obs = require("obsidian")
-
-      obs.setup({
-        workspaces = {
-          -- make dir as workspace
-          -- {
-          -- 	name = "Daily",
-          -- 	path = "~/Documents/Vaults/Daily",
-          -- 	strict = true,
-          -- },
-          {
-            name = "Work",
-            path = "~/Documents/Vaults/Work",
-            strict = true,
-          },
-          {
-            name = "Personal",
-            path = "~/Documents/Vaults/Personal",
-            strict = true,
-          },
-          {
-            name = "Documentation",
-            path = "~/Documents/Vaults/Documentation",
-            strict = true,
-          },
+    opts = {
+      workspaces = {
+        {
+          name = "projects",
+          path = "~/Documents/vaults/projects",
+          strict = true,
+          overrides = {},
         },
-        log_level = vim.log.levels.INFO,
-        -- notes_subdir = "notes",
-        -- new_notes_location = "notes_subdir",
-        daily_notes = {
-          folder = "daily",
-          date_format = "%d-%m-%Y",
-          default_tags = { "daily-notes" },
-          template = "dailytemplates.md",
+        {
+          name = "documentation",
+          path = "~/Documents/vaults/documentation",
+          strict = true,
+          overrides = {},
         },
-        completion = {
-          -- Set to false to disable completion.
-          nvim_cmp = true,
-          -- Trigger completion at 2 chars.
-          min_chars = 2,
-        },
-        templates = {
-          folder = "~/Documents/Vaults/templates",
-          date_format = "%d-%m-%Y",
-          time_format = "%H:%M",
-          substitutions = {
-            -- increment -- TODO: increase index for daily template
+        {
+          name = "personal",
+          path = "~/Documents/vaults/personal",
+          strict = true,
+          overrides = {
+            notes_subdir = "scratch",
+            daily_notes = {
+              folder = "scratch/",
+              date_format = "%d/%m/%Y",
+              alias_format = "test idk whats this",
+              default_tags = { "daily-notes" },
+              -- template = "scratch_template.md",
+            },
           },
         },
-        preferred_link_style = "wiki",
-      })
-
-      vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTemplate<cr>", { desc = "Obsidian Template" })
-      vim.keymap.set("n", "<leader>oc", function()
-        obs.util.toggle_checkbox()
-      end, { desc = "Toggle checkbox" })
-      vim.keymap.set("n", "gf", function()
-        obs.util.gf_passthrough()
-      end, { desc = "GF passthrough", noremap = false, expr = true, buffer = true })
-      vim.keymap.set("n", "<CR>", function()
-        obs.util.smart_action()
-      end, { desc = "Smart Action" })
-    end,
+      },
+      log_level = vim.log.levels.INFO,
+      templates = {
+        folder = "~/Documents/vaults/templates",
+        date_format = "%d/%m/%Y",
+        time_format = "%H:%M",
+        substitutions = {
+          -- increment -- TODO: increase index for daily template
+        },
+      },
+      preferred_link_style = "wiki",
+      mappings = {
+        ["gf"] = {
+          action = function()
+            return require("obsidian").util.gf_passthrough()
+          end,
+          opts = { desc = "GF passthru", noremap = false, expr = true, buffer = true },
+        },
+        ["<leader>oc"] = {
+          action = function()
+            return require("obsidian").util.toggle_checkbox()
+          end,
+          opts = { desc = "Toggle Checkbox (obs)", buffer = true },
+        },
+        ["<CR>"] = {
+          action = function()
+            return require("obsidian").util.smart_action()
+          end,
+          opts = { desc = "Smart Action (obs)", expr = true, buffer = true },
+        },
+        ["<leader>ot"] = { action = "<cmd>ObsidianTemplate<cr>", opts = { desc = "Template", buffer = true } },
+      },
+    },
   },
 
   -- neotree (only load in vaults)
@@ -114,8 +111,8 @@ return {
     },
     cond = function()
       local getos = os.getenv("OS")
-      local windowPath = "C:\\Users\\muhammadrafiq\\Documents\\Vaults"
-      local defaultOS = "/home/rafiq/Documents/Vaults"
+      local windowPath = "C:\\Users\\muhammadrafiq\\Documents\\vaults"
+      local defaultOS = "/home/rafiq/Documents/vaults"
 
       -- this is only for my work laptop
       if getos ~= nil and string.find(getos:lower(), "windows") then
