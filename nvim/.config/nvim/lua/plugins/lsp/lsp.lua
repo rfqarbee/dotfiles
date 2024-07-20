@@ -79,14 +79,16 @@ return {
         },
       }
 
-      -- FIX:
-      -- fix the filter to remove auto install for lsp not in mason (dartls)
       local servers_to_install = vim.tbl_filter(function(key)
         local t = servers[key]
-        if type(t) == "table" then
-          return not t.manual_install
+        if key == "dartls" then
+          return
         else
-          return t
+          if type(t) == "table" then
+            return not t.manual_install
+          else
+            return t
+          end
         end
       end, vim.tbl_keys(servers))
 
