@@ -21,6 +21,7 @@ export PATH
 # export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
 export TERMINAL=/usr/bin/kitty
 export EDITOR=nvim
+export VISUAL=nvim
 export PAGER='less'
 export MANPAGER="nvim +Man!"
 export MANWIDTH=200
