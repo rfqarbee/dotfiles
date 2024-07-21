@@ -32,22 +32,6 @@ return {
       -- vim.cmd.colorscheme("tokyonight")
     end,
   },
-  -- catppuccin
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    lazy = false,
-    enabled = true,
-    priority = 1000,
-    config = function()
-      require("catppuccin").setup({
-        flavour = "macchiato",
-        transparent_background = true,
-        show_end_of_buffer = true,
-      })
-      -- vim.cmd.colorscheme("catppuccin-macchiato")
-    end,
-  },
   --kanagawa
   {
     "rebelot/kanagawa.nvim",
@@ -63,7 +47,7 @@ return {
           light = "lotus",
         },
       })
-      vim.cmd.colorscheme("kanagawa")
+      -- vim.cmd.colorscheme("kanagawa")
     end,
   },
   -- grubbox
@@ -73,23 +57,26 @@ return {
     enabled = true,
     priority = 1000,
     config = function()
-      -- vim.g.grubbox_material_
-      -- vim.cmd("colorscheme gruvbox")
+      vim.g.gruvbox_material_background = "medium"
+      vim.g.gruvbox_material_transparent_background = 0
+      vim.g.gruvbox_material_dim_inactive_windows = 1
+      vim.g.gruvbox_material_diagnostic_virtual_text = "highlighted"
+      vim.g.gruvbox_material_diagnostic_text_highlight = 0
+      vim.cmd("colorscheme gruvbox-material")
     end,
   },
   -- doom-one
+  -- BUG: diagnostic icon is not changing for lsp
   {
     "NTBBloodbath/doom-one.nvim",
     lazy = false,
     enabled = true,
     priority = 1000,
     config = function()
-      -- Add color to cursor
       vim.g.doom_one_cursor_coloring = false
-      -- Set :terminal colors
-      vim.g.doom_one_terminal_colors = true
+      vim.g.doom_one_terminal_colors = false
       -- Enable italic comments
-      vim.g.doom_one_italic_comments = false
+      vim.g.doom_one_italic_comments = true
       -- Enable TS support
       vim.g.doom_one_enable_treesitter = true
       -- Color whole diagnostic text or only underline
@@ -103,16 +90,11 @@ return {
 
       -- Plugins integration
       vim.g.doom_one_plugin_neorg = true
-      vim.g.doom_one_plugin_barbar = false
-      vim.g.doom_one_plugin_telescope = false
+      vim.g.doom_one_plugin_telescope = true
       vim.g.doom_one_plugin_neogit = true
-      vim.g.doom_one_plugin_nvim_tree = true
       vim.g.doom_one_plugin_dashboard = true
-      vim.g.doom_one_plugin_startify = true
       vim.g.doom_one_plugin_whichkey = true
       vim.g.doom_one_plugin_indent_blankline = true
-      vim.g.doom_one_plugin_vim_illuminate = true
-      vim.g.doom_one_plugin_lspsaga = false
     end,
   },
 }
