@@ -3,27 +3,31 @@ return {
   {
     "MeanderingProgrammer/markdown.nvim",
     name = "render-markdown", -- Only needed if you have another plugin named markdown.nvim
-    ft = "markdown",
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
     enabled = true,
     config = function()
-      require("render-markdown").setup({})
+      require("render-markdown").setup({
+        win_options = {
+          conceallevel = {
+            rendered = 1,
+          },
+        },
+      })
     end,
   },
   -- obsidian
   {
     "epwalsh/obsidian.nvim",
     version = "*",
-    -- lazy = ,
     dependencies = {
-      -- Required.
       "nvim-lua/plenary.nvim",
-      -- see below for full list of optional dependencies 👇
     },
+    lazy = true,
+    ft = "markdown",
     cond = function()
       local getos = os.getenv("OS")
-      local windowPath = "C:\\Users\\muhammadrafiq\\Documents\\vaults"
-      local defaultOS = "/home/rafiq/Documents/vaults"
+      local windowPath = "C:\\Users\\muhammadrafiq\\Documents\\Vaults"
+      local defaultOS = "/home/rafiq/Documents/Vaults"
 
       if getos ~= nil and string.find(getos:lower(), "windows") then
         if vim.fn.getcwd() == windowPath then
@@ -37,42 +41,19 @@ return {
     end,
     opts = {
       workspaces = {
-        {
-          name = "projects",
-          path = "~/Documents/vaults/projects",
-          strict = true,
-          overrides = {},
-        },
-        {
-          name = "documentation",
-          path = "~/Documents/vaults/documentation",
-          strict = true,
-          overrides = {},
-        },
-        {
-          name = "personal",
-          path = "~/Documents/vaults/personal",
-          strict = true,
-          overrides = {
-            notes_subdir = "scratch",
-            daily_notes = {
-              folder = "scratch/",
-              date_format = "%d/%m/%Y",
-              alias_format = "test idk whats this",
-              default_tags = { "daily-notes" },
-              -- template = "scratch_template.md",
-            },
-          },
-        },
+        { name = "notesidian", path = "~/Documents/Vaults" },
+      },
+      daily_notes = {
+        folder = "1. Quicknotes",
+        date_format = "%B %-d,%Y",
+        alias_format = "%d-%m-%Y",
+        default_tags = { "quicknotes" },
       },
       log_level = vim.log.levels.INFO,
       templates = {
-        folder = "~/Documents/vaults/templates",
+        folder = "~/Documents/Vaults/Templates",
         date_format = "%d/%m/%Y",
         time_format = "%H:%M",
-        substitutions = {
-          -- increment -- TODO: increase index for daily template
-        },
       },
       preferred_link_style = "wiki",
       mappings = {
@@ -82,24 +63,32 @@ return {
           end,
           opts = { desc = "GF passthru", noremap = false, expr = true, buffer = true },
         },
-        ["<leader>oc"] = {
-          action = function()
-            return require("obsidian").util.toggle_checkbox()
-          end,
-          opts = { desc = "Toggle Checkbox (obs)", buffer = true },
-        },
         ["<CR>"] = {
           action = function()
             return require("obsidian").util.smart_action()
           end,
           opts = { desc = "Smart Action (obs)", expr = true, buffer = true },
         },
+        ["<leader>oc"] = {
+          action = function()
+            return require("obsidian").util.toggle_checkbox()
+          end,
+          opts = { desc = "Toggle Checkbox (obs)", buffer = true },
+        },
+        ["<leader>od"] = {
+          action = "<cmd>ObsidianDailies<cr>",
+          opts = { desc = "Quick notes" },
+        },
+        ["<leader>on"] = {
+          action = "<cmd>ObsidianTomorrow<cr>",
+          opts = { desc = "Obsidian Tags" },
+        },
         ["<leader>ot"] = { action = "<cmd>ObsidianTemplate<cr>", opts = { desc = "Template", buffer = true } },
       },
     },
   },
 
-  -- neotree (only load in vaults)
+  -- neotree (only load in Vaults)
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -111,8 +100,8 @@ return {
     },
     cond = function()
       local getos = os.getenv("OS")
-      local windowPath = "C:\\Users\\muhammadrafiq\\Documents\\vaults"
-      local defaultOS = "/home/rafiq/Documents/vaults"
+      local windowPath = "C:\\Users\\muhammadrafiq\\Documents\\Vaults"
+      local defaultOS = "/home/rafiq/Documents/Vaults"
 
       -- this is only for my work laptop
       if getos ~= nil and string.find(getos:lower(), "windows") then
@@ -125,6 +114,9 @@ return {
         end
       end
     end,
+    keys = {
+      { "<leader>nt", "<cmd>Neotree focus<cr>", desc = "Neotree" },
+    },
     config = function()
       require("neo-tree").setup({
         enable_diagnostics = false,
@@ -139,8 +131,6 @@ return {
           },
         },
       })
-
-      vim.keymap.set("n", "<leader>on", "<cmd>Neotree focus<cr>", { desc = "Switch to Tree" })
     end,
   },
 }

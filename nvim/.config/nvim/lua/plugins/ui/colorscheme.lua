@@ -12,8 +12,8 @@ return {
         styles = {
           comments = { italic = true },
           keywords = { italic = false },
-          sidebars = "transparent",
-          floats = "transparent",
+          sidebars = "dark",
+          floats = "dark",
         },
         plugins = {
           gitsigns = true,
@@ -28,7 +28,6 @@ return {
         end,
       })
 
-      -- this is a comment
       -- vim.cmd.colorscheme("tokyonight")
     end,
   },
@@ -57,7 +56,7 @@ return {
     enabled = true,
     priority = 1000,
     config = function()
-      vim.g.gruvbox_material_background = "hard"
+      vim.g.gruvbox_material_background = "medium"
       vim.g.gruvbox_material_foreground = "mix"
       -- vim.g.gruvbox_material_background = "hard"
       vim.g.gruvbox_material_transparent_background = 0
@@ -67,61 +66,24 @@ return {
       -- vim.cmd("colorscheme gruvbox-material")
     end,
   },
-  -- doom-one
-  -- BUG: diagnostic icon is not changing for lsp
-  {
-    "NTBBloodbath/doom-one.nvim",
-    lazy = false,
-    enabled = true,
-    priority = 1000,
-    config = function()
-      vim.g.doom_one_cursor_coloring = false
-      vim.g.doom_one_terminal_colors = false
-      -- Enable italic comments
-      vim.g.doom_one_italic_comments = true
-      -- Enable TS support
-      vim.g.doom_one_enable_treesitter = true
-      -- Color whole diagnostic text or only underline
-      vim.g.doom_one_diagnostics_text_color = false
-      -- Enable transparent background
-      vim.g.doom_one_transparent_background = false
-
-      -- Pumblend transparency
-      vim.g.doom_one_pumblend_enable = false
-      vim.g.doom_one_pumblend_transparency = 20
-
-      -- Plugins integration
-      vim.g.doom_one_plugin_neorg = true
-      vim.g.doom_one_plugin_telescope = true
-      vim.g.doom_one_plugin_neogit = true
-      vim.g.doom_one_plugin_dashboard = true
-      vim.g.doom_one_plugin_whichkey = true
-      vim.g.doom_one_plugin_indent_blankline = true
-    end,
-  },
-  -- onedark
+  -- one dark
   {
     "navarasu/onedark.nvim",
     lazy = false,
     enabled = true,
     priority = 1000,
     config = function()
-      -- Lua
       require("onedark").setup({
-        -- Main options --
-        style = "cool", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-        transparent = false, -- Show/hide background
-        term_colors = true, -- Change terminal color as per the selected theme style
-        ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
+        style = "cool",
+        transparent = false,
+        term_colors = false,
+        ending_tildes = false,
         cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
-
         -- toggle theme style ---
-        toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+        toggle_style_key = "<leader>ct", -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
         toggle_style_list = { "dark", "darker", "cool", "deep", "warm", "warmer", "light" }, -- List of styles to toggle between
 
-        -- Change code style ---
         -- Options are italic, bold, underline, none
-        -- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
         code_style = {
           comments = "italic",
           keywords = "none",
@@ -137,19 +99,26 @@ return {
 
         -- Custom Highlights --
         colors = {
-          diagcyan = "#00FFFF",
-          diagred = "#FF0000",
-          diagorange = "#FFA500",
-          diaginfo = "#0000FF",
-        }, -- Override default colors
+          hint = "#86e1fc",
+          vhint = "#2c374a",
+          info = "#82aaff",
+          vinfo = "#2c314a",
+          error = "#ff757f",
+          warn = "#ffa500",
+        },
         highlights = {
-          DiagnosticVirtualTextHint = { fg = "diagcyan" },
-        }, -- Override highlight groups
+          DiagnosticHint = { fg = "$hint" },
+          DiagnosticVirtualTextHint = { fg = "$hint", bg = "$vhint" },
+          DiagnosticUnderlineHint = { sp = "$hint" },
+
+          DiagnosticInfo = { fg = "$info" },
+          DiagnosticVirtualTextInfo = { fg = "$info", bg = "$vinfo" },
+        },
 
         -- Plugins Config --
         diagnostics = {
           darker = false, -- darker colors for diagnostic
-          undercurl = true, -- use undercurl instead of underline for diagnostics
+          undercurl = false, -- use undercurl instead of underline for diagnostics
           background = true, -- use background color for virtual text
         },
       })
