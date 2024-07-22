@@ -15,10 +15,18 @@ return {
         capabilities = require("cmp_nvim_lsp").default_capabilities()
       end
 
-      local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+      vim.diagnostic.config({
+        virtual_text = true,
+        signs = true,
+        underline = true,
+        update_in_insert = false,
+        severity_sort = false,
+      })
+      local signs = { Error = " ", Warn = " ", Hint = "󰌶 ", Info = " " }
       for type, icon in pairs(signs) do
         local hl = "DiagnosticSign" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+        -- vim.fn.sign_define(vhl, { text = icon, texthl = hl, numhl = hl })
       end
 
       local lspconfig = require("lspconfig")
@@ -81,9 +89,7 @@ return {
 
       local servers_to_install = vim.tbl_filter(function(key)
         local t = servers[key]
-        if key == "dartls" then
-          return
-        else
+        if key ~= "dartls" then
           if type(t) == "table" then
             return not t.manual_install
           else

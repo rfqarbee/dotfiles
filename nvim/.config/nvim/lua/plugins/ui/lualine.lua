@@ -4,7 +4,7 @@ return {
   opts = {
     options = {
       -- theme = "tokyonight",
-      theme = "auto",
+      theme = "onedark",
       -- component_separators = { left = " ", right = "" },
       -- section_separators = { left = "|", right = "|" },
       disabled_filetypes = {
