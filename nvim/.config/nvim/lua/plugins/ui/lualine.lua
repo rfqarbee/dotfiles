@@ -18,11 +18,13 @@ return {
   opts = {
     options = {
       theme = "onedark",
-      section_separators = { left = "", right = "" },
+      globalstatus = true,
+      section_separators = "",
+      -- section_separators = { left = "", right = "" },
       -- component_separators = { left = "", right = "" }, -- okay with no separator
-      component_separators = { " " },
+      component_separators = "",
       disabled_filetypes = {
-        statusline = { "fugitive", "trouble", "oil", "undotree" },
+        statusline = { "fugitive", "oil", "undotree", "dashboard" },
       },
     },
     sections = {
@@ -55,7 +57,7 @@ return {
       lualine_y = { "progress" },
       lualine_z = { "location" },
     },
-    -- extensions = { "quickfix", "mason" },
+    extensions = { "trouble", "mason", "lazy" },
     tabline = {
       lualine_b = {
         {

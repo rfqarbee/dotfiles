@@ -7,6 +7,22 @@ return {
     enabled = true,
     config = function()
       require("render-markdown").setup({
+        checkbox = {
+          enabled = true,
+          unchecked = {
+            icon = "󰄱 ",
+            highlight = "NormalNC",
+          },
+          checked = {
+            icon = " ",
+            highlight = "FloatFooter",
+          },
+          custom = {
+            todo = { raw = "[>]", rendered = " ", highlight = "RenderMarkdownTodo" },
+            priority = { raw = "[!]", rendered = " ", highlight = "WarningMsg" },
+            cancel = { raw = "[~]", rendered = "󰜺 ", highlight = "ErrorMsg" },
+          },
+        },
         win_options = {
           conceallevel = {
             rendered = 2,
@@ -55,6 +71,16 @@ return {
         date_format = "%d/%m/%Y",
         time_format = "%H:%M",
       },
+      ui = {
+        enable = true,
+        checkboxes = {
+          [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
+          ["x"] = { char = "", hl_group = "ObsidianDone" },
+          [">"] = { char = "", hl_group = "ObsidianRightArrow" },
+          ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
+          ["!"] = { char = "", hl_group = "ObsidianImportant" },
+        },
+      },
       preferred_link_style = "wiki",
       mappings = {
         ["gf"] = {
@@ -67,7 +93,7 @@ return {
           action = function()
             return require("obsidian").util.smart_action()
           end,
-          opts = { desc = "Smart Action (obs)", expr = true, buffer = true },
+          opts = { desc = "Smark action", expr = true, buffer = true },
         },
         ["<leader>oc"] = {
           action = function()
