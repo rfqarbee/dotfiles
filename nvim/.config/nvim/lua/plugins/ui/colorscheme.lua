@@ -3,7 +3,7 @@ return {
   {
     "folke/tokyonight.nvim",
     lazy = false,
-    enabled = true,
+    enabled = false,
     priority = 1000,
     config = function()
       require("tokyonight").setup({
@@ -29,41 +29,6 @@ return {
       })
 
       -- vim.cmd.colorscheme("tokyonight")
-    end,
-  },
-  --kanagawa
-  {
-    "rebelot/kanagawa.nvim",
-    lazy = false,
-    enabled = true,
-    priority = 1000,
-    config = function()
-      require("kanagawa").setup({
-        transparent = false,
-        theme = "dragon",
-        background = {
-          dark = "dragon",
-          light = "lotus",
-        },
-      })
-      -- vim.cmd.colorscheme("kanagawa")
-    end,
-  },
-  -- grubbox
-  {
-    "sainnhe/gruvbox-material",
-    lazy = false,
-    enabled = true,
-    priority = 1000,
-    config = function()
-      vim.g.gruvbox_material_background = "medium"
-      vim.g.gruvbox_material_foreground = "mix"
-      -- vim.g.gruvbox_material_background = "hard"
-      vim.g.gruvbox_material_transparent_background = 0
-      vim.g.gruvbox_material_dim_inactive_windows = 1
-      vim.g.gruvbox_material_diagnostic_virtual_text = "colored"
-      vim.g.gruvbox_material_diagnostic_text_highlight = 0
-      -- vim.cmd("colorscheme gruvbox-material")
     end,
   },
   -- one dark

@@ -5,7 +5,23 @@ return {
     opts = {},
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require("oil").setup({
+      local oil = require("oil")
+      local winid = require("oil.util").get_preview_win()
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "OilEnter",
+        callback = vim.schedule_wrap(function(args)
+          if vim.api.nvim_get_current_buf() == args.data.buf and oil.get_cursor_entry() then
+            if winid then
+              vim.api.nvim_win_close(winid, true)
+              return
+            end
+            oil.open_preview()
+          end
+        end),
+      })
+
+      oil.setup({
         columns = {
           "icon",
         },
@@ -26,7 +42,6 @@ return {
         skip_confirm_for_simple_edits = true,
         keymaps = {
           ["g?"] = "actions.show_help",
-          ["f"] = "actions.select",
           ["<CR>"] = "actions.select",
           ["<C-w>v"] = "actions.select_vsplit",
           ["<C-w>s"] = "actions.select_split",
@@ -37,15 +52,26 @@ return {
           ["-"] = "actions.parent",
           ["_"] = "actions.open_cwd",
           ["`"] = "actions.cd", -- change project directory
-          ["~"] = "actions.tcd", -- change current tab directory
+          ["."] = "actions.tcd", -- change current tab directory
           ["gs"] = "actions.change_sort",
           ["g."] = "actions.toggle_hidden",
           ["g\\"] = "actions.toggle_trash",
         },
       })
 
-      vim.keymap.set("n", "-", require("oil").toggle_float, { desc = "Oil Float" })
-      vim.keymap.set("n", "<leader>-", require("oil").open, { desc = "Oil -> Directory" })
+      vim.keymap.set("n", "-", function()
+        if winid then
+          vim.api.nvim_win_close(winid, true)
+        end
+        oil.toggle_float()
+      end, { desc = "Oil Float" })
+      -- vim.keymap.set("n", "<leader>-", require("oil").open, { desc = "Oil -> Directory" })
+      vim.keymap.set("n", "<leader>-", function()
+        if winid then
+          vim.api.nvim_win_close(winid, true)
+        end
+        oil.open()
+      end, { desc = "Oil Open" })
     end,
   },
   -- gx plugin

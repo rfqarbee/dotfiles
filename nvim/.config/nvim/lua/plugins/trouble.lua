@@ -10,6 +10,7 @@ return {
     { "<leader>qt", "<cmd>Trouble telescope open<cr>", "Telescope Quickfix list" },
     { "<leader>qf", "<cmd>Trouble telescope_files open<cr>", "Telescope Files Quickfix list" },
     { "<leader>qq", "<cmd>Trouble quickfix open<cr>", "Toggle Quickfix list" },
+    { "<leader>ql", "<cmd>Trouble loclist open<cr>", "Toggle Loclist list" },
     { "<leader>qQ", "<cmd>Trouble qflist open<cr>", "Toggle Qflist" },
     {
       "<leader>xs",

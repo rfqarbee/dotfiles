@@ -9,7 +9,7 @@ return {
       require("render-markdown").setup({
         win_options = {
           conceallevel = {
-            rendered = 1,
+            rendered = 2,
           },
         },
       })

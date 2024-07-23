@@ -15,19 +15,17 @@ return {
         capabilities = require("cmp_nvim_lsp").default_capabilities()
       end
 
-      vim.diagnostic.config({
-        virtual_text = true,
-        signs = true,
-        underline = true,
-        update_in_insert = false,
-        severity_sort = false,
-      })
+      -- vim.diagnostic.config({
+      --   virtual_text = true,
+      --   signs = true,
+      --   underline = true,
+      --   update_in_insert = false,
+      --   severity_sort = false,
+      -- })
       local signs = { Error = " ", Warn = " ", Hint = "󰌶 ", Info = " " }
       for type, icon in pairs(signs) do
         local hl = "DiagnosticSign" .. type
-        local vhl = "DiagnosticsVirtualText" .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-        vim.fn.sign_define(vhl, { text = icon, texthl = hl, numhl = hl })
       end
 
       local lspconfig = require("lspconfig")
@@ -64,7 +62,7 @@ return {
         svelte = {
           pattern = { "*.js", "*.ts" },
           callback = function(ctx)
-            client.notify("$/onDidChangeTsorJsFile", { uri = ctx.match })
+            vim.notify("$/onDidChangeTsorJsFile", { uri = ctx.match })
           end,
         },
         cssls = true,
@@ -154,8 +152,8 @@ return {
           map("<leader>cs", builtin.lsp_document_symbols, "Document symbols")
           map("<leader>cw", builtin.lsp_dynamic_workspace_symbols, "Workspace symbols")
           map("<leader>rn", vim.lsp.buf.rename, "Rename var")
-          map("<C-p>", vim.lsp.buf.code_action, "Code action")
-          map("<C-n>", vim.diagnostic.open_float, "Diagnostics open float")
+          map("<leader>ca", vim.lsp.buf.code_action, "Code action")
+          map("<M-d>", vim.diagnostic.open_float, "Diagnostics open float")
           map("<leader>lr", "<cmd>LspRestart<cr>", "Restart")
 
           local filetype = vim.bo[bufnr].filetype

@@ -1,14 +1,14 @@
 return {
   "folke/zen-mode.nvim",
-  dependencies = {
-    {
-      "folke/twilight.nvim",
-      keys = {
-        { "<leader>wt", "<cmd>Twilight<cr>", desc = "Toggle Twilight" },
-      },
-      opts = {},
-    },
-  },
+  -- dependencies = {
+  --   {
+  --     "folke/twilight.nvim",
+  --     keys = {
+  --       { "<leader>wt", "<cmd>Twilight<cr>", desc = "Toggle Twilight" },
+  --     },
+  --     opts = {},
+  --   },
+  -- },
   keys = {
     { "<leader>wm", "<cmd>ZenMode<cr>", desc = "Zen Mode" },
   },

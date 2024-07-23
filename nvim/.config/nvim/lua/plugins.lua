@@ -1,9 +1,14 @@
 -- plugins with simple configuration
 return {
-  { "vidocqh/auto-indent.nvim", opts = {} },
+  -- surround
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    opts = {},
+  },
   -- tpope W
   { "tpope/vim-sleuth" },
-
   -- nvim colorizer (nvchad fork)
   {
     "NvChad/nvim-colorizer.lua",
