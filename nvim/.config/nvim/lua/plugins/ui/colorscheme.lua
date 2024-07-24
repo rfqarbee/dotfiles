@@ -39,7 +39,7 @@ return {
     priority = 1000,
     config = function()
       require("onedark").setup({
-        style = "cool",
+        style = "deep",
         transparent = false,
         term_colors = false,
         ending_tildes = false,
@@ -59,7 +59,7 @@ return {
 
         -- Lualine options --
         lualine = {
-          transparent = false, -- lualine center bar transparency
+          transparent = true, -- lualine center bar transparency
         },
 
         -- Custom Highlights --

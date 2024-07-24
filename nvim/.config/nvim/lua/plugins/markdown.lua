@@ -72,7 +72,7 @@ return {
         time_format = "%H:%M",
       },
       ui = {
-        enable = true,
+        enable = false,
         checkboxes = {
           [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
           ["x"] = { char = "", hl_group = "ObsidianDone" },
@@ -93,7 +93,7 @@ return {
           action = function()
             return require("obsidian").util.smart_action()
           end,
-          opts = { desc = "Smark action", expr = true, buffer = true },
+          opts = { desc = "Smart action", expr = true, buffer = true },
         },
         ["<leader>oc"] = {
           action = function()

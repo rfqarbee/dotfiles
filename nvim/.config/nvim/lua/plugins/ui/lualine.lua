@@ -17,14 +17,14 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {
     options = {
-      theme = "onedark",
+      theme = "auto",
       globalstatus = true,
-      section_separators = "",
+      section_separators = " ",
       -- section_separators = { left = "", right = "" },
       -- component_separators = { left = "", right = "" }, -- okay with no separator
-      component_separators = "",
+      component_separators = " ",
       disabled_filetypes = {
-        statusline = { "fugitive", "oil", "undotree", "dashboard" },
+        statusline = { "oil", "undotree", "dashboard" },
       },
     },
     sections = {
@@ -57,11 +57,15 @@ return {
       lualine_y = { "progress" },
       lualine_z = { "location" },
     },
-    extensions = { "trouble", "mason", "lazy" },
+    extensions = { "fugitive", "trouble", "mason", "lazy" },
     tabline = {
-      lualine_b = {
+      lualine_a = {
         {
           "tabs",
+          tabs_color = {
+            inactive = { fg = "#7aa2f7", bg = "#1d202f" },
+            active = { fg = "#1f2335", bg = "#7aa2f7" },
+          },
           tab_max_length = 40,
           max_legth = vim.o.columns / 3,
           mode = 1,

@@ -5,7 +5,7 @@ return {
     priority = 1000,
     -- event = {"InsertEnter","CmdlineEnter"},
     dependencies = {
-      "onsails/lspkind.nvim", -- completion icons
+      -- "onsails/lspkind.nvim", -- completion icons
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
@@ -22,14 +22,17 @@ return {
       },
       "saadparwaiz1/cmp_luasnip",
     },
+
     config = function()
       local luasnip = require("luasnip")
       local autopairs = require("nvim-autopairs.completion.cmp")
       -- local ts_utils = require("nvim-treesitter.ts_utils")
-      local lspkind = require("lspkind")
+      -- local lspkind = require("lspkind")
+      local icons = require("utils.icons")
       local cmp = require("cmp")
 
       luasnip.config.setup({})
+
       cmp.setup({
         snippet = {
           expand = function(args)
@@ -52,19 +55,32 @@ return {
             follow_cursor = false,
           },
         },
+        -- NOTE: if use lsp_kind plugin
+        -- formatting = {
+        --   format = lspkind.cmp_format({
+        --     mode = "symbol_text",
+        --     maxwidth = 50,
+        --     ellipsis_char = "...",
+        --     show_labelDetails = true,
+        --     menu = {
+        --       buffer = "[Buffer]",
+        --       nvim_lsp = "[LSP]",
+        --       luasnip = "[LuaSnip]",
+        --       nvim_lua = "[Lua]",
+        --     },
+        --   }),
+        -- },
         formatting = {
-          format = lspkind.cmp_format({
-            mode = "symbol_text",
-            maxwidth = 50,
-            ellipsis_char = "...",
-            show_labelDetails = true,
-            menu = {
+          format = function(entry, vim_item)
+            vim_item.kind = string.format("%s %s", icons.my_icons[vim_item.kind], vim_item.kind)
+            vim_item.menu = ({
               buffer = "[Buffer]",
               nvim_lsp = "[LSP]",
               luasnip = "[LuaSnip]",
               nvim_lua = "[Lua]",
-            },
-          }),
+            })[entry.source.name]
+            return vim_item
+          end,
         },
         completion = { completeopt = "menu,menuone,noinsert" },
         mapping = cmp.mapping.preset.insert({

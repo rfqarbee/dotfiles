@@ -2,6 +2,7 @@ return {
   "nvimdev/dashboard-nvim",
   event = "VimEnter",
   dependencies = { { "nvim-tree/nvim-web-devicons" } },
+  enabled = false,
   config = function()
     local time = os.date("%H:%M")
     local v = vim.version()

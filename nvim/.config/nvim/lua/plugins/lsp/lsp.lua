@@ -15,13 +15,6 @@ return {
         capabilities = require("cmp_nvim_lsp").default_capabilities()
       end
 
-      -- vim.diagnostic.config({
-      --   virtual_text = true,
-      --   signs = true,
-      --   underline = true,
-      --   update_in_insert = false,
-      --   severity_sort = false,
-      -- })
       local signs = { Error = " ", Warn = " ", Hint = "󰌶 ", Info = " " }
       for type, icon in pairs(signs) do
         local hl = "DiagnosticSign" .. type

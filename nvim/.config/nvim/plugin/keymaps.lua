@@ -4,7 +4,7 @@ map({ "n", "v" }, "Q", "<nop>")
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight on search when Esc in normal mode" })
 
 -- more binds
-map("n", "<C-q>", "<cmd>q<CR>", { desc = "Quit Neovim" })
+map("n", "<C-q>", "<cmd>qa<CR>", { desc = "Quit Neovim" })
 -- map("n", "<leader>q", "<cmd>qa!<CR>", { desc = "Abort all and quit" })
 map("i", "jk", "<Esc>", { desc = "Insert to normal mode" })
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
