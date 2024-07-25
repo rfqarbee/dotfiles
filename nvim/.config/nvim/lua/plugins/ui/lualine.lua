@@ -24,6 +24,7 @@ return {
       -- component_separators = { left = "", right = "" }, -- okay with no separator
       component_separators = " ",
       disabled_filetypes = {
+        -- tabline = { "TelescopePrompt" },
         statusline = { "oil", "undotree", "dashboard" },
       },
     },
@@ -70,6 +71,20 @@ return {
           max_legth = vim.o.columns / 3,
           mode = 1,
           path = 0,
+          fmt = function(name, context)
+            -- Show + if buffer is modified in tab
+            local buflist = vim.fn.tabpagebuflist(context.tabnr)
+            local winnr = vim.fn.tabpagewinnr(context.tabnr)
+            local bufnr = buflist[winnr]
+            local mod = vim.fn.getbufvar(bufnr, "&mod")
+            local filetype = vim.bo.filetype
+
+            -- TODO: fix this shit
+            if filetype == "TelescopePrompt" then
+            end
+
+            return name .. (mod == 1 and " +" or "")
+          end,
         },
       },
     },

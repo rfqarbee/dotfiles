@@ -3,7 +3,6 @@ return {
     "hrsh7th/nvim-cmp",
     lazy = false,
     priority = 1000,
-    -- event = {"InsertEnter","CmdlineEnter"},
     dependencies = {
       -- "onsails/lspkind.nvim", -- completion icons
       "hrsh7th/cmp-nvim-lsp",

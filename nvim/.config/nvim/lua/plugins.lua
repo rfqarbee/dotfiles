@@ -1,5 +1,13 @@
 -- plugins with simple configuration
 return {
+  -- hardtime
+  {
+    "m4xshen/hardtime.nvim",
+    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    opts = {
+      -- disable_filetypes = { "qf", "lazy", "oil", "telescope", "help" },
+    },
+  },
   -- surround
   {
     "kylechui/nvim-surround",

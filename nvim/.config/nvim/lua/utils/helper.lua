@@ -23,10 +23,9 @@ end
 
 local mappings = {
   i = {
+    ["<M-e>"] = actions.close,
     ["<C-s>"] = actions.select_horizontal, -- remap c-x
     ["<C-x>"] = actions.delete_buffer,
-    ["<M-e>"] = actions.close,
-    ["<C-h>"] = "which_key",
     ["<C-p>"] = actions.move_selection_previous,
     ["<C-n>"] = actions.move_selection_next,
     ["<Tab>"] = actions.add_selection,
@@ -45,8 +44,8 @@ local mappings = {
     -- ["<C-t>"] = open_trouble,
   },
   n = {
-    -- ["<C-o>"] = actions.nop,
     ["<M-e>"] = actions.close,
+    -- ["<C-o>"] = actions.nop,
     ["<M-p>"] = require("telescope.actions.layout").toggle_preview,
     ["<Tab>"] = actions.add_selection,
     ["<S-Tab>"] = actions.remove_selection,
@@ -67,10 +66,12 @@ local mappings = {
 
 local buffer = {
   i = {
-    ["<C-d>"] = actions.delete_buffer + actions.move_to_top,
+    ["<CR>"] = actions.select_default,
+    ["<C-d>"] = actions.delete_buffer,
   },
   n = {
-    ["d"] = actions.delete_buffer + actions.move_to_top,
+    ["<CR>"] = actions.select_default,
+    ["<c-d>"] = actions.delete_buffer,
   },
 }
 

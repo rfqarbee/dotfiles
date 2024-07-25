@@ -18,9 +18,11 @@ map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "[b", "<cmd>bprev<cr>", { desc = "Prev Buffer" })
 
 -- tabs
-map("n", "<M-n>", "<cmd>tabnew<cr>")
-map("n", "<M-k>", "gt")
-map("n", "<M-j>", "gT")
+map("n", "<M-k>", "gt", { desc = "Next tab" })
+map("n", "<M-j>", "gT", { desc = "Previous tab" })
+map("n", "<leader>t.", "<cmd>+tabmove<cr>", { desc = "Move tab to right" })
+map("n", "<leader>t,", "<cmd>-tabmove<cr>", { desc = "Move tab to left" })
+map("n", "<leader>tn", "<cmd>tabnew<cr>", { desc = "Create new tab" })
 
 map({ "n", "v" }, "L", "$", { desc = "End of line" })
 map({ "n", "v" }, "H", "^", { desc = "Start of line" })

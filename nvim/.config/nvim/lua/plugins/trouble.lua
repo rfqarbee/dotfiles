@@ -18,13 +18,13 @@ return {
       "Document Symbol list",
     },
     {
-      "<leader>tS",
+      "<leader>xS",
       "<cmd>Trouble lsp_document_symbols toggle<cr>",
       "Lsp Document symbols",
     },
-    { "<leader>td", "<cmd>Trouble lsp_definitions open<cr>", "Lsp Definition" },
-    { "<leader>tD", "<cmd>Trouble lsp_declarations open<cr>", "Lsp Declaration" },
-    { "<leader>tt", "<cmd>Trouble lsp open win.position=right<cr>", "Lsp" },
+    { "<leader>xd", "<cmd>Trouble lsp_definitions open<cr>", "Lsp Definition" },
+    { "<leader>xD", "<cmd>Trouble lsp_declarations open<cr>", "Lsp Declaration" },
+    { "<leader>xt", "<cmd>Trouble lsp open win.position=right<cr>", "Lsp" },
   },
   opts = {
     focus = true,

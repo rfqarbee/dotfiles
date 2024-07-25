@@ -14,11 +14,11 @@ return {
     local telescope = require("telescope")
     local builtin = require("telescope.builtin")
     local actions = require("telescope.actions")
-    local themes = require("telescope.themes")
     local utils = require("utils.helper")
 
     telescope.setup({
       defaults = {
+        mappings = utils.mappings,
         buffer_previewer_maker = utils.new_maker,
         path_display = {
           -- truncate = 4,
@@ -35,7 +35,6 @@ return {
           "--trim",
         },
         winblend = 0,
-        mappings = utils.mappings,
       },
       pickers = {
         find_files = {
@@ -58,10 +57,29 @@ return {
         },
         grep_string = {
           initial_mode = "normal",
+          mappings = {
+            i = {
+              ["<CR>"] = actions.select_default,
+            },
+            n = {
+              ["<CR>"] = actions.select_default,
+            },
+          },
         },
         buffers = {
           initial_mode = "normal",
           mappings = utils.buffer,
+        },
+        current_buffer_fuzzy_find = {
+          previewer = false,
+          mappings = {
+            i = {
+              ["<CR>"] = actions.select_default,
+            },
+            n = {
+              ["<CR>"] = actions.select_default,
+            },
+          },
         },
       },
       extensions = {
@@ -101,14 +119,7 @@ return {
     vim.keymap.set("n", "<leader>fi", builtin.commands, { desc = "Help tags" })
     vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Help tags" })
 
-    vim.keymap.set("n", "<leader>/", function()
-      builtin.current_buffer_fuzzy_find(themes.get_dropdown({
-        sorting_strategy = "descending",
-        layout_config = { height = 35, width = 100 },
-        winblend = 0,
-        previewer = false,
-      }))
-    end, { desc = "Search current buffer" })
+    vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Search current buffer" })
 
     vim.keymap.set("n", "<leader>fo", function()
       builtin.live_grep({
