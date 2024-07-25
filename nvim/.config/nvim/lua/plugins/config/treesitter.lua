@@ -2,7 +2,6 @@ return {
   "nvim-treesitter/nvim-treesitter",
   event = { "BufReadPre", "BufNewFile" },
   build = ":TSUpdate",
-  dependencies = { "nvim-treesitter/nvim-treesitter-context", opts = {} },
   config = function()
     local ensure_installed = {
       "json5",
@@ -65,9 +64,5 @@ return {
         },
       },
     })
-
-    vim.keymap.set("n", "[c", function()
-      require("treesitter-context").go_to_context(vim.v.count1)
-    end, { silent = true, desc = "Move to next context" })
   end,
 }
