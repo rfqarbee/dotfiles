@@ -102,6 +102,7 @@ return {
         live_grep_args = {
           mappings = {
             i = {
+              ["<CR>"] = actions.select_default,
               ["<c-o"] = require("telescope-live-grep-args.actions").quote_prompt(),
               ["<c-i>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob " }),
               ["<c-space>"] = actions.to_fuzzy_refine,

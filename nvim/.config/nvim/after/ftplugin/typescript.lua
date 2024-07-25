@@ -5,7 +5,6 @@ local cond = require("nvim-autopairs.conds")
 
 local filetype = vim.bo.filetype
 
-print(filetype, "type of file")
 autopairs.add_rule(
   Rule("%(.*%)%s*%=>$", " {  }", { "typescript", "typescriptreact", "javascript" })
     :use_regex(true)

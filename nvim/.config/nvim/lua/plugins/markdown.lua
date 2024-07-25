@@ -103,12 +103,16 @@ return {
           end,
           opts = { desc = "Toggle Checkbox (obs)", buffer = true },
         },
-        ["<leader>od"] = {
+        ["<leader>on"] = {
           action = "<cmd>ObsidianDailies<cr>",
           opts = { desc = "Quick notes" },
         },
-        ["<leader>on"] = {
+        ["<leader>od"] = {
           action = "<cmd>ObsidianTomorrow<cr>",
+          opts = { desc = "Notes Tomorrow" },
+        },
+        ["<leader>ox"] = {
+          action = "<cmd>ObsidianTags<cr>",
           opts = { desc = "Obsidian Tags" },
         },
         ["<leader>ot"] = { action = "<cmd>ObsidianTemplate<cr>", opts = { desc = "Template", buffer = true } },
