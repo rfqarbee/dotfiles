@@ -11,6 +11,7 @@ return {
       "hrsh7th/cmp-cmdline",
       {
         "L3MON4D3/LuaSnip",
+        version = "v2.*",
         dependencies = { "rafamadriz/friendly-snippets" },
         build = (function()
           if vim.fn.executable("make") == 0 then
@@ -25,7 +26,6 @@ return {
     config = function()
       local luasnip = require("luasnip")
       local autopairs = require("nvim-autopairs.completion.cmp")
-      -- local ts_utils = require("nvim-treesitter.ts_utils")
       -- local lspkind = require("lspkind")
       local icons = require("utils.icons")
       local cmp = require("cmp")

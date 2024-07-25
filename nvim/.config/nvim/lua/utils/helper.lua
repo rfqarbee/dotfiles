@@ -75,7 +75,7 @@ local buffer = {
   },
 }
 
-M = {
+local M = {
   new_maker = new_maker,
   mappings = mappings,
   buffer = buffer,

@@ -1,4 +1,4 @@
-local headers = {
+local M = {
   megamind = {
     [[———————————No bitches?————————----]],
     [[⠀⣞⢽⢪⢣⢣⢣⢫⡺⡵⣝⡮⣗⢷⢽⢽⢽⣮⡷⡽⣜⣜⢮⢺⣜⢷⢽⢝⡽⣝]],
@@ -101,4 +101,4 @@ local headers = {
   },
 }
 
-return headers
+return M

@@ -55,6 +55,16 @@ return {
             },
           },
         },
+        help_tags = {
+          mappings = {
+            i = {
+              ["<CR>"] = actions.select_default,
+            },
+            n = {
+              ["<CR>"] = actions.select_default,
+            },
+          },
+        },
         grep_string = {
           initial_mode = "normal",
           mappings = {

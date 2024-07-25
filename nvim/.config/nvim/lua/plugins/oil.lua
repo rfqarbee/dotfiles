@@ -15,6 +15,12 @@ return {
           is_hidden_file = function(name, bufnr)
             return vim.startswith(name, ".")
           end,
+          -- NOTE: not sure if i want git file to be hidden
+          -- is_always_hidden = function(name, bufnr)
+          -- if name == ".git" then
+          --   return true
+          -- end
+          -- end,
         },
         float = {
           border = "rounded",
@@ -44,10 +50,10 @@ return {
         },
       })
 
-      vim.keymap.set("n", "-", function()
+      vim.keymap.set("n", "<leader>-", function()
         require("oil").toggle_float()
       end, { desc = "Float oil" })
-      vim.keymap.set("n", "<leader>-", function()
+      vim.keymap.set("n", "-", function()
         require("oil").open()
       end, { desc = "Oil -> Directory" })
     end,

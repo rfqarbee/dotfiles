@@ -1,4 +1,4 @@
-local icons = {
+local M = {
   my_icons = {
     Text = " ",
     Method = "󰆧 ",
@@ -109,4 +109,4 @@ local icons = {
   },
 }
 
-return icons
+return M
