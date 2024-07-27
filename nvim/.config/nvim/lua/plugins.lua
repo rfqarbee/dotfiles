@@ -27,6 +27,7 @@ return {
   -- i like this
   {
     "stevearc/dressing.nvim",
+    enabled = true,
     event = "VeryLazy",
     opts = {
       input = {

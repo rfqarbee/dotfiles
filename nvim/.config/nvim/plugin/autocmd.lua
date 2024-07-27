@@ -1,8 +1,48 @@
 local autocmd = vim.api.nvim_create_autocmd
+local usercmd = vim.api.nvim_create_user_command
 local WhiteSpace = vim.api.nvim_create_augroup("replaceGroup", { clear = true })
 local YankGroup = vim.api.nvim_create_augroup("HiglightYank", { clear = true })
 local SaveAll = vim.api.nvim_create_augroup("SaveAll", { clear = true })
+local resizeWin = vim.api.nvim_create_augroup("resizeWin", { clear = true })
 local TroubleGroup = vim.api.nvim_create_augroup("TroubleGroup", { clear = true })
+
+autocmd("BufWritePre", {
+  desc = "Delete trailing whitespace",
+  pattern = "*",
+  group = WhiteSpace,
+  command = [[%s/\s\+$//e]],
+})
+
+autocmd("TextYankPost", {
+  desc = "Highlight when yank",
+  group = YankGroup,
+  callback = function()
+    vim.highlight.on_yank({
+      higroup = "IncSearch",
+      timeout = 50,
+    })
+  end,
+})
+
+autocmd("VimResized", {
+  desc = "Readjust windows if vim resize",
+  group = resizeWin,
+  pattern = "*",
+  command = "wincmd =",
+})
+
+usercmd("ToggleDiagnostics", function()
+  if vim.g.diagnostics_enabled == nil then
+    vim.g.diagnostics_enabled = false
+    vim.diagnostic.disable()
+  elseif vim.g.diagnostics_enabled then
+    vim.g.diagnostics_enabled = false
+    vim.diagnostic.disable()
+  else
+    vim.g.diagnostics_enabled = true
+    vim.diagnostic.enable()
+  end
+end, {})
 
 autocmd("BufWritePost", {
   desc = "Save modified files",
@@ -43,38 +83,20 @@ autocmd("BufWritePost", {
         local savedFiles = vim.api.nvim_buf_get_name(tonumber(bufnr))
         vim.notify(getstr(savedFiles), vim.log.levels.INFO, {
           title = "File saved!",
-          timeout = 4500,
+          timeout = 3500,
         })
         vim.api.nvim_buf_call(tonumber(bufnr), function()
-          vim.cmd("write")
+          vim.cmd("silent write")
         end)
       end
     end
   end,
 })
 
-autocmd("BufWritePre", {
-  desc = "Delete trailing whitespace",
-  pattern = "*",
-  group = WhiteSpace,
-  command = [[%s/\s\+$//e]],
-})
-
-autocmd("TextYankPost", {
-  desc = "Highlight when yank",
-  group = YankGroup,
-  callback = function()
-    vim.highlight.on_yank({
-      higroup = "IncSearch",
-      timeout = 50,
-    })
-  end,
-})
-
-autocmd("QuickFixCmdPost", {
-  group = TroubleGroup,
-  callback = function()
-    print("is a quickfix?")
-    -- vim.cmd([[Trouble quickfix open]])
-  end,
-})
+-- autocmd("QuickFixCmdPost", {
+--   group = TroubleGroup,
+--   callback = function()
+--     print("is a quickfix?")
+--     -- vim.cmd([[Trouble quickfix open]])
+--   end,
+-- })

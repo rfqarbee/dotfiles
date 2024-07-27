@@ -52,11 +52,14 @@ return {
             end
             return "Qflist: 0"
           end,
+          padding = { left = 20 },
         },
       },
       lualine_x = { "encoding", "fileformat", "filetype" },
       lualine_y = { "progress" },
-      lualine_z = { "location" },
+      lualine_z = {
+        { "location" },
+      },
     },
     extensions = { "fugitive", "trouble", "mason", "lazy" },
     tabline = {
@@ -73,6 +76,7 @@ return {
           path = 0,
           fmt = function(name, context)
             -- Show + if buffer is modified in tab
+            -- comment
             local buflist = vim.fn.tabpagebuflist(context.tabnr)
             local winnr = vim.fn.tabpagewinnr(context.tabnr)
             local bufnr = buflist[winnr]

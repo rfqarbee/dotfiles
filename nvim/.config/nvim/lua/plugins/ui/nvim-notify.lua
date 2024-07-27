@@ -10,10 +10,10 @@ return {
     local notify = require("notify")
     vim.notify = notify
     notify.setup({
-      render = "minimal",
+      render = "wrapped-compact",
       fps = 240,
       stages = "slide",
-      timeout = 5000,
+      timeout = 3000,
       max_height = function()
         return math.floor(vim.o.lines * 0.75)
       end,

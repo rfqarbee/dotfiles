@@ -6,9 +6,20 @@ map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight on search whe
 -- more binds
 map("n", "<C-q>", "<cmd>qa<CR>", { desc = "Quit Neovim" })
 map("n", "<M-q>", "<cmd>q<CR>", { desc = "Quit Buffer/window/tabs/anything" })
--- map("n", "<leader>q", "<cmd>qa!<CR>", { desc = "Abort all and quit" })
 map("i", "jk", "<Esc>", { desc = "Insert to normal mode" })
-map("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
+
+map("n", "<C-s>", function()
+  local filename = vim.fn.expand("%")
+  -- HACK: aint the best way just to hide the notify, but its bothering with the autocmds i made
+  local isModified = vim.bo.modified
+  if isModified then
+    vim.notify(filename, "info", {
+      title = "File saved!",
+      timeout = 3500,
+    })
+  end
+  vim.cmd("silent w")
+end, { desc = "Save file" })
 
 -- navigating quickfix
 map("n", "]q", "<cmd>cnext<cr>", { desc = "Next quickfix item" })
