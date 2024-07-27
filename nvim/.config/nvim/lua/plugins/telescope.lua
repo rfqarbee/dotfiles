@@ -18,8 +18,8 @@ return {
 
     telescope.setup({
       defaults = {
-        mappings = utils.mappings,
-        buffer_previewer_maker = utils.new_maker,
+        mappings = utils.telescope_mappings,
+        buffer_previewer_maker = utils.telescope_new_maker,
         path_display = {
           -- truncate = 4,
           shorten = { len = 5, exclude = { 1, -2, -1 } },
@@ -78,7 +78,7 @@ return {
         },
         buffers = {
           initial_mode = "normal",
-          mappings = utils.buffer,
+          mappings = utils.telescope_buffer,
         },
         current_buffer_fuzzy_find = {
           previewer = false,

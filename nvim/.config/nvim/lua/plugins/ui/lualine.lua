@@ -1,16 +1,4 @@
-local function count_items(qf_list)
-  if #qf_list > 0 then
-    local valid = 0
-    for _, item in ipairs(qf_list) do
-      if item.valid == 1 then
-        valid = valid + 1
-      end
-    end
-    if valid > 0 then
-      return tostring(valid)
-    end
-  end
-end
+local utils = require("utils.helper")
 
 return {
   "nvim-lualine/lualine.nvim",
@@ -35,24 +23,29 @@ return {
         {
           -- shamelessly stolen from reddit
           function()
-            local loc_values = vim.fn.getloclist(vim.api.nvim_get_current_win())
-            local items = count_items(loc_values)
-            if items then
-              return "Loclist: " .. items
+            local hasloclist = utils.loclist_item()
+            return "loc: " .. hasloclist
+          end,
+
+          cond = function()
+            local hasloclist = utils.loclist_item()
+            if hasloclist then
+              return true
             end
-            return "Loclist: 0"
           end,
         },
         {
           function()
-            local qf_values = vim.fn.getqflist()
-            local items = count_items(qf_values)
-            if items then
-              return "Qflist: " .. items
-            end
-            return "Qflist: 0"
+            local hasqfix = utils.qfix_item()
+            return "qfix: " .. hasqfix
           end,
-          padding = { left = 20 },
+          cond = function()
+            local hasqfix = utils.qfix_item()
+            if hasqfix then
+              return true
+            end
+          end,
+          -- padding = { left = 20 },
         },
       },
       lualine_x = { "encoding", "fileformat", "filetype" },
@@ -74,20 +67,23 @@ return {
           max_legth = vim.o.columns / 3,
           mode = 1,
           path = 0,
+          symbols = {
+            modified = "",
+          },
           fmt = function(name, context)
-            -- Show + if buffer is modified in tab
-            -- comment
             local buflist = vim.fn.tabpagebuflist(context.tabnr)
             local winnr = vim.fn.tabpagewinnr(context.tabnr)
             local bufnr = buflist[winnr]
             local mod = vim.fn.getbufvar(bufnr, "&mod")
             local filetype = vim.bo.filetype
 
-            -- TODO: fix this shit
             if filetype == "TelescopePrompt" then
+              return "Telescope"
+            elseif filetype == "oil" then
+              return "File Explore"
+            else
+              return (mod == 1 and "[+] " or "") .. name
             end
-
-            return name .. (mod == 1 and " +" or "")
           end,
         },
       },

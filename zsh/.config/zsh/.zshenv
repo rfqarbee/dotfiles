@@ -19,6 +19,7 @@ export PATH
 
 # export local env
 # export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
+export PROMPT_EOL_MARK=''
 export TERMINAL=/usr/bin/kitty
 export EDITOR=nvim
 export VISUAL=nvim

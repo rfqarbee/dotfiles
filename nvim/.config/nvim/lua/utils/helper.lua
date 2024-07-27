@@ -1,8 +1,10 @@
+local M = {}
+
 local previewers = require("telescope.previewers")
 local actions = require("telescope.actions")
 local Job = require("plenary.job")
 
-local new_maker = function(filepath, bufnr, opts)
+M.telescope_new_maker = function(filepath, bufnr, opts)
   filepath = vim.fn.expand(filepath)
   Job:new({
     command = "file",
@@ -21,7 +23,7 @@ local new_maker = function(filepath, bufnr, opts)
   }):sync()
 end
 
-local mappings = {
+M.telescope_mappings = {
   i = {
     ["<M-e>"] = actions.close,
     ["<C-s>"] = actions.select_horizontal, -- remap c-x
@@ -64,7 +66,7 @@ local mappings = {
   },
 }
 
-local buffer = {
+M.telescope_buffer = {
   i = {
     ["<CR>"] = actions.select_default,
     ["<C-d>"] = actions.delete_buffer,
@@ -75,10 +77,41 @@ local buffer = {
   },
 }
 
-local M = {
-  new_maker = new_maker,
-  mappings = mappings,
-  buffer = buffer,
-}
+local function count_items(qf_list)
+  if #qf_list > 0 then
+    local valid = 0
+    for _, item in ipairs(qf_list) do
+      if item.valid == 1 then
+        valid = valid + 1
+      end
+    end
+    if valid > 0 then
+      return tostring(valid)
+    end
+  end
+end
+
+local function loclist()
+  local loc_values = vim.fn.getloclist(vim.api.nvim_get_current_win())
+  local items = count_items(loc_values)
+  if items then
+    return items
+  else
+    return nil
+  end
+end
+
+local function qfix()
+  local qf_values = vim.fn.getqflist()
+  local items = count_items(qf_values)
+  if items then
+    return items
+  else
+    return nil
+  end
+end
+
+M.qfix_item = qfix
+M.loclist_item = loclist
 
 return M

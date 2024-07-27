@@ -8,9 +8,11 @@ return {
     "nvim-telescope/telescope.nvim",
   },
   keys = {
-    { "<leader>go", "<cmd>Neogit cwd=%:p:h<cr>", desc = "Git cwd" },
-    { "<leader>gp", "<cmd>Neogit<cr>", desc = "Git Project root" },
+    { "<leader>gf", "<cmd>Neogit cwd=%:p:h<cr>", desc = "Git status (File Path)" },
+    { "<leader>go", "<cmd>Neogit<cr>", desc = "Git Status (Root)" },
     { "<leader>gd", "<cmd>Neogit diff<cr>", desc = "Neogit Diff" },
   },
-  opts = {},
+  opts = {
+    disable_line_numbers = false,
+  },
 }

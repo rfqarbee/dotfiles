@@ -12,6 +12,18 @@ return {
       svelte = { "eslint_d", "eslint" },
       c = { "cpplint" },
     }
+
+    --[[ lint.linters.eslint.args = {
+      "--format",
+      "json",
+      "--stdin",
+      "--stdin-filename",
+      function()
+        return vim.api.nvim_buf_get_name(0)
+      end,
+      "--warn-no-ignored",
+    } ]]
+
     lint.linters.cpplint.args = {
       "--filter",
       "-whitespace",

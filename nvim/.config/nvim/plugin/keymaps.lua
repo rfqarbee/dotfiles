@@ -9,7 +9,7 @@ map("n", "<M-q>", "<cmd>q<CR>", { desc = "Quit Buffer/window/tabs/anything" })
 map("i", "jk", "<Esc>", { desc = "Insert to normal mode" })
 
 map("n", "<C-s>", function()
-  local filename = vim.fn.expand("%")
+  local filename = vim.fn.expand("%:t")
   -- HACK: aint the best way just to hide the notify, but its bothering with the autocmds i made
   local isModified = vim.bo.modified
   if isModified then
