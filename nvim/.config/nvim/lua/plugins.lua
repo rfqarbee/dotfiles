@@ -31,7 +31,7 @@ return {
     event = "VeryLazy",
     opts = {
       input = {
-        title_pos = "center",
+        title_pos = "left",
       },
     },
   },

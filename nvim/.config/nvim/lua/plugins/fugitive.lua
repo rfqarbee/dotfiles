@@ -1,8 +1,8 @@
 return {
   "tpope/vim-fugitive",
-  enabled = false,
+  enabled = true,
   config = function()
-    vim.keymap.set("n", "<leader>go", ":tab Git <CR>", { desc = "Open Fugitive" })
-    vim.keymap.set("n", "<leader>gd", ":Gvdiffsplit <CR>", { desc = "Open Fugitive" })
+    vim.keymap.set("n", "<leader>gs", ":tab Git <CR>", { silent = true, desc = "Open Fugitive" })
+    vim.keymap.set("n", "<leader>gd", ":Gvdiffsplit <CR>", { desc = "Diff split" })
   end,
 }

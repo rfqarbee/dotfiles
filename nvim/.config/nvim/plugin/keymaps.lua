@@ -1,4 +1,5 @@
 local map = vim.keymap.set
+local helper = require("utils.helper")
 -- unbind
 map({ "n", "v" }, "Q", "<nop>")
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight on search when Esc in normal mode" })
@@ -7,19 +8,6 @@ map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight on search whe
 map("n", "<C-q>", "<cmd>qa<CR>", { desc = "Quit Neovim" })
 map("n", "<M-q>", "<cmd>q<CR>", { desc = "Quit Buffer/window/tabs/anything" })
 map("i", "jk", "<Esc>", { desc = "Insert to normal mode" })
-
-map("n", "<C-s>", function()
-  local filename = vim.fn.expand("%:t")
-  -- HACK: aint the best way just to hide the notify, but its bothering with the autocmds i made
-  local isModified = vim.bo.modified
-  if isModified then
-    vim.notify(filename, "info", {
-      title = "File saved!",
-      timeout = 3500,
-    })
-  end
-  vim.cmd("silent w")
-end, { desc = "Save file" })
 
 -- navigating quickfix
 map("n", "]q", "<cmd>cnext<cr>", { desc = "Next quickfix item" })
@@ -65,5 +53,32 @@ map("x", "<leader>p", '"+p', { desc = "Paste and copy into Clipboard" })
 -- map({"n","v"}, "d", '"_d', { desc = "Delete w/o clipboard" })
 -- map({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete w/o clipboard (v)" })
 
--- replace current word
-map("n", "<leader>rp", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replace current word" })
+-- saving
+map("n", "<C-s>", function()
+  local filename = vim.fn.expand("%:t")
+  -- HACK: aint the best way just to hide the notify, but its bothering with the autocmds i made
+  local isModified = vim.bo.modified
+  if isModified then
+    vim.notify(filename, "info", {
+      title = "File saved!",
+      timeout = 3500,
+    })
+  end
+  vim.cmd("silent w")
+end, { desc = "Save file" })
+
+map("v", "<leader>rp", function()
+  helper.replace_word("<cword>", "visual")
+end, { desc = "Replace current word in visual mode" })
+
+map("n", "<leader>rp", function()
+  helper.replace_word("<cword>")
+end, { desc = "Replace current word" })
+
+map("n", "<leader>rP", function()
+  helper.replace_word("<cWORD>")
+end, { desc = "Replace current word" })
+
+map("v", "<leader>rP", function()
+  helper.replace_word("<cWORD>", "visual")
+end, { desc = "Replace current word in visual mode" })

@@ -4,15 +4,16 @@ return {
   enabled = true,
   dependencies = {
     "nvim-lua/plenary.nvim", -- required
-    "sindrets/diffview.nvim", -- optional - Diff integration
+    -- "sindrets/diffview.nvim", -- optional - Diff integration
     "nvim-telescope/telescope.nvim",
   },
   keys = {
-    { "<leader>gf", "<cmd>Neogit cwd=%:p:h<cr>", desc = "Git status (File Path)" },
-    { "<leader>go", "<cmd>Neogit<cr>", desc = "Git Status (Root)" },
-    { "<leader>gd", "<cmd>Neogit diff<cr>", desc = "Neogit Diff" },
+    { "<leader>nf", "<cmd>Neogit cwd=%:p:h<cr>", desc = "Git status (File Path)" },
+    { "<leader>ns", "<cmd>Neogit<cr>", desc = "Git Status (Root)" },
+    { "<leader>nd", "<cmd>Neogit diff<cr>", desc = "Neogit Diff" },
   },
   opts = {
     disable_line_numbers = false,
+    disable_signs = true,
   },
 }
