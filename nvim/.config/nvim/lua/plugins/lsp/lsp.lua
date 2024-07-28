@@ -24,6 +24,7 @@ return {
       local lspconfig = require("lspconfig")
 
       local servers = {
+        prismals = true,
         dartls = {
           cmd = {
             "dart",

@@ -42,6 +42,7 @@ return {
             "rg",
             "--files",
             "--hidden",
+            -- "-u",
             "--glob",
             "!**/.git/*",
           },
