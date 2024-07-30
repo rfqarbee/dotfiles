@@ -1,10 +1,11 @@
 -- neogit
+-- ammend this commit
 return {
   "NeogitOrg/neogit",
   enabled = true,
   dependencies = {
     "nvim-lua/plenary.nvim", -- required
-    -- "sindrets/diffview.nvim", -- optional - Diff integration
+    "sindrets/diffview.nvim", -- optional - Diff integration
     "nvim-telescope/telescope.nvim",
   },
   keys = {
