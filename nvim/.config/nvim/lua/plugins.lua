@@ -30,8 +30,19 @@ return {
     enabled = true,
     event = "VeryLazy",
     opts = {
+      -- input = {
+      --   title_pos = "left",
+      -- },
       input = {
-        title_pos = "left",
+        get_config = function(opts)
+          print(vim.inspect(opts))
+          if opts.kind == nil then
+            return {
+              relative = "editor",
+              title_pos = "left",
+            }
+          end
+        end,
       },
     },
   },

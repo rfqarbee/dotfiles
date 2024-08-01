@@ -22,6 +22,7 @@ zinit cdreplay -q # reload all completion
 
 # key binds
 bindkey -s "^E" "tmux_session.sh\n"
+bindkey -s "^b" "backend.sh\n"
 # bindkey -ar "O"
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
@@ -62,13 +63,14 @@ source $ZDOTDIR/aliases.zsh
 # if fzf is below 0.48.0 (ex : debian)
 fzf_ver=$(fzf --version | awk -F '.' '{print $2}') # get the version
 
+# BUG: for opensuse wsl
 eval "$(zoxide init zsh --cmd cd)"
-if [[ -n $(command -v fzf) ]] && [[ $fzf_ver -lt 48 ]]; then
-  source /usr/share/doc/fzf/examples/key-bindings.zsh
-  source /usr/share/doc/fzf/examples/completion.zsh
-else
+# if [[ -n $(command -v fzf) ]] && [[ $fzf_ver -lt 48 ]]; then
+#   source /usr/share/doc/fzf/examples/key-bindings.zsh
+#   source /usr/share/doc/fzf/examples/completion.zsh
+# else
   source <(fzf --zsh)
-fi
+# fi
 
 eval "$(starship init zsh)"
 eval "$(mise activate zsh)"

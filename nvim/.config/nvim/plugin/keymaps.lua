@@ -82,3 +82,39 @@ end, { desc = "Replace current word" })
 map("v", "<leader>rP", function()
   helper.replace_word("<cWORD>", "visual")
 end, { desc = "Replace current word in visual mode" })
+
+-- map("n", "/", function()
+--   vim.ui.input({ prompt = "Search word" }, function(input)
+--     if input then
+--       local status, error = pcall(vim.cmd, "/" .. input)
+--       local function split(err)
+--         local t = ""
+--         for str in string.gmatch(err, "Vim:%s*(.*)") do
+--           t = str
+--         end
+--         return t
+--       end
+--       if status ~= true then
+--         print(split(error))
+--       end
+--     end
+--   end)
+-- end, { desc = "test" })
+
+-- map("n", ":", function()
+--   vim.ui.input({ prompt = "Command Mode" }, function(input)
+--     if input then
+--       local status, error = pcall(vim.cmd, ":" .. input)
+--       local function split(err)
+--         local t = ""
+--         for str in string.gmatch(err, "Vim:%s*(.*)") do
+--           t = str
+--         end
+--         return t
+--       end
+--       if status ~= true then
+--         print(split(error))
+--       end
+--     end
+--   end)
+-- end, { desc = "test" })

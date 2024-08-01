@@ -21,8 +21,8 @@ return {
         mappings = utils.telescope_mappings,
         buffer_previewer_maker = utils.telescope_new_maker,
         path_display = {
-          -- truncate = 4,
-          shorten = { len = 5, exclude = { 1, -2, -1 } },
+          truncate = 3,
+          -- shorten = { len = 5, exclude = { 1, -2, -1 } },
         },
         vimgrep_arguments = {
           "rg",

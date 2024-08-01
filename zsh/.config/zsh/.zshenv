@@ -45,6 +45,7 @@ export PSQLRC="$XDG_CONFIG_HOME/pg/psqlrc" # postgres
 export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
 export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass"
 export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"
+export TMUX_TMPDIR=/tmp
 
 # docker
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker

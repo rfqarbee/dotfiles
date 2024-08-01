@@ -39,6 +39,7 @@ opt.showmode = false --disable show mode cuz status line already show
 
 opt.clipboard:append("unnamedplus")
 
+
 opt.splitright = true
 opt.splitbelow = true
 
