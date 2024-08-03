@@ -1,0 +1,22 @@
+#ignore plugins in zsh
+zsh/.config/zsh/.histfile
+zsh/.config/zsh/.zsh_history
+zsh/.config/zsh/.zcompdump
+zsh/.config/zsh/zshrc
+zsh/.config/zsh/zshenv
+zsh/.config/zsh/zprofile
+
+# hypr
+hypr/.config/hypr/nah
+
+# tmux
+tmux/.config/tmux/.tmux/
+tmux/.config/tmux/plugins/
+
+# waybar
+waybar/.config/waybar/exampleconfig
+waybar/.config/waybar/examplecss
+
+# nvim
+nvim/.config/nvim/undodir
+nvim/.config/nvim/lazy-lock.json

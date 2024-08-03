@@ -1,0 +1,16 @@
+[window]
+opacity = 0.90
+
+padding.x = 11
+padding.y = 15
+
+decorations = "Full"
+decorations_theme_variant = "Dark" # "Dark"
+
+[font]
+normal.family = "JetBrainsMono Nerd Font"
+bold.family = "JetBrainsMono Nerd Font"
+italic.family = "JetBrainsMono Nerd Font"
+bold_italic.family = "JetBrainsMono Nerd Font"
+
+size = 11.0
