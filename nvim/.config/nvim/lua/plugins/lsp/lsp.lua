@@ -2,7 +2,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      -- mason lsp and shit
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -55,9 +54,6 @@ return {
         rust_analyzer = true,
         svelte = {
           pattern = { "*.js", "*.ts" },
-          callback = function(ctx)
-            vim.notify("$/onDidChangeTsorJsFile", { uri = ctx.match })
-          end,
         },
         cssls = true,
         graphql = {
@@ -67,14 +63,20 @@ return {
           init_options = { clangdFileStatus = true },
           filetypes = { "c" },
         },
-        -- tsserver = true,
         lua_ls = {
           settings = {
             Lua = {
+              hint = { enable = true },
               runtime = {
                 version = "LuaJIT",
+                path = vim.split(package.path, ";"),
               },
               diagnostics = { globals = { "vim" } },
+              workspace = {
+                library = {
+                  [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                },
+              },
             },
           },
         },
@@ -126,7 +128,6 @@ return {
         lua = true,
       }
 
-      -- lsp
       vim.api.nvim_create_autocmd({ "LspAttach" }, {
         group = vim.api.nvim_create_augroup("neovim-lsp-group", { clear = true }),
         callback = function(event)
@@ -137,7 +138,6 @@ return {
             vim.keymap.set("n", keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
           end
 
-          -- using telescope
           map("gd", vim.lsp.buf.definition, "Goto defintion")
           map("gD", vim.lsp.buf.declaration, "Goto declaration")
           map("gr", builtin.lsp_references, "Goto references")
@@ -149,6 +149,9 @@ return {
           map("<leader>ca", vim.lsp.buf.code_action, "Code action")
           map("<M-d>", vim.diagnostic.open_float, "Diagnostics open float")
           map("<leader>lr", "<cmd>LspRestart<cr>", "Restart")
+          map("<leader>lh", function()
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+          end, "InlayHints")
 
           local filetype = vim.bo[bufnr].filetype
           if disable_semantic_tokens[filetype] then

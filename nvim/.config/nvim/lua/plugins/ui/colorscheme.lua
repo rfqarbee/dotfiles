@@ -1,5 +1,4 @@
 return {
-  -- tokyonight
   {
     "folke/tokyonight.nvim",
     lazy = false,
@@ -31,7 +30,6 @@ return {
       -- vim.cmd.colorscheme("tokyonight")
     end,
   },
-  -- one dark
   {
     "navarasu/onedark.nvim",
     lazy = false,
@@ -41,14 +39,7 @@ return {
       require("onedark").setup({
         style = "deep",
         transparent = false,
-        term_colors = false,
-        ending_tildes = false,
-        cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
-        -- toggle theme style ---
-        toggle_style_key = "<leader>ct", -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
-        toggle_style_list = { "dark", "darker", "cool", "deep", "warm", "warmer", "light" }, -- List of styles to toggle between
 
-        -- Options are italic, bold, underline, none
         code_style = {
           comments = "italic",
           keywords = "none",
@@ -57,12 +48,10 @@ return {
           variables = "none",
         },
 
-        -- Lualine options --
         lualine = {
-          transparent = true, -- lualine center bar transparency
+          transparent = true,
         },
 
-        -- Custom Highlights --
         colors = {
           hint = "#86e1fc",
           vhint = "#2c374a",
@@ -80,11 +69,10 @@ return {
           DiagnosticVirtualTextInfo = { fg = "$info", bg = "$vinfo" },
         },
 
-        -- Plugins Config --
         diagnostics = {
-          darker = false, -- darker colors for diagnostic
-          undercurl = false, -- use undercurl instead of underline for diagnostics
-          background = true, -- use background color for virtual text
+          darker = false,
+          undercurl = true,
+          background = false,
         },
       })
 

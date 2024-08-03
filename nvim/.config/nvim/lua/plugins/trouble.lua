@@ -34,34 +34,23 @@ return {
       position = "right",
     },
     modes = {
-      -- todo
       todo = {
         mode = "todo",
         win = { size = 40, position = "left" },
       },
-      -- diagnostics change window
       diagnostics = {
         mode = "diagnostics",
         win = { size = 12, position = "bottom" },
       },
-      -- diagnostics current buffer with preview
       diagnostics_buffer = {
         desc = "Current Buffer diagnostics",
         mode = "diagnostics",
         filter = { buf = 0 },
-        -- pinned = true,
         win = {
           position = "bottom",
           size = 12,
         },
-        -- preview = {
-        --   type = "split",
-        --   relative = "win",
-        --   position = "right",
-        --   size = 0.5,
-        -- },
       },
-      -- base on severity
       diag_priority = {
         mode = "diagnostics",
         desc = "Diagnostics on severity",
@@ -82,7 +71,6 @@ return {
         },
         win = { position = "bottom", size = 10 },
       },
-      -- project diagnostics
       diagnostics_project = {
         mode = "diagnostics",
         win = {

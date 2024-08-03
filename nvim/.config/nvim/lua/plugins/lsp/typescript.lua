@@ -6,6 +6,16 @@ return {
   config = function()
     require("typescript-tools").setup({
       settings = {
+        tsserver_file_preferences = {
+          includeInlayParameterNameHints = "all",
+          includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+          includeInlayVariableTypeHints = false,
+          includeInlayFunctionParameterTypeHints = false,
+          includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+          includeInlayPropertyDeclarationTypeHints = false,
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayEnumMemberValueHints = true,
+        },
         publish_diagnostic_on = "insert_leave",
       },
     })

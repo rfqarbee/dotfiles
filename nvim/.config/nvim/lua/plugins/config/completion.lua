@@ -4,7 +4,6 @@ return {
     lazy = false,
     priority = 1000,
     dependencies = {
-      -- "onsails/lspkind.nvim", -- completion icons
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
@@ -26,7 +25,6 @@ return {
     config = function()
       local luasnip = require("luasnip")
       local autopairs = require("nvim-autopairs.completion.cmp")
-      -- local lspkind = require("lspkind")
       local icons = require("utils.icons")
       local cmp = require("cmp")
 
@@ -40,7 +38,6 @@ return {
         },
         window = {
           completion = cmp.config.window.bordered({
-            -- border = { "", "", "", ">", "", "", "", "<" },
             border = "single",
           }),
           documentation = cmp.config.window.bordered({
@@ -50,25 +47,9 @@ return {
         view = {
           entries = {
             name = "custom",
-            -- selection_order = "near_cursor",
             follow_cursor = false,
           },
         },
-        -- NOTE: if use lsp_kind plugin
-        -- formatting = {
-        --   format = lspkind.cmp_format({
-        --     mode = "symbol_text",
-        --     maxwidth = 50,
-        --     ellipsis_char = "...",
-        --     show_labelDetails = true,
-        --     menu = {
-        --       buffer = "[Buffer]",
-        --       nvim_lsp = "[LSP]",
-        --       luasnip = "[LuaSnip]",
-        --       nvim_lua = "[Lua]",
-        --     },
-        --   }),
-        -- },
         formatting = {
           format = function(entry, vim_item)
             vim_item.kind = string.format("%s %s", icons.completion_icons.my_icons[vim_item.kind], vim_item.kind)
@@ -127,7 +108,6 @@ return {
         }),
       })
 
-      -- cmdline
       cmp.setup.cmdline(":", {
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({
@@ -145,24 +125,6 @@ return {
       })
 
       cmp.event:on("confirm_done", autopairs.on_confirm_done())
-
-      -- vscode color scheme
-      -- gray
-      -- vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { bg = "NONE", strikethrough = true, fg = "#808080" })
-      -- -- blue
-      -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { bg = "NONE", fg = "#569CD6" })
-      -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { link = "CmpIntemAbbrMatch" })
-      -- -- light blue
-      -- vim.api.nvim_set_hl(0, "CmpItemKindVariable", { bg = "NONE", fg = "#9CDCFE" })
-      -- vim.api.nvim_set_hl(0, "CmpItemKindInterface", { link = "CmpItemKindVariable" })
-      -- vim.api.nvim_set_hl(0, "CmpItemKindText", { link = "CmpItemKindVariable" })
-      -- -- pink
-      -- vim.api.nvim_set_hl(0, "CmpItemKindFunction", { bg = "NONE", fg = "#C586C0" })
-      -- vim.api.nvim_set_hl(0, "CmpItemKindMethod", { link = "CmpItemKindFunction" })
-      -- -- front
-      -- vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { bg = "NONE", fg = "#D4D4D4" })
-      -- vim.api.nvim_set_hl(0, "CmpItemKindProperty", { link = "CmpItemKindKeyword" })
-      -- vim.api.nvim_set_hl(0, "CmpItemKindUnit", { link = "CmpItemKindKeyword" })
     end,
   },
 }
