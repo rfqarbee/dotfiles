@@ -55,4 +55,3 @@ opt.isfname:append("@-@")
 opt.updatetime = 50
 
 opt.spelllang = { "en_us", "en" }
-opt.spell = true

@@ -27,8 +27,7 @@ return {
       local autopairs = require("nvim-autopairs.completion.cmp")
       local icons = require("utils.icons")
       local cmp = require("cmp")
-
-      luasnip.config.setup({})
+      require("snippets")
 
       cmp.setup({
         snippet = {
