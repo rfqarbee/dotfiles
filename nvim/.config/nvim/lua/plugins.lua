@@ -1,30 +1,24 @@
--- plugins with simple configuration
 return {
-  -- hardtime
   {
     "m4xshen/hardtime.nvim",
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
     opts = {
-      -- disable_filetypes = { "qf", "lazy", "oil", "telescope", "help" },
+      disable_filetypes = { "qf", "lazy", "oil", "telescope", "help" },
     },
   },
-  -- surround
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
     opts = {},
   },
-  -- tpope W
   { "tpope/vim-sleuth" },
-  -- nvim colorizer (nvchad fork)
   {
     "NvChad/nvim-colorizer.lua",
     config = function()
       require("colorizer").setup({})
     end,
   },
-  -- i like this
   {
     "stevearc/dressing.nvim",
     enabled = true,
@@ -46,7 +40,6 @@ return {
       },
     },
   },
-  -- undotree
   {
     "mbbill/undotree",
     keys = {

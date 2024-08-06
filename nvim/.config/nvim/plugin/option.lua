@@ -1,6 +1,5 @@
 --Set option
 local opt = vim.opt
-
 vim.g.have_nerd_font = true
 vim.g.loaded_netrw = 1 -- disable netrw
 vim.g.loaded_netrwPlugin = 1
@@ -34,7 +33,7 @@ opt.smartcase = true
 
 opt.cursorline = true
 opt.signcolumn = "yes"
--- opt.colorcolumn = "80"
+opt.colorcolumn = "80"
 opt.showmode = false --disable show mode cuz status line already show
 
 opt.clipboard:append("unnamedplus")
@@ -48,10 +47,12 @@ opt.listchars = { tab = "» ", trail = ".", nbsp = "␣" }
 opt.fillchars:append({ eob = " " })
 opt.scrolloff = 6
 
---backup for undodir accessible by undotree
+--backup for undodir accessible by undotree nvim config dir
 opt.swapfile = false
 opt.backup = false
 opt.undofile = true
 opt.undodir = os.getenv("HOME") .. "/.cache/undodir"
 opt.isfname:append("@-@")
 opt.updatetime = 50
+
+opt.spelllang = { "en_us", "en" }

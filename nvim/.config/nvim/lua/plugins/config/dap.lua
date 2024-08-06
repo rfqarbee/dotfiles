@@ -71,8 +71,6 @@ return {
       },
     }
 
-    -- test gdb
-
     --[[
 -- gdb via vscode cpptools
 dap.adapters.cppdbg = {
@@ -114,7 +112,6 @@ dap.configurations.c = dap.configurations.cpp
 dap.configurations.rust = dap.configurations.cpp
 --]]
 
-    -- keymap
     vim.keymap.set("n", "<leader>b", function()
       dap.toggle_breakpoint()
     end, { desc = "Toggle breakpoint" })

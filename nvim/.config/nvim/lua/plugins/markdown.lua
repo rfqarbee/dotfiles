@@ -1,5 +1,4 @@
 return {
-  -- markdown preview
   {
     "MeanderingProgrammer/markdown.nvim",
     name = "render-markdown", -- Only needed if you have another plugin named markdown.nvim
@@ -32,7 +31,6 @@ return {
       })
     end,
   },
-  -- obsidian
   {
     "epwalsh/obsidian.nvim",
     version = "*",
@@ -148,8 +146,6 @@ return {
       )
     end,
   },
-
-  -- neotree (only load in Vaults)
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",

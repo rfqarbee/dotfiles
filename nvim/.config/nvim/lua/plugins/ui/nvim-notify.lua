@@ -4,7 +4,6 @@ return {
   enabled = true,
   keys = {
     { "<leader><Esc>", "<cmd>lua require('notify').dismiss()<cr>", "Dismiss Notification" },
-    -- { "<C-g>", "<cmd>lua show_file_info()<cr>", "Show current file" },
   },
   config = function()
     local notify = require("notify")

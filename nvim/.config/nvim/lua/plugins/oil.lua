@@ -1,7 +1,6 @@
 return {
   {
     "stevearc/oil.nvim",
-    -- opts = {},
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       local oil = require("oil")
@@ -15,12 +14,6 @@ return {
           is_hidden_file = function(name, bufnr)
             return vim.startswith(name, ".")
           end,
-          -- NOTE: not sure if i want git file to be hidden
-          -- is_always_hidden = function(name, bufnr)
-          -- if name == ".git" then
-          --   return true
-          -- end
-          -- end,
         },
         float = {
           border = "rounded",
@@ -58,16 +51,14 @@ return {
       end, { desc = "Oil -> Directory" })
     end,
   },
-  -- gx plugin
   {
     "chrishrb/gx.nvim",
     keys = { { "gx", "<cmd>Browse<cr>", mode = { "n", "x" } } },
     cmd = { "Browse" },
     init = function()
-      vim.g.netrw_nogx = 1 -- disable netrw gx
+      vim.g.netrw_nogx = 1
     end,
     dependencies = { "nvim-lua/plenary.nvim" },
-    submodules = false, -- not needed, submodules are required only for tests
     opts = {},
   },
 }

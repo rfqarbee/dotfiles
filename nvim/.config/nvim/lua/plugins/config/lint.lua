@@ -13,17 +13,6 @@ return {
       c = { "cpplint" },
     }
 
-    --[[ lint.linters.eslint.args = {
-      "--format",
-      "json",
-      "--stdin",
-      "--stdin-filename",
-      function()
-        return vim.api.nvim_buf_get_name(0)
-      end,
-      "--warn-no-ignored",
-    } ]]
-
     lint.linters.cpplint.args = {
       "--filter",
       "-whitespace",
@@ -37,7 +26,6 @@ return {
       end,
     })
 
-    -- manually call lint
     vim.keymap.set("n", "<leader>ll", function()
       lint.try_lint()
     end, { desc = "Linting" })

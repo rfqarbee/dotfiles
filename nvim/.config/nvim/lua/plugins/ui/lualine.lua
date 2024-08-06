@@ -8,11 +8,8 @@ return {
       theme = "auto",
       globalstatus = true,
       section_separators = " ",
-      -- section_separators = { left = "", right = "" },
-      -- component_separators = { left = "", right = "" }, -- okay with no separator
       component_separators = " ",
       disabled_filetypes = {
-        -- tabline = { "TelescopePrompt" },
         statusline = { "oil", "undotree", "dashboard" },
       },
     },

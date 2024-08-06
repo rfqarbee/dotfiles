@@ -140,7 +140,6 @@ return {
       })
     end, { desc = "Live grep open files" })
 
-    -- goto neovim config
     vim.keymap.set("n", "<leader>fc", function()
       builtin.find_files({ cwd = vim.fn.stdpath("config") })
     end, { desc = "Neovim config" })

@@ -1,5 +1,3 @@
--- neogit
--- ammend this commit
 return {
   "NeogitOrg/neogit",
   enabled = true,

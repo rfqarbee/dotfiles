@@ -1,5 +1,4 @@
 return {
-  -- autopairs
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
@@ -11,7 +10,7 @@ return {
       local autopairs = require("nvim-autopairs")
       autopairs.setup({
         disable_filetype = { "TelescopePrompt" },
-        check_ts = true, -- check treesitter
+        check_ts = true,
         ts_config = {
           lua = { "string" },
           javascript = { "template_string" },

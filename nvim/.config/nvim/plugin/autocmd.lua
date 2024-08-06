@@ -34,13 +34,13 @@ autocmd("VimResized", {
 usercmd("ToggleDiagnostics", function()
   if vim.g.diagnostics_enabled == nil then
     vim.g.diagnostics_enabled = false
-    vim.diagnostic.disable()
+    vim.diagnostic.enable(not vim.diagnostic.is_enabled())
   elseif vim.g.diagnostics_enabled then
     vim.g.diagnostics_enabled = false
-    vim.diagnostic.disable()
+    vim.diagnostic.enable(not vim.diagnostic.is_enabled())
   else
     vim.g.diagnostics_enabled = true
-    vim.diagnostic.enable()
+    vim.diagnostic.enable(not vim.diagnostic.is_enabled())
   end
 end, {})
 

@@ -1,11 +1,9 @@
 return {
-  -- gitsigns
   {
     "lewis6991/gitsigns.nvim",
     config = function()
       require("gitsigns").setup({
         signs = {
-          -- add = { text = "+" },
           add = { text = "┃" },
           change = { text = "┃" },
           delete = { text = "_" },
@@ -61,7 +59,6 @@ return {
             end
           end, { desc = "Previous Hunk" })
 
-          -- Actions
           map("n", "<leader>hs", gitsigns.stage_hunk, { desc = "Stage Hunk" })
           map("n", "<leader>hr", gitsigns.reset_hunk, { desc = "Reset Hunk" })
           map("v", "<leader>hs", function()
@@ -77,13 +74,7 @@ return {
           map("n", "<leader>hb", function()
             gitsigns.blame_line({ full = true })
           end, { desc = "Blame Hunk" })
-          -- map("n", "<leader>hd", gitsigns.diffthis, { desc = "Diffview Hunk" })
-          -- map("n", "<leader>hD", function()
-          --   gitsigns.diffthis("~")
-          -- end, { desc = "Diffview Hunk (D)" })
           map("n", "<leader>hd", gitsigns.toggle_deleted, { desc = "Toggle Deleted Hunk" })
-
-          -- Text object
           map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Gitsigns select Hunk" })
         end,
       })
