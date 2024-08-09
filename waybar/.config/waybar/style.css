@@ -1,29 +1,24 @@
+@import "./rose-pine.css";
 * {
-  /* background-color: #11111e; */
-  border: none;
-  border-radius: 5px;
   font-family: "JetbrainsMono Nerd Font";
-  font-size: 14px;
+  font-size: 10px;
   min-height: 0px;
-}
-
-#window {
-  margin-top: 2px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 5px;
+  padding-left: 2px;
+  padding-right: 2px;
+  /* border-radius: 5px; */
   transition: none;
 }
 
 window#waybar {
-  background-color: transparent;
+  background: @base;
+  color: @text;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
 
 /* make window module transparent when no windows present */
 window#waybar.empty #window {
-  background-color: transparent;
+  /* background-color: @base; */
 }
 
 window#waybar.Alacritty {
@@ -41,43 +36,39 @@ window#waybar.steam {
 
 /* workspaces css */
 #workspaces button {
-  border-radius: 10px;
+  color: @text;
+  background: @surface;
   margin: 0.25rem;
-  color: white;
-  background: #0d1137;
 }
 
 #workspaces button.focused {
-  /* color: white; */
-  /* background: #1f1f1f; */
-  /* border-bottom: 3px solid #ffffff; */
+  color: @pine;
+  background: @surface;
 }
 
 #workspaces button.focused:hover {
-  /* color: #e52165; */
-  /* background: #0d1137; */
+  color: @surface;
+  background: @pine;
   /* border-bottom: 3px solid #ffffff; */
 }
 
 #workspaces button.urgent {
-  /* background-color: #eb4d4b; */
 }
 
 #workspaces button.active {
-  background: #e0cdbe;
-  color: #1e3d59;
+  color: @base;
+  background: @rose;
 }
 
 #workspaces button:hover {
-  color: #fef0e1;
-  border-radius: 2px;
-  background: #1e3d59;
+  color: @pine;
+  background: @gold;
 }
 
 #keyboard-state {
-  padding: 0 0.5rem;
-  background-color: @surface0;
+  background-color: @surface;
   color: @text;
+  padding: 0 0.5rem;
   margin: 0.25rem;
 }
 
@@ -88,8 +79,6 @@ window#waybar.steam {
   padding-right: 5px;
   border-radius: 10px;
   transition: none;
-  color: #e5e8c7;
-  background: #0d1137;
 }
 
 #wireplumber {
@@ -99,8 +88,6 @@ window#waybar.steam {
   padding-right: 5px;
   border-radius: 10px;
   transition: none;
-  background: #0d1137;
-  color: #e5e8c7;
 }
 #wireplumber.muted {
   color: #ba391a;
@@ -114,8 +101,6 @@ window#waybar.steam {
   margin-bottom: 0px;
   border-radius: 10px;
   transition: none;
-  color: #e5e8c7;
-  background: #0d1137;
 }
 
 #memory {
@@ -137,8 +122,6 @@ window#waybar.steam {
   padding-right: 10px;
   border-radius: 10px;
   transition: none;
-  color: #e5e8c7;
-  background: #96cdfb;
 }
 
 #custom-launcher {
@@ -148,8 +131,6 @@ window#waybar.steam {
   padding-right: 5px;
   border-radius: 5px;
   transition: none;
-  color: #89dceb;
-  background: #0d1137;
 }
 
 #custom-power {
@@ -159,8 +140,6 @@ window#waybar.steam {
   padding-right: 5px;
   border-radius: 5px;
   transition: none;
-  color: #e5e8c7;
-  background: #0d1137;
 }
 
 #custom-cliphist {
@@ -182,6 +161,4 @@ window#waybar.steam {
   padding-right: 5px;
   border-radius: 10px;
   transition: none;
-  color: #e5e8c7;
-  background: #0d1137;
 }

@@ -1,6 +1,6 @@
 {
     "layer" : "top", //always let top to display front of windows
-    "modules-left" : ["custom/launcher","hyprland/window"],
+    "modules-left" : ["hyprland/window"],
     "modules-center" : ["hyprland/workspaces"],
     "modules-right" : ["custom/cliphist","group/control","custom/power"],
 

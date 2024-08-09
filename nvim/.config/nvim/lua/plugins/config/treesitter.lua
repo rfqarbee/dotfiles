@@ -4,7 +4,6 @@ return {
   build = ":TSUpdate",
   config = function()
     local ensure_installed = {
-      "json5",
       "json",
       "typescript",
       "javascript",
@@ -15,12 +14,11 @@ return {
       "prisma",
       "bash",
       "c",
-      "c_sharp",
+      -- "c_sharp",
       "make",
       "dart",
       "go",
       "sql",
-      "query",
       "http",
       "gitignore",
       "dockerfile",

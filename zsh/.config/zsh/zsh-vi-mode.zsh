@@ -4,8 +4,8 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 ZVM_LINE_INIT_MODE=$ZVM_MODE_LAST
 
 # highlights
-ZVM_VI_HIGHLIGHT_FOREGROUND=white             # Color name
-ZVM_VI_HIGHLIGHT_BACKGROUND=black               # Color name
+ZVM_VI_HIGHLIGHT_FOREGROUND=black
+ZVM_VI_HIGHLIGHT_BACKGROUND=white
 ZVM_VI_HIGHLIGHT_EXTRASTYLE=bold,underline    # bold and underline
 
 function create_tmux() {
