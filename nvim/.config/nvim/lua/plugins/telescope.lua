@@ -8,7 +8,6 @@ return {
       build = "make",
     },
     { "nvim-tree/nvim-web-devicons" },
-    { "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0.0," },
   },
   config = function()
     local telescope = require("telescope")
@@ -19,7 +18,7 @@ return {
     telescope.setup({
       defaults = {
         mappings = utils.telescope_mappings,
-        buffer_previewer_maker = utils.telescope_new_maker,
+        -- buffer_previewer_maker = utils.telescope_new_maker,
         path_display = {
           truncate = 3,
           -- shorten = { len = 5, exclude = { 1, -2, -1 } },
@@ -100,31 +99,20 @@ return {
           override_file_sorter = true,
           case_mode = "smart_case",
         },
-        live_grep_args = {
-          mappings = {
-            i = {
-              ["<CR>"] = actions.select_default,
-              ["<c-o"] = require("telescope-live-grep-args.actions").quote_prompt(),
-              ["<c-i>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob " }),
-              ["<c-space>"] = actions.to_fuzzy_refine,
-            },
-          },
-        },
       },
     })
 
     pcall(telescope.load_extension, "fzf")
-    pcall(telescope.load_extension, "live_grep_args")
 
     vim.keymap.set("n", "<leader>f.", function()
       builtin.oldfiles({ only_cwd = true })
     end, { desc = "Recent files (extension)", noremap = true, silent = true })
 
     vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find Buffers" })
-    vim.keymap.set("n", "<M-e>", builtin.find_files, { desc = "Find Files" })
-    vim.keymap.set("n", "<leader>ff", builtin.git_files, { desc = "Find Git Files" })
+    vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = "Find Files" })
+    vim.keymap.set("n", "<leader>pg", builtin.git_files, { desc = "Find Git Files" })
     vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Grep current word" })
-    vim.keymap.set("n", "<leader>fg", telescope.extensions.live_grep_args.live_grep_args, { desc = "Live Grep" })
+    vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live Grep" })
     vim.keymap.set("n", "<leader>fd", function()
       builtin.find_files({ find_command = { "fd", "-mindepth", "1", "--type", "d" } })
     end, { desc = "Find Directories" })
