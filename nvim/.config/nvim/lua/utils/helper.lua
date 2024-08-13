@@ -1,82 +1,5 @@
 local M = {}
 
-local previewers = require("telescope.previewers")
-local actions = require("telescope.actions")
-local Job = require("plenary.job")
-
-M.telescope_new_maker = function(filepath, bufnr, opts)
-  filepath = vim.fn.expand(filepath)
-  Job:new({
-    command = "file",
-    args = { "--mime-type", "-b", filepath },
-    on_exit = function(j)
-      local mime_type = vim.split(j:result()[1], "/")[1]
-      if mime_type == "text" then
-        previewers.buffer_previewer_maker(filepath, bufnr, opts)
-      else
-        -- maybe we want to write something to the buffer here
-        vim.schedule(function()
-          vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { "BINARY" })
-        end)
-      end
-    end,
-  }):sync()
-end
-
-M.telescope_mappings = {
-  i = {
-    ["<M-e>"] = actions.close,
-    ["<C-s>"] = actions.select_horizontal, -- remap c-x
-    ["<C-x>"] = actions.delete_buffer,
-    ["<C-p>"] = actions.move_selection_previous,
-    ["<C-n>"] = actions.move_selection_next,
-    ["<Tab>"] = actions.add_selection,
-    ["<S-Tab>"] = actions.remove_selection,
-    ["<C-e>"] = actions.drop_all,
-    ["<C-q>"] = actions.send_selected_to_qflist,
-    ["<C-a>"] = actions.add_selected_to_qflist,
-    ["<C-l>"] = actions.send_selected_to_loclist,
-    ["<C-m>"] = actions.add_selected_to_loclist,
-    ["<M-q>"] = actions.send_to_qflist,
-    ["<M-a>"] = actions.add_to_qflist,
-    ["<M-l>"] = actions.send_to_loclist,
-    ["<M-m>"] = actions.add_to_loclist,
-    ["<M-p>"] = require("telescope.actions.layout").toggle_preview,
-    -- ["<C-o>"] = actions.nop,
-    -- ["<C-t>"] = open_trouble,
-  },
-  n = {
-    ["<M-e>"] = actions.close,
-    -- ["<C-o>"] = actions.nop,
-    ["<M-p>"] = require("telescope.actions.layout").toggle_preview,
-    ["<Tab>"] = actions.add_selection,
-    ["<S-Tab>"] = actions.remove_selection,
-    ["<C-s>"] = actions.select_horizontal, -- remap c-x
-    ["e"] = actions.drop_all,
-    ["x"] = actions.delete_buffer,
-    ["q"] = actions.send_selected_to_qflist,
-    ["a"] = actions.add_selected_to_qflist,
-    ["l"] = actions.send_selected_to_loclist,
-    ["m"] = actions.add_selected_to_loclist,
-    ["Q"] = actions.send_to_qflist,
-    ["A"] = actions.add_to_qflist,
-    ["L"] = actions.send_to_loclist,
-    ["M"] = actions.add_to_loclist,
-    -- ["t"] = open_trouble,
-  },
-}
-
-M.telescope_buffer = {
-  i = {
-    ["<CR>"] = actions.select_default,
-    ["<C-d>"] = actions.delete_buffer,
-  },
-  n = {
-    ["<CR>"] = actions.select_default,
-    ["<c-d>"] = actions.delete_buffer,
-  },
-}
-
 local function count_items(qf_list)
   if #qf_list > 0 then
     local valid = 0
@@ -111,9 +34,6 @@ local function qfix()
   end
 end
 
-M.qfix_item = qfix
-M.loclist_item = loclist
-
 local function replace_word(word, type)
   local current_word = vim.fn.expand(word)
   local prompt = "Replace: "
@@ -136,5 +56,7 @@ local function replace_word(word, type)
 end
 
 M.replace_word = replace_word
+M.qfix_item = qfix
+M.loclist_item = loclist
 
 return M

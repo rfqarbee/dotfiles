@@ -1,6 +1,6 @@
 return {
   "mfussenegger/nvim-lint",
-  enabled = true,
+  enabled = false, -- BUG: this shit is calling nodejs infinitely; not sure why
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local lint = require("lint")

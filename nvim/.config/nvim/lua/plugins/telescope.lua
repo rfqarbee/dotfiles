@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  branch = "0.1.x",
+  branch = "0.1.8",
   dependencies = {
     "nvim-lua/plenary.nvim",
     {
@@ -13,84 +13,24 @@ return {
     local telescope = require("telescope")
     local builtin = require("telescope.builtin")
     local actions = require("telescope.actions")
-    local utils = require("utils.helper")
+    local utils = require("utils.helper_telescope")
 
     telescope.setup({
       defaults = {
         mappings = utils.telescope_mappings,
-        -- buffer_previewer_maker = utils.telescope_new_maker,
+        buffer_previewer_maker = utils.telescope_new_maker,
         path_display = {
           truncate = 3,
           -- shorten = { len = 5, exclude = { 1, -2, -1 } },
         },
-        vimgrep_arguments = {
-          "rg",
-          "--color=never",
-          "--no-heading",
-          "--with-filename",
-          "--line-number",
-          "--column",
-          "--smart-case",
-          "--trim",
-        },
+        vimgrep_arguments = utils.vimgrep_arguments,
         winblend = 0,
       },
       pickers = {
-        find_files = {
-          find_command = {
-            "rg",
-            "--files",
-            "--hidden",
-            -- "-u",
-            "--glob",
-            "!**/.git/*",
-          },
-          -- BUG: i dont fucking know why but <CR> doesnt work in find files
-          mappings = {
-            i = {
-              ["<CR>"] = actions.select_default,
-            },
-            n = {
-              ["<CR>"] = actions.select_default,
-            },
-          },
-        },
-        help_tags = {
-          mappings = {
-            i = {
-              ["<CR>"] = actions.select_default,
-            },
-            n = {
-              ["<CR>"] = actions.select_default,
-            },
-          },
-        },
-        grep_string = {
-          initial_mode = "normal",
-          mappings = {
-            i = {
-              ["<CR>"] = actions.select_default,
-            },
-            n = {
-              ["<CR>"] = actions.select_default,
-            },
-          },
-        },
-        buffers = {
-          initial_mode = "normal",
-          mappings = utils.telescope_buffer,
-        },
-        current_buffer_fuzzy_find = {
-          previewer = false,
-          mappings = {
-            i = {
-              ["<CR>"] = actions.select_default,
-            },
-            n = {
-              ["<CR>"] = actions.select_default,
-            },
-          },
-        },
+        find_files = utils.find_files,
+        grep_string = utils.grep_string,
+        buffers = utils.buffers,
+        current_buffer_fuzzy_find = utils.current_buffer_fuzzy_find,
       },
       extensions = {
         fzf = {

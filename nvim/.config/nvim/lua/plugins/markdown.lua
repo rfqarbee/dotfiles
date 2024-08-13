@@ -155,22 +155,22 @@ return {
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
     },
-    cond = function()
-      local getos = os.getenv("OS")
-      local windowPath = "C:\\Users\\muhammadrafiq\\Documents\\Vaults"
-      local defaultOS = "/home/rafiq/Documents/Vaults"
-
-      -- this is only for my work laptop
-      if getos ~= nil and string.find(getos:lower(), "windows") then
-        if vim.fn.getcwd() == windowPath then
-          return true
-        end
-      else
-        if vim.fn.getcwd() == defaultOS then
-          return true
-        end
-      end
-    end,
+    -- cond = function()
+    --   local getos = os.getenv("OS")
+    --   local windowPath = "C:\\Users\\muhammadrafiq\\Documents\\Vaults"
+    --   local defaultOS = "/home/rafiq/Documents/Vaults"
+    --
+    --   -- this is only for my work laptop
+    --   if getos ~= nil and string.find(getos:lower(), "windows") then
+    --     if vim.fn.getcwd() == windowPath then
+    --       return true
+    --     end
+    --   else
+    --     if vim.fn.getcwd() == defaultOS then
+    --       return true
+    --     end
+    --   end
+    -- end,
     keys = {
       { "<leader>nt", "<cmd>Neotree focus<cr>", desc = "Neotree" },
     },

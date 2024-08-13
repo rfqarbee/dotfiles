@@ -10,9 +10,10 @@ return {
     vim.notify = notify
     notify.setup({
       render = "wrapped-compact",
-      fps = 240,
+      fps = 60,
       stages = "slide",
-      timeout = 3000,
+      top_down = false,
+      timeout = 2500,
       max_height = function()
         return math.floor(vim.o.lines * 0.75)
       end,
@@ -38,7 +39,7 @@ return {
         else
           message = "File: " .. file_path .. " --" .. total_lines .. " lines"
         end
-        notify(message, "info", { title = "File Information" })
+        notify(message, "info", { title = "File Information", top_down = false })
       end
     end
 

@@ -67,6 +67,7 @@ return {
           symbols = {
             modified = "",
           },
+          -- FIX: no name during telescope/oil
           fmt = function(name, context)
             local buflist = vim.fn.tabpagebuflist(context.tabnr)
             local winnr = vim.fn.tabpagewinnr(context.tabnr)
@@ -74,10 +75,11 @@ return {
             local mod = vim.fn.getbufvar(bufnr, "&mod")
             local filetype = vim.bo.filetype
 
-            if filetype == "TelescopePrompt" then
+            if mod == 1 and filetype == "TelescopePrompt" then
               return "Telescope"
-            elseif filetype == "oil" then
-              return "File Explore"
+            elseif mod == 0 and filetype == "oil" then
+              print(name, "name", mod, "mod")
+              return "Oil"
             else
               return (mod == 1 and "[+] " or "") .. name
             end
