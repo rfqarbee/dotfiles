@@ -5,6 +5,6 @@ gui:
     inactiveBorderColor:
       - cyan
     selectedLineBgColor:
-      - cyan
+      - green
     defaultFgColor:
       - white

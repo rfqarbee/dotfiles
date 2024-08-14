@@ -3,15 +3,15 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons", "folke/lsp-colors.nvim" },
   cmd = "Trouble",
   keys = {
-    { "<leader>qs", "<cmd>Trouble diag_priority open<cr>", "Project diagnostics on severity" },
-    { "<leader>qd", "<cmd>Trouble diagnostics_buffer open<cr>", "Current diagnostics" },
-    { "<leader>qw", "<cmd>Trouble diagnostics open<cr>", "Project diagnostics" },
+    { "<leader>qs", "<cmd>Trouble diag_priority toggle<cr>", "Project diagnostics on severity" },
+    { "<leader>qd", "<cmd>Trouble diagnostics_buffer toggle<cr>", "Current diagnostics" },
+    { "<leader>qw", "<cmd>Trouble diagnostics toggle<cr>", "Project diagnostics" },
     { "<leader>qn", "<cmd>Trouble todo toggle<cr>", "Todo list" },
-    { "<leader>qt", "<cmd>Trouble telescope open<cr>", "Telescope Quickfix list" },
-    { "<leader>qf", "<cmd>Trouble telescope_files open<cr>", "Telescope Files Quickfix list" },
-    { "<leader>qq", "<cmd>Trouble quickfix open<cr>", "Toggle Quickfix list" },
-    { "<leader>ql", "<cmd>Trouble loclist open<cr>", "Toggle Loclist list" },
-    { "<leader>qQ", "<cmd>Trouble qflist open<cr>", "Toggle Qflist" },
+    { "<leader>qt", "<cmd>Trouble telescope toggle<cr>", "Telescope Quickfix list" },
+    { "<leader>qf", "<cmd>Trouble telescope_files toggle<cr>", "Telescope Files Quickfix list" },
+    { "<leader>qq", "<cmd>Trouble quickfix toggle<cr>", "Toggle Quickfix list" },
+    { "<leader>ql", "<cmd>Trouble loclist toggle<cr>", "Toggle Loclist list" },
+    { "<leader>qQ", "<cmd>Trouble qflist toggle<cr>", "Toggle Qflist" },
     {
       "<leader>xs",
       "<cmd>Trouble symbols toggle pinned=true results.win.relative=win results.win.position=right<cr>",
@@ -22,9 +22,9 @@ return {
       "<cmd>Trouble lsp_document_symbols toggle<cr>",
       "Lsp Document symbols",
     },
-    { "<leader>xd", "<cmd>Trouble lsp_definitions open<cr>", "Lsp Definition" },
-    { "<leader>xD", "<cmd>Trouble lsp_declarations open<cr>", "Lsp Declaration" },
-    { "<leader>xt", "<cmd>Trouble lsp open win.position=right<cr>", "Lsp" },
+    { "<leader>xd", "<cmd>Trouble lsp_definitions toggle<cr>", "Lsp Definition" },
+    { "<leader>xD", "<cmd>Trouble lsp_declarations toggle<cr>", "Lsp Declaration" },
+    { "<leader>xt", "<cmd>Trouble lsp toggle win.position=right<cr>", "Lsp" },
   },
   opts = {
     focus = true,
@@ -92,4 +92,3 @@ return {
     },
   },
 }
-
