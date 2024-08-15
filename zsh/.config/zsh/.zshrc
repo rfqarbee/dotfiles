@@ -65,12 +65,12 @@ fzf_ver=$(fzf --version | awk -F '.' '{print $2}') # get the version
 
 # BUG: for opensuse wsl
 eval "$(zoxide init zsh --cmd cd)"
-if [[ -n $(command -v fzf) ]] && [[ $fzf_ver -lt 48 ]]; then
-  source /usr/share/doc/fzf/examples/key-bindings.zsh
-  source /usr/share/doc/fzf/examples/completion.zsh
-else
+# if [[ -n $(command -v fzf) ]] && [[ $fzf_ver -lt 48 ]]; then
+#   source /usr/share/doc/fzf/examples/key-bindings.zsh
+#   source /usr/share/doc/fzf/examples/completion.zsh
+# else
   source <(fzf --zsh)
-fi
+# fi
 
 eval "$(starship init zsh)"
 eval "$(mise activate zsh)"

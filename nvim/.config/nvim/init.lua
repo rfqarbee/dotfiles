@@ -1,6 +1,18 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.g.clipboard = {
+  name = "WslClipboard",
+  copy = {
+    ["+"] = "clip.exe",
+    ["*"] = "clip.exe",
+  },
+  paste = {
+    ["+"] = 'powershell.exe -c [Console]::Out.write($(Get-Clipboard -Raw).tostring().replace("`r",""))',
+    ["*"] = 'powershell.exe -c [Console]::Out.write($(Get-Clipboard -Raw).tostring().replace("`r",""))',
+  },
+  cache_enabled = 0,
+}
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
