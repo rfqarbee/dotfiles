@@ -21,11 +21,20 @@ ls.add_snippets("typescript", {
     })
   ),
   s(
-    "aseaf",
-    fmt("async (req {} ,res {}) => {{{}}}", {
-      i(1, ": Request"),
-      i(2, ": Response"),
+    "asaf",
+    fmt("async ({} ,{}) => {{{}}}", {
+      i(1),
+      i(2),
       i(3),
+    })
+  ),
+  s(
+    "easf",
+    fmt("export const {} = async ({} ,{}) => {{{}}}", {
+      i(1),
+      i(2),
+      i(3),
+      i(4),
     })
   ),
   s(
@@ -37,7 +46,7 @@ ls.add_snippets("typescript", {
     })
   ),
   s(
-    "log",
+    "clog",
     fmt('console.log("Log: {}",{})', {
       i(1),
       i(2),
@@ -45,7 +54,7 @@ ls.add_snippets("typescript", {
   ),
   s(
     "tne",
-    fmt("if({}) throw new Error({})", {
+    fmt([[if({}) {{ throw new Error({}) }}]], {
       i(1),
       i(2),
     })

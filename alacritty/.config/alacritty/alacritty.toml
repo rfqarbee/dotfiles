@@ -1,5 +1,5 @@
 [window]
-opacity = 0.90
+opacity = 0.85
 padding.x = 3
 padding.y = 0
 decorations = "Full"
@@ -17,10 +17,12 @@ size = 11
 black = '#767676'
 blue = '#a9a1e1'
 cyan = '#51afef'
-green = '#99bb66'
+# green = '#99bb66'
+green = "#090a0a"
 magenta = '#c678dd'
 red = '#ff6655'
-white = '#bfbfbf'
+# white = '#bfbfbf'
+white = "#000000"
 yellow = '#ecbe7b'
 
 [colors.cursor]
@@ -42,7 +44,8 @@ background = '#090a0a'
 foreground = '#bbc2cf'
 
 [colors.selection]
-text = '#42444b'
+# text = '#42444b'
+text="#090a0a"
 background = '#bbc2cf'
 
 [env]
