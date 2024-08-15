@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  branch = "0.1.8",
+  branch = "0.1.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
     {
@@ -12,7 +12,6 @@ return {
   config = function()
     local telescope = require("telescope")
     local builtin = require("telescope.builtin")
-    local actions = require("telescope.actions")
     local utils = require("utils.helper_telescope")
 
     telescope.setup({

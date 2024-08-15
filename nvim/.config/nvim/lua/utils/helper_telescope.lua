@@ -47,7 +47,7 @@ M.telescope_mappings = {
 }
 
 M.buffers = {
-  initial_mode = "normal",
+  initial_mode = "insert",
   mappings = {
     i = {
       ["<C-d>"] = actions.delete_buffer,

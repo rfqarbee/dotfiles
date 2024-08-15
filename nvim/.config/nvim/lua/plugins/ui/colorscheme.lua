@@ -1,36 +1,5 @@
 return {
   {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    enabled = true,
-    priority = 1000,
-    config = function()
-      require("tokyonight").setup({
-        style = "moon",
-        transparent = false,
-        styles = {
-          comments = { italic = true },
-          keywords = { italic = false },
-          sidebars = "dark",
-          floats = "dark",
-        },
-        plugins = {
-          gitsigns = true,
-          trouble = true,
-          lualine = true,
-        },
-        on_colors = function(colors)
-          colors.hint = colors.cyan
-          colors.error = colors.red
-          colors.warn = colors.orange
-          colors.info = colors.blue
-        end,
-      })
-
-      -- vim.cmd.colorscheme("tokyonight")
-    end,
-  },
-  {
     "navarasu/onedark.nvim",
     lazy = false,
     enabled = true,

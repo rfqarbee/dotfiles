@@ -1,12 +1,5 @@
 return {
   {
-    "m4xshen/hardtime.nvim",
-    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-    opts = {
-      disable_filetypes = { "qf", "lazy", "oil", "telescope", "help" },
-    },
-  },
-  {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
@@ -15,6 +8,9 @@ return {
   { "tpope/vim-sleuth" },
   {
     "NvChad/nvim-colorizer.lua",
+    keys = {
+      { "<leader>ch", "<cmd>ColorizerToggle<cr>", "show color" },
+    },
     config = function()
       require("colorizer").setup({})
     end,
