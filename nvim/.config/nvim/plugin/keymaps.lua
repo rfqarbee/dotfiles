@@ -67,21 +67,25 @@ map("n", "<C-s>", function()
   vim.cmd("silent w")
 end, { desc = "Save file" })
 
-map("v", "<leader>rp", function()
-  helper.replace_word("<cword>", "visual")
-end, { desc = "Replace current word in visual mode" })
-
-map("n", "<leader>rp", function()
-  helper.replace_word("<cword>")
-end, { desc = "Replace current word" })
-
-map("n", "<leader>rP", function()
-  helper.replace_word("<cWORD>")
-end, { desc = "Replace current word" })
-
-map("v", "<leader>rP", function()
-  helper.replace_word("<cWORD>", "visual")
-end, { desc = "Replace current word in visual mode" })
+map("n", "<leader>rp", ":%s/<c-r><c-w>/")
+map("n", "<leader>rP", ":%s/<c-r><c-a>/")
+map("v", "<leader>rp", ":'<,'>s/<c-r><c-w>/")
+map("v", "<leader>rP", ":'<,'>s/<c-r><c-a>/")
+-- map("v", "<leader>rp", function()
+--   helper.replace_word("<cword>", "visual")
+-- end, { desc = "Replace current word in visual mode" })
+--
+-- map("n", "<leader>rp", function()
+--   helper.replace_word("<cword>")
+-- end, { desc = "Replace current word" })
+--
+-- map("v", "<leader>rP", function()
+--   helper.replace_word("<cWORD>", "visual")
+-- end, { desc = "Replace current word in visual mode" })
+--
+-- map("n", "<leader>rP", function()
+--   helper.replace_word("<cWORD>")
+-- end, { desc = "Replace current word" })
 
 -- map("n", "/", function()
 --   vim.ui.input({ prompt = "Search word" }, function(input)

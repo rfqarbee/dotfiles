@@ -1,5 +1,12 @@
 return {
   {
+    {
+      "fcancelinha/nordern.nvim",
+      branch = "master",
+      priority = 1000,
+    },
+  },
+  {
     "navarasu/onedark.nvim",
     lazy = false,
     enabled = true,
