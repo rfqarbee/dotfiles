@@ -27,7 +27,7 @@ return {
     { "<leader>xt", "<cmd>Trouble lsp toggle win.position=right<cr>", "Lsp" },
   },
   opts = {
-    focus = false,
+    focus = true,
     warn_no_results = false,
     open_no_results = true,
     follow = true,
