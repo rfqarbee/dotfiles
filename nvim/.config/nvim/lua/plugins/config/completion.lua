@@ -35,20 +35,21 @@ return {
             luasnip.lsp_expand(args.body)
           end,
         },
-        window = {
-          completion = cmp.config.window.bordered({
-            border = "single",
-          }),
-          documentation = cmp.config.window.bordered({
-            border = "single",
-          }),
-        },
-        view = {
-          entries = {
-            name = "custom",
-            follow_cursor = false,
-          },
-        },
+        -- window = {
+        --   completion = cmp.config.window.bordered({
+        --     border = "single",
+        --   }),
+        --   documentation = cmp.config.window.bordered({
+        --     border = "single",
+        --   }),
+        -- },
+        -- view = {
+        --   entries = {
+        --     name = "custom",
+        --     follow_cursor = false,
+        --   },
+        -- },
+
         formatting = {
           format = function(entry, vim_item)
             vim_item.kind = string.format("%s %s", icons.completion_icons.my_icons[vim_item.kind], vim_item.kind)
