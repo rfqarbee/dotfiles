@@ -23,47 +23,9 @@ return {
       local lspconfig = require("lspconfig")
 
       local servers = {
-        prismals = true,
-        dartls = {
-          cmd = {
-            "dart",
-            "language-server",
-            "--protocol=lsp",
-          },
-          filetypes = { "dart" },
-          init_options = {
-            closingLabels = true,
-            flutterOutline = true,
-            onlyAnalyzeProjectsWithOpenFiles = true,
-            outline = true,
-            suggestFromUnimportedLibraries = true,
-          },
-          root_dir = lspconfig.util.root_pattern("pubspec.yaml"),
-          settings = {
-            dart = {
-              analysisExcludeFolders = {
-                vim.fn.expand("$XDG_CONFIG_HOME/pub_cache"),
-                vim.fn.expand("$XDG_DATA_HOME/mise/installs/flutter/"),
-              },
-              updateImportsOnRename = true,
-              completeFunctionCalls = true,
-              showTodos = true,
-            },
-          },
-        },
-        rust_analyzer = true,
-        svelte = {
-          pattern = { "*.js", "*.ts" },
-        },
         cssls = true,
-        graphql = {
-          filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact", "typescript" },
-        },
-        clangd = {
-          init_options = { clangdFileStatus = true },
-          filetypes = { "c" },
-        },
         lua_ls = {
+          -- cmd = { "lua-language-server.exe" },
           settings = {
             Lua = {
               hint = { enable = true },
@@ -97,17 +59,10 @@ return {
 
       local ensure_installed = {
         "lua_ls",
-        "clangd",
         "html",
         "cssls",
-        "tailwindcss",
-        "svelte",
-        "graphql",
-        "prettierd",
         "prettier",
         "stylua",
-        "cpplint",
-        "eslint_d",
       }
 
       vim.list_extend(ensure_installed, servers_to_install)
