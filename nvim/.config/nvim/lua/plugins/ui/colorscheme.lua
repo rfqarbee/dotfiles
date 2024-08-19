@@ -1,10 +1,20 @@
 return {
   {
-    {
-      "fcancelinha/nordern.nvim",
-      branch = "master",
-      priority = 1000,
-    },
+    "NTBBloodbath/doom-one.nvim",
+    config = function()
+      vim.g.doom_one_terminal_colors = true
+      vim.g.doom_one_italic_comments = true
+      vim.g.doom_one_enable_treesitter = true
+      vim.g.doom_one_diagnostics_text_color = true
+      vim.g.doom_one_transparent_background = false
+
+      vim.g.doom_one_plugin_telescope = true
+
+      vim.cmd("colorscheme doom-one")
+      vim.keymap.set("n", "<leader>jd", function()
+        vim.cmd("colorscheme doom-one")
+      end)
+    end,
   },
   {
     "navarasu/onedark.nvim",
@@ -52,7 +62,7 @@ return {
         },
       })
 
-      vim.cmd("colorscheme onedark")
+      -- vim.cmd("colorscheme onedark")
     end,
   },
 }
