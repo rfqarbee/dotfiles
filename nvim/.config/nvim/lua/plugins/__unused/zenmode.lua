@@ -38,10 +38,4 @@ return {
       },
     },
   },
-  {
-    "szw/vim-maximizer",
-    config = function()
-      vim.keymap.set("n", "<leader>wm", "<cmd>MaximizerToggle<cr>")
-    end,
-  },
 }

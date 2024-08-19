@@ -95,8 +95,10 @@ return {
 
           map("gd", vim.lsp.buf.definition, "Goto defintion")
           map("gD", vim.lsp.buf.declaration, "Goto declaration")
-          map("gr", builtin.lsp_references, "Goto references")
-          map("gi", builtin.lsp_implementations, "Goto implementation")
+          map("gr", vim.lsp.buf.references, "Goto references")
+          map("gi", vim.lsp.buf.implementation, "Goto implementation")
+          -- map("gr", builtin.lsp_references, "Goto references")
+          -- map("gi", builtin.lsp_implementations, "Goto implementation")
           map("<leader>cd", builtin.lsp_type_definitions, "Type definition")
           map("<leader>cs", builtin.lsp_document_symbols, "Document symbols")
           map("<leader>cw", builtin.lsp_dynamic_workspace_symbols, "Workspace symbols")
