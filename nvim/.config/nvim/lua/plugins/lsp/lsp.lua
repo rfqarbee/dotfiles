@@ -23,49 +23,10 @@ return {
       local lspconfig = require("lspconfig")
 
       local servers = {
-        gopls = {
-          analyses = {
-            unusedparams = true,
-          },
-          gofumpt = true,
-          staticcheck = true,
-        },
-        dartls = {
-          cmd = {
-            "dart",
-            "language-server",
-            "--protocol=lsp",
-          },
-          filetypes = { "dart" },
-          init_options = {
-            closingLabels = true,
-            flutterOutline = true,
-            onlyAnalyzeProjectsWithOpenFiles = true,
-            outline = true,
-            suggestFromUnimportedLibraries = true,
-          },
-          root_dir = lspconfig.util.root_pattern("pubspec.yaml"),
-          settings = {
-            dart = {
-              analysisExcludeFolders = {
-                vim.fn.expand("$XDG_CONFIG_HOME/pub_cache"),
-                vim.fn.expand("$XDG_DATA_HOME/mise/installs/flutter/"),
-              },
-              updateImportsOnRename = true,
-              completeFunctionCalls = true,
-              showTodos = true,
-            },
-          },
-        },
-        rust_analyzer = true,
         svelte = {
           pattern = { "*.js", "*.ts" },
         },
         cssls = true,
-        clangd = {
-          init_options = { clangdFileStatus = true },
-          filetypes = { "c" },
-        },
         lua_ls = {
           -- cmd = { "lua-language-server.exe" },
           settings = {
@@ -105,9 +66,6 @@ return {
         "cssls",
         "prettier",
         "stylua",
-        "clangd",
-        "cpplint",
-        "gopls",
       }
 
       vim.list_extend(ensure_installed, servers_to_install)
@@ -142,8 +100,6 @@ return {
           map("gD", vim.lsp.buf.declaration, "Goto declaration")
           map("gr", vim.lsp.buf.references, "Goto references")
           map("gi", vim.lsp.buf.implementation, "Goto implementation")
-          -- map("gr", builtin.lsp_references, "Goto references")
-          -- map("gi", builtin.lsp_implementations, "Goto implementation")
           map("<leader>cd", builtin.lsp_type_definitions, "Type definition")
           map("<leader>cs", builtin.lsp_document_symbols, "Document symbols")
           map("<leader>cw", builtin.lsp_dynamic_workspace_symbols, "Workspace symbols")
