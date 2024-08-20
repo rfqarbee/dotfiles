@@ -23,6 +23,13 @@ return {
       local lspconfig = require("lspconfig")
 
       local servers = {
+        gopls = {
+          analyses = {
+            unusedparams = true,
+          },
+          gofumpt = true,
+          staticcheck = true,
+        },
         dartls = {
           cmd = {
             "dart",
