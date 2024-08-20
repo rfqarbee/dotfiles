@@ -4,27 +4,11 @@ return {
     config = function()
       vim.g.neon_style = "doom"
       vim.g.neon_italic_keyword = false
-      vim.g.neon_bold = true
       vim.g.neon_italic_function = false
+      vim.g.neon_italic_variable = false
+      vim.g.neon_bold = true
       vim.g.neon_transparent = false
       vim.cmd("colorscheme neon")
-    end,
-  },
-  {
-    "NTBBloodbath/doom-one.nvim",
-    enabled = true,
-    config = function()
-      vim.g.doom_one_terminal_colors = true
-      vim.g.doom_one_italic_comments = true
-      vim.g.doom_one_enable_treesitter = true
-      vim.g.doom_one_diagnostics_text_color = true
-      vim.g.doom_one_transparent_background = false
-
-      vim.g.doom_one_plugin_telescope = true
-
-      vim.keymap.set("n", "<leader>jd", function()
-        vim.cmd("colorscheme doom-one")
-      end)
     end,
   },
   {
