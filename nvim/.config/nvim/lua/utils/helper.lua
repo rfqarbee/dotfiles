@@ -1,5 +1,12 @@
 local M = {}
 
+local function get_dir()
+  local current_path = vim.fn.expand("%:h")
+  local parts = vim.split(current_path, "/")
+  local shorten = table.concat(vim.list_slice(parts, #parts - 2), "/")
+  return shorten
+end
+
 local function count_items(qf_list)
   if #qf_list > 0 then
     local valid = 0
@@ -58,5 +65,6 @@ end
 M.replace_word = replace_word
 M.qfix_item = qfix
 M.loclist_item = loclist
+M.get_dir = get_dir
 
 return M

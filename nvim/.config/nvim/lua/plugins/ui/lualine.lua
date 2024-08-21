@@ -7,21 +7,22 @@ return {
     options = {
       theme = "auto",
       globalstatus = true,
-      section_separators = " ",
-      component_separators = " ",
+      section_separators = "",
+      component_separators = "",
       disabled_filetypes = {
         statusline = { "oil", "undotree", "dashboard" },
       },
     },
     sections = {
-      lualine_a = { "mode" },
-      lualine_b = { "branch", "diff" },
+      lualine_a = { "branch" },
+      lualine_b = { "mode", "diff" },
       lualine_c = {
+        -- { "windows" },
         {
           -- shamelessly stolen from reddit
           function()
             local hasloclist = utils.loclist_item()
-            return "loc: " .. hasloclist
+            return "loclist: " .. hasloclist
           end,
 
           cond = function()
