@@ -17,9 +17,7 @@ return {
     keys = {
       { "<leader>ch", "<cmd>ColorizerToggle<cr>", "show color" },
     },
-    config = function()
-      require("colorizer").setup({})
-    end,
+    opts = {},
   },
   {
     "stevearc/dressing.nvim",

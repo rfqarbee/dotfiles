@@ -23,9 +23,6 @@ return {
       local lspconfig = require("lspconfig")
 
       local servers = {
-        svelte = {
-          pattern = { "*.js", "*.ts" },
-        },
         cssls = true,
         lua_ls = {
           -- cmd = { "lua-language-server.exe" },
