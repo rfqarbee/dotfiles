@@ -1,7 +1,7 @@
 return {
   {
     "MeanderingProgrammer/markdown.nvim",
-    enabled = false,
+    enabled = true,
     name = "render-markdown", -- Only needed if you have another plugin named markdown.nvim
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
     config = function()
@@ -34,7 +34,7 @@ return {
   {
     "epwalsh/obsidian.nvim",
     version = "*",
-    enabled = false,
+    enabled = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
@@ -150,7 +150,7 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
-    enabled = false,
+    enabled = true,
     Event = "VeryLazy",
     dependencies = {
       "nvim-lua/plenary.nvim",
