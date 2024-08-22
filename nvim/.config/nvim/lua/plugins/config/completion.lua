@@ -25,7 +25,7 @@ return {
     config = function()
       local luasnip = require("luasnip")
       local autopairs = require("nvim-autopairs.completion.cmp")
-      local icons = require("utils.icons")
+      local icons = require("lua.helper.icons")
       local cmp = require("cmp")
       require("snippets")
 
@@ -35,29 +35,30 @@ return {
             luasnip.lsp_expand(args.body)
           end,
         },
-        -- window = {
-        --   completion = cmp.config.window.bordered({
-        --     border = "single",
-        --   }),
-        --   documentation = cmp.config.window.bordered({
-        --     border = "single",
-        --   }),
-        -- },
-        -- view = {
-        --   entries = {
-        --     name = "custom",
-        --     follow_cursor = false,
-        --   },
-        -- },
-
+        window = {
+          completion = cmp.config.window.bordered({
+            -- border = { "'", "", "'", "", "'", "", "'", "" },
+            -- border = "single",
+            border = "none",
+          }),
+          documentation = cmp.config.window.bordered({
+            -- border = "single",
+            border = "none",
+          }),
+        },
+        view = {
+          entries = {
+            name = "custom",
+            follow_cursor = true,
+          },
+        },
         formatting = {
           format = function(entry, vim_item)
             vim_item.kind = string.format("%s %s", icons.completion_icons.my_icons[vim_item.kind], vim_item.kind)
             vim_item.menu = ({
+              -- nvim_lsp = "[LSP]",
+              -- luasnip = "[LuaSnip]",
               buffer = "[Buffer]",
-              nvim_lsp = "[LSP]",
-              luasnip = "[LuaSnip]",
-              nvim_lua = "[Lua]",
             })[entry.source.name]
             return vim_item
           end,
@@ -101,13 +102,12 @@ return {
         }),
 
         sources = cmp.config.sources({
-          { name = "nvim_lsp", group_index = 0 },
+          { name = "nvim_lsp", group_index = 1 },
           { name = "luasnip", group_index = 2 },
           { name = "path", group_index = 3 },
-          { name = "buffer" },
+          { name = "buffer", group_index = 4 },
         }),
       })
-
       cmp.setup.cmdline(":", {
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({

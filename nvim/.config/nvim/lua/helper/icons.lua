@@ -214,4 +214,6 @@ M.completion_icons = {
   },
 }
 
+M.lsp_signs = { Error = " ", Warn = " ", Hint = "󰌶 ", Info = " " }
+
 return M

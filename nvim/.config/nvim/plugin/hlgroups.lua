@@ -30,6 +30,7 @@ vim.cmd("highlight LspReferenceText guifg=none guibg=#283347")
 vim.cmd("highlight MatchParen cterm=bold,underline gui=none guifg=#ec7279 guibg=#455574")
 vim.cmd("highlight Function ctermfg=14 gui=bold guifg=#db8ffc")
 vim.cmd("highlight Visual ctermfg=none ctermbg=none guibg=#252a3f guifg=#bab6b6")
+-- vim.cmd("highlight Float guibg=#1c1f24 guifg=#bb9af7")
 
 -- vim.cmd("highlight Keyword ctermfg=14 gui=bold guifg=#db8ffc")
 -- vim.cmd("highlight String ctermfg=10 guifg=#d38d5a")

@@ -1,4 +1,4 @@
-local utils = require("utils.helper")
+local utils = require("lua.helper.lualine")
 
 return {
   "nvim-lualine/lualine.nvim",
@@ -10,14 +10,13 @@ return {
       section_separators = "",
       component_separators = "",
       disabled_filetypes = {
-        statusline = { "oil", "undotree", "dashboard" },
+        statusline = { "trouble", "oil", "undotree", "TelescopePrompt" },
       },
     },
     sections = {
       lualine_a = { "branch" },
       lualine_b = { "mode", "diff" },
       lualine_c = {
-        -- { "windows" },
         {
           -- shamelessly stolen from reddit
           function()
@@ -35,7 +34,7 @@ return {
         {
           function()
             local hasqfix = utils.qfix_item()
-            return "qfix: " .. hasqfix
+            return "clist: " .. hasqfix
           end,
           cond = function()
             local hasqfix = utils.qfix_item()

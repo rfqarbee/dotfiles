@@ -12,7 +12,7 @@ return {
   config = function()
     local telescope = require("telescope")
     local builtin = require("telescope.builtin")
-    local utils = require("utils.helper_telescope")
+    local utils = require("lua.helper.telescope")
 
     telescope.setup({
       defaults = {

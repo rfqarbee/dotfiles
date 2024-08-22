@@ -11,7 +11,7 @@ return {
     event = "VeryLazy",
     opts = {},
   },
-  { "tpope/vim-sleuth" },
+  { "tpope/vim-sleuth", enabled = false },
   {
     "NvChad/nvim-colorizer.lua",
     keys = {

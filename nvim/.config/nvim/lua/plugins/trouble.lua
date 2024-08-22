@@ -1,5 +1,6 @@
 return {
   "folke/trouble.nvim",
+  enabled = true,
   dependencies = { "nvim-tree/nvim-web-devicons", "folke/lsp-colors.nvim" },
   cmd = "Trouble",
   keys = {
@@ -7,11 +8,8 @@ return {
     { "<leader>qd", "<cmd>Trouble diagnostics_buffer toggle<cr>", "Current diagnostics" },
     { "<leader>qw", "<cmd>Trouble diagnostics toggle<cr>", "Project diagnostics" },
     { "<leader>qn", "<cmd>Trouble todo toggle<cr>", "Todo list" },
-    { "<leader>qt", "<cmd>Trouble telescope toggle<cr>", "Telescope Quickfix list" },
-    { "<leader>qf", "<cmd>Trouble telescope_files toggle<cr>", "Telescope Files Quickfix list" },
     { "<leader>qq", "<cmd>Trouble quickfix toggle<cr>", "Toggle Quickfix list" },
     { "<leader>ql", "<cmd>Trouble loclist toggle<cr>", "Toggle Loclist list" },
-    { "<leader>qQ", "<cmd>Trouble qflist toggle<cr>", "Toggle Qflist" },
     {
       "<leader>xs",
       "<cmd>Trouble symbols toggle pinned=true results.win.relative=win results.win.position=right<cr>",

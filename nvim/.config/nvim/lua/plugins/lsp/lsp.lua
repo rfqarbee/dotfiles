@@ -9,93 +9,20 @@ return {
     },
     config = function()
       local capabilities = nil
+      local lspconfig = require("lspconfig")
+      local lsphelper = require("lua.helper.lsp")
+      local servers = lsphelper.servers
 
       if pcall(require, "cmp_nvim_lsp") then
         capabilities = require("cmp_nvim_lsp").default_capabilities()
       end
 
-      local signs = { Error = " ", Warn = " ", Hint = "󰌶 ", Info = " " }
+      local signs = require("lua.helper.icons").lsp_signs
+
       for type, icon in pairs(signs) do
         local hl = "DiagnosticSign" .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
       end
-
-      local lspconfig = require("lspconfig")
-
-      local servers = {
-        gopls = {
-          analyses = {
-            unusedparams = true,
-          },
-          gofumpt = true,
-          staticcheck = true,
-        },
-        dartls = {
-          cmd = {
-            "dart",
-            "language-server",
-            "--protocol=lsp",
-          },
-          filetypes = { "dart" },
-          init_options = {
-            closingLabels = true,
-            flutterOutline = true,
-            onlyAnalyzeProjectsWithOpenFiles = true,
-            outline = true,
-            suggestFromUnimportedLibraries = true,
-          },
-          root_dir = lspconfig.util.root_pattern("pubspec.yaml"),
-          settings = {
-            dart = {
-              analysisExcludeFolders = {
-                vim.fn.expand("$XDG_CONFIG_HOME/pub_cache"),
-                vim.fn.expand("$XDG_DATA_HOME/mise/installs/flutter/"),
-              },
-              updateImportsOnRename = true,
-              completeFunctionCalls = true,
-              showTodos = true,
-            },
-          },
-        },
-        rust_analyzer = true,
-        svelte = {
-          pattern = { "*.js", "*.ts" },
-        },
-        cssls = true,
-        clangd = {
-          init_options = { clangdFileStatus = true },
-          filetypes = { "c" },
-        },
-        lua_ls = {
-          -- cmd = { "lua-language-server.exe" },
-          settings = {
-            Lua = {
-              hint = { enable = true },
-              runtime = {
-                version = "LuaJIT",
-                path = vim.split(package.path, ";"),
-              },
-              diagnostics = { globals = { "vim" } },
-              workspace = {
-                library = {
-                  [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                },
-              },
-            },
-          },
-        },
-      }
-
-      local servers_to_install = vim.tbl_filter(function(key)
-        local t = servers[key]
-        if key ~= "dartls" then
-          if type(t) == "table" then
-            return not t.manual_install
-          else
-            return t
-          end
-        end
-      end, vim.tbl_keys(servers))
 
       require("mason").setup()
 
@@ -110,7 +37,6 @@ return {
         "gopls",
       }
 
-      vim.list_extend(ensure_installed, servers_to_install)
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
       for name, config in pairs(servers) do
@@ -142,8 +68,6 @@ return {
           map("gD", vim.lsp.buf.declaration, "Goto declaration")
           map("gr", vim.lsp.buf.references, "Goto references")
           map("gi", vim.lsp.buf.implementation, "Goto implementation")
-          -- map("gr", builtin.lsp_references, "Goto references")
-          -- map("gi", builtin.lsp_implementations, "Goto implementation")
           map("<leader>cd", builtin.lsp_type_definitions, "Type definition")
           map("<leader>cs", builtin.lsp_document_symbols, "Document symbols")
           map("<leader>cw", builtin.lsp_dynamic_workspace_symbols, "Workspace symbols")
