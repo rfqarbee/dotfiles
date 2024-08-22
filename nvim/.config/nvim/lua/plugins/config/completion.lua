@@ -25,7 +25,7 @@ return {
     config = function()
       local luasnip = require("luasnip")
       local autopairs = require("nvim-autopairs.completion.cmp")
-      local icons = require("lua.helper.icons")
+      local icons = require("helper.icons")
       local cmp = require("cmp")
       require("snippets")
 

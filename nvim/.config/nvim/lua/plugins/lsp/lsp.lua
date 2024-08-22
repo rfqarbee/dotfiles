@@ -10,14 +10,14 @@ return {
     config = function()
       local capabilities = nil
       local lspconfig = require("lspconfig")
-      local lsphelper = require("lua.helper.lsp")
+      local lsphelper = require("helper.lsp_config")
       local servers = lsphelper.servers
 
       if pcall(require, "cmp_nvim_lsp") then
         capabilities = require("cmp_nvim_lsp").default_capabilities()
       end
 
-      local signs = require("lua.helper.icons").lsp_signs
+      local signs = require("helper.icons").lsp_signs
 
       for type, icon in pairs(signs) do
         local hl = "DiagnosticSign" .. type

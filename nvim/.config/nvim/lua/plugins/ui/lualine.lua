@@ -1,4 +1,4 @@
-local utils = require("lua.helper.lualine")
+local utils = require("helper.lualine")
 
 return {
   "nvim-lualine/lualine.nvim",
