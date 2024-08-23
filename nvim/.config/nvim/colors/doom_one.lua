@@ -51,3 +51,9 @@ local palettes = {
 }
 
 hl("Normal", { fg = palettes.white, bg = palettes.normal_my })
+hl("Number", { fg = palettes.orange })
+hl("Type", { fg = palettes.blacker })
+hl("String", { fg = palettes.green })
+hl("Keyword", { fg = palettes.id })
+hl("Constant", { fg = palettes.id })
+hl("Function", { fg = palettes.purple })
