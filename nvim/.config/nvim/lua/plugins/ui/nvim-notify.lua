@@ -8,9 +8,9 @@ return {
     local notify = require("notify")
     vim.notify = notify
     notify.setup({
-      render = "wrapped-compact",
-      fps = 60,
-      stages = "slide",
+      render = "compact",
+      fps = 240,
+      stages = "static",
       top_down = false,
       timeout = 2500,
       max_height = function()
@@ -25,20 +25,15 @@ return {
     })
 
     local function show_file_info()
-      local file_path = vim.fn.expand("%:p"):match("([^/]+)$")
-      local modified = vim.bo.modified
-      local total_lines = vim.fn.line("$")
+      local file_path = vim.fn.expand("%:h")
+      -- :match("([^/]+)$")
       local message = ""
 
       if file_path == nil then
         return
       else
-        if modified then
-          message = "[Modified+] File: " .. file_path .. " --" .. total_lines .. " lines"
-        else
-          message = "File: " .. file_path .. " --" .. total_lines .. " lines"
-        end
-        notify(message, "info", { title = "File Information", top_down = false })
+        message = file_path
+        notify(message, "info", { title = "Path", top_down = false })
       end
     end
 

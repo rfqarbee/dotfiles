@@ -1,5 +1,5 @@
 local map = vim.keymap.set
-local helper = require("utils.helper")
+local helper = require("helper.lualine")
 -- unbind
 map({ "n", "v" }, "Q", "<nop>")
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight on search when Esc in normal mode" })
@@ -59,7 +59,7 @@ map("n", "<C-s>", function()
   -- HACK: aint the best way just to hide the notify, but its bothering with the autocmds i made
   local isModified = vim.bo.modified
   if isModified then
-    vim.notify(filename, "info", {
+    vim.notify(filename, 0, {
       title = "File saved!",
       timeout = 3500,
     })

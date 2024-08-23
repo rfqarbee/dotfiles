@@ -9,51 +9,20 @@ return {
     },
     config = function()
       local capabilities = nil
+      local lspconfig = require("lspconfig")
+      local lsphelper = require("helper.lsp_config")
+      local servers = lsphelper.servers
 
       if pcall(require, "cmp_nvim_lsp") then
         capabilities = require("cmp_nvim_lsp").default_capabilities()
       end
 
-      local signs = { Error = " ", Warn = " ", Hint = "󰌶 ", Info = " " }
+      local signs = require("helper.icons").lsp_signs
+
       for type, icon in pairs(signs) do
         local hl = "DiagnosticSign" .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
       end
-
-      local lspconfig = require("lspconfig")
-
-      local servers = {
-        cssls = true,
-        lua_ls = {
-          -- cmd = { "lua-language-server.exe" },
-          settings = {
-            Lua = {
-              hint = { enable = true },
-              runtime = {
-                version = "LuaJIT",
-                path = vim.split(package.path, ";"),
-              },
-              diagnostics = { globals = { "vim" } },
-              workspace = {
-                library = {
-                  [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                },
-              },
-            },
-          },
-        },
-      }
-
-      local servers_to_install = vim.tbl_filter(function(key)
-        local t = servers[key]
-        if key ~= "dartls" then
-          if type(t) == "table" then
-            return not t.manual_install
-          else
-            return t
-          end
-        end
-      end, vim.tbl_keys(servers))
 
       require("mason").setup()
 
@@ -65,7 +34,6 @@ return {
         "stylua",
       }
 
-      vim.list_extend(ensure_installed, servers_to_install)
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
       for name, config in pairs(servers) do

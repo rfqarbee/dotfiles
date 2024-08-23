@@ -1,4 +1,5 @@
-local utils = require("utils.helper")
+local utils = require("helper.lualine")
+local arrow_status = require("arrow.statusline")
 
 return {
   "nvim-lualine/lualine.nvim",
@@ -7,21 +8,26 @@ return {
     options = {
       theme = "auto",
       globalstatus = true,
-      section_separators = " ",
-      component_separators = " ",
+      section_separators = { right = "", left = "" },
+      component_separators = { right = "", left = "" },
       disabled_filetypes = {
-        statusline = { "oil", "undotree", "dashboard" },
+        statusline = { "trouble", "oil", "undotree", "TelescopePrompt" },
       },
     },
     sections = {
-      lualine_a = { "mode" },
-      lualine_b = { "branch", "diff" },
+      lualine_a = { "branch" },
+      lualine_b = { "mode", "diff" },
       lualine_c = {
+        {
+          function()
+            return arrow_status.text_for_statusline_with_icons()
+          end,
+        },
         {
           -- shamelessly stolen from reddit
           function()
             local hasloclist = utils.loclist_item()
-            return "loc: " .. hasloclist
+            return "loclist: " .. hasloclist
           end,
 
           cond = function()
@@ -34,7 +40,7 @@ return {
         {
           function()
             local hasqfix = utils.qfix_item()
-            return "qfix: " .. hasqfix
+            return "clist: " .. hasqfix
           end,
           cond = function()
             local hasqfix = utils.qfix_item()

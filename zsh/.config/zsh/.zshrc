@@ -36,6 +36,7 @@ SAVEHIST=$HISTSIZE
 HISTDUP=erase
 
 # options
+setopt autocd notify
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space # wont save any input that starts with space
