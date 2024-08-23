@@ -1,6 +1,7 @@
 return {
   {
     "rafamadriz/neon",
+    enabled = true,
     config = function()
       vim.g.neon_style = "doom"
       vim.g.neon_italic_keyword = false
@@ -8,7 +9,7 @@ return {
       vim.g.neon_italic_variable = false
       vim.g.neon_bold = true
       vim.g.neon_transparent = false
-      vim.cmd("colorscheme neon")
+      -- vim.cmd("colorscheme neon")
     end,
   },
   {

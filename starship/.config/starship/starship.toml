@@ -40,8 +40,8 @@ style = 'bold cyan'
 
 [git_branch]
 always_show_remote = true
-format = '[[$symbol](green)($remote_name/)$branch(:$remote_branch)]($style) '
-style = 'bold lavender'
+format = '[[$symbol](green)($remote_name/)$branch(: $remote_branch)]($style) '
+style = 'bold blue'
 
 [git_status]
 format = '([[$ahead_behind](fg:purple)( [$staged]($style))( [$modified]($style))( [$stashed](cyan))](white))'
@@ -52,6 +52,14 @@ behind = '⇣${count}'
 staged = '+${count}'
 stashed = '\$${count}'
 modified = '!${count}'
+
+[git_commit]
+# format = '[\($tag_symbol$tag \($hash\)\)]($style)'
+commit_hash_length = 8
+style = 'bold green'
+tag_symbol = ' 🏷 '
+only_detached = true
+tag_disabled = false
 
 [package]
 format = "[$version]($style) "
