@@ -4,7 +4,7 @@ local WhiteSpace = vim.api.nvim_create_augroup("replaceGroup", { clear = true })
 local YankGroup = vim.api.nvim_create_augroup("HiglightYank", { clear = true })
 local SaveAll = vim.api.nvim_create_augroup("SaveAll", { clear = true })
 local resizeWin = vim.api.nvim_create_augroup("resizeWin", { clear = true })
-local TroubleGroup = vim.api.nvim_create_augroup("TroubleGroup", { clear = true })
+local Quickfix = vim.api.nvim_create_augroup("Quickfix", { clear = true })
 
 autocmd("BufWritePre", {
   desc = "Delete trailing whitespace",
@@ -93,10 +93,9 @@ autocmd("BufWritePost", {
   end,
 })
 
--- autocmd("QuickFixCmdPost", {
---   group = TroubleGroup,
---   callback = function()
---     print("is a quickfix?")
---     -- vim.cmd([[Trouble quickfix open]])
---   end,
--- })
+autocmd("QuickFixCmdPost", {
+  group = Quickfix,
+  callback = function()
+    vim.cmd([[bot copen]])
+  end,
+})
