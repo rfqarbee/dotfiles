@@ -314,6 +314,7 @@ local groups = {
   diffFile = { fg = palettes.gray },
   diffLine = { fg = palettes.yellow },
   diffIndexLine = { fg = palettes.purple },
+  gitcommitBlank = {fg = palettes.fav_purple},
   -- Neogit
   -- NeogitBranch = { fg = palettes.gray_alt },
   -- NeogitRemote = { fg = palettes.purple },
