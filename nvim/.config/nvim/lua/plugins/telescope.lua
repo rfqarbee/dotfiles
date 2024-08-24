@@ -12,24 +12,25 @@ return {
   config = function()
     local telescope = require("telescope")
     local builtin = require("telescope.builtin")
-    local utils = require("helper.telescope")
+    local helper = require("helper.telescope")
+    local map = require("utils.mapkey")
 
     telescope.setup({
       defaults = {
-        mappings = utils.telescope_mappings,
-        buffer_previewer_maker = utils.telescope_new_maker,
+        mappings = helper.telescope_mappings,
+        buffer_previewer_maker = helper.telescope_new_maker,
         path_display = {
           truncate = 3,
           -- shorten = { len = 5, exclude = { 1, -2, -1 } },
         },
-        vimgrep_arguments = utils.vimgrep_arguments,
+        vimgrep_arguments = helper.vimgrep_arguments,
         winblend = 0,
       },
       pickers = {
-        find_files = utils.find_files,
-        grep_string = utils.grep_string,
-        buffers = utils.buffers,
-        current_buffer_fuzzy_find = utils.current_buffer_fuzzy_find,
+        find_files = helper.find_files,
+        grep_string = helper.grep_string,
+        buffers = helper.buffers,
+        current_buffer_fuzzy_find = helper.current_buffer_fuzzy_find,
       },
       extensions = {
         fzf = {
@@ -48,7 +49,7 @@ return {
     end, { desc = "Recent files (extension)", noremap = true, silent = true })
 
     vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find Buffers" })
-    vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = "Find Files" })
+    vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
     vim.keymap.set("n", "<leader>pg", builtin.git_files, { desc = "Find Git Files" })
     vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Grep current word" })
     vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live Grep" })
