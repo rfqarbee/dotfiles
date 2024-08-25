@@ -58,7 +58,7 @@ local palettes = {
   cyan = "#46d9ff",
   dark_cyan = "#5699af",
   blue = "#51afef",
-  dark_blue = "#4a7ce8",
+  dark_blue = "#91a4ff",
   fav_purple = "#a9a1e1",
   purple = "#db8ffc",
   purple_dark = "#c678dd",
@@ -96,10 +96,11 @@ local groups = {
   ModeMsg = { fg = palettes.cyan, style = "bold" },
   MoreMsg = { fg = palettes.cyan, style = "bold" },
   NonText = { fg = palettes.bg3 },
-  Pmenu = { fg = palettes.fg, bg = palettes.blue },
-  PmenuSel = { fg = palettes.blue, bg = palettes.blue, style = "bold" },
-  PmenuSbar = { fg = palettes.blue, bg = palettes.blue },
-  PmenuThumb = { fg = palettes.fg, bg = palettes.fav_purple },
+  -- Pmenu = { fg = palettes.cyan, bg = palettes.blue },
+  -- PmenuSel = { fg = palettes.blue, bg = palettes.blue, style = "bold" },
+  -- PmenuSbar = { fg = palettes.blue, bg = palettes.blue },
+  -- PmenuThumb = { fg = palettes.fg, bg = palettes.fav_purple },
+
   Question = { fg = palettes.green, style = "bold" },
   QuickFixLine = { fg = palettes.blue, bg = palettes.bg1, style = "bold,italic" },
   qfLineNr = { fg = palettes.blue, bg = palettes.bg1 },
@@ -294,7 +295,9 @@ local groups = {
   -- Plugins highlight groups
   DiagnosticError = { fg = palettes.error_fg },
   DiagnosticWarning = { fg = palettes.warn_fg },
-  DiagnosticInformation = { fg = palettes.info_bg },
+  DiagnosticWarn = { fg = palettes.warn_fg },
+  DiagnosticInformation = { fg = palettes.info_fg },
+  DiagnosticInfo = { fg = palettes.info_fg },
   DiagnosticHint = { fg = palettes.hint_fg },
   DiagnosticTruncateLine = { fg = palettes.fg },
   LspFloatWinNormal = { bg = palettes.bg1, fg = palettes.red },
@@ -359,6 +362,17 @@ local groups = {
   DapStopped = { fg = palettes.green },
 
   CmpItemAbbrDeprecatedDefault = { style = "strikethrough" },
+  CmpItemAbbrDeprecated = { style = "strikethrough" },
+  CmpItemAbbrMatch = { fg = palettes.blue },
+  CmpItemAbbrMatchFuzzy = { fg = palettes.blue },
+  CmpItemKindVariable = { fg = palettes.blue },
+  CmpItemKindInterface = { fg = palettes.blue },
+  CmpItemKindText = { fg = palettes.fg },
+  CmpItemKindFunction = { fg = palettes.purple },
+  CmpItemKindMethod = { fg = palettes.purple },
+  CmpItemKindKeyword = { fg = palettes.blue },
+  CmpItemKindProperty = { fg = palettes.blue },
+  CmpItemKindUnit = { fg = palettes.blue },
 }
 
 for group, value in pairs(groups) do

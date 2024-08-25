@@ -1,7 +1,7 @@
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
-  enabled = false,
+  enabled = true,
   keys = {
     {
       "<leader>k",
@@ -25,6 +25,7 @@ return {
     w.add({
       { "<leader>h", group = "Harpoon : " },
       { "<leader>f", group = "Telescope : " },
+      { "<leader>p", group = "FzfTelescope : " },
       { "<leader>q", group = "Trouble : " },
       { "<leader>l", group = "LSP : " },
       { "<leader>g", group = "Git : " },

@@ -7,14 +7,17 @@ return {
 
     fzf.setup({
       fzf_colors = true,
-      winopts = {
-        border = "rounded",
-        preview = {
-          default = "bat",
-        },
+      defaults = {
+        header = "what the fuck",
       },
       files = {
         prompt = ">>",
+      },
+      winopts = {
+        border = "single",
+        preview = {
+          default = "bat",
+        },
       },
     })
 

@@ -50,7 +50,7 @@ return {
 
     vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find Buffers" })
     vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
-    vim.keymap.set("n", "<leader>pg", builtin.git_files, { desc = "Find Git Files" })
+    -- vim.keymap.set("n", "<leader>pg", builtin.git_files, { desc = "Find Git Files" })
     vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Grep current word" })
     vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live Grep" })
     vim.keymap.set("n", "<leader>fd", function()
