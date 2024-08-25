@@ -6,10 +6,11 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {
     options = {
-      theme = "doom_one",
+      theme = "auto",
       globalstatus = true,
-      section_separators = { right = "", left = "" },
+      -- section_separators = { right = "", left = " " },
       component_separators = { right = "", left = "" },
+      section_separators = { right = " ", left = " " },
       disabled_filetypes = {
         statusline = { "trouble", "oil", "undotree", "TelescopePrompt" },
       },

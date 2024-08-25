@@ -1,5 +1,11 @@
 return {
   {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+  {
     "rafamadriz/neon",
     enabled = true,
     config = function()

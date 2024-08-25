@@ -27,7 +27,6 @@ local palettes = {
   bg2 = "#1c1f24",
   bg3 = "#3f444a",
   bg5 = "#23272e",
-  normal_bg = "#282c34",
   normal_bg_m = "#2c2e36",
   disabled = "#676e95",
   disabled_alt = "#4c566a",
@@ -65,28 +64,31 @@ local palettes = {
   purple_dark = "#c678dd",
   pink = "#fca7ea",
   dark_pink = "#f268bf",
+  variable = "#a9b7d1",
 }
 
 local groups = {
-  ["@variable"] = { fg = palettes.fg },
-  Normal = { fg = palettes.fg, bg = palettes.normal_bg }, -- normal text and background color
-  SignColumn = { fg = palettes.fg, bg = palettes.bg0 },
+  ["@variable"] = { fg = palettes.variable },
+  Normal = { fg = palettes.fg, bg = palettes.bg5 }, -- normal text and background color
+  SignColumn = { fg = palettes.fg, bg = palettes.bg5 },
   EndOfBuffer = { fg = palettes.disabled }, -- ~ lines at the end of a buffer
-  NormalFloat = { fg = palettes.h5bg, bg = palettes.bg5 }, -- normal text and background color for floating windows
-  FloatBorder = { fg = palettes.h5bg, bg = palettes.bg5 },
-  ColorColumn = { fg = palettes.none, bg = palettes.bg5 }, --  used for the columns set with 'colorcolumn'
+  NormalFloat = { fg = palettes.variable, bg = palettes.bg5 }, -- normal text and background color for floating windows
+  FloatBorder = { fg = palettes.fav_purple, bg = palettes.bg5 },
+  ColorColumn = { fg = palettes.none, bg = palettes.bg0 }, --  used for the columns set with 'colorcolumn'
   Conceal = { fg = palettes.gray }, -- placeholder characters substituted for concealed text (see 'conceallevel')
   -- Cursor = { fg = palettes.cyan, bg = palettes.none, style = "reverse" }, -- the character under the cursor
   -- CursorIM = { fg = palettes.cyan, bg = palettes.none, style = "reverse" }, -- like Cursor, but used when in IME mode
-  Directory = { fg = palettes.pink, bg = palettes.none, style = "bold" }, -- directory names (and other special names in listings)
-  DiffAdd = { fg = palettes.diff_green, bg = palettes.none, style = "reverse" }, -- diff mode: Added line
-  DiffChange = { fg = palettes.diff_blue, bg = palettes.none, style = "reverse" }, --  diff mode: Changed line
-  DiffDelete = { fg = palettes.diff_red, bg = palettes.none, style = "reverse" }, -- diff mode: Deleted line
-  DiffText = { fg = palettes.fg, bg = palettes.none, style = "reverse" }, -- diff mode: Changed text within a changed line
+  Directory = { fg = palettes.dark_pink, bg = palettes.none }, -- directory names (and other special names in listings)
+  DiffAdd = { fg = palettes.diff_green, bg = palettes.bg3 }, -- diff mode: Added line
+  DiffChange = { fg = palettes.diff_blue, bg = palettes.bg3 }, --  diff mode: Changed line
+  DiffDelete = { fg = palettes.diff_red, bg = palettes.bg3 }, -- diff mode: Deleted line
+  DiffText = { fg = palettes.diff_yellow, bg = palettes.bg3 }, -- diff mode: Changed text within a changed line
   ErrorMsg = { fg = palettes.error_fg, style = "bold" }, -- error messages
   Folded = { fg = palettes.gray, palettes.none, style = "italic" },
   FoldColumn = { fg = palettes.blue },
   IncSearch = { fg = palettes.pink },
+  Search = { fg = palettes.pink },
+  CurSearch = { fg = palettes.pink, style = "reverse" },
   LineNr = { fg = palettes.disabled },
   CursorLineNr = { fg = palettes.cyan },
   MatchParen = { fg = palettes.dark_pink, bg = palettes.bg3 },
@@ -94,15 +96,13 @@ local groups = {
   ModeMsg = { fg = palettes.cyan, style = "bold" },
   MoreMsg = { fg = palettes.cyan, style = "bold" },
   NonText = { fg = palettes.bg3 },
-  Pmenu = { fg = palettes.fg, bg = palettes.bg2 },
-  PmenuSel = { fg = palettes.none, bg = palettes.blue, style = "bold" },
-  PmenuSbar = { fg = palettes.fg, bg = palettes.bg2 },
-  PmenuThumb = { fg = palettes.fg, bg = palettes.gray },
+  Pmenu = { fg = palettes.fg, bg = palettes.blue },
+  PmenuSel = { fg = palettes.blue, bg = palettes.blue, style = "bold" },
+  PmenuSbar = { fg = palettes.blue, bg = palettes.blue },
+  PmenuThumb = { fg = palettes.fg, bg = palettes.fav_purple },
   Question = { fg = palettes.green, style = "bold" },
   QuickFixLine = { fg = palettes.blue, bg = palettes.bg1, style = "bold,italic" },
   qfLineNr = { fg = palettes.blue, bg = palettes.bg1 },
-  -- Search = { style = "reverse" },
-  Search = { fg = palettes.pink },
   SpecialKey = { fg = palettes.bg3 },
   SpellBad = { fg = palettes.red, bg = palettes.none, style = "italic,undercurl" },
   SpellCap = { fg = palettes.blue, bg = palettes.none, style = "italic,undercurl" },
@@ -116,7 +116,7 @@ local groups = {
   TablineSel = { fg = palettes.bg0, bg = palettes.blue },
   Tabline = { fg = palettes.gray },
   Title = { fg = palettes.yellow, bg = palettes.none, style = "bold" },
-  Visual = { fg = palettes.none, bg = palettes.gray },
+  Visual = { fg = palettes.none, bg = palettes.h5bg },
   VisualNOS = { fg = palettes.none }, --style = "reverse" },
   WarningMsg = { fg = palettes.orange, style = "bold" },
   WildMenu = { fg = palettes.bg0, bg = palettes.blue, style = "bold" },
@@ -128,7 +128,8 @@ local groups = {
   InsertMode = { fg = palettes.purple, bg = palettes.none, style = "reverse" },
   ReplacelMode = { fg = palettes.red, bg = palettes.none, style = "reverse" },
   VisualMode = { fg = palettes.cyan, bg = palettes.none, style = "reverse" },
-  VertSplit = { fg = palettes.gray_alt },
+  VertSplit = { fg = "#1d1d1d" },
+  WinSeparator = { fg = "#1d1d1d" },
   CommandMode = { fg = palettes.gray, bg = palettes.none, style = "reverse" },
   Warnings = { fg = palettes.warn_fg },
   healthError = { fg = palettes.error_fg },
@@ -159,7 +160,7 @@ local groups = {
   Include = { fg = palettes.purple }, -- preprocessor #include
   Define = { fg = palettes.blue }, -- preprocessor #define
   Macro = { fg = palettes.blue }, -- same as Define
-  Typedef = { fg = palettes.dark_blue }, -- A typedef
+  Typedef = { fg = palettes.blue }, -- A typedef
   PreCondit = { fg = palettes.blue }, -- preprocessor #if, #else, #endif, etpalettes.
   Special = { fg = palettes.yellow, bg = palettes.none }, -- any special symbol
   SpecialChar = { fg = palettes.yellow }, -- special character in a constant
@@ -211,78 +212,81 @@ local groups = {
   markdownCode = { fg = palettes.purple, bg = palettes.bg1 },
   markdownCodeBlock = { fg = palettes.green },
   markdownCodeDelimiter = { fg = palettes.green },
+
+  --NOTE: cuz treesitter plugin is not yet looaded, hence top takes precedence
   -- TreeSitter highlight groups
-  TSComment = { fg = palettes.gray, bg = palettes.none }, -- For comment blocks.
-  TSConditional = { fg = palettes.light_blue }, -- For keywords related to conditionnals.
-  TSKeyword = { fg = palettes.orange }, -- For keywords that don't fall in previous categories.
-  TSAnnotation = { fg = palettes.orange }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
-  TSRepeat = { fg = palettes.blue }, -- For keywords related to loops.
-  TSAttribute = { fg = palettes.cyan }, -- (unstable) TODO: docs
-  TSKeywordFunction = { fg = palettes.blue }, -- For keywords used to define a fuction.
-  TSCharacter = { fg = palettes.orange }, -- For characters.
-  TSBoolean = { fg = palettes.orange, bg = palettes.none }, -- true or false
-  TSFunction = { fg = palettes.purple }, -- For fuction (calls and definitions).
-  TSMethod = { fg = palettes.purple }, -- For method calls and definitions.
-  TSConstructor = { fg = palettes.red }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
-  TSFuncBuiltin = { fg = palettes.orange }, -- For builtin functions: `table.insert` in Lua.
-  TSConstant = { fg = palettes.violet }, -- For constants
-  TSVariable = { fg = palettes.light_pink }, -- Any variable name that does not have another highlight.
-  TSVariableBuiltin = { fg = palettes.cyan }, -- Variable names that are defined by the languages, like `this` or `self`.        TSConstBuiltin = {fg = orange}, -- For constant that are built in the language: `nil` in Lua.
-  TSConstMacro = { fg = palettes.cyan }, -- For constants that are defined by macros: `NULL` in palettes.
-  TSError = { fg = palettes.error_fg }, -- For syntax/parser errors.
-  TSException = { fg = palettes.blue }, -- For exception related keywords.
-  TSField = { fg = palettes.red }, -- For fields.
-  TSFloat = { fg = palettes.red }, -- For floats.
-  TSFuncMacro = { fg = palettes.orange }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
-  TSInclude = { fg = palettes.blue }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
-  TSLabel = { fg = palettes.cyan }, -- For labels: `label:` in C and `:label:` in Lua.
-  TSNamespace = { fg = palettes.cyan }, -- For identifiers referring to modules and namespaces.
-  TSNumber = { fg = palettes.red }, -- For all numbers
-  TSOperator = { fg = palettes.blue }, -- For any operator: `+`, but also `->` and `*` in palettes.
-  TSParameter = { fg = palettes.violet }, -- For parameters of a function.
-  TSParameterReference = { fg = palettes.fg }, -- For references to parameters of a function.
-  TSProperty = { fg = palettes.violet }, -- Same as `TSField`.
-  TSPunctDelimiter = { fg = palettes.fg }, -- For delimiters ie: `.`
-  TSPunctBracket = { fg = palettes.purple }, -- For brackets and parens.
-  TSPunctSpecial = { fg = palettes.yellow }, -- For special punctutation that does not fall in the catagories before.
-  TSString = { fg = palettes.green }, -- For strings.
-  TSStringRegex = { fg = palettes.blue }, -- For regexes.
-  TSStringEscape = { fg = palettes.orange }, -- For escape characters within a string.
-  TSSymbol = { fg = palettes.orange }, -- For identifiers referring to symbols or atoms.
-  TSType = { fg = palettes.orange }, -- For types.
-  TSTypeBuiltin = { fg = palettes.cyan }, -- For builtin types.
-  TSTag = { fg = palettes.blue }, -- Tags like html tag names.
-  TSTagDelimiter = { fg = palettes.blue }, -- Tag delimiter like `<` `>` `/`
-  TSText = { fg = palettes.violet }, -- For strings considered text in a markup language.
-  TSTextReference = { fg = palettes.orange }, -- FIXME
-  TSEmphasis = { fg = palettes.violet }, -- For text to be represented with emphasis.
-  TSUnderline = { fg = palettes.fg, bg = palettes.none, style = "underline" }, -- For text to be represented with an underline.
-  TSStrike = {}, -- For strikethrough text.
-  TSTitle = { fg = palettes.fg, bg = palettes.none, style = "bold" }, -- Text that is part of a title.
-  TSLiteral = { fg = palettes.fg }, -- Literal text.
-  TSURI = { fg = palettes.purple }, -- Any URL like a link or email.
+  -- TSComment = { fg = palettes.gray, bg = palettes.none , style = "italic"}, -- For comment blocks.
+  -- TSConditional = { fg = palettes.light_blue }, -- For keywords related to conditionnals.
+  -- TSKeyword = { fg = palettes.orange }, -- For keywords that don't fall in previous categories.
+  -- TSAnnotation = { fg = palettes.orange }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
+  -- TSRepeat = { fg = palettes.blue }, -- For keywords related to loops.
+  -- TSAttribute = { fg = palettes.cyan }, -- (unstable) TODO: docs
+  -- TSKeywordFunction = { fg = palettes.blue }, -- For keywords used to define a fuction.
+  -- TSCharacter = { fg = palettes.orange }, -- For characters.
+  -- TSBoolean = { fg = palettes.orange, bg = palettes.none }, -- true or false
+  -- TSFunction = { fg = palettes.purple }, -- For fuction (calls and definitions).
+  -- TSMethod = { fg = palettes.purple }, -- For method calls and definitions.
+  -- TSConstructor = { fg = palettes.red }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
+  -- TSFuncBuiltin = { fg = palettes.orange }, -- For builtin functions: `table.insert` in Lua.
+  -- TSConstant = { fg = palettes.violet }, -- For constants
+  -- TSVariable = { fg = palettes.light_pink }, -- Any variable name that does not have another highlight.
+  -- TSVariableBuiltin = { fg = palettes.cyan }, -- Variable names that are defined by the languages, like `this` or `self`.        TSConstBuiltin = {fg = orange}, -- For constant that are built in the language: `nil` in Lua.
+  -- TSConstMacro = { fg = palettes.cyan }, -- For constants that are defined by macros: `NULL` in palettes.
+  -- TSError = { fg = palettes.error_fg }, -- For syntax/parser errors.
+  -- TSException = { fg = palettes.blue }, -- For exception related keywords.
+  -- TSField = { fg = palettes.red }, -- For fields.
+  -- TSFloat = { fg = palettes.red }, -- For floats.
+  -- TSFuncMacro = { fg = palettes.orange }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
+  -- TSInclude = { fg = palettes.blue }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
+  -- TSLabel = { fg = palettes.cyan }, -- For labels: `label:` in C and `:label:` in Lua.
+  -- TSNamespace = { fg = palettes.cyan }, -- For identifiers referring to modules and namespaces.
+  -- TSNumber = { fg = palettes.red }, -- For all numbers
+  -- TSOperator = { fg = palettes.blue }, -- For any operator: `+`, but also `->` and `*` in palettes.
+  -- TSParameter = { fg = palettes.violet }, -- For parameters of a function.
+  -- TSParameterReference = { fg = palettes.fg }, -- For references to parameters of a function.
+  -- TSProperty = { fg = palettes.violet }, -- Same as `TSField`.
+  -- TSPunctDelimiter = { fg = palettes.fg }, -- For delimiters ie: `.`
+  -- TSPunctBracket = { fg = palettes.purple }, -- For brackets and parens.
+  -- TSPunctSpecial = { fg = palettes.yellow }, -- For special punctutation that does not fall in the catagories before.
+  -- TSString = { fg = palettes.green }, -- For strings.
+  -- TSStringRegex = { fg = palettes.blue }, -- For regexes.
+  -- TSStringEscape = { fg = palettes.orange }, -- For escape characters within a string.
+  -- TSSymbol = { fg = palettes.orange }, -- For identifiers referring to symbols or atoms.
+  -- TSType = { fg = palettes.orange }, -- For types.
+  -- TSTypeBuiltin = { fg = palettes.cyan }, -- For builtin types.
+  -- TSTag = { fg = palettes.blue }, -- Tags like html tag names.
+  -- TSTagDelimiter = { fg = palettes.blue }, -- Tag delimiter like `<` `>` `/`
+  -- TSText = { fg = palettes.violet }, -- For strings considered text in a markup language.
+  -- TSTextReference = { fg = palettes.orange }, -- FIXME
+  -- TSEmphasis = { fg = palettes.violet }, -- For text to be represented with emphasis.
+  -- TSUnderline = { fg = palettes.fg, bg = palettes.none, style = "underline" }, -- For text to be represented with an underline.
+  -- TSStrike = {}, -- For strikethrough text.
+  -- TSTitle = { fg = palettes.fg, bg = palettes.none, style = "bold" }, -- Text that is part of a title.
+  -- TSLiteral = { fg = palettes.fg }, -- Literal text.
+  -- TSURI = { fg = palettes.purple }, -- Any URL like a link or email.
   --TSNone =                    { },    -- TODO: docs
+
   -- Lsp highlight groups
-  LspDiagnosticsDefaultError = { fg = palettes.blue, style = "bold" }, -- used for "Error" diagnostic virtual text
-  LspDiagnosticsSignError = { fg = palettes.blue }, -- used for "Error" diagnostic signs in sign column
-  LspDiagnosticsFloatingError = { fg = palettes.blue, style = "bold" }, -- used for "Error" diagnostic messages in the diagnostics float
-  LspDiagnosticsVirtualTextError = { fg = palettes.blue, style = "bold" }, -- Virtual text "Error"
-  LspDiagnosticsUnderlineError = { fg = palettes.blue, style = "undercurl", sp = palettes.error_fg }, -- used to underline "Error" diagnostics.
-  LspDiagnosticsDefaultWarning = { fg = palettes.orange }, -- used for "Warning" diagnostic signs in sign column
-  LspDiagnosticsSignWarning = { fg = palettes.orange }, -- used for "Warning" diagnostic signs in sign column
-  LspDiagnosticsFloatingWarning = { fg = palettes.orange, style = "bold" }, -- used for "Warning" diagnostic messages in the diagnostics float
-  LspDiagnosticsVirtualTextWarning = { fg = palettes.orange, style = "bold" }, -- Virtual text "Warning"
-  LspDiagnosticsUnderlineWarning = { fg = palettes.orange, style = "undercurl", sp = palettes.orange }, -- used to underline "Warning" diagnostics.
-  LspDiagnosticsDefaultInformation = { fg = palettes.blue }, -- used for "Information" diagnostic virtual text
-  LspDiagnosticsSignInformation = { fg = palettes.blue }, -- used for "Information" diagnostic signs in sign column
-  LspDiagnosticsFloatingInformation = { fg = palettes.blue, style = "bold" }, -- used for "Information" diagnostic messages in the diagnostics float
-  LspDiagnosticsVirtualTextInformation = { fg = palettes.blue, style = "bold" }, -- Virtual text "Information"
-  LspDiagnosticsUnderlineInformation = { fg = palettes.blue, style = "undercurl", sp = palettes.blue }, -- used to underline "Information" diagnostics.
-  LspDiagnosticsDefaultHint = { fg = palettes.cyan }, -- used for "Hint" diagnostic virtual text
-  LspDiagnosticsSignHint = { fg = palettes.cyan }, -- used for "Hint" diagnostic signs in sign column
-  LspDiagnosticsFloatingHint = { fg = palettes.cyan, style = "bold" }, -- used for "Hint" diagnostic messages in the diagnostics float
-  LspDiagnosticsVirtualTextHint = { fg = palettes.cyan, style = "bold" }, -- Virtual text "Hint"
-  LspDiagnosticsUnderlineHint = { fg = palettes.cyan, style = "undercurl", sp = palettes.blue }, -- used to underline "Hint" diagnostics.
+  LspDiagnosticsDefaultError = { fg = palettes.error_fg, style = "bold" }, -- used for "Error" diagnostic virtual text
+  LspDiagnosticsSignError = { fg = palettes.error_fg }, -- used for "Error" diagnostic signs in sign column
+  LspDiagnosticsFloatingError = { fg = palettes.error_fg, style = "bold" }, -- used for "Error" diagnostic messages in the diagnostics float
+  LspDiagnosticsVirtualTextError = { fg = palettes.error_fg, style = "bold" }, -- Virtual text "Error"
+  LspDiagnosticsUnderlineError = { fg = palettes.error_fg, style = "undercurl", sp = palettes.error_fg }, -- used to underline "Error" diagnostics.
+  LspDiagnosticsDefaultWarning = { fg = palettes.warn_fg }, -- used for "Warning" diagnostic signs in sign column
+  LspDiagnosticsSignWarning = { fg = palettes.warn_fg }, -- used for "Warning" diagnostic signs in sign column
+  LspDiagnosticsFloatingWarning = { fg = palettes.warn_fg, style = "bold" }, -- used for "Warning" diagnostic messages in the diagnostics float
+  LspDiagnosticsVirtualTextWarning = { fg = palettes.warn_fg, style = "bold" }, -- Virtual text "Warning"
+  LspDiagnosticsUnderlineWarning = { fg = palettes.warn_fg, style = "undercurl", sp = palettes.warn_fg }, -- used to underline "Warning" diagnostics.
+  LspDiagnosticsDefaultInformation = { fg = palettes.info_fg }, -- used for "Information" diagnostic virtual text
+  LspDiagnosticsSignInformation = { fg = palettes.info_fg }, -- used for "Information" diagnostic signs in sign column
+  LspDiagnosticsFloatingInformation = { fg = palettes.info_fg, style = "bold" }, -- used for "Information" diagnostic messages in the diagnostics float
+  LspDiagnosticsVirtualTextInformation = { fg = palettes.info_fg, style = "bold" }, -- Virtual text "Information"
+  LspDiagnosticsUnderlineInformation = { fg = palettes.info_fg, style = "undercurl", sp = palettes.info_fg }, -- used to underline "Information" diagnostics.
+  LspDiagnosticsDefaultHint = { fg = palettes.hint_fg }, -- used for "Hint" diagnostic virtual text
+  LspDiagnosticsSignHint = { fg = palettes.hint_fg }, -- used for "Hint" diagnostic signs in sign column
+  LspDiagnosticsFloatingHint = { fg = palettes.hint_fg, style = "bold" }, -- used for "Hint" diagnostic messages in the diagnostics float
+  LspDiagnosticsVirtualTextHint = { fg = palettes.hint_fg, style = "bold" }, -- Virtual text "Hint"
+  LspDiagnosticsUnderlineHint = { fg = palettes.hint_fg, style = "undercurl", sp = palettes.hint_fg }, -- used to underline "Hint" diagnostics.
   LspReferenceText = { fg = palettes.none, bg = palettes.bg3 }, -- used for highlighting "text" references
   LspReferenceRead = { fg = palettes.none, bg = palettes.bg3 }, -- used for highlighting "read" references
   LspReferenceWrite = { fg = palettes.none, bg = palettes.bg3 }, -- used for highlighting "write" references
@@ -303,7 +307,7 @@ local groups = {
 
   -- LspTrouble
   LspTroubleText = { fg = palettes.bg4 },
-  LspTroubleCount = { fg = palettes.purple, bg = palettes.bg3 },
+  LspTroubleCount = { fg = palettes.blue, bg = palettes.bg3 },
   LspTroubleNormal = { fg = palettes.fg, bg = palettes.bg0 },
   -- Diff
   diffAdded = { fg = palettes.diff_green },
@@ -314,7 +318,8 @@ local groups = {
   diffFile = { fg = palettes.gray },
   diffLine = { fg = palettes.yellow },
   diffIndexLine = { fg = palettes.purple },
-  gitcommitBlank = {fg = palettes.fav_purple},
+  gitcommitBlank = { fg = palettes.fav_purple },
+
   -- Neogit
   -- NeogitBranch = { fg = palettes.gray_alt },
   -- NeogitRemote = { fg = palettes.purple },
@@ -328,9 +333,9 @@ local groups = {
   GitSignsAdd = { fg = palettes.diff_green }, -- diff mode: Added line |diff.txt|
   GitSignsAddNr = { fg = palettes.diff_green }, -- diff mode: Added line |diff.txt|
   GitSignsAddLn = { fg = palettes.diff_green }, -- diff mode: Added line |diff.txt|
-  GitSignsChange = { fg = palettes.diff_yellow }, -- diff mode: Changed line |diff.txt|
-  GitSignsChangeNr = { fg = palettes.diff_yellow }, -- diff mode: Changed line |diff.txt|
-  GitSignsChangeLn = { fg = palettes.diff_yellow }, -- diff mode: Changed line |diff.txt|
+  GitSignsChange = { fg = palettes.fav_purple }, -- diff mode: Changed line |diff.txt|
+  GitSignsChangeNr = { fg = palettes.fav_purple }, -- diff mode: Changed line |diff.txt|
+  GitSignsChangeLn = { fg = palettes.fav_purple }, -- diff mode: Changed line |diff.txt|
   GitSignsDelete = { fg = palettes.diff_red }, -- diff mode: Deleted line |diff.txt|
   GitSignsDeleteNr = { fg = palettes.diff_red }, -- diff mode: Deleted line |diff.txt|
   GitSignsDeleteLn = { fg = palettes.diff_red }, -- diff mode: Deleted line |diff.txt|
@@ -338,6 +343,7 @@ local groups = {
   TelescopePromptBorder = { fg = palettes.purple },
   TelescopeResultsBorder = { fg = palettes.purple },
   TelescopePreviewBorder = { fg = palettes.purple },
+  FzfLuaBorder = { fg = palettes.fav_purple },
   -- WhichKey
   WhichKey = { fg = palettes.purple, style = "bold" },
   WhichKeyGroup = { fg = palettes.violet, style = "italic" },
