@@ -6,6 +6,29 @@ local SaveAll = vim.api.nvim_create_augroup("SaveAll", { clear = true })
 local resizeWin = vim.api.nvim_create_augroup("resizeWin", { clear = true })
 local Quickfix = vim.api.nvim_create_augroup("Quickfix", { clear = true })
 
+-- autocmd("CmdlineLeave", {
+--   desc = "Gcommit",
+--   group = vim.api.nvim_create_augroup("gcommit", { clear = true }),
+--   callback = function()
+--     local ft = vim.bo.filetype
+--     if ft == "gitcommit" then
+--       -- print("inside?")
+--       -- vim.cmd("above Git commit")
+--     end
+--   end,
+-- })
+
+-- autocmd("BufEnter", {
+--   desc = "Resize Gstatus",
+--   group = vim.api.nvim_create_augroup("resizeFugitive", { clear = true }),
+--   callback = function()
+--     local ft = vim.bo.filetype
+--     if ft == "fugitive" then
+--       vim.cmd("resize 32")
+--     end
+--   end,
+-- })
+
 autocmd("BufWritePre", {
   desc = "Delete trailing whitespace",
   pattern = "*",
@@ -28,7 +51,14 @@ autocmd("VimResized", {
   desc = "Readjust windows if vim resize",
   group = resizeWin,
   pattern = "*",
-  command = "wincmd =",
+  callback = function()
+    local ft = vim.bo.filetype
+    vim.cmd("wincmd =")
+    if ft == "fugitive" then
+      vim.cmd("resize 32")
+      print("fugitive?")
+    end
+  end,
 })
 
 usercmd("ToggleDiagnostics", function()

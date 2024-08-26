@@ -84,7 +84,6 @@ return {
             local filetype = vim.bo.filetype
 
             if tab ~= context.tabnr then
-              print("hei", name)
               if filetype == "fzf" then
                 return "Fzf"
               elseif filetype == "oil" then
