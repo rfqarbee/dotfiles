@@ -80,13 +80,18 @@ return {
             local winnr = vim.fn.tabpagewinnr(context.tabnr)
             local bufnr = buflist[winnr]
             local mod = vim.fn.getbufvar(bufnr, "&mod")
+            local tab = vim.fn.tabpagenr("#")
             local filetype = vim.bo.filetype
 
-            if mod == 1 and filetype == "TelescopePrompt" then
-              return "Telescope"
-            elseif mod == 0 and filetype == "oil" then
-              print(name, "name", mod, "mod")
-              return "Oil"
+            if tab ~= context.tabnr then
+              print("hei", name)
+              if filetype == "fzf" then
+                return "Fzf"
+              elseif filetype == "oil" then
+                return "Oil"
+              else
+                return (mod == 1 and "[+] " or "") .. name
+              end
             else
               return (mod == 1 and "[+] " or "") .. name
             end
