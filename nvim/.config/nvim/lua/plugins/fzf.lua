@@ -7,12 +7,12 @@ return {
 
     fzf.setup({
       fzf_colors = true,
-      defaults = {
-        header = "what the fuck",
-      },
-      files = {
-        prompt = ">>",
-      },
+      -- defaults = {
+      --   header = "what the fuck",
+      -- },
+      -- files = {
+      --   prompt = ">>",
+      -- },
       winopts = {
         border = "single",
         preview = {

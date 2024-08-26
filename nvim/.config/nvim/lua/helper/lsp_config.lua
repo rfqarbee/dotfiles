@@ -25,7 +25,25 @@ local svelte = {
   pattern = { "*.js", "*.ts" },
 }
 
+local function organize_imports()
+  local params = {
+    command = "_typescript.organizeImports",
+    arguments = { vim.api.nvim_buf_get_name(0) },
+    title = "",
+  }
+  vim.lsp.buf.execute_command(params)
+end
+
 local tsserver = {
+  root_dir = function(fname)
+    return require("lspconfig.util").root_pattern(".git")(fname)
+  end,
+  commands = {
+    OrganizeImports = {
+      organize_imports,
+      description = "Organize imports",
+    },
+  },
   settings = {
     preferences = {
       includeInlayParameterNameHints = "all",
@@ -92,6 +110,7 @@ M.servers = {
   gopls = gopls,
   rust_analyzer = rust_analyzer,
   clangd = clangd,
+  tsserver = tsserver,
 }
 
 -- NOTE: unlikely will need this i guess? but its helps; disable for now

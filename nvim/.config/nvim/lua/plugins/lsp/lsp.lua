@@ -35,6 +35,7 @@ return {
         "clangd",
         "cpplint",
         "gopls",
+        "tsserver",
       }
 
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
@@ -59,7 +60,8 @@ return {
         callback = function(event)
           local bufnr = event.buf
           local client = assert(vim.lsp.get_client_by_id(event.data.client_id), "must have valid client")
-          local builtin = require("telescope.builtin")
+          -- local builtin = require("telescope.builtin")
+          local fzf = require("fzf-lua")
           local map = function(keys, func, desc)
             vim.keymap.set("n", keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
           end
@@ -68,9 +70,9 @@ return {
           map("gD", vim.lsp.buf.declaration, "Goto declaration")
           map("gr", vim.lsp.buf.references, "Goto references")
           map("gi", vim.lsp.buf.implementation, "Goto implementation")
-          map("<leader>cd", builtin.lsp_type_definitions, "Type definition")
-          map("<leader>cs", builtin.lsp_document_symbols, "Document symbols")
-          map("<leader>cw", builtin.lsp_dynamic_workspace_symbols, "Workspace symbols")
+          map("<leader>cd", fzf.lsp_typedefs, "Type definition")
+          map("<leader>cs", fzf.lsp_document_symbols, "Document symbols")
+          map("<leader>cw", fzf.lsp_workspace_symbols, "Workspace symbols")
           map("<leader>rn", vim.lsp.buf.rename, "Rename var")
           map("<leader>ca", vim.lsp.buf.code_action, "Code action")
           map("<M-d>", vim.diagnostic.open_float, "Diagnostics open float")

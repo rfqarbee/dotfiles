@@ -12,7 +12,7 @@ return {
       component_separators = { right = "", left = "" },
       section_separators = { right = " ", left = " " },
       disabled_filetypes = {
-        statusline = { "trouble", "oil", "undotree", "TelescopePrompt" },
+        statusline = { "fzf", "trouble", "oil", "undotree", "TelescopePrompt" },
       },
     },
     sections = {
@@ -58,7 +58,7 @@ return {
         { "location" },
       },
     },
-    extensions = { "fugitive", "trouble", "mason", "lazy" },
+    -- extensions = { "fugitive", "trouble", "mason", "lazy" },
     tabline = {
       lualine_a = {
         {
