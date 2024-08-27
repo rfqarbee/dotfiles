@@ -44,11 +44,11 @@ return {
       })
 
       vim.keymap.set("n", "<leader>-", function()
-        require("oil").toggle_float()
-      end, { desc = "Float oil" })
-      vim.keymap.set("n", "-", function()
         require("oil").open()
-      end, { desc = "Oil -> Directory" })
+      end, { desc = "Float oil" })
+      -- vim.keymap.set("n", "-", function()
+      --   require("oil").open()
+      -- end, { desc = "Oil -> Directory" })
     end,
   },
   {

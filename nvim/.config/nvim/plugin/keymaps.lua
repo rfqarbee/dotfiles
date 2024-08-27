@@ -58,16 +58,20 @@ map("x", "<leader>p", '"+p', { desc = "Paste and copy into Clipboard" })
 
 -- saving
 map("n", "<C-s>", function()
-  local filename = vim.fn.expand("%:t")
-  -- HACK: aint the best way just to hide the notify, but its bothering with the autocmds i made
-  local isModified = vim.bo.modified
-  if isModified then
-    vim.notify(filename, 0, {
-      title = "File saved!",
-      timeout = 3500,
-    })
+  local mod = vim.bo.buftype
+  if mod ~= "nofile" and mod ~= "help" then
+    print("mod?", mod)
+    local filename = vim.fn.expand("%:t")
+    -- HACK: aint the best way just to hide the notify, but its bothering with the autocmds i made
+    local isModified = vim.bo.modified
+    if isModified then
+      vim.notify(filename, 0, {
+        title = "File saved!",
+        timeout = 3500,
+      })
+    end
+    vim.cmd("silent w")
   end
-  vim.cmd("silent w")
 end, { desc = "Save file" })
 
 map("n", "<leader>rp", ":%s/<c-r><c-w>/")
