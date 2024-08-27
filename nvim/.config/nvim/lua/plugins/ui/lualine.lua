@@ -8,10 +8,11 @@ return {
     options = {
       theme = "auto",
       globalstatus = true,
-      section_separators = { right = "", left = "" },
+      -- section_separators = { right = "", left = " " },
       component_separators = { right = "", left = "" },
+      section_separators = { right = " ", left = " " },
       disabled_filetypes = {
-        statusline = { "trouble", "oil", "undotree", "TelescopePrompt" },
+        statusline = { "fzf", "trouble", "oil", "undotree", "TelescopePrompt" },
       },
     },
     sections = {
@@ -57,7 +58,7 @@ return {
         { "location" },
       },
     },
-    extensions = { "fugitive", "trouble", "mason", "lazy" },
+    -- extensions = { "fugitive", "trouble", "mason", "lazy" },
     tabline = {
       lualine_a = {
         {
@@ -79,13 +80,17 @@ return {
             local winnr = vim.fn.tabpagewinnr(context.tabnr)
             local bufnr = buflist[winnr]
             local mod = vim.fn.getbufvar(bufnr, "&mod")
+            local tab = vim.fn.tabpagenr("#")
             local filetype = vim.bo.filetype
 
-            if mod == 1 and filetype == "TelescopePrompt" then
-              return "Telescope"
-            elseif mod == 0 and filetype == "oil" then
-              print(name, "name", mod, "mod")
-              return "Oil"
+            if tab ~= context.tabnr then
+              if filetype == "fzf" then
+                return "Fzf"
+              elseif filetype == "oil" then
+                return "Oil"
+              else
+                return (mod == 1 and "[+] " or "") .. name
+              end
             else
               return (mod == 1 and "[+] " or "") .. name
             end

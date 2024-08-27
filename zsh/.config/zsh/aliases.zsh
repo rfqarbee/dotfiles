@@ -20,9 +20,6 @@ alias gst="git status"
 alias update="sudo pacman -Syu"
 alias pacman="sudo pacman"
 alias cat="bat"
-alias mv='mv -i'
-alias cp='cp -r'
-alias rm='rm -i'
 
 # set .yarn in config
 # alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'

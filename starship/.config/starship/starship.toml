@@ -6,24 +6,23 @@ $cmd_duration\
 """
 add_newline = true
 command_timeout = 20000
-palette = "catppuccin_macchiato"
-continuation_prompt = '▶▶ '
+palette = "doom_one"
+continuation_prompt = '▶ '
 
 [fill]
 symbol = " "
 
 [character]
-# success_symbol = '[ ](bold green)'
 success_symbol = '[➜](bold green)'
 error_symbol = '[✗](bold red)'
-vimcmd_symbol = '[N](bold blue)'
+vimcmd_symbol = '[N](bold yellow)'
 
 [cmd_duration]
 min_time = 1_000
 format = '[$duration]($style) '
-style = 'bold green'
+style = 'bold magenta'
 show_notifications = false
-min_time_to_notify = 45_000
+min_time_to_notify = 30_000
 notification_timeout = 20_000
 
 [directory]
@@ -40,8 +39,8 @@ style = 'bold cyan'
 '~/Downloads/Misc' ='  Misc'
 
 [git_branch]
-# always_show_remote = true
-format = '[[$symbol](green)($remote_name:)$branch(:$remote_branch)]($style) '
+always_show_remote = true
+format = '[[$symbol](green)($remote_name/)$branch(: $remote_branch)]($style) '
 style = 'bold blue'
 
 [git_status]
@@ -54,17 +53,27 @@ staged = '+${count}'
 stashed = '\$${count}'
 modified = '!${count}'
 
+[git_commit]
+# format = '[\($tag_symbol$tag \($hash\)\)]($style)'
+commit_hash_length = 8
+style = 'bold green'
+tag_symbol = ' 🏷 '
+only_detached = true
+tag_disabled = false
+
 [package]
 format = "[$version]($style) "
 disabled = true
 
 [lua]
 format = "[$symbol $name $version]($style) "
+style = "bold cyan"
 symbol = ' '
 
 [c]
 format = "[$symbol $name $version]($style) "
 symbol = ' '
+style = "text"
 
 [docker_context]
 format = "[$symbol $context]($style) "
@@ -72,15 +81,19 @@ format = "[$symbol $context]($style) "
 [golang]
 format = "[$symbol ($version)($mod_version)]($style) "
 symbol = '  '
+style = "sapphire"
 
 [nodejs]
 format = '[$symbol ($version)]($style) '
+style = "bold green"
 
 [rust]
 format = '[$symbol ($version)]($style) '
+style = 'bold red'
 
 [dart]
 format = '[$symbol ($version)]($style) '
+style = "bold sky"
 
 [kotlin]
 format = '[$symbol($version)]($style) '
@@ -91,20 +104,16 @@ format = '[$symbol($version)]($style) '
 [swift]
 format = '[$symbol($version)]($style) '
 
-[palettes.catppuccin_macchiato]
+[palettes.doom_one]
 rosewater = "#f4dbd6"
 flamingo = "#f0c6c6"
 pink = "#f5bde6"
 mauve = "#c6a0f6"
-red = "#ed8796"
 maroon = "#ee99a0"
 peach = "#f5a97f"
-yellow = "#eed49f"
-green = "#a6da95"
 teal = "#8bd5ca"
 sky = "#91d7e3"
 sapphire = "#7dc4e4"
-blue = "#8aadf4"
 lavender = "#b7bdf8"
 text = "#cad3f5"
 subtext1 = "#b8c0e0"
@@ -118,3 +127,10 @@ surface0 = "#363a4f"
 base = "#24273a"
 mantle = "#1e2030"
 crust = "#181926"
+red = "#ff665c"
+green="#98be75"
+yellow = "#fcce7b"
+blue = "#a9a1e1"
+cyan = "#51afef"
+magenta="#c57bdb"
+white = "#dfdfdf"

@@ -1,7 +1,6 @@
 return {
   "folke/trouble.nvim",
-  enabled = true,
-  dependencies = { "nvim-tree/nvim-web-devicons", "folke/lsp-colors.nvim" },
+  enabled = true, dependencies = { "nvim-tree/nvim-web-devicons", "folke/lsp-colors.nvim" },
   cmd = "Trouble",
   keys = {
     { "<leader>qs", "<cmd>Trouble diag_priority toggle<cr>", "Project diagnostics on severity" },

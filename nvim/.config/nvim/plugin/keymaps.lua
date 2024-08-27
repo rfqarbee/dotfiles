@@ -4,6 +4,9 @@ local helper = require("helper.lualine")
 map({ "n", "v" }, "Q", "<nop>")
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight on search when Esc in normal mode" })
 
+-- NOTE: remove this after complete my own colorscheme
+map("n", "<leader>i", ":Inspect<cr>")
+
 -- more binds
 map("n", "<C-q>", "<cmd>qa<CR>", { desc = "Quit Neovim" })
 map("n", "<M-q>", "<cmd>q<CR>", { desc = "Quit Buffer/window/tabs/anything" })
