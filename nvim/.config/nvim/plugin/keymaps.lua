@@ -1,5 +1,5 @@
 local map = vim.keymap.set
-local helper = require("helper.lualine")
+local helper = require("helper.config_lualine")
 -- unbind
 map({ "n", "v" }, "Q", "<nop>")
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight on search when Esc in normal mode" })

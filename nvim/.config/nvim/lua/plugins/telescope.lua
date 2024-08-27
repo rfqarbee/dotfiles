@@ -1,11 +1,12 @@
 return {
   "nvim-telescope/telescope.nvim",
-  enabled = true,
+  enabled = false,
   branch = "0.1.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
     {
       "nvim-telescope/telescope-fzf-native.nvim",
+      enabled = false,
       build = "make",
     },
     { "nvim-tree/nvim-web-devicons" },
@@ -13,7 +14,7 @@ return {
   config = function()
     local telescope = require("telescope")
     local builtin = require("telescope.builtin")
-    local helper = require("helper.telescope")
+    local helper = require("helper.config_telescope")
     local map = require("utils.mapkey")
 
     telescope.setup({

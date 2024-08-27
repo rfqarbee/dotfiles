@@ -13,7 +13,7 @@ export TMPDIR=/tmp
 
 # path
 typeset -U path PATH
-path=($HOME/bin $HOME/.local/share/mise/shims $HOME/.config/pub_cache/bin /usr/local/bin $HOME/.local/bin $HOME/.local/scripts $path)
+path=($HOME/bin $HOME/.config/pub_cache/bin /usr/local/bin $HOME/.local/bin $HOME/.local/scripts $path)
 # cdpath=(. $HOME/Media/Pictures $HOME/.config $HOME/.local $HOME $HOME/code $HOME/Documents) # using zoxide
 export PATH
 

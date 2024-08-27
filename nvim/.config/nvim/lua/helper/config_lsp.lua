@@ -103,12 +103,13 @@ local clangd = {
 }
 
 M.servers = {
-  lua_ls = lua_ls,
+  -- NOTE: only setup; not really required right now
+  -- svelte = svelte,
+  -- dartls = dartls,
+  -- rust_analyzer = rust_analyzer,
   cssls = cssls,
-  svelte = svelte,
-  dartls = dartls,
+  lua_ls = lua_ls,
   gopls = gopls,
-  rust_analyzer = rust_analyzer,
   clangd = clangd,
   tsserver = tsserver,
 }

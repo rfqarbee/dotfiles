@@ -1,4 +1,4 @@
-local utils = require("helper.lualine")
+local utils = require("helper.config_lualine")
 local arrow_status = require("arrow.statusline")
 
 return {

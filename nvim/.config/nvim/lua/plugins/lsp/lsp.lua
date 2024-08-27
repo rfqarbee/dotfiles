@@ -10,7 +10,7 @@ return {
     config = function()
       local capabilities = nil
       local lspconfig = require("lspconfig")
-      local lsphelper = require("helper.lsp_config")
+      local lsphelper = require("helper.config_lsp")
       local servers = lsphelper.servers
 
       if pcall(require, "cmp_nvim_lsp") then
@@ -27,13 +27,11 @@ return {
       require("mason").setup()
 
       local ensure_installed = {
-        "lua_ls",
-        "html",
-        "cssls",
         "prettier",
         "stylua",
-        "clangd",
         "cpplint",
+        "lua_ls",
+        "clangd",
         "gopls",
         "tsserver",
       }
