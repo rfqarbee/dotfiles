@@ -1,13 +1,7 @@
 return {
   {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-  },
-  {
     "rafamadriz/neon",
-    enabled = true,
+    enabled = false,
     config = function()
       vim.g.neon_style = "doom"
       vim.g.neon_italic_keyword = false
@@ -21,7 +15,7 @@ return {
   {
     "navarasu/onedark.nvim",
     lazy = false,
-    enabled = true,
+    enabled = false,
     priority = 1000,
     config = function()
       require("onedark").setup({

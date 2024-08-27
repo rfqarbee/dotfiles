@@ -23,12 +23,8 @@ return {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
     opts = {
-      -- input = {
-      --   title_pos = "left",
-      -- },
       input = {
         get_config = function(opts)
-          print(vim.inspect(opts))
           if opts.kind == nil then
             return {
               relative = "editor",
