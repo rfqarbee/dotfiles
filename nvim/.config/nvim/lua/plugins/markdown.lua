@@ -34,11 +34,19 @@ return {
   {
     "epwalsh/obsidian.nvim",
     version = "*",
-    enabled = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
     lazy = true,
+    cond = function()
+      local vault = "~/Documents/Vaults"
+      local path = vim.fn.getcwd()
+      if vault == path then
+        return true
+      else
+        return false
+      end
+    end,
     ft = "markdown",
     config = function()
       require("obsidian").setup({

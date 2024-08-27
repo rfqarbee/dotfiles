@@ -74,6 +74,9 @@ map("n", "<leader>rp", ":%s/<c-r><c-w>/")
 map("n", "<leader>rP", ":%s/<c-r><c-a>/")
 map("v", "<leader>rp", ":'<,'>s/<c-r><c-w>/")
 map("v", "<leader>rP", ":'<,'>s/<c-r><c-a>/")
+
+-- TODO:
+-- doesnt increment search/hl; do this free time yeh?
 -- map("v", "<leader>rp", function()
 --   helper.replace_word("<cword>", "visual")
 -- end, { desc = "Replace current word in visual mode" })
