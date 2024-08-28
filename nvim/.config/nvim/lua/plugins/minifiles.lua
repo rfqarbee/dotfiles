@@ -17,14 +17,14 @@ return {
       -- Use `''` (empty string) to not create one.
       mappings = {
         close = "q",
-        go_in = "L",
-        go_in_plus = "l",
+        go_in = "l",
+        go_in_plus = "<CR>",
         go_out = "H",
         go_out_plus = "h",
         reset = "<BS>",
         reveal_cwd = "`",
-        show_help = "g?",
-        synchronize = "=",
+        show_help = "",
+        synchronize = "<c-s>",
         trim_left = "<",
         trim_right = ">",
       },
@@ -56,6 +56,34 @@ return {
       callback = function(ev)
         vim.wo[ev.data.win_id].number = true
         vim.wo[ev.data.win_id].relativenumber = true
+      end,
+    })
+
+    local map_split = function(buf_id, lhs, direction)
+      local rhs = function()
+        -- Make new window and set it as target
+        local new_target_window
+        vim.api.nvim_win_call(mini.get_target_window(), function()
+          vim.cmd(direction .. " split")
+          new_target_window = vim.api.nvim_get_current_win()
+        end)
+
+        mini.set_target_window(new_target_window)
+      end
+
+      -- Adding `desc` will result into `show_help` entries
+      local desc = "Split " .. direction
+      vim.keymap.set("n", lhs, rhs, { buffer = buf_id, desc = desc })
+    end
+
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "MiniFilesBufferCreate",
+      callback = function(args)
+        print("does it go enter enter", vim.inspect(args))
+        local buf_id = args.data.buf_id
+        -- Tweak keys to your liking
+        map_split(buf_id, "<C-w>s", "belowright horizontal")
+        map_split(buf_id, "<C-w>v", "belowright vertical")
       end,
     })
   end,

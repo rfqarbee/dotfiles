@@ -182,7 +182,7 @@ return {
     --   end
     -- end,
     keys = {
-      { "<leader>nt", "<cmd>Neotree focus<cr>", desc = "Neotree" },
+      { "<leader>nt", "<cmd>Neotree toggle<cr>", desc = "Neotree" },
     },
     config = function()
       require("neo-tree").setup({

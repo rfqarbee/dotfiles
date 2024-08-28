@@ -1,6 +1,7 @@
 return {
   {
     "stevearc/oil.nvim",
+    enabled = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       local oil = require("oil")
@@ -46,9 +47,9 @@ return {
       vim.keymap.set("n", "<leader>-", function()
         require("oil").open()
       end, { desc = "Float oil" })
-      -- vim.keymap.set("n", "-", function()
-      --   require("oil").open()
-      -- end, { desc = "Oil -> Directory" })
+      vim.keymap.set("n", "-", function()
+        require("oil").open()
+      end, { desc = "Oil -> Directory" })
     end,
   },
   {
