@@ -79,7 +79,6 @@ return {
     vim.api.nvim_create_autocmd("User", {
       pattern = "MiniFilesBufferCreate",
       callback = function(args)
-        print("does it go enter enter", vim.inspect(args))
         local buf_id = args.data.buf_id
         -- Tweak keys to your liking
         map_split(buf_id, "<C-w>s", "belowright horizontal")

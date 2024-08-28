@@ -1,6 +1,12 @@
 -- nvim v0.8.0
 return {
   "kdheepak/lazygit.nvim",
+  cond = function()
+    local getos = os.getenv("OS")
+    if getos ~= nil and string.find(getos:lower(), "windows") then
+      return true
+    end
+  end,
   cmd = {
     "LazyGit",
     "LazyGitConfig",
