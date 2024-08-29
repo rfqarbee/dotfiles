@@ -86,6 +86,8 @@ return {
             if tab ~= context.tabnr then
               if filetype == "fzf" then
                 return "Fzf"
+              elseif filetype == "minifiles" then
+                return "Mini files"
               elseif filetype == "oil" then
                 return "Oil"
               else

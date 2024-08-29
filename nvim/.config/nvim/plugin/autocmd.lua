@@ -12,7 +12,7 @@ local Quickfix = vim.api.nvim_create_augroup("Quickfix", { clear = true })
 --   callback = function()
 --     local ft = vim.bo.filetype
 --     if ft == "gitcommit" then
---       -- print("inside?")
+--       -- ("inside?")
 --       -- vim.cmd("above Git commit")
 --     end
 --   end,
@@ -55,8 +55,7 @@ autocmd("VimResized", {
     local ft = vim.bo.filetype
     vim.cmd("wincmd =")
     if ft == "fugitive" then
-      vim.cmd("resize 32")
-      print("fugitive?")
+      vim.cmd("resize 32")("fugitive?")
     end
   end,
 })

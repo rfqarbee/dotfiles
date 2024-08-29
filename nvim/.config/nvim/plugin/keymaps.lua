@@ -58,22 +58,28 @@ map("x", "<leader>p", '"+p', { desc = "Paste and copy into Clipboard" })
 
 -- saving
 map("n", "<C-s>", function()
-  local filename = vim.fn.expand("%:t")
-  -- HACK: aint the best way just to hide the notify, but its bothering with the autocmds i made
-  local isModified = vim.bo.modified
-  if isModified then
-    vim.notify(filename, 0, {
-      title = "File saved!",
-      timeout = 3500,
-    })
+  local mod = vim.bo.buftype
+  if mod ~= "nofile" and mod ~= "help" then
+    local filename = vim.fn.expand("%:t")
+    -- HACK: aint the best way just to hide the notify, but its bothering with the autocmds i made
+    local isModified = vim.bo.modified
+    if isModified then
+      vim.notify(filename, 0, {
+        title = "File saved!",
+        timeout = 3500,
+      })
+    end
+    vim.cmd("silent w")
   end
-  vim.cmd("silent w")
 end, { desc = "Save file" })
 
 map("n", "<leader>rp", ":%s/<c-r><c-w>/")
 map("n", "<leader>rP", ":%s/<c-r><c-a>/")
 map("v", "<leader>rp", ":'<,'>s/<c-r><c-w>/")
 map("v", "<leader>rP", ":'<,'>s/<c-r><c-a>/")
+
+-- TODO:
+-- doesnt increment search/hl; do this free time yeh?
 -- map("v", "<leader>rp", function()
 --   helper.replace_word("<cword>", "visual")
 -- end, { desc = "Replace current word in visual mode" })

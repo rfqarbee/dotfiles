@@ -12,6 +12,8 @@ return {
       keymap = {
         fzf = {
           false, -- do not inherit from defaults
+          ["tab"] = "",
+          ["shift-tab"] = "",
           ["ctrl-c"] = "abort",
           ["ctrl-d"] = "half-page-down",
           ["ctrl-u"] = "half-page-up",
