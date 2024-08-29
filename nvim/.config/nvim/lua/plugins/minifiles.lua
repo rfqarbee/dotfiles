@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.nvim",
+  "echasnovski/mini.files",
   version = false,
   config = function()
     local map = require("utils.mapkey")
