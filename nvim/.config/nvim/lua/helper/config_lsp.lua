@@ -111,7 +111,7 @@ M.servers = {
   lua_ls = lua_ls,
   gopls = gopls,
   clangd = clangd,
-  tsserver = tsserver,
+  -- tsserver = tsserver,
 }
 
 -- NOTE: unlikely will need this i guess? but its helps; disable for now

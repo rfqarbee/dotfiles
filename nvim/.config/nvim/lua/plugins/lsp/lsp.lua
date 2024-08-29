@@ -33,7 +33,7 @@ return {
         "lua_ls",
         "clangd",
         "gopls",
-        "tsserver",
+        -- "tsserver",
       }
 
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
@@ -75,7 +75,7 @@ return {
           map("<leader>ca", vim.lsp.buf.code_action, "Code action")
           map("<M-d>", vim.diagnostic.open_float, "Diagnostics open float")
           map("<leader>lr", "<cmd>LspRestart<cr>", "Restart")
-          map("<leader>li", ":OrganizeImports<cr>", "Ts organize import")
+          -- map("<leader>li", ":OrganizeImports<cr>", "Ts organize import")
           map("<leader>lh", function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
           end, "InlayHints")
