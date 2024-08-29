@@ -47,7 +47,7 @@ return {
       -- vim.keymap.set("n", "<leader>", function()
       --   require("oil").open()
       -- end, { desc = "Float oil" })
-      vim.keymap.set("n", "<leader>o", function()
+      vim.keymap.set("n", "<leader>-", function()
         require("oil").open()
       end, { desc = "Oil -> Directory" })
     end,
