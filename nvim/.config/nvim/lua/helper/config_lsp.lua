@@ -113,7 +113,7 @@ M.servers = {
   -- gopls = gopls,
   -- rust_analyzer = rust_analyzer,
   -- clangd = clangd,
-  tsserver = tsserver,
+  -- tsserver = tsserver,
 }
 
 -- NOTE: unlikely will need this i guess? but its helps; disable for now
