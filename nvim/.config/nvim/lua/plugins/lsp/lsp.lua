@@ -70,6 +70,7 @@ return {
           map("<leader>ca", vim.lsp.buf.code_action, "Code action")
           map("<M-d>", vim.diagnostic.open_float, "Diagnostics open float")
           map("<leader>lr", "<cmd>LspRestart<cr>", "Restart")
+          map("<leader>li", ":OrganizeImports<cr>", "Ts organize import")
           map("<leader>lh", function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
           end, "InlayHints")
