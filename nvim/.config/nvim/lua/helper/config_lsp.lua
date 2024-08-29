@@ -102,6 +102,7 @@ local clangd = {
   filetypes = { "c", "cpp" },
 }
 
+--test
 M.servers = {
   -- NOTE: only setup; not really required right now
   -- svelte = svelte,
