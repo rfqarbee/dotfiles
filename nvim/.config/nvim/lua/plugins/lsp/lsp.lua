@@ -67,7 +67,7 @@ return {
           map("gd", vim.lsp.buf.definition, "Goto defintion")
           map("gD", vim.lsp.buf.declaration, "Goto declaration")
           map("gr", vim.lsp.buf.references, "Goto references")
-          map("gi", vim.lsp.buf.implementation, "Goto implementation")
+          map("gI", vim.lsp.buf.implementation, "Goto implementation")
           map("<leader>cd", fzf.lsp_typedefs, "Type definition")
           map("<leader>cs", fzf.lsp_document_symbols, "Document symbols")
           map("<leader>cw", fzf.lsp_workspace_symbols, "Workspace symbols")
