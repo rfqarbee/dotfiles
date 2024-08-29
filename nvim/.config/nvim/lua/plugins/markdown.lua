@@ -200,4 +200,11 @@ return {
       })
     end,
   },
+  {
+    "nvim-tree/nvim-tree.lua",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons", -- optional
+    },
+    opts = {},
+  },
 }
