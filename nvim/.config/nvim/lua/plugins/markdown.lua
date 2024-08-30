@@ -39,7 +39,7 @@ return {
     },
     lazy = true,
     cond = function()
-      local vault = "~/Documents/Vaults"
+      local vault = "/home/rafiq/Documents/Vaults"
       local path = vim.fn.getcwd()
       if vault == path then
         return true
