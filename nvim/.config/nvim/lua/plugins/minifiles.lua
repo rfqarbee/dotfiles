@@ -1,5 +1,6 @@
 return {
   "echasnovski/mini.files",
+  enabled = false,
   version = false,
   config = function()
     local map = require("utils.mapkey")

@@ -34,6 +34,7 @@ return {
           ["<C-p>"] = "actions.preview",
           ["q"] = "actions.close",
           ["<space>r"] = "actions.refresh", -- refresh list
+          -- ["<space>-"] = "actions.parent", -- enabled after not using hardtimes and using mini files
           ["-"] = "actions.parent",
           ["_"] = "actions.open_cwd",
           ["."] = "actions.cd", -- change project directory
@@ -44,10 +45,10 @@ return {
         },
       })
 
-      -- vim.keymap.set("n", "<leader>", function()
+      -- vim.keymap.set("n", "<leader>-", function()
       --   require("oil").open()
       -- end, { desc = "Float oil" })
-      vim.keymap.set("n", "<leader>-", function()
+      vim.keymap.set("n", "-", function()
         require("oil").open()
       end, { desc = "Oil -> Directory" })
     end,
