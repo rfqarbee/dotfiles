@@ -75,3 +75,4 @@ eval "$(zoxide init zsh --cmd cd)"
 
 eval "$(starship init zsh)"
 eval "$(mise activate zsh)"
+eval "$(tmux_session.sh)"
