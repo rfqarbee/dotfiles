@@ -16,7 +16,7 @@ return {
     vim.g.db_ui_win_position = "right"
     local map = require("utils.mapkey")
 
-    map("n", "<leader>do", "<cmd>tabnew | DBUIToggle<cr>")
+    map("n", "<leader>do", "<cmd>DBUIToggle<cr>")
 
     vim.api.nvim_create_autocmd("User", {
       group = vim.api.nvim_create_augroup("Dadbod", { clear = true }),

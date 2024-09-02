@@ -41,8 +41,8 @@ opt.clipboard:append("unnamedplus")
 opt.splitright = true
 opt.splitbelow = true
 
-opt.list = false
-opt.listchars = { tab = "» ", trail = ".", nbsp = "␣" }
+opt.list = true
+opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 opt.fillchars:append({ eob = " " })
 opt.scrolloff = 6
 
