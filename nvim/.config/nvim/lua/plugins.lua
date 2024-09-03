@@ -1,7 +1,10 @@
 return {
   {
     "mistweaverco/kulala.nvim",
-    opts = {},
+    opts = {
+      default_view = "headers_body",
+      winbar = true,
+    },
   },
   {
     "szw/vim-maximizer",
