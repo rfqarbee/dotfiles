@@ -1,5 +1,9 @@
 return {
   {
+    "mistweaverco/kulala.nvim",
+    opts = {},
+  },
+  {
     "szw/vim-maximizer",
     keys = {
       { "<leader>wm", "<cmd>MaximizerToggle<cr>", "Maximze" },
