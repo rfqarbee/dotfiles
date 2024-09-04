@@ -22,6 +22,7 @@ return {
             winblend = 0,
           },
         },
+        natural_order = false,
         use_default_keymaps = false,
         delete_to_trash = true, -- in $XDG_DATA_HOME/Trash
         skip_confirm_for_simple_edits = true,

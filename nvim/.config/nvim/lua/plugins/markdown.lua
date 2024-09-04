@@ -57,25 +57,25 @@ return {
             overrides = {
               daily_notes = {
                 folder = "1. Quicknotes",
-                date_format = "%d-%m-%Y",
+                date_format = "%Y-%m-%d",
                 alias_format = "%B %-d,%Y",
                 default_tags = { "quicknotes" },
               },
             },
           },
-          {
-            name = "test",
-            path = "~/Documents/test",
-            overrides = {
-              notes_subdir = "notes",
-              daily_notes = {
-                folder = "notes/dailes",
-                date_format = "%d-%m-%Y",
-                alias_format = "%B %-d,%Y",
-                default_tags = { "quicknotes" },
-              },
-            },
-          },
+          -- {
+          --   name = "test",
+          --   path = "~/Documents/test",
+          --   overrides = {
+          --     notes_subdir = "notes",
+          --     daily_notes = {
+          --       folder = "notes/dailes",
+          --       date_format = "%d-%m-%Y",
+          --       alias_format = "%B %-d,%Y",
+          --       default_tags = { "quicknotes" },
+          --     },
+          --   },
+          -- },
         },
         note_id_func = function(title)
           local suffix = ""
@@ -93,7 +93,7 @@ return {
         log_level = vim.log.levels.INFO,
         templates = {
           folder = "Templates",
-          date_format = "%d/%m/%Y",
+          date_format = "%Y-%m-%d",
           time_format = "%H:%M",
         },
         ui = {
