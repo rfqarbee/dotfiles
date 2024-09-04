@@ -2,6 +2,7 @@ return {
   "echasnovski/mini.files",
   enabled = false,
   version = false,
+  enabled = false, -- bug due to hardtimes
   config = function()
     local map = require("utils.mapkey")
     local mini = require("mini.files")
