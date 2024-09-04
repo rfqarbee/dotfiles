@@ -1,4 +1,4 @@
-# needs
+# basic
 export XDG_CONFIG_DIRS=/etc/xdg
 export XDG_DATA_DIRS=/usr/local/share:/usr/share
 export XDG_CONFIG_HOME=$HOME/.config
@@ -14,10 +14,9 @@ export TMPDIR=/tmp
 # path
 typeset -U path PATH
 path=($HOME/bin $HOME/.config/pub_cache/bin /usr/local/bin $HOME/.local/bin $HOME/.local/scripts $path)
-# cdpath=(. $HOME/Media/Pictures $HOME/.config $HOME/.local $HOME $HOME/code $HOME/Documents) # using zoxide
 export PATH
 
-# export local env
+## export local env
 # export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
 export PROMPT_EOL_MARK=''
 # export TERMINAL=/usr/bin/kitty
