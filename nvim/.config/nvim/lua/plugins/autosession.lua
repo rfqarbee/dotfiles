@@ -4,7 +4,7 @@ return {
   config = function()
     require("auto-session").setup({
       auto_restore_enabled = true,
-      auto_session_suppress_dirs = { "~/", "~/Downloads", "~/dev", "~/work", "~/repos", "/", "~/dotfiles" },
+      auto_session_suppress_dirs = { "~/", "~/Downloads", "~/repos", "/" },
     })
 
     vim.keymap.set("n", "<leader>wr", "<cmd>SessionRestore<cr>", { desc = "Restore session for cwd" })
