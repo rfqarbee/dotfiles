@@ -23,7 +23,6 @@ return {
       callback = function()
         local i = 0
         if vim.bo.filetype == "dbui" then
-          print("inside a file")
         else
           -- map("n", "<leader>do", "<cmd>tabnew | DBUIToggle<cr>")
         end
