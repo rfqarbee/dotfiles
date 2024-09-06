@@ -10,6 +10,7 @@ export XDG_REPOS_DIR=$HOME/repos
 export XDG_LOCAL_DIR=$HOME/.local
 export XDG_DOCUMENTS_DIR=$HOME/Documents
 export TMPDIR=/tmp
+export FREEZE_OUT=$HOME/Media/Pictures/tui
 
 # path
 typeset -U path PATH
