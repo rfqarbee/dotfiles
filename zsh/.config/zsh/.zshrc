@@ -60,12 +60,13 @@ zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
 export LESSOPEN="|/home/rafiq/.local/scripts/lessfilter.sh %s"
 
 source $ZDOTDIR/aliases.zsh
+has_tmux=$(pgrep tmux)
 
 eval "$(zoxide init zsh --cmd cd)"
 source <(fzf --zsh)
 eval "$(starship init zsh)"
 eval "$(mise activate zsh)"
-if [[ -z $TMUX ]]; then
-  eval "$(tmux_session.sh)"
+if [[ -z $TMUX ]] && [[ -z $has_tmux ]]; then
+    eval "$(tmux_session.sh)"
 fi
 
