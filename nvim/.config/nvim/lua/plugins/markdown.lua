@@ -56,26 +56,13 @@ return {
             path = "~/Documents/Vaults",
             overrides = {
               daily_notes = {
-                folder = "1. Quicknotes",
+                folder = "1. Dailies",
                 date_format = "%Y-%m-%d",
                 alias_format = "%B %-d,%Y",
-                default_tags = { "quicknotes" },
+                default_tags = { "dailies" },
               },
             },
           },
-          -- {
-          --   name = "test",
-          --   path = "~/Documents/test",
-          --   overrides = {
-          --     notes_subdir = "notes",
-          --     daily_notes = {
-          --       folder = "notes/dailes",
-          --       date_format = "%d-%m-%Y",
-          --       alias_format = "%B %-d,%Y",
-          --       default_tags = { "quicknotes" },
-          --     },
-          --   },
-          -- },
         },
         note_id_func = function(title)
           local suffix = ""
@@ -129,7 +116,7 @@ return {
           },
           ["<leader>on"] = {
             action = "<cmd>ObsidianDailies<cr>",
-            opts = { desc = "Quick notes" },
+            opts = { desc = "Daily notes" },
           },
           ["<leader>od"] = {
             action = "<cmd>ObsidianToday +1<cr>",
