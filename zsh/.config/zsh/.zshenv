@@ -1,4 +1,4 @@
-# needs
+# basic
 export XDG_CONFIG_DIRS=/etc/xdg
 export XDG_DATA_DIRS=/usr/local/share:/usr/share
 export XDG_CONFIG_HOME=$HOME/.config
@@ -10,14 +10,20 @@ export XDG_REPOS_DIR=$HOME/repos
 export XDG_LOCAL_DIR=$HOME/.local
 export XDG_DOCUMENTS_DIR=$HOME/Documents
 export TMPDIR=/tmp
+export FREEZE_OUT=$HOME/Media/Pictures/tui
 
 # path
 typeset -U path PATH
 path=($HOME/bin $HOME/.config/pub_cache/bin /usr/local/bin $HOME/.local/bin $HOME/.local/scripts $path)
-# cdpath=(. $HOME/Media/Pictures $HOME/.config $HOME/.local $HOME $HOME/code $HOME/Documents) # using zoxide
 export PATH
 
-# export local env
+## export local env
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+--color=dark
+--color=fg:-1,bg:-1,hl:#c678dd,fg+:#ffffff,bg+:#4b5263,hl+:#d858fe
+--color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
+'
 # export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
 export PROMPT_EOL_MARK=''
 # export TERMINAL=/usr/bin/kitty
@@ -28,7 +34,7 @@ export VISUAL=nvim
 export PAGER='less'
 export MANPAGER="nvim +Man!"
 export MANWIDTH=200
-export BROWSER=firefox
+export BROWSER=firefox-developer-edition
 export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 export ASDF_DATA_DIR=$XDG_CONFIG_HOME/asdf # mise plugin; asdf
 

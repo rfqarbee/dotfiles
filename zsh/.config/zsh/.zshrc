@@ -23,6 +23,7 @@ zinit cdreplay -q # reload all completion
 # key binds
 bindkey -s "^E" "tmux_session.sh\n"
 bindkey -s "^b" "backend.sh\n"
+bindkey -s '^f' "freeze -o $FREEZE_OUT/"
 # bindkey -ar "O"
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
@@ -60,23 +61,13 @@ zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
 export LESSOPEN="|/home/rafiq/.local/scripts/lessfilter.sh %s"
 
 source $ZDOTDIR/aliases.zsh
+has_tmux=$(pgrep tmux)
 
-# if fzf is below 0.48.0 (ex : debian)
-fzf_ver=$(fzf --version | awk -F '.' '{print $2}') # get the version
-
-# BUG: for opensuse wsl
 eval "$(zoxide init zsh --cmd cd)"
-# if [[ -n $(command -v fzf) ]] && [[ $fzf_ver -lt 48 ]]; then
-#   source /usr/share/doc/fzf/examples/key-bindings.zsh
-#   source /usr/share/doc/fzf/examples/completion.zsh
-# else
-  source <(fzf --zsh)
-# fi
-
+source <(fzf --zsh)
 eval "$(starship init zsh)"
 eval "$(mise activate zsh)"
-
-if [[ -z $TMUX ]]; then
-  eval "$(tmux_session.sh)"
+if [[ -z $TMUX ]] && [[ -z $has_tmux ]]; then
+    eval "$(tmux_session.sh)"
 fi
 
