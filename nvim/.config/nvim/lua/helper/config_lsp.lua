@@ -108,6 +108,7 @@ M.servers = {
   -- svelte = svelte,
   -- dartls = dartls,
   -- rust_analyzer = rust_analyzer,
+  prismals = true,
   cssls = cssls,
   lua_ls = lua_ls,
   gopls = gopls,
