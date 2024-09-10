@@ -1,0 +1,41 @@
+final_space = true
+enable_cursor_positioning = true
+version = 2
+[var]
+git="git status"
+[[blocks]]
+type="prompt"
+# newline = true
+alignment="left"
+overflow="break"
+leading_diamond = " >>>>"
+trailing_diamond=">>"
+
+  [[blocks.segments]]
+  type="path"
+  template= " {{ .PWD }} $git"
+  style='plain'
+  leading_diamond=">>"
+  trailing_diamond=">>>"
+
+    [blocks.segments.properties]
+    style="folder"
+
+  [[blocks.segments]]
+  type="git"
+
+[[blocks]]
+alignment = "left"
+newline = true
+type = "prompt"
+
+  [[blocks.segments]]
+  foreground_templates = ["{{if .Code}}red{{ else }}green{{end}}"]
+  style = "plain"
+  template = " {{ if .Code }}✗ {{ else }} {{ if .UserName  }}N {{else }}➜ {{end}}{{end}}"
+  type = "text"
+
+[transient_prompt]
+template = "> "
+foreground = "#fffff"
+
