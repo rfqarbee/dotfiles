@@ -7,7 +7,7 @@ git="git status"
 
 [[blocks]]
 type="prompt"
-# newline = true
+newline = true
 alignment="left"
 overflow="break"
 leading_diamond = " >>>>"
@@ -15,32 +15,63 @@ trailing_diamond=">>"
 
   [[blocks.segments]]
   type="path"
-  template= " {{ .PWD }} "
   style='plain'
   foreground="#51afef"
 
     [blocks.segments.properties]
-    foreground="red"
-    # style="folder"
+    style="folder"
+    folder_icon=""
+    max_depth = 3
+    # hide_root_location=true
+template="{{ .Location}}"
+    # template= "{{ if .RepoName }}{{ .Location }}{{ else }}{{ .Path }}{{end}}"
+    [blocks.segments.properties.mapped_locations]
+    '~/.local/share/applications' ='󰀻 Applications'
+    '~/Downloads' ='  Downloads'
+    '~/Downloads/*' ='  Downloads'
 
   [[blocks.segments]]
   type="git"
   foreground="#a9a1e1"
- # template="{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}"
-template="""{{ .HEAD}} \
-{{ .Upstream }}\
-{{ if and (gt .Ahead 0) (eq .Behind 0) }} ⇡{{.Ahead}}{{ end }}\
-{{ if and (eq .Ahead 0) (gt .Behind 0) }} ⇣{{.Behind}}{{ end }}\
-{{ if and (gt .Ahead 0) (gt .Behind 0) }}  ⇡{{.Ahead}}⇣{{.Behind}}{{ end }}\
-{{ if .Staging.Changed }} +{{.Staging.Modified}}{{ end }}\
-{{ if .Working.Changed }} ~{{.Working.Modified}}{{ end }}\
-{{ if gt .StashCount 0 }} ${{ .StashCount}}{{ end }}\
+# foreground_templates= [
+#   "{{ if gt .Staging.Modified 0}}yellow{{end}}",
+#   "{{ if gt .Staging.Added 0}}red{{end}}"
+# ]
+  template="""{{ if .Detached }} \uE0A0 HEAD{{ else }}{{ .HEAD}} {{ end }}\
+  {{ .Upstream }}\
+  {{ if and (gt .Ahead 0) (eq .Behind 0) }} ⇡{{.Ahead}}{{ end }}\
+  {{ if and (eq .Ahead 0) (gt .Behind 0) }} ⇣{{.Behind}}{{ end }}\
+  {{ if and (gt .Ahead 0) (gt .Behind 0) }}  ⇡{{.Ahead}}⇣{{.Behind}}{{ end }}\
+  {{ if .Staging.Changed }}{{if gt .Staging.Added 0 }} +{{.Staging.Added}}{{else if gt .Staging.Modified 0}} +{{.Staging.Modified}}{{else}} {{.Staging.String}}{{ end }}{{ end }}\
+  {{ if .Working.Changed }} {{.Working.String}}{{ end }}\
+  {{ if gt .StashCount 0 }} ${{ .StashCount}}{{ end }}\
+  {{ if .Detached}} ({{ .Commit.Sha | printf \"%.7s\"}} {{.Ref}}){{end}}\
   """
+  [blocks.segments.properties.staging.modified]
+  foreground="green"
+
+  # template="[{{ join \", \" .Commit.Refs.Tags }}]"
     [blocks.segments.properties]
     source="cli"
+    branch_icon="\uE0A0 "
+    commit_icon="\uF417 "
+    tag_icon="\uF412 "
+    rebase_icon="\uE728 "
+    cherry_pick_icon="\uE29B "
+    revert_icon="\uF0E2 "
+    merge_icon="\uE727 "
+    no_commits_icon="\uF594 "
     fetch_status=true
-    full_branch_path = true
-    fetch_upstream_icon = true
+    full_branch_path = false
+    fetch_upstream_icon = false
+      [blocks.segments.properties.mapped_branches]
+      "feature/*" ="feat:"
+      "hotfix/*" = "hf:"
+      "bugfix/*" = "bug:"
+      "test/*" = "test:"
+      "merge/*" = "merge:"
+      "build/*" = "build:"
+      "release/*" = "rel:"
 
 [[blocks]]
 alignment = "left"
@@ -51,9 +82,9 @@ type = "prompt"
   type = "text"
   foreground_templates = ["{{if .Code}}red{{ else }}green{{end}}"]
   style = "plain"
-  template = "{{ if ne .Code 0 }}✗{{ else if eq .UserName \"anjing\"}}w{{ else }}➜{{end}}"
+  template = "{{ if ne .Code 0 }}✗{{ else if .Env.TMUX}}w{{ else }}➜{{end}}"
 
 [transient_prompt]
-template = "> "
+template = "▶ "
 foreground = "green"
 
