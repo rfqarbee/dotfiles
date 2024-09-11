@@ -19,7 +19,8 @@ trailing_diamond=">>"
   foreground="#51afef"
 
     [blocks.segments.properties]
-    style="folder"
+    style="full"
+    gitdir_format=" "
     folder_icon=""
     max_depth = 3
     # hide_root_location=true
