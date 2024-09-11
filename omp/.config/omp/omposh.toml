@@ -1,8 +1,10 @@
 final_space = true
 enable_cursor_positioning = true
 version = 2
+
 [var]
 git="git status"
+
 [[blocks]]
 type="prompt"
 # newline = true
@@ -13,16 +15,31 @@ trailing_diamond=">>"
 
   [[blocks.segments]]
   type="path"
-  template= " {{ .PWD }} $git"
+  template= " {{ .PWD }} "
   style='plain'
-  leading_diamond=">>"
-  trailing_diamond=">>>"
+  foreground="#51afef"
 
     [blocks.segments.properties]
-    style="folder"
+    foreground="red"
+    # style="folder"
 
   [[blocks.segments]]
   type="git"
+  foreground="#a9a1e1"
+ # template="{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}"
+template="""{{ .HEAD}} \
+{{ .Upstream }}\
+{{ if gt .Ahead 0 }} {{.Ahead}}{{end }}\
+{{if gt .Behind 0}} {{.Behind}}{{end}}\
+{{if .Staging.Changed}} +{{.Staging.Modified}}{{end}}\
+{{if .Working.Changed}} ~{{.Working.Modified}}{{end}}\
+{{if gt .StashCount 0}} ${{ .StashCount}}{{end}}\
+  """
+    [blocks.segments.properties]
+    source="cli"
+    fetch_status=true
+    full_branch_path = true
+    fetch_upstream_icon = true
 
 [[blocks]]
 alignment = "left"
@@ -30,12 +47,12 @@ newline = true
 type = "prompt"
 
   [[blocks.segments]]
+  type = "text"
   foreground_templates = ["{{if .Code}}red{{ else }}green{{end}}"]
   style = "plain"
-  template = " {{ if .Code }}✗ {{ else }} {{ if .UserName  }}N {{else }}➜ {{end}}{{end}}"
-  type = "text"
+  template = "{{ if ne .Code 0 }}✗{{ else if eq .UserName \"anjing\"}}w{{ else }}➜{{end}}"
 
 [transient_prompt]
 template = "> "
-foreground = "#fffff"
+foreground = "green"
 
