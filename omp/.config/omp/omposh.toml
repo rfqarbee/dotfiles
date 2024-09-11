@@ -30,8 +30,8 @@ trailing_diamond=">>"
 template="""{{ .HEAD}} \
 {{ .Upstream }}\
 {{ if and (gt .Ahead 0) (eq .Behind 0) }} ⇡{{.Ahead}}{{ end }}\
-{{ if gt .Behind 0 }} ⇣{{.Behind}}{{ end }}\
-{{ }}
+{{ if and (eq .Ahead 0) (gt .Behind 0) }} ⇣{{.Behind}}{{ end }}\
+{{ if and (gt .Ahead 0) (gt .Behind 0) }}  ⇡{{.Ahead}}⇣{{.Behind}}{{ end }}\
 {{ if .Staging.Changed }} +{{.Staging.Modified}}{{ end }}\
 {{ if .Working.Changed }} ~{{.Working.Modified}}{{ end }}\
 {{ if gt .StashCount 0 }} ${{ .StashCount}}{{ end }}\
