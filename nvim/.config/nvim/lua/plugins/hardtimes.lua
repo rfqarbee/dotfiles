@@ -16,6 +16,7 @@ return {
       "NvimTree",
       "lazy",
       "undotree",
+      "markdown",
       "mason",
       "oil",
       "minifiles",
