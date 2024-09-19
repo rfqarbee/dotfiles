@@ -51,7 +51,7 @@ diverged = ' ⇡${ahead_count}⇣${behind_count}'
 behind = '⇣${count}'
 staged = '+${count}'
 stashed = '\$${count}'
-modified = '!${count}'
+modified = '~${count}'
 
 [git_commit]
 # format = '[\($tag_symbol$tag \($hash\)\)]($style)'

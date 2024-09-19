@@ -1,0 +1,149 @@
+final_space = true
+enable_cursor_positioning = true
+version = 2
+
+[[blocks]]
+type="prompt"
+newline = true
+alignment="left"
+overflow="break"
+
+  [[blocks.segments]]
+  type="path"
+  style='plain'
+  foreground="#51afef"
+  template="{{ if .Segments.Git.RepoName}}󰜥 {{ if eq .Segments.Git.Dir .PWD }} {{.Segments.Git.RepoName}}{{else}} {{.Path}} {{end}} {{else}} {{if not .Writable}}🔒 {{end}}{{.Path}} {{end}}"
+    [blocks.segments.properties]
+    style="agnoster_short"
+    max_depth = 2
+    [blocks.segments.properties.mapped_locations]
+    '~/.local/share/applications' ='󰀻 Applications'
+    '~/Downloads' ='  Downloads'
+    '~/Downloads/*' ='  Downloads'
+
+  [[blocks.segments]]
+  type="git"
+  foreground="#a9a1e1"
+  template="""{{.HEAD}} \
+  {{ if and (gt .Ahead 0) (eq .Behind 0) }} <orange>⇡{{.Ahead}}</>{{ end }}\
+  {{ if and (eq .Ahead 0) (gt .Behind 0) }} <red>⇣{{.Behind}}</>{{ end }}\
+  {{ if and (gt .Ahead 0) (gt .Behind 0) }} <green> </><#f5a97f>⇡{{.Ahead}}</><red>⇣{{.Behind}}</>{{ end }}\
+  {{ if .Staging.Changed }}{{if gt .Staging.Added 0 }} <yellow>+{{.Staging.Added}}</>{{else if gt .Staging.Modified 0}} <yellow>+{{.Staging.Modified}}</>{{else}} <yellow>{{.Staging.String}}</>{{ end }}{{ end }}\
+  {{ if .Working.Changed }} <green>{{.Working.String}}</>{{ end }}\
+  {{ if gt .StashCount 0 }} <cyan>${{ .StashCount}}</>{{ end }}\
+  """
+      [blocks.segments.properties.staging.modified]
+      foreground="green"
+    [blocks.segments.properties]
+    source="cli"
+    branch_icon="<green>\uE0A0</> "
+    commit_icon="\uF417 "
+    tag_icon="\uF412 "
+    rebase_icon="\uE728 "
+    cherry_pick_icon="\uE29B "
+    revert_icon="\uF0E2 "
+    merge_icon="\uE727 "
+    no_commits_icon="\uF594 "
+    fetch_status=true
+    full_branch_path = false
+    fetch_upstream_icon = false
+      [blocks.segments.properties.mapped_branches]
+      "feature/*" ="feat:"
+      "hotfix/*" = "hf:"
+      "bugfix/*" = "bug:"
+      "test/*" = "test:"
+      "merge/*" = "merge:"
+      "build/*" = "build:"
+      "release/*" = "rel:"
+
+[[blocks]]
+alignment = "left"
+newline = true
+type = "prompt"
+  [[blocks.segments]]
+  type = "text"
+  foreground_templates = [
+  "{{if gt .Code 0}}red{{end}}",
+  "{{ if eq .Code 0}}green{{end}}"
+]
+  style = "plain"
+  template = "{{ if .Code }}✗{{ else }}➜{{end}}"
+[transient_prompt]
+foreground_templates = [
+  "{{if gt .Code 0}}red{{end}}",
+  "{{ if eq .Code 0 }}green{{end}}",
+]
+template = "➜ "
+foreground = "green"
+
+[secondary_prompt]
+foreground="green"
+template="▶ "
+
+[[blocks]]
+type="rprompt"
+  [[blocks.segments]]
+  type='executiontime'
+  template = "{{ .FormattedMs}} "
+  foreground="cyan"
+    [blocks.segments.properties]
+    threshold=5000
+    style="round"
+  [[blocks.segments]]
+  type="cmake"
+  foreground = "#1e9758"
+  template = "   {{ .Full }} "
+    [blocks.segments.properties]
+    extensions =[
+      "*.cmake",
+      "CMakeLists.txt",
+      "Makefile",
+    ]
+  [[blocks.segments]]
+  type="kubectl"
+  foreground = "#ebcc35"
+  template = " ☸ {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}} "
+  [[blocks.segments]]
+  type="docker"
+  foreground = "#0B59E7"
+  template = "  {{ .Context }} "
+  [[blocks.segments]]
+  type="go"
+  foreground = "#7fd5ea"
+  template = "   {{ .Full }} "
+  [[blocks.segments]]
+  type="python"
+  foreground= "#906cff"
+  template = "  {{ .Full }} "
+  [[blocks.segments]]
+  type="dotnet"
+  foreground= "#00ffff"
+  template = " C# {{ .Full }} "
+  [[blocks.segments]]
+  type="elixir"
+  foreground = "#422251"
+  template = "  {{ .Full }} "
+  [[blocks.segments]]
+  type="java"
+  foreground = "#4063D8"
+  template = "  {{ .Full }}"
+  [[blocks.segments]]
+  type="haskell"
+  foreground="#100e23"
+  template = "  {{ .Full }}"
+  [[blocks.segments]]
+  type="rust"
+  foreground = "#99908a"
+  template = " 🦀 {{ .Full }} "
+  [[blocks.segments]]
+  type="node"
+  foreground = "#6ca35e"
+  template = "  {{ .Full }} "
+  [[blocks.segments]]
+  type="dart"
+  foreground = "#06a4ce"
+  template = "  {{ .Full }}"
+  [[blocks.segments]]
+  type="lua"
+  foreground = "blue"
+  template = "  {{ .Full }} "
