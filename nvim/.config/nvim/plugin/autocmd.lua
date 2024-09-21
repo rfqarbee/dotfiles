@@ -42,7 +42,7 @@ autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank({
       higroup = "Yank",
-      timeout = 70,
+      timeout = 50,
     })
   end,
 })
