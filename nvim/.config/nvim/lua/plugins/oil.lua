@@ -9,6 +9,7 @@ return {
       oil.setup({
         columns = {
           "icon",
+          "size",
         },
         view_options = {
           show_hidden = true,
@@ -39,7 +40,7 @@ return {
           ["_"] = "actions.open_cwd",
           ["."] = "actions.cd", -- change project directory
           ["`"] = "actions.tcd", -- change current tab directory
-          ["gs"] = "actions.change_sort",
+          ["<leader>gs"] = "actions.change_sort",
           ["g."] = "actions.toggle_hidden",
           ["g\\"] = "actions.toggle_trash",
         },
