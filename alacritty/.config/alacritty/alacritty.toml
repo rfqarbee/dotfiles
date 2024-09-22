@@ -14,7 +14,7 @@ normal.style = "Medium"
 bold.style = "Bold"
 italic.style ="Italic"
 bold_italic.style = "Bold Italic"
-size = 11
+size = 12
 
 [colors.bright]
 black = '#8f8d8d'
