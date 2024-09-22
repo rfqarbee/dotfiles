@@ -48,7 +48,7 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.list = true
-opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+opt.listchars = { tab = "» ", trail = "-", nbsp = "␣", space = "·" }
 opt.fillchars:append({ eob = " " })
 opt.scrolloff = 6
 
