@@ -64,8 +64,8 @@ return {
         {
           "tabs",
           tabs_color = {
-            inactive = { fg = "#7aa2f7", bg = "#1d202f" },
-            active = { fg = "#1f2335", bg = "#7aa2f7" },
+            inactive = { bg = "#23272e", fg = "#a9a1e1" },
+            active = { bg = "#23272e", fg = "#98be75" },
           },
           tab_max_length = 40,
           max_legth = vim.o.columns / 3,
