@@ -115,7 +115,7 @@ local groups = {
   StatusLineTerm = { fg = palettes.fg, bg = palettes.bg3 },
   StatusLineTermNC = { fg = palettes.fg, bg = palettes.bg3 },
   TabLineFill = { fg = palettes.fg },
-  TablineSel = { fg = palettes.bg0, bg = palettes.blue },
+  TablineSel = { fg = palettes.green, bg = palettes.bg5 },
   Tabline = { fg = palettes.gray },
   Title = { fg = palettes.yellow, bg = palettes.none, style = "bold" },
   Visual = { fg = palettes.none, bg = palettes.h5bg },
