@@ -5,8 +5,7 @@ alias vim="/usr/bin/nvim"
 alias tma="tmux attach"
 alias tks="tmux kill-server"
 alias ls="eza --color=always"
-alias la="eza -lA --group --color=always"
-alias l="eza -l --group --color=always"
+alias l="eza -lA --group --color=always"
 alias lt="eza --tree -lA --color=always"
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
