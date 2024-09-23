@@ -28,7 +28,7 @@ return {
           -- shamelessly stolen from reddit
           function()
             local hasloclist = utils.loclist_item()
-            return "loclist: " .. hasloclist
+            return " " .. hasloclist
           end,
 
           cond = function()
@@ -41,7 +41,7 @@ return {
         {
           function()
             local hasqfix = utils.qfix_item()
-            return "clist: " .. hasqfix
+            return " " .. hasqfix
           end,
           cond = function()
             local hasqfix = utils.qfix_item()
