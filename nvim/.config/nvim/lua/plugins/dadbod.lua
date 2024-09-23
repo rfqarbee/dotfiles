@@ -16,18 +16,6 @@ return {
     vim.g.db_ui_win_position = "right"
     local map = require("utils.mapkey")
 
-    map("n", "<leader>do", "<cmd>tabnew | DBUIToggle<cr>")
-
-    vim.api.nvim_create_autocmd("User", {
-      group = vim.api.nvim_create_augroup("Dadbod", { clear = true }),
-      callback = function()
-        local i = 0
-        if vim.bo.filetype == "dbui" then
-          print("inside a file")
-        else
-          -- map("n", "<leader>do", "<cmd>tabnew | DBUIToggle<cr>")
-        end
-      end,
-    })
+    map("n", "<leader>do", "<cmd>DBUIToggle<cr>")
   end,
 }
