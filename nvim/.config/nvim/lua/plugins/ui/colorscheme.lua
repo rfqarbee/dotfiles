@@ -1,5 +1,13 @@
 return {
   {
+    "romgrk/doom-one.vim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd("colorscheme doom-one")
+    end,
+  },
+  {
     "rose-pine/neovim",
     name = "rose-pine",
     lazy = false,
@@ -51,7 +59,7 @@ return {
           ["LspDiagnosticsVirtualTextError"] = { fg = "#ff757f", bg = "none" },
         },
       })
-      od.load()
+      -- od.load()
     end,
   },
 }
