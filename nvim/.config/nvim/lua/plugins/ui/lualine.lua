@@ -63,10 +63,11 @@ return {
       lualine_a = {
         {
           "tabs",
-          tabs_color = {
-            inactive = { bg = "#23272e", fg = "#a9a1e1" },
-            active = { bg = "#23272e", fg = "#98be75" },
-          },
+          -- NOTE: doom color
+          -- tabs_color = {
+          --   inactive = { bg = "#23272e", fg = "#a9a1e1" },
+          --   active = { bg = "#23272e", fg = "#98be75" },
+          -- },
           tab_max_length = 40,
           max_legth = vim.o.columns / 3,
           mode = 1,
