@@ -38,11 +38,11 @@ return {
         window = {
           completion = cmp.config.window.bordered({
             -- border = { "'", "", "'", "", "'", "", "'", "" },
-            border = "single",
+            border = "double",
             -- border = "none",
           }),
           documentation = cmp.config.window.bordered({
-            border = "single",
+            border = "double",
             -- border = "none",
           }),
         },

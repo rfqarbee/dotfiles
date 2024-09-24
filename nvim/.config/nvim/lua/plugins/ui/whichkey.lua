@@ -14,6 +14,9 @@ return {
   config = function()
     local w = require("which-key")
     w.setup({
+      icons = {
+        mappings = false,
+      },
       plugins = {
         marks = true,
         registers = false,
@@ -31,6 +34,7 @@ return {
       { "<leader>g", group = "Git : " },
       { "<leader>d", group = "Dap : " },
       { "<leader>w", group = "Workspace : " },
+      { "<leader>k", group = "Curl : " },
       { "<leader>c", group = "Lsp (Telescope) : " },
     })
   end,

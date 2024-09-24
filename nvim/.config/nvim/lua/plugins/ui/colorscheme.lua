@@ -1,40 +1,5 @@
 return {
   {
-    "romgrk/doom-one.vim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd("colorscheme doom-one")
-    end,
-  },
-  {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    lazy = false,
-    config = function()
-      require("rose-pine").setup({
-        variant = "moon",
-        styles = {
-          transparency = true,
-        },
-      })
-      -- vim.cmd("colorscheme rose-pine")
-    end,
-  },
-  {
-    "scottmckendry/cyberdream.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("cyberdream").setup({
-        italic_comments = true,
-        transparent = false,
-        borderless_telescope = false,
-      })
-      -- vim.cmd("colorscheme cyberdream")
-    end,
-  },
-  {
     "navarasu/onedark.nvim",
     lazy = false,
     priority = 1000,
@@ -59,7 +24,7 @@ return {
           ["LspDiagnosticsVirtualTextError"] = { fg = "#ff757f", bg = "none" },
         },
       })
-      -- od.load()
+      od.load()
     end,
   },
 }
