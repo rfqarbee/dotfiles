@@ -70,7 +70,7 @@ local palettes = {
 local groups = {
   ["@variable"] = { fg = palettes.variable },
   Normal = { fg = palettes.fg, bg = palettes.bg5 }, -- normal text and background color
-  SignColumn = { fg = palettes.fg, bg = palettes.bg5 },
+  SignColumn = { fg = palettes.fg, bg = palettes.bg1 },
   EndOfBuffer = { fg = palettes.disabled }, -- ~ lines at the end of a buffer
   NormalFloat = { fg = palettes.variable, bg = palettes.bg5 }, -- normal text and background color for floating windows
   FloatBorder = { fg = palettes.fav_purple, bg = palettes.bg5 },
@@ -167,7 +167,7 @@ local groups = {
   Special = { fg = palettes.yellow, bg = palettes.none }, -- any special symbol
   SpecialChar = { fg = palettes.yellow }, -- special character in a constant
   Tag = { fg = palettes.red }, -- you can use CTRL-] on thi:s
-  SpecialComment = { fg = palettes.blue }, -- special things inside a comment
+  SpecialComment = { fg = palettes.blue, style = "italic" }, -- special things inside a comment
   Debug = { fg = palettes.red }, -- debugging statements
   Underlined = { fg = palettes.cyan, bg = palettes.none, style = "underline" }, -- text that stands out, HTML links
   Ignore = { fg = palettes.gray_alt }, -- left blank, hidden
