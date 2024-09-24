@@ -1,14 +1,15 @@
 return {
   "folke/trouble.nvim",
-  enabled = true, dependencies = { "nvim-tree/nvim-web-devicons", "folke/lsp-colors.nvim" },
+  enabled = true,
+  dependencies = { "nvim-tree/nvim-web-devicons", "folke/lsp-colors.nvim" },
   cmd = "Trouble",
   keys = {
     { "<leader>qs", "<cmd>Trouble diag_priority toggle<cr>", "Project diagnostics on severity" },
     { "<leader>qd", "<cmd>Trouble diagnostics_buffer toggle<cr>", "Current diagnostics" },
     { "<leader>qw", "<cmd>Trouble diagnostics toggle<cr>", "Project diagnostics" },
-    { "<leader>qn", "<cmd>Trouble todo toggle<cr>", "Todo list" },
-    { "<leader>qq", "<cmd>Trouble quickfix toggle<cr>", "Toggle Quickfix list" },
-    { "<leader>ql", "<cmd>Trouble loclist toggle<cr>", "Toggle Loclist list" },
+    { "<leader>xn", "<cmd>Trouble todo toggle<cr>", "Todo list" },
+    { "<leader>xq", "<cmd>Trouble quickfix toggle<cr>", "Toggle Quickfix list" },
+    { "<leader>xl", "<cmd>Trouble loclist toggle<cr>", "Toggle Loclist list" },
     {
       "<leader>xs",
       "<cmd>Trouble symbols toggle pinned=true results.win.relative=win results.win.position=right<cr>",
