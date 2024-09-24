@@ -2,7 +2,7 @@
     "layer" : "top", //always let top to display front of windows
     "modules-left" : ["hyprland/window"],
     "modules-center" : ["hyprland/workspaces"],
-    "modules-right" : ["custom/cliphist","group/control","custom/power"],
+    "modules-right" : ["custom/cliphist", "group/control","custom/power"],
 
 
     "group/control" : {
@@ -116,8 +116,9 @@
     "network": {
         "interface": "enp3s0",
         "format-ethernet": "  Nusa Time",
-        "tooltip-format-ethernet": " {ipaddr} {ifname}",
-        "tooltip-format-disconnected": "󰖪 Disconnected",
+        "format-disconnected":"󰖪 No Internet",
+        /*"tooltip-format-ethernet": " {ipaddr} {ifname}",*/
+        /*"tooltip-format-disconnected": "󰖪 Disconnected",*/
         "max-length": 50
     },
 
@@ -145,11 +146,11 @@
     },
 
     "custom/updates": {
-       "format": "{icon} {}",
+       "format" : "{} {icon}",
        "return-type": "json",
        "format-icons": {
        "has-updates": " ",
-            "updated": "󰂪 "
+       "updated": "󰂪 "
        },
        "exec-if": "which waybar-module-pacman-updates",
        "exec": "waybar-module-pacman-updates  --interval-seconds 5 --network-interval-seconds 300"
