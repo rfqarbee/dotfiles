@@ -3,8 +3,8 @@ return {
   opts = {
     hide_handbook = false,
     show_icons = true,
-    leader_key = "`",
-    buffer_leader_key = "m",
+    leader_key = "\\",
+    buffer_leader_key = "'",
     mappings = {
       next_item = "j",
       prev_item = "k",

@@ -28,7 +28,7 @@ return {
           -- shamelessly stolen from reddit
           function()
             local hasloclist = utils.loclist_item()
-            return "loclist: " .. hasloclist
+            return " " .. hasloclist
           end,
 
           cond = function()
@@ -41,7 +41,7 @@ return {
         {
           function()
             local hasqfix = utils.qfix_item()
-            return "clist: " .. hasqfix
+            return " " .. hasqfix
           end,
           cond = function()
             local hasqfix = utils.qfix_item()
@@ -63,10 +63,11 @@ return {
       lualine_a = {
         {
           "tabs",
-          tabs_color = {
-            inactive = { fg = "#7aa2f7", bg = "#1d202f" },
-            active = { fg = "#1f2335", bg = "#7aa2f7" },
-          },
+          -- NOTE: doom color
+          -- tabs_color = {
+          --   inactive = { bg = "#23272e", fg = "#a9a1e1" },
+          --   active = { bg = "#23272e", fg = "#98be75" },
+          -- },
           tab_max_length = 40,
           max_legth = vim.o.columns / 3,
           mode = 1,

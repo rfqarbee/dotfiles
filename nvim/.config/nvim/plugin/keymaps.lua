@@ -7,6 +7,23 @@ map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight on search whe
 -- NOTE: remove this after complete my own colorscheme
 map("n", "<leader>i", ":Inspect<cr>")
 
+map("n", "<leader>qq", function()
+  local qf_win = vim.fn.getqflist({ winid = 0 }).winid
+  if qf_win ~= 0 then
+    vim.cmd("cclose")
+  else
+    vim.cmd("bot copen")
+  end
+end, { desc = "Copen" })
+
+map("n", "<leader>ql", function()
+  local loc_win = vim.fn.getloclist(0, { winid = 0 }).winid
+  if loc_win ~= 0 then
+    vim.cmd("lclose")
+  else
+    vim.cmd("bot lopen")
+  end
+end, { desc = "Copen" })
 -- more binds
 map("n", "<C-q>", "<cmd>qa<CR>", { desc = "Quit Neovim" })
 map("n", "<M-q>", "<cmd>q<CR>", { desc = "Quit Buffer/window/tabs/anything" })
