@@ -1,5 +1,5 @@
 final_space = true
-auto_upgrade = true
+auto_upgrade = false
 enable_cursor_positioning = true
 version = 2
 
