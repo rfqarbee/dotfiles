@@ -73,7 +73,7 @@ map("x", "<leader>p", '"+p', { desc = "Paste and copy into Clipboard" })
 -- map({"n","v"}, "d", '"_d', { desc = "Delete w/o clipboard" })
 -- map({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete w/o clipboard (v)" })
 
--- map("n", "<C-s>", ":w<CR>", { desc = "Save file" })
+map("n", "<C-s>", ":w<CR>", { desc = "Save file" })
 -- saving
 -- map("n", "<C-s>", function()
 --   local mod = vim.bo.buftype
