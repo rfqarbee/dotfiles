@@ -105,7 +105,7 @@ local clangd = {
 --test
 M.servers = {
   -- NOTE: only setup; not really required right now
-  -- svelte = svelte,
+  svelte = svelte,
   -- dartls = dartls,
   -- rust_analyzer = rust_analyzer,
   prismals = true,
