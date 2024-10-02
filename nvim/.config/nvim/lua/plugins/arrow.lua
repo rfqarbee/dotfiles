@@ -15,11 +15,6 @@ return {
       row = 10,
       col = 30,
       border = "single",
-      -- width = 120
-      -- height = 20
-      -- row = 15
-      -- col = 50
-      -- border = "single"
     }
     opts.per_buffer_config = {
       lines = 5,

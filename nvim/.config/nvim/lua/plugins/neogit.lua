@@ -40,7 +40,8 @@ return {
       },
     }
     -- vim.keymap.set("n", "<leader>ns", "<cmd>Neogit<cr>", { desc = "Git status" })
-    vim.keymap.set("n", "gs", "<cmd>Neogit cwd=%:p:h<cr>", { desc = "Git status" })
+    vim.keymap.set("n", "gs", "<cmd>Neogit<cr>", { desc = "Git status" })
+    vim.keymap.set("n", "<leader>gs", "<cmd>Neogit cwd=%:p:h<cr>", { desc = "Git current buffer path status" })
     vim.keymap.set("n", "<leader>gd", "<cmd>Neogit diff<cr>", { desc = "Git diff" })
     vim.keymap.set("n", "<leader>nc", "<cmd>Neogit cwd=%:p:h commit<cr>", { desc = "Git status" })
   end,
