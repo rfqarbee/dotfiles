@@ -6,16 +6,6 @@ return {
     local map = require("utils.mapkey")
     local mini = require("mini.files")
     mini.setup({
-      -- content = {
-      --   -- Predicate for which file system entries to show
-      --   filter = nil,
-      --   -- What prefix to show to the left of file system entry
-      --   prefix = nil,
-      --   -- In which order to show file system entries
-      --   sort = nil,
-      -- },
-      -- Module mappings created only inside explorer.
-      -- Use `''` (empty string) to not create one.
       mappings = {
         close = "q",
         go_in = "l",
@@ -29,13 +19,10 @@ return {
         trim_left = "<",
         trim_right = ">",
       },
-
       -- General options
       options = {
-        -- Whether to delete permanently or move into module-specific trash
         permanent_delete = true,
-        -- Whether to use for editing directories
-        use_as_default_explorer = true,
+        use_as_default_explorer = false,
       },
 
       -- Customization of explorer windows
@@ -47,7 +34,8 @@ return {
         width_preview = 80,
       },
     })
-    map("n", "-", function()
+
+    map("n", "<tab>", function()
       mini.open(vim.api.nvim_buf_get_name(0))
     end, { desc = "Open mini" })
 
@@ -82,8 +70,8 @@ return {
       callback = function(args)
         local buf_id = args.data.buf_id
         -- Tweak keys to your liking
-        map_split(buf_id, "<C-w>s", "belowright horizontal")
-        map_split(buf_id, "<C-w>v", "belowright vertical")
+        map_split(buf_id, "<C-x>", "belowright horizontal")
+        map_split(buf_id, "<C-v>", "belowright vertical")
       end,
     })
   end,

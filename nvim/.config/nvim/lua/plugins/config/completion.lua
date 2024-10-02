@@ -7,7 +7,6 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
       {
         "L3MON4D3/LuaSnip",
         version = "v2.*",
@@ -104,25 +103,26 @@ return {
         sources = cmp.config.sources({
           { name = "nvim_lsp", group_index = 1 },
           { name = "luasnip", group_index = 2 },
-          { name = "path", group_index = 3 },
-          { name = "buffer", group_index = 4 },
+          { name = "buffer", group_index = 3 },
+          { name = "path", group_index = 4 },
         }),
-      })
-      cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-          { name = "cmdline" },
-          { name = "path" },
-        }),
-        matching = { disallow_symbol_nonprefix_matching = false },
       })
 
-      cmp.setup.cmdline({ "/", "?" }, {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = "buffer" },
-        },
-      })
+      -- cmp.setup.cmdline(":", {
+      --   mapping = cmp.mapping.preset.cmdline(),
+      --   sources = cmp.config.sources({
+      --     { name = "cmdline" },
+      --     { name = "path" },
+      --   }),
+      --   matching = { disallow_symbol_nonprefix_matching = false },
+      -- })
+
+      -- cmp.setup.cmdline({ "/", "?" }, {
+      --   mapping = cmp.mapping.preset.cmdline(),
+      --   sources = {
+      --     { name = "buffer" },
+      --   },
+      -- })
 
       cmp.event:on("confirm_done", autopairs.on_confirm_done())
     end,

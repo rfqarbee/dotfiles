@@ -33,7 +33,8 @@ return {
       winopts = {
         border = "single",
         preview = {
-          default = "bat",
+          -- default = "bat",
+          horizontal = "right:50%",
         },
       },
     })
@@ -42,8 +43,10 @@ return {
     map("n", "<leader>pf", fzf.files, { desc = "Project file" })
     map("n", "<leader>po", fzf.oldfiles, { desc = "old files" })
     -- git
-    map("n", "<leader>pg", fzf.git_files, { desc = "git files" })
-    map("n", "<leader>gc", fzf.git_bcommits, { desc = "git buffer comit" })
+    map("n", "<leader>pg", fzf.git_files, { desc = "Git files" })
+    map("n", "<leader>pb", fzf.git_branches, { desc = "Git branches" })
+    map("n", "<leader>pc", fzf.git_bcommits, { desc = "Git Current Buffer Commits" })
+    map("n", "<leader>gc", fzf.git_commits, { desc = "PWD Git commits" })
     -- qf
     map("n", "<leader>pq", fzf.quickfix_stack, { desc = "qf stack" })
     map("n", "<leader>pl", fzf.loclist_stack, { desc = "loclist stack" })
@@ -63,7 +66,7 @@ return {
     end, { desc = "Project live grep" })
     map("n", "<leader>/", fzf.grep_curbuf, { desc = "Fuzzy find current buffer" })
     -- misc
-    map("n", "<leader>pb", fzf.builtin, { desc = "resume last " })
+    map("n", "<leader>pp", fzf.builtin, { desc = "Builtin" })
     map("n", "<leader>pr", fzf.resume, { desc = "resume last " })
     map("n", "<leader>bb", fzf.buffers, { desc = "Fuzzy find current buffer" })
     map("n", "<leader>ph", fzf.helptags, { desc = "Project file" })

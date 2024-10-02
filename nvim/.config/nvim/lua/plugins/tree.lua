@@ -1,3 +1,4 @@
+-- i wont use it, the only purpose code review and shit with collegue
 return {
   "nvim-tree/nvim-tree.lua",
   dependencies = {
@@ -7,12 +8,10 @@ return {
     { "<leader>nt", "<cmd>NvimTreeToggle<cr>", desc = "Neotree" },
   },
   opts = {
-    view = {
-      side = "right",
-    },
     renderer = {
       indent_markers = {
         enable = true,
+        inline_arrows = true,
       },
       icons = {
         show = {

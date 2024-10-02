@@ -38,8 +38,8 @@ map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "[b", "<cmd>bprev<cr>", { desc = "Prev Buffer" })
 
 -- tabs
-map("n", "<Tab>", "gt", { desc = "Next tab" })
-map("n", "<S-Tab>", "gT", { desc = "Previous tab" })
+map("n", "]t", "gt", { desc = "Next tab" })
+map("n", "[t", "gT", { desc = "Previous tab" })
 map("n", "<leader>t.", "<cmd>+tabmove<cr>", { desc = "Move tab to right" })
 map("n", "<leader>t,", "<cmd>-tabmove<cr>", { desc = "Move tab to left" })
 map("n", "<leader>tn", "<cmd>tabnew<cr>", { desc = "Create new tab" })
@@ -73,7 +73,7 @@ map("x", "<leader>p", '"+p', { desc = "Paste and copy into Clipboard" })
 -- map({"n","v"}, "d", '"_d', { desc = "Delete w/o clipboard" })
 -- map({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete w/o clipboard (v)" })
 
-map("n", "<C-s>", ":w<CR>", { desc = "Save file" })
+map("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
 -- saving
 -- map("n", "<C-s>", function()
 --   local mod = vim.bo.buftype

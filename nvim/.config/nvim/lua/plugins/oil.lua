@@ -18,7 +18,10 @@ return {
           end,
         },
         float = {
-          border = "rounded",
+          border = "single",
+          padding = 7,
+          max_width = 0,
+          max_height = 60,
           win_options = {
             winblend = 0,
           },
@@ -30,9 +33,9 @@ return {
         keymaps = {
           ["g?"] = "actions.show_help",
           ["<CR>"] = "actions.select",
-          ["<C-w>v"] = "actions.select_vsplit",
-          ["<C-w>s"] = "actions.select_split",
-          ["<C-w>t"] = "actions.select_tab",
+          ["<C-v>"] = "actions.select_vsplit",
+          ["<C-x>"] = "actions.select_split",
+          ["<C-t>"] = "actions.select_tab",
           ["<C-p>"] = "actions.preview",
           ["q"] = "actions.close",
           ["<space>r"] = "actions.refresh", -- refresh list
@@ -46,9 +49,9 @@ return {
         },
       })
 
-      -- vim.keymap.set("n", "<leader>", function()
-      --   require("oil").open()
-      -- end, { desc = "Float oil" })
+      vim.keymap.set("n", "<leader>-", function()
+        require("oil").open_float()
+      end, { desc = "Float oil" })
       vim.keymap.set("n", "-", function()
         require("oil").open()
       end, { desc = "Oil -> Directory" })
