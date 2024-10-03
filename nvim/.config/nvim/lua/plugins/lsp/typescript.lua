@@ -7,6 +7,10 @@ return {
     require("typescript-tools").setup({
       root_dir = require("lspconfig.util").root_pattern(".git"),
       settings = {
+        -- jsx_close_tag = {
+        --   enabled = true,
+        --   filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte" },
+        -- },
         tsserver_file_preferences = {
           includeInlayParameterNameHints = "all",
           includeInlayParameterNameHintsWhenArgumentMatchesName = false,
