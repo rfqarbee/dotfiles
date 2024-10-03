@@ -33,7 +33,8 @@ return {
       winopts = {
         border = "single",
         preview = {
-          -- default = "bat",
+          hidden = "hidden",
+          default = "bat",
           horizontal = "right:50%",
         },
       },
