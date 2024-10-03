@@ -1,6 +1,10 @@
 return {
   {
+    "tpope/vim-sleuth",
+  },
+  {
     "mistweaverco/kulala.nvim",
+    ft = "http",
     opts = function(_, opts)
       opts.default_view = "headers_body"
       opts.winbar = true
