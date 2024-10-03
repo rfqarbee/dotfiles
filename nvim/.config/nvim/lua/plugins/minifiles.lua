@@ -1,6 +1,5 @@
 return {
   "echasnovski/mini.files",
-  enabled = false,
   version = false,
   enabled = false, -- bug due to hardtimes
   config = function()
