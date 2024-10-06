@@ -31,6 +31,9 @@ return {
         folded = false,
       },
     }
+    opts.status = {
+      recent_commit_count = 15,
+    }
     opts.mappings = {
       status = {
         ["1"] = false,
@@ -38,6 +41,11 @@ return {
         ["3"] = false,
         ["4"] = false,
       },
+    }
+    opts.signs = {
+      hunk = { "", "" },
+      section = { "", "󰅀" },
+      item = { "", "" },
     }
     -- vim.keymap.set("n", "<leader>ns", "<cmd>Neogit<cr>", { desc = "Git status" })
     vim.keymap.set("n", "gs", "<cmd>Neogit<cr>", { desc = "Git status" })

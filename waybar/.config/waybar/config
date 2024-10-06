@@ -35,7 +35,7 @@
             "class<Alacritty>" : " ",
             "class<kitty>" :" ",
             //settings
-            "class<pavucontrol>" : " ",
+            "class<pwvucontrol>" : " ",
             "class<blueman-manager>" : " ",
             "class<qt5ct>" : "QT5",
             "class<qt6ct>" : "QT6",
@@ -125,7 +125,7 @@
 /*audio*/
     "wireplumber": {
         "format": "{icon} {volume}%",
-        "on-click": "pavucontrol",
+        "on-click": "pwvucontrol",
         "format-muted": "󰝟 ",
         "states": {
             "muted": 0 ,
