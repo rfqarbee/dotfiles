@@ -12,8 +12,13 @@ alias egrep='egrep --color=always'
 alias fgrep='fgrep --color=always'
 alias zgrep='fgrep --color=always'
 alias lg=lazygit
-alias gst="git_status.sh"
-alias gp="git pull"
+alias gst="git status"
+alias gs="git_status.sh"
+alias gc="git commit"
+alias ga="git add"
+alias gp="git pull" # do fetch is better
+alias gP="git push"
+alias gf="git fetch"
 alias cat="bat"
 
 # set .yarn in config

@@ -5,10 +5,10 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
-export XDG_DEV_DIR=$HOME/dev
-export XDG_REPOS_DIR=$HOME/repos
-export XDG_LOCAL_DIR=$HOME/.local
-export XDG_DOCUMENTS_DIR=$HOME/Documents
+export LOCAL_DIR=$HOME/.local
+export DEV_DIR=$HOME/dev
+export REPOS_DIR=$HOME/repos
+export DOCUMENTS_DIR=$HOME/Documents
 export TMPDIR=/tmp
 export FREEZE_OUT=$HOME/Media/Pictures/tui
 
