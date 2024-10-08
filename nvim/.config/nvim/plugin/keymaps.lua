@@ -30,15 +30,15 @@ map("n", "<M-q>", "<cmd>q<CR>", { desc = "Quit Buffer/window/tabs/anything" })
 map("i", "jk", "<Esc>", { desc = "Insert to normal mode" })
 
 -- navigating quickfix
-map("n", "]q", "<cmd>cnext<cr>", { desc = "Next quickfix item" })
-map("n", "[q", "<cmd>cprev<cr>", { desc = "Prev quickfix item" })
+map("n", "[q", "<cmd>cnext<cr>", { desc = "Next quickfix item" })
+map("n", "]q", "<cmd>cprev<cr>", { desc = "Prev quickfix item" })
 
 -- navigating buffers
-map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-map("n", "[b", "<cmd>bprev<cr>", { desc = "Prev Buffer" })
+map("n", "[b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+map("n", "]b", "<cmd>bprev<cr>", { desc = "Prev Buffer" })
 
 -- tabs
-map("n", "]t", "gt", { desc = "Next tab" })
+map("n", "[t", "gt", { desc = "Next tab" })
 map("n", "[t", "gT", { desc = "Previous tab" })
 map("n", "<leader>t.", "<cmd>+tabmove<cr>", { desc = "Move tab to right" })
 map("n", "<leader>t,", "<cmd>-tabmove<cr>", { desc = "Move tab to left" })
