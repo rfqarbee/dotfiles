@@ -30,15 +30,15 @@ map("n", "<M-q>", "<cmd>q<CR>", { desc = "Quit Buffer/window/tabs/anything" })
 map("i", "jk", "<Esc>", { desc = "Insert to normal mode" })
 
 -- navigating quickfix
-map("n", "]q", "<cmd>cnext<cr>", { desc = "Next quickfix item" })
-map("n", "[q", "<cmd>cprev<cr>", { desc = "Prev quickfix item" })
+map("n", "[q", "<cmd>cnext<cr>", { desc = "Next quickfix item" })
+map("n", "]q", "<cmd>cprev<cr>", { desc = "Prev quickfix item" })
 
 -- navigating buffers
-map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-map("n", "[b", "<cmd>bprev<cr>", { desc = "Prev Buffer" })
+map("n", "[b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+map("n", "]b", "<cmd>bprev<cr>", { desc = "Prev Buffer" })
 
 -- tabs
-map("n", "]t", "gt", { desc = "Next tab" })
+map("n", "[t", "gt", { desc = "Next tab" })
 map("n", "[t", "gT", { desc = "Previous tab" })
 map("n", "<leader>t.", "<cmd>+tabmove<cr>", { desc = "Move tab to right" })
 map("n", "<leader>t,", "<cmd>-tabmove<cr>", { desc = "Move tab to left" })
@@ -73,23 +73,22 @@ map("x", "<leader>p", '"+p', { desc = "Paste and copy into Clipboard" })
 -- map({"n","v"}, "d", '"_d', { desc = "Delete w/o clipboard" })
 -- map({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete w/o clipboard (v)" })
 
-map("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
--- saving
--- map("n", "<C-s>", function()
---   local mod = vim.bo.buftype
---   if mod ~= "nofile" and mod ~= "help" then
---     local filename = vim.fn.expand("%:t")
---     -- HACK: aint the best way just to hide the notify, but its bothering with the autocmds i made
---     local isModified = vim.bo.modified
---     if isModified then
---       vim.notify(filename, 0, {
---         title = "File saved!",
---         timeout = 3500,
---       })
---     end
---     vim.cmd("silent w")
---   end
--- end, { desc = "Save file" })
+-- map("n", "<C-s>", "<cmd>wa<CR>", { desc = "Save file" })
+map("n", "<C-s>", function()
+  local mod = vim.bo.buftype
+  if mod ~= "nofile" and mod ~= "help" then
+    local filename = vim.fn.expand("%:t")
+    -- HACK: aint the best way just to hide the notify, but its bothering with the autocmds i made
+    local isModified = vim.bo.modified
+    if isModified then
+      vim.notify(filename, 0, {
+        title = "File saved!",
+        timeout = 3500,
+      })
+    end
+    vim.cmd("w")
+  end
+end, { desc = "Save file" })
 
 map("n", "<leader>rp", ":%s/<c-r><c-w>/")
 map("n", "<leader>rP", ":%s/<c-r><c-a>/")
