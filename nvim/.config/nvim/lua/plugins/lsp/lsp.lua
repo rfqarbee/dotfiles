@@ -2,9 +2,9 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
-      "WhoIsSethDaniel/mason-tool-installer.nvim",
+      -- "williamboman/mason.nvim",
+      -- "williamboman/mason-lspconfig.nvim",
+      -- "WhoIsSethDaniel/mason-tool-installer.nvim",
       { "j-hui/fidget.nvim", opts = {} },
     },
     config = function()
@@ -24,14 +24,14 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
       end
 
-      require("mason").setup()
+      -- require("mason").setup()
 
       local ensure_installed = {
         "prettier",
         "stylua",
       }
 
-      require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+      -- require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
       for name, config in pairs(servers) do
         if config == true then
