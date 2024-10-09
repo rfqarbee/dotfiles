@@ -45,7 +45,7 @@ return {
     map("n", "<leader>pf", fzf.files, { desc = "Project file" })
     map("n", "<leader>po", fzf.oldfiles, { desc = "old files" })
     -- git
-    map("n", "<c-p>", fzf.git_files, { desc = "Git files" })
+    map("n", "<leader>pg", fzf.git_files, { desc = "Git files" })
     map("n", "<leader>pb", fzf.git_branches, { desc = "Git branches" })
     map("n", "<leader>pc", fzf.git_bcommits, { desc = "Git Current Buffer Commits" })
     map("n", "<leader>gc", fzf.git_commits, { desc = "PWD Git commits" })
