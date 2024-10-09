@@ -18,6 +18,7 @@ return {
           ["ctrl-d"] = "half-page-down",
           ["ctrl-u"] = "half-page-up",
           ["ctrl-f"] = "toggle",
+          ["ctrl-a"] = "toggle-all",
           ["alt-p"] = "toggle-preview",
           ["ctrl-j"] = "preview-page-down",
           ["ctrl-k"] = "preview-page-up",
@@ -44,7 +45,7 @@ return {
     map("n", "<leader>pf", fzf.files, { desc = "Project file" })
     map("n", "<leader>po", fzf.oldfiles, { desc = "old files" })
     -- git
-    map("n", "<leader>pg", fzf.git_files, { desc = "Git files" })
+    map("n", "<c-p>", fzf.git_files, { desc = "Git files" })
     map("n", "<leader>pb", fzf.git_branches, { desc = "Git branches" })
     map("n", "<leader>pc", fzf.git_bcommits, { desc = "Git Current Buffer Commits" })
     map("n", "<leader>gc", fzf.git_commits, { desc = "PWD Git commits" })
@@ -66,6 +67,7 @@ return {
       fzf.live_grep({ resume = true })
     end, { desc = "Project live grep" })
     map("n", "<leader>/", fzf.grep_curbuf, { desc = "Fuzzy find current buffer" })
+    map("n", "<leader>pl", fzf.blines, { desc = "Current Buffer lines" })
     -- misc
     map("n", "<leader>pp", fzf.builtin, { desc = "Builtin" })
     map("n", "<leader>pr", fzf.resume, { desc = "resume last " })

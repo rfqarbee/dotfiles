@@ -39,7 +39,7 @@ map("n", "]b", "<cmd>bprev<cr>", { desc = "Prev Buffer" })
 
 -- tabs
 map("n", "[t", "gt", { desc = "Next tab" })
-map("n", "[t", "gT", { desc = "Previous tab" })
+map("n", "]t", "gT", { desc = "Previous tab" })
 map("n", "<leader>t.", "<cmd>+tabmove<cr>", { desc = "Move tab to right" })
 map("n", "<leader>t,", "<cmd>-tabmove<cr>", { desc = "Move tab to left" })
 map("n", "<leader>tn", "<cmd>tabnew<cr>", { desc = "Create new tab" })

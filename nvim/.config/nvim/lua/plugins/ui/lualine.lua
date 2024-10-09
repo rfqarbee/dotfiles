@@ -19,6 +19,7 @@ return {
       lualine_a = { "branch" },
       lualine_b = { "mode", "diff" },
       lualine_c = {
+        "diagnostics",
         {
           function()
             return arrow_status.text_for_statusline_with_icons()
@@ -51,6 +52,7 @@ return {
           end,
           -- padding = { left = 20 },
         },
+        { "filename", path = 4 },
       },
       lualine_x = { "encoding", "fileformat", "filetype" },
       lualine_y = { "progress" },
@@ -64,10 +66,10 @@ return {
         {
           "tabs",
           -- NOTE: doom color
-          -- tabs_color = {
-          --   inactive = { bg = "#23272e", fg = "#a9a1e1" },
-          --   active = { bg = "#23272e", fg = "#98be75" },
-          -- },
+          tabs_color = {
+            inactive = { bg = "#23272e", fg = "#a9a1e1" },
+            active = { bg = "#3f444a", fg = "#98be75" },
+          },
           tab_max_length = 40,
           max_legth = vim.o.columns / 3,
           mode = 1,
