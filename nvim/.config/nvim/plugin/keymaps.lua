@@ -30,16 +30,16 @@ map("n", "<M-q>", "<cmd>q<CR>", { desc = "Quit Buffer/window/tabs/anything" })
 map("i", "jk", "<Esc>", { desc = "Insert to normal mode" })
 
 -- navigating quickfix
-map("n", "[q", "<cmd>cnext<cr>", { desc = "Next quickfix item" })
-map("n", "]q", "<cmd>cprev<cr>", { desc = "Prev quickfix item" })
+map("n", "<c-n>", "<cmd>cnext<cr>zz", { desc = "Next quickfix item" })
+map("n", "<c-p>", "<cmd>cprev<cr>zz", { desc = "Prev quickfix item" })
 
 -- navigating buffers
 map("n", "[b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "]b", "<cmd>bprev<cr>", { desc = "Prev Buffer" })
 
 -- tabs
-map("n", "[t", "gt", { desc = "Next tab" })
-map("n", "]t", "gT", { desc = "Previous tab" })
+map("n", "[<tab>", "gt", { desc = "Next tab" })
+map("n", "]<tab>", "gT", { desc = "Previous tab" })
 map("n", "<leader>t.", "<cmd>+tabmove<cr>", { desc = "Move tab to right" })
 map("n", "<leader>t,", "<cmd>-tabmove<cr>", { desc = "Move tab to left" })
 map("n", "<leader>tn", "<cmd>tabnew<cr>", { desc = "Create new tab" })
@@ -60,9 +60,11 @@ map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Selected Line Below" })
 --append line below to above, but cursor stays in place
 map("n", "J", "mzJ`z")
 
---half page with cursor in middle
+--cursor in middle
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
+map("n", "<C-f>", "<C-d>zz")
+map("n", "<C-b>", "<C-u>zz")
 
 -- cursor in middle
 map("n", "n", "nzzzv")

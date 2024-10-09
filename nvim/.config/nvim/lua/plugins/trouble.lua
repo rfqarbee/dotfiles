@@ -73,6 +73,13 @@ return {
         },
         win = { position = "bottom", size = 10 },
       },
+      quickfix = {
+        mode = "quickfix",
+        win = {
+          position = "bottom",
+          size = 12,
+        },
+      },
       diagnostics_project = {
         mode = "diagnostics",
         win = {
