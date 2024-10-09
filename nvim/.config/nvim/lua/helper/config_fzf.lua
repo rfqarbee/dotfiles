@@ -13,9 +13,9 @@ M.files = {
   ["ctrl-s"] = actions.file_split,
   ["ctrl-v"] = actions.file_vsplit,
   ["ctrl-t"] = actions.file_tabedit,
-  ["ctrl-q"] = { fn = actions.file_edit_or_qf, prefix = "select-all+" },
-  ["alt-q"] = actions.file_sel_to_qf,
-  ["alt-a"] = actions.file_sel_to_ll,
+  ["alt-q"] = { fn = actions.file_edit_or_qf, prefix = "select-all+" },
+  ["ctrl-q"] = actions.file_sel_to_qf,
+  ["ctrl-a"] = actions.file_sel_to_ll,
 }
 
 return M

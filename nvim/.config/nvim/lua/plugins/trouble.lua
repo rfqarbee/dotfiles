@@ -23,11 +23,13 @@ return {
     { "<leader>xd", "<cmd>Trouble lsp_definitions toggle<cr>", "Lsp Definition" },
     { "<leader>xD", "<cmd>Trouble lsp_declarations toggle<cr>", "Lsp Declaration" },
     { "<leader>xt", "<cmd>Trouble lsp toggle win.position=right<cr>", "Lsp" },
+    { "[x", "<cmd>Trouble diagnostics_buffer next<cr>", "Next diagnostics" },
+    { "]x", "<cmd>Trouble diagnostics_buffer prev<cr>", "Next diagnostics" },
   },
   opts = {
-    focus = true,
+    focus = false,
     warn_no_results = false,
-    open_no_results = true,
+    open_no_results = false,
     follow = true,
     win = {
       size = 45,
