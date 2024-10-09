@@ -29,7 +29,7 @@ return {
           -- shamelessly stolen from reddit
           function()
             local hasloclist = utils.loclist_item()
-            return " " .. hasloclist
+            return "󰏬 " .. hasloclist
           end,
 
           cond = function()
@@ -42,7 +42,7 @@ return {
         {
           function()
             local hasqfix = utils.qfix_item()
-            return " " .. hasqfix
+            return "󰏬 " .. hasqfix
           end,
           cond = function()
             local hasqfix = utils.qfix_item()
