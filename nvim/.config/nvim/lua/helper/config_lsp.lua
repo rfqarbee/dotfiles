@@ -109,9 +109,9 @@ M.servers = {
   dartls = dartls,
   rust_analyzer = rust_analyzer,
   prismals = true,
+  lua_ls = lua_ls,
   cssls = cssls,
   gopls = gopls,
-  lua_ls = lua_ls,
   clangd = clangd,
   -- tsserver = tsserver,
 }
