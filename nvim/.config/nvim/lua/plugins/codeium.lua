@@ -1,6 +1,6 @@
 return {
   "Exafunction/codeium.vim",
-  enabled = false,
+  enabled = true,
   event = "BufEnter",
   config = function()
     vim.g.codeium_filetypes = { markdown = false }

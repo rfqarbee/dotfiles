@@ -28,7 +28,6 @@ return {
         files = helper.files,
       },
       files = {
-        git_icons = false,
         cwd_prompt = false,
         prompt = "Files > ",
       },
