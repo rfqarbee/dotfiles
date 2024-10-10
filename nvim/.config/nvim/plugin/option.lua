@@ -52,6 +52,7 @@ opt.listchars = { tab = "» ", trail = "-", nbsp = "␣", space = " " }
 opt.fillchars:append({ eob = " " })
 opt.scrolloff = 6
 
+opt.completeopt = { "menuone", "noselect", "menu" }
 --backup for undodir accessible by undotree nvim config dir
 opt.swapfile = false
 opt.backup = false

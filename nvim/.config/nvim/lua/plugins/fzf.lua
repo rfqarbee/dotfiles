@@ -18,7 +18,7 @@ return {
           ["ctrl-d"] = "half-page-down",
           ["ctrl-u"] = "half-page-up",
           ["ctrl-f"] = "toggle",
-          ["ctrl-a"] = "toggle-all",
+          ["ctrl-y"] = "toggle-all",
           ["alt-p"] = "toggle-preview",
           ["ctrl-j"] = "preview-page-down",
           ["ctrl-k"] = "preview-page-up",

@@ -83,7 +83,7 @@ return {
             else
               fallback()
             end
-          end, { "i", "s", "c" }),
+          end, { "i", "s" }),
           ["<C-k>"] = cmp.mapping(function(fallback)
             if luasnip.locally_jumpable(1) then
               luasnip.jump(1)
