@@ -1,5 +1,6 @@
 return {
   "rcarriga/nvim-notify",
+  enabled = true,
   event = "VeryLazy",
   keys = {
     { "<leader><Esc>", "<cmd>lua require('notify').dismiss()<cr>", "Dismiss Notification" },

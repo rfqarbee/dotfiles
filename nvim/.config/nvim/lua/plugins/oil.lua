@@ -39,6 +39,7 @@ return {
           ["<C-p>"] = "actions.preview",
           ["q"] = "actions.close",
           ["<space>r"] = "actions.refresh", -- refresh list
+          -- ["<space>-"] = "actions.parent", -- enabled after not using hardtimes and using mini files
           ["-"] = "actions.parent",
           ["_"] = "actions.open_cwd",
           ["."] = "actions.cd", -- change project directory

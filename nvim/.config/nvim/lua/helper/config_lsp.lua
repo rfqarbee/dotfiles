@@ -110,9 +110,8 @@ M.servers = {
   -- rust_analyzer = rust_analyzer,
   prismals = true,
   cssls = cssls,
-  lua_ls = lua_ls,
-  gopls = gopls,
-  clangd = clangd,
+  -- gopls = gopls,
+  -- clangd = clangd,
   -- tsserver = tsserver,
 }
 
