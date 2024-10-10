@@ -7,6 +7,7 @@ export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 export LOCAL_DIR=$HOME/.local
 export DEV_DIR=$HOME/dev
+export WORK_DIR=$HOME/work/contract-root
 export REPOS_DIR=$HOME/repos
 export DOCUMENTS_DIR=$HOME/Documents
 export TMPDIR=/tmp

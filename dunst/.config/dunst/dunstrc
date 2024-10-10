@@ -122,3 +122,9 @@
     appname = grim
     urgency = normal
     new_icon = /home/rafiq/Media/Pictures/icons/camera.png
+
+[rsync]
+    appname = rsync
+    urgency = normal
+    default_icon = /home/rafiq/Media/Pictures/icons/alert.png
+

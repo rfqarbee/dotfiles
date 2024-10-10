@@ -1,6 +1,15 @@
 return {
   "mfussenegger/nvim-lint",
   enabled = true,
+  cond = function ()
+   local work = os.getenv('WORK_DIR')
+    local cur = vim.fn.getcwd()
+    if work ==  cur then
+      return false
+    else
+    return true
+    end
+  end,
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local lint = require("lint")
