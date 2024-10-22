@@ -30,6 +30,6 @@ done
 
 cd $root
 echo -e "\nInit submodule"
-git submodule update --init
+git submodule update --init --recursive --remote
 echo "Switch to HEAD branch"
 
