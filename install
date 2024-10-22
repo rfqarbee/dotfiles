@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
 echo "$PWD"
+root=$PWD
 stow_dirs=$(find $PWD -mindepth 1 -maxdepth 1 -not -path "*/.git" -type d)
 term="kitty" # change this if using other terminal
 prompt="ohmyposh" # change to starship if not using ohmyposh
@@ -18,7 +19,7 @@ for folders in $stow_dirs; do
             fi
         done
         ignore=$(echo $ignore | sed 's/|$//')
-        echo $ignore
+        echo "Ignoring $(echo $ignore | sed 's/|/ /g')"
         echo -e "Stowing $currentFolder"
         stow $currentFolder --ignore "$ignore"
     else
@@ -26,3 +27,8 @@ for folders in $stow_dirs; do
         stow $currentFolder
     fi
 done
+
+cd $root
+echo -e "\nInit submodule"
+git submodule update --init
+
