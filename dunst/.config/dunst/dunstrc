@@ -1,0 +1,130 @@
+# See dunst(5) for all configuration options
+
+[global]
+    monitor = 1
+    follow = mouse
+    width = 300
+    height = 300
+    origin = top-right
+    offset = (10,50)
+    # offset = 22x22
+    scale = 0
+    notification_limit = 20
+
+    progress_bar = true
+    progress_bar_height = 10
+    progress_bar_frame_width = 2
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+    progress_bar_corner_radius = 0
+    progress_bar_corners = all
+
+    icon_corner_radius = 0
+    icon_corners = all
+
+    indicate_hidden = yes
+    transparency = 0
+    separator_height = 2
+    padding = 8
+    horizontal_padding = 8
+    text_icon_padding = 0
+    frame_width = 2
+    gap_size = 0
+    # frame_color = "#89b4fa"
+    separator_color = frame
+
+    sort = update
+    idle_threshold = 120
+    font = UbuntuMono Nerd Font Regular 12, Monospace 12
+    line_height = 0
+    markup = full
+
+    # format = "<b>%i</b>\n%b"
+    format = "<b>%a\n%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = 60
+    ellipsize = middle
+
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = false
+
+    ### Icons ###
+    enable_recursive_icon_lookup = true
+    icon_theme = Adwaita
+    icon_position = left
+    min_icon_size = 32
+    max_icon_size = 64
+    icon_path = /home/rafiq/Media/Pictures/icons/
+
+    ### History ###
+    sticky_history = yes
+    history_length = 20
+
+    ### Misc/Advanced ###
+    dmenu = /usr/bin/rofi -dmenu -p dunst:
+    browser = /usr/bin/xdg-open
+    always_run_script = true
+
+    corner_radius = 7
+    corners = all
+    ignore_dbusclose = false
+
+    ### Wayland ###
+    # Uncomment this if you want to let notifications appear under fullscreen
+    layer = top
+    # Set this to true to use X11 output on Wayland.
+    force_xwayland = false
+    force_xinerama = false
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+[experimental]
+    per_monitor_dpi = false
+
+# urgency
+[urgency_low]
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    timeout = 10
+    #default_icon = /path/to/icon
+
+[urgency_normal]
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    timeout = 10
+    override_pause_level = 30
+    default_icon = /home/rafiq/Media/Pictures/icons/bell.png
+
+[urgency_critical]
+    foreground = "#cdd6f4"
+    background = "#1e1e2e"
+    frame_color = "#fab387"
+    timeout = 0
+    default_icon = /home/rafiq/Media/Pictures/icons/alert.png
+
+[discord]
+    desktop_entry = vesktop #
+    format = "<b>%s</b>\n<span>%b</span>"
+    urgency = normal
+    new_icon = /home/rafiq/Media/Pictures/icons/discord.svg
+
+[bluetooth]
+    desktop_entry = blueman-manager
+    format = "<b>%s</b>\n%b"
+    urgency = normal
+    new_icon = /home/rafiq/Media/Pictures/icons/bluetooth.png
+
+[grim]
+    appname = grim
+    urgency = normal
+    new_icon = /home/rafiq/Media/Pictures/icons/camera.png
+
+[rsync]
+    appname = rsync
+    urgency = normal
+    default_icon = /home/rafiq/Media/Pictures/icons/alert.png
+

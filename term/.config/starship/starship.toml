@@ -1,0 +1,136 @@
+format = """$directory$git_branch$git_status$git_commit$fill$all\
+$character
+"""
+right_format = """
+$cmd_duration\
+"""
+add_newline = true
+command_timeout = 20000
+palette = "doom_one"
+continuation_prompt = '▶ '
+
+[fill]
+symbol = " "
+
+[character]
+success_symbol = '[➜](bold green)'
+error_symbol = '[✗](bold red)'
+vimcmd_symbol = '[N](bold yellow)'
+
+[cmd_duration]
+min_time = 1_000
+format = '[$duration]($style) '
+style = 'bold magenta'
+show_notifications = false
+min_time_to_notify = 30_000
+notification_timeout = 20_000
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+truncation_symbol = '󰜥 '
+style = 'bold cyan'
+
+[directory.substitutions] # only works for non-repo dir
+'~/.local/share/applications' ='󰀻 Applications'
+'~/Downloads' ='  Downloads'
+'~/Downloads/AppImages' ='  AppImages'
+'~/Downloads/ISO' ='  ISO'
+'~/Downloads/Misc' ='  Misc'
+
+[git_branch]
+always_show_remote = true
+format = '[[$symbol](green)($remote_name/)$branch(: $remote_branch)]($style) '
+style = 'bold blue'
+
+[git_status]
+format = '([[$ahead_behind](fg:purple)( [$staged]($style))( [$modified]($style))( [$stashed](cyan))](white))'
+style = 'bold green'
+ahead = '⇡${count}'
+diverged = ' ⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
+staged = '+${count}'
+stashed = '\$${count}'
+modified = '~${count}'
+
+[git_commit]
+# format = '[\($tag_symbol$tag \($hash\)\)]($style)'
+commit_hash_length = 8
+style = 'bold green'
+tag_symbol = ' 🏷 '
+only_detached = true
+tag_disabled = false
+
+[package]
+format = "[$version]($style) "
+disabled = true
+
+[lua]
+format = "[$symbol $name $version]($style) "
+style = "bold cyan"
+symbol = ' '
+
+[c]
+format = "[$symbol $name $version]($style) "
+symbol = ' '
+style = "text"
+
+[docker_context]
+format = "[$symbol $context]($style) "
+
+[golang]
+format = "[$symbol ($version)($mod_version)]($style) "
+symbol = '  '
+style = "sapphire"
+
+[nodejs]
+format = '[$symbol ($version)]($style) '
+style = "bold green"
+
+[rust]
+format = '[$symbol ($version)]($style) '
+style = 'bold red'
+
+[dart]
+format = '[$symbol ($version)]($style) '
+style = "bold sky"
+
+[kotlin]
+format = '[$symbol($version)]($style) '
+
+[java]
+format = '[$symbol($version)]($style) '
+
+[swift]
+format = '[$symbol($version)]($style) '
+
+[palettes.doom_one]
+rosewater = "#f4dbd6"
+flamingo = "#f0c6c6"
+pink = "#f5bde6"
+mauve = "#c6a0f6"
+maroon = "#ee99a0"
+peach = "#f5a97f"
+teal = "#8bd5ca"
+sky = "#91d7e3"
+sapphire = "#7dc4e4"
+lavender = "#b7bdf8"
+text = "#cad3f5"
+subtext1 = "#b8c0e0"
+subtext0 = "#a5adcb"
+overlay2 = "#939ab7"
+overlay1 = "#8087a2"
+overlay0 = "#6e738d"
+surface2 = "#5b6078"
+surface1 = "#494d64"
+surface0 = "#363a4f"
+base = "#24273a"
+mantle = "#1e2030"
+crust = "#181926"
+red = "#ff665c"
+green="#98be75"
+yellow = "#fcce7b"
+blue = "#a9a1e1"
+cyan = "#51afef"
+magenta="#c57bdb"
+white = "#dfdfdf"

@@ -1,0 +1,6 @@
+[submodule "scripts/.local/scripts"]
+	path = scripts/.local/scripts
+	url = https://github.com/rfqarbee/scripts.git
+[submodule "nvim/.config/nvim"]
+	path = nvim/.config/nvim
+	url = https://github.com/rfqarbee/nvim.rb.git
