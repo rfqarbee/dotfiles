@@ -68,7 +68,7 @@ run_tmux() {
 eval "$(zoxide init zsh --cmd cd)"
 source <(fzf --zsh)
 # eval "$(starship init zsh)"
-eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/omp/omposh.toml)"
+eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/ohmyposh/omposh.toml)"
 eval "$(mise activate zsh)"
 
 if [[ -z $TMUX ]] && [[ -z $has_tmux ]]; then

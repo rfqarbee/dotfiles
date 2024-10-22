@@ -17,9 +17,10 @@ for folders in $stow_dirs; do
                 ignore="$ignore${ignore_folder}|"
             fi
         done
-        ignore=$( echo $ignore | sed 's/|$//' )
+        ignore=$(echo $ignore | sed 's/|$//')
+        echo $ignore
         echo -e "Stowing $currentFolder"
-        stow $currenFolder $ignore
+        stow $currentFolder --ignore "$ignore"
     else
         echo -e "Stowing $currentFolder"
         stow $currentFolder
