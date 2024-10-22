@@ -31,4 +31,5 @@ done
 cd $root
 echo -e "\nInit submodule"
 git submodule update --init
+echo "Switch to HEAD branch"
 
