@@ -17,6 +17,7 @@
         "format": "{icon} {name} {windows}",
         "window-rewrite-default": " ",
         "show-special": true,
+        "all-outputs" : true,
         "active-only" : false,
         "window-format": "<span>{windows}</span>",
         //special window
@@ -82,7 +83,7 @@
                 "blueman-manager":" ",
                 "Home":" ",
             },
-        "separate-outputs" : true
+        "separate-outputs" : false
     },
 
 /*must be member of the input group
