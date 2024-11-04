@@ -65,13 +65,13 @@ run_tmux() {
     tmux_session.sh
 }
 
-eval "$(zoxide init zsh --cmd cd)"
-source <(fzf --zsh)
-# eval "$(starship init zsh)"
-eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/ohmyposh/omposh.toml)"
-eval "$(mise activate zsh)"
+[ $(command -v fzf) ] && source <(fzf --zsh)
+[ $(command -v zoxide) ] && eval "$(zoxide init zsh --cmd cd)"
+[ $(command -v oh-my-posh) ] && eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/ohmyposh/omposh.toml)"
+[ $(command -v mise) ] && eval "$(mise activate zsh)"
+# [ $(command -v starship)] && eval "$(starship init zsh)"
 
-if [[ -z $TMUX ]] && [[ -z $has_tmux ]]; then
+if [[ $(command -v tmux) ]] && [[ -z $TMUX ]] && [[ -z $has_tmux ]]; then
     run_tmux
 fi
 
