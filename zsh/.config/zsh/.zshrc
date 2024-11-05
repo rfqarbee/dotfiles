@@ -71,7 +71,4 @@ run_tmux() {
 [ $(command -v mise) ] && eval "$(mise activate zsh)"
 # [ $(command -v starship)] && eval "$(starship init zsh)"
 
-if [[ $(command -v tmux) ]] && [[ -z $TMUX ]] && [[ -z $has_tmux ]]; then
-    run_tmux
-fi
-
+[ $(command -v tmux) ] && [[ -z $TMUX ]] && [[ -z $has_tmux ]] && run_tmux
