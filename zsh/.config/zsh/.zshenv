@@ -62,6 +62,6 @@ export DOTNET_TELEMETRY_OPTOUT=1
 
 # path
 typeset -U path PATH
-path=($HOME/bin $HOME/.config/pub_cache/bin /usr/local/bin $HOME/.local/bin $HOME/.local/scripts $DOTNET_ROOT $DOTNET_ROOT/tools $path)
+path=($HOME/bin $HOME/.config/pub_cache/bin /usr/local/bin $HOME/.local/bin $HOME/.local/scripts $DOTNET_ROOT $DOTNET_ROOT/tools $HOME/.local/share/go/bin $path)
 export PATH
 
