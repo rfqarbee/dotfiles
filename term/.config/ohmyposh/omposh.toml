@@ -54,13 +54,13 @@ final_space = true
       tag_icon = ' '
 
       [blocks.segments.properties.mapped_branches]
-        'bugfix/*' = 'bug:'
-        'build/*' = 'build:'
-        'feature/*' = 'feat:'
-        'hotfix/*' = 'hf:'
-        'merge/*' = 'merge:'
-        'release/*' = 'rel:'
-        'test/*' = 'test:'
+        'bugfix/*' = 'bug::'
+        'build/*' = 'build::'
+        'feature/*' = 'feat::'
+        'hotfix/*' = 'hf::'
+        'merge/*' = 'merge::'
+        'release/*' = 'rel::'
+        'test/*' = 'test::'
 
       [blocks.segments.properties.staging]
         [blocks.segments.properties.staging.modified]
