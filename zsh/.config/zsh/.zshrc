@@ -62,7 +62,7 @@ source $ZDOTDIR/aliases.zsh
 has_tmux=$(pgrep tmux)
 
 run_tmux() {
-    tmux_session.sh
+    sessiontmux.sh
 }
 
 [ $(command -v fzf) ] && source <(fzf --zsh)
