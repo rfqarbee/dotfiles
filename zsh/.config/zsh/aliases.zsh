@@ -14,10 +14,6 @@ alias zgrep='fgrep --color=always'
 alias lg=lazygit
 alias gs="git status"
 alias gst="git_status.sh"
-alias gc="git commit"
-alias ga="git add"
-alias gp="git pull" # do fetch is better
-alias gP="git push"
 alias gf="git fetch"
 alias cat="bat"
 

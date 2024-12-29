@@ -21,7 +21,7 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q # reload all completion
 
 # key binds
-bindkey -s "^E" "sessiontmux.sh\n"
+bindkey -s "^E" "tmux_session.sh\n"
 bindkey -s "^b" "backend.sh\n"
 bindkey -s '^f' "freeze -o $FREEZE_OUT/"
 bindkey '^p' history-search-backward
@@ -62,7 +62,7 @@ source $ZDOTDIR/aliases.zsh
 has_tmux=$(pgrep tmux)
 
 run_tmux() {
-    sessiontmux.sh
+    tmux_session.sh
 }
 
 [ $(command -v fzf) ] && source <(fzf --zsh)
