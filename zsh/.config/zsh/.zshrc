@@ -72,5 +72,9 @@ run_tmux() {
 # [ $(command -v starship)] && eval "$(starship init zsh)"
 
 if [[ -z $(oh-my-posh notice) ]]; then
-[ $(command -v tmux) ] && [[ -z $TMUX ]] && [[ -z $has_tmux ]] && run_tmux
+    if [ $(command -v tmux) ] && [[ -z $TMUX ]] && [[ -z $has_tmux ]]; then
+        run_tmux
+    elif [[ -z $TMUX ]]; then
+        echo "Existing Tmux Session, tma to reattach"
+    fi
 fi
