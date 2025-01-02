@@ -69,7 +69,7 @@ run_tmux() {
 [ $(command -v zoxide) ] && eval "$(zoxide init zsh --cmd cd)"
 [ $(command -v oh-my-posh) ] && eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/ohmyposh/omposh.toml)"
 [ $(command -v mise) ] && eval "$(mise activate zsh)"
-# [ $(command -v starship)] && eval "$(starship init zsh)"
+[ $(command -v direnv) ] && eval "$(direnv hook zsh)"
 
 if [[ -z $(oh-my-posh notice) ]]; then
     if [ $(command -v tmux) ] && [[ -z $TMUX ]] && [[ -z $has_tmux ]]; then
