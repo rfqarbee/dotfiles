@@ -135,7 +135,7 @@ final_space = true
       cache_duration = 'none'
 
   [[blocks.segments]]
-    template = ' C# {{ .Full }} '
+    template = ' 󰌛 {{ .Full }} '
     foreground = '#00ffff'
     type = 'dotnet'
 
