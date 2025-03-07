@@ -20,17 +20,15 @@ export TMUX_TMPDIR=/tmp
 export BROWSER=firefox
 export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 export ASDF_DATA_DIR=$XDG_CONFIG_HOME/asdf # mise plugin; asdf
-
 export GRIM_DEFAULT_DIR=$HOME/Media/Pictures/screenshot
 
 # changing defaults
-export MARIADB_HISTFILE=$XDG_CACHE_HOME/mariadb_history # mariadb
-export SQLITE_HISTORY=$XDG_CACHE_HOME/sqlite_history # sqlite
-export PSQLRC="$XDG_CONFIG_HOME/pg/psqlrc" # postgres
-export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
-export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass"
+# export MARIADB_HISTFILE=$XDG_CACHE_HOME/mariadb_history
+# export SQLITE_HISTORY=$XDG_CACHE_HOME/sqlite_history
+# export PSQLRC="$XDG_CONFIG_HOME/pg/psqlrc" # postgres
+# export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
+# export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass"
 # export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"
-export TMUX_TMPDIR=/tmp
 
 # docker
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
@@ -49,15 +47,15 @@ export RUSTUP_HOME=$XDG_CONFIG_HOME/rustup
 export GOPATH="$XDG_DATA_HOME"/go
 
 # android
-export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
-export PUB_CACHE=$XDG_CONFIG_HOME/pub_cache
-export ANDROID_HOME=/opt/android-sdk
-export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin
-export ANDROID_USER_HOME=$XDG_CONFIG_HOME/.android/
-export ANDROID_AVD_HOME=$XDG_CONFIG_HOME/.android/avd # lancao lu android studio
+# export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+# export PUB_CACHE=$XDG_CONFIG_HOME/pub_cache
+# export ANDROID_HOME=/opt/android-sdk
+# export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin
+# export ANDROID_USER_HOME=$XDG_CONFIG_HOME/.android/
+# export ANDROID_AVD_HOME=$XDG_CONFIG_HOME/.android/avd # lancao lu android studio
 
 # .NET
-export DOTNET_ROOT=$XDG_DATA_HOME/mise/installs/dotnet/latest
+export DOTNET_ROOT=$XDG_DATA_HOME/mise/installs/dotnet/latest # remove if not using mise
 export DOTNET_TELEMETRY_OPTOUT=1
 
 # path

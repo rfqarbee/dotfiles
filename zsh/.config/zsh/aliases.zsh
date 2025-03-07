@@ -17,6 +17,3 @@ alias gst="git_status.sh"
 alias gp="git pull"
 alias gf="git fetch"
 alias cat="bat"
-
-# set .yarn in config
-# alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
