@@ -16,7 +16,6 @@ export WWW_HOME="google.com"
 export W3M_DIR=$HOME/.cache/w3m
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv # nvidia
 export GNUPGHOME=$XDG_DATA_HOME/gnupg
-export WGETRC=$XDG_CONFIG_HOME/wgetrc
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
