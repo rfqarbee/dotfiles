@@ -6,3 +6,6 @@
 	path = nvim/.config/nvim
 	url = https://github.com/rfqarbee/nvim.rb.git
 	branch = main
+[submodule "dwm/.config/dwm"]
+	path = dwm/.config/dwm
+	url = https://github.com/rfqarbee/dwm
