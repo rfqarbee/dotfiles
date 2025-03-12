@@ -1,0 +1,46 @@
+{
+    "include": [
+        "$HOME/.config/waybar/main",
+        "$HOME/.config/waybar/workspace",
+        "$HOME/.config/waybar/custom",
+        "$HOME/.config/waybar/groups",
+    ],
+    "layer": "top",
+    //"mode": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "position": "top",
+    "spacing": 3,
+    "fixed-center": true,
+    "ipc": true,
+    "margin-top": 3,
+    "margin-left": 10,
+    "margin-right": 10,
+
+    "modules-left": [
+        "group/app_drawer",
+    "custom/separator#dot-line",
+    "hyprland/window",
+    "custom/separator#blank",
+    ],
+
+    "modules-center": [
+        "group/system_stats",
+    "custom/separator#dot-line",
+    "hyprland/workspaces#rw",
+    "custom/separator#dot-line",
+    "group/notify",
+    ],
+
+    "modules-right": [
+        "custom/playerctl",
+    "custom/separator#dot-line",
+    "tray",
+    "group/audio",
+    "custom/separator#dot-line",
+    "clock",
+    "custom/separator#dot-line",
+    "group/power",
+    ],
+}
+

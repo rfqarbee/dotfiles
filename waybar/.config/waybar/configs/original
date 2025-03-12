@@ -1,0 +1,193 @@
+{
+    "layer" : "top", //always let top to display front of windows
+    "modules-left" : ["hyprland/window"],
+    "modules-center" : ["hyprland/workspaces"],
+    "modules-right" : ["custom/cliphist", "group/control","custom/power"],
+
+
+    "group/control" : {
+      "orientation" : "horizontal",
+      "modules" : [
+          "wireplumber","network","custom/updates","clock"
+      ]
+    },
+
+/*workspaces*/
+    "hyprland/workspaces": {
+        "format": "{icon} {name} {windows}",
+        "window-rewrite-default": " ",
+        "show-special": true,
+        "all-outputs" : true,
+        "active-only" : false,
+        "window-format": "<span>{windows}</span>",
+        //special window
+        "window-rewrite": {
+            //browser
+            "class<firefox>": " ",
+            "class<firefox> title<.*Picture-in-Picture.*>" : " ",
+            //word editor
+            "class<obsidian>": " ",
+            "class<.*libreoffice-writer.*>":" ",
+            "class<.*libreoffice-calc.*>":" ",
+            "class<.*libreoffice-draw.*>":" " ,
+            "class<.*libreoffice-impress.*>":" ",
+            "class<.*libreoffice-math.*>":" ",
+            //term
+            "class<Alacritty>" : " ",
+            "class<kitty>" :" ",
+            //settings
+            "class<pwvucontrol>" : " ",
+            "class<blueman-manager>" : " ",
+            "class<qt5ct>" : "QT5",
+            "class<qt6ct>" : "QT6",
+            "class<nwg-look>" : "GTK",
+            "class<nm-connection-editor>" : " ",
+            //steam
+            "class<steam>" : " ",
+            "class<steam> title<.*Friends List.*>" : " ",
+            "class<steam> title<.*Friends List.*>" : " ",
+            //discord
+            "class<vesktop>" : " ",
+            //misc
+            "class<nemo>" : " ",
+            "class<Display> title<.*ImageMagick.*>" : " ",
+            "class<mpv>" : " ",
+            "class<Display> title<.*ImageMagick.*>" : " ",
+            "class<Nsxiv>" : " "
+        },
+        "format-icons": {
+            "1": " ",
+            "2": " ",
+            "3": " ",
+            "4": " ",
+            "5": " ",
+            "6": " ",
+            "7": " ",
+            "8": " ",
+            "9": " ",
+            "10": " ",
+            "default": " ",
+            "special": " "
+            },
+    },
+
+    "hyprland/window" : {
+        "format" : "{}",
+         "rewrite": {
+                "(.*) — Mozilla Firefox": " ",
+                "Alacritty": " ",
+                "zsh": " ",
+                "(.*) Discord (.*)" : " ",
+                "Picture-in-Picture" : " ",
+                "steam":" ",
+                "volume Control":" ",
+               "blueman-manager":" ",
+                "Home":" ",
+            },
+        "separate-outputs" : false
+    },
+
+/*must be member of the input group
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": {
+            "numlock": "N {icon}",
+            "capslock": "C {icon}"
+        },
+        "format-icons": {
+            "locked": " ",
+            "unlocked": " "
+        }
+    },
+*/
+
+/*time*/
+    "clock": {
+        "interval" : 1,
+        "format" :" {:%H:%M:%S %p  %a %d-%m}",
+        "tooltip" : true,
+        // "tooltip-format" : "{:%A, %B %d, %Y (%R)}",
+        //"tooltip-format": "<span>Test</span>",
+        //"actions" : {
+        //    "on-click-right" :"mode"
+        //}
+    },
+
+/*network*/
+    "network": {
+        "interface": "enp3s0",
+        "format-ethernet": "  Nusa Time",
+        "format-disconnected":"󰖪 No Internet",
+        /*"tooltip-format-ethernet": " {ipaddr} {ifname}",*/
+        /*"tooltip-format-disconnected": "󰖪 Disconnected",*/
+        "max-length": 50
+    },
+
+/*audio*/
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "on-click": "pwvucontrol",
+        "format-muted": "󰝟 ",
+        "states": {
+            "muted": 0 ,
+            "low": 10,
+            "mid": 40,
+            "high": 75,
+        },
+        "format-icons": [" ", " ", " "],
+        "scroll-step" : 1,
+        "ignored-sinks": ["Easy Effects Sink"]
+    },
+
+/*custom*/
+    "custom/launcher" : {
+        "format": " ",
+        "on-click": "rofi -show drun -theme \"~/.config/rofi/launchers/sidebar/sidebar.rasi\" ",
+        "on-click-right": "killall rofi"
+    },
+
+    "custom/updates": {
+       "format" : "{} {icon}",
+       "return-type": "json",
+       "format-icons": {
+       "has-updates": " ",
+       "updated": "󰂪 "
+       },
+       "exec-if": "which waybar-module-pacman-updates",
+       "exec": "waybar-module-pacman-updates  --interval-seconds 5 --network-interval-seconds 300"
+   },
+
+ "custom/power":{
+     "format":" ",
+     "on-click":"wlogout --protocol layer-shell"
+     },
+
+  "custom/cliphist" :{
+    "format" :"󱓥 ",
+    "tooltip":false,
+    "on-click": "~/.local/scripts/clipboard.sh"
+  },
+
+
+/*later*/
+    "cpu": {
+        "interval": 15,
+        "format": " {}%",
+        "max-length": 10
+    },
+
+    "memory": {
+        "interval": 30,
+        "format": " {}%",
+        "max-length": 10
+    },
+
+    "group/system" : {
+        "orientation" : "horizontal",
+        "modules" : [
+            "cpu",
+            "memory"
+        ]
+    }
+}

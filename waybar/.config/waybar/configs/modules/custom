@@ -1,0 +1,127 @@
+{
+"custom/cycle_wall": {
+	"format": " ",
+	"on-click": "$HOME/.config/hypr/UserScripts/wallpaper_change.sh",
+	"on-click-middle": "$HOME/.config/hypr/scripts/waybar_style.sh",
+	"tooltip": true,
+	"tooltip-format": "Change waybar / wallpaper"
+},
+
+// Hypridle inhibitor
+"custom/hypridle": {
+	"format": "󱫗 ",
+	"return-type": "json",
+	"escape": true,
+	"exec-on-event": true,
+	"interval": 60,
+	"exec": "$HOME/.config/hypr/scripts/hypridle.sh status",
+	"on-click": "$HOME/.config/hypr/scripts/hypridle.sh toggle",
+	"on-click-right": "hyprlock"
+},
+
+"custom/light_dark": {
+	"format": "󰔎 ",
+	"on-click": "$HOME/.config/hypr/scripts/darkmode.sh",
+	"on-click-right": "$HOME/.config/hypr/scripts/waybar_style.sh",
+	"tooltip": true,
+	"tooltip-format": "Dark mode",
+},
+
+"custom/lock": {
+	"format": "󰌾",
+	"on-click": "$HOME/.config/hypr/scripts/lockscreen.sh",
+	"tooltip": true,
+	"tooltip-format": "󰷛 Screen Lock",
+},
+
+// This is a custom cava visualizer
+"custom/cava_mviz": {
+	"exec": "$HOME/.config/hypr/scripts/waybar_cava.sh",
+	"format": "{}"
+},
+
+
+// custom this
+"custom/playerctl": {
+	"format": "<span>{}</span>",
+	"return-type": "json",
+	"max-length": 25,
+	"exec": "playerctl -a metadata --format '{\"text\": \"{{artist}}  {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+	"on-click-middle": "playerctl play-pause",
+	"on-click": "playerctl previous",
+	"on-click-right": "playerctl next",
+	"scroll-step": 5.0,
+	"on-scroll-up": "$HOME/.config/hypr/scripts/volume.sh --inc",
+	"on-scroll-down": "$HOME/.config/hypr/scripts/volume.sh --dec",
+	"smooth-scrolling-threshold": 1,
+},
+
+"custom/power": {
+	"format": " ⏻ ",
+	"on-click": "$HOME/.config/hypr/scripts/wlogout.sh",
+	"on-click-right": "$HOME/.config/hypr/scripts/blur.sh",
+	"tooltip": true,
+	"tooltip-format": "Left Click: Logout Menu\nRight Click: Change Blur",
+},
+
+"custom/reboot": {
+    "format": "󰜉",
+    "on-click": "systemctl reboot",
+    "tooltip": true,
+	"tooltip-format": "Left Click: Reboot",
+},
+
+"custom/quit": {
+    "format": "󰗼 ",
+    "on-click": "hyprctl dispatch exit",
+    "tooltip": true,
+	"tooltip-format": "Left Click: Exit Hyprland",
+},
+
+"custom/swaync": {
+	"tooltip": true,
+	"tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb",
+	"format": "{} {icon} ",
+	"format-icons": {
+		"notification": " <span foreground='red'><sup></sup></span>",
+		"none": " ",
+		"dnd-notification": " <span foreground='red'><sup></sup></span>",
+		"dnd-none": " ",
+		"inhibited-notification": " <span foreground='red'><sup></sup></span>",
+		"inhibited-none": " ",
+		"dnd-inhibited-notification": " <span foreground='red'><sup></sup></span>",
+		"dnd-inhibited-none": " "
+	},
+	"return-type": "json",
+	"exec-if": "which swaync-client",
+	"exec": "swaync-client -swb",
+	"on-click": "sleep 0.1 && swaync-client -t -sw",
+	"on-click-right": "swaync-client -d -sw",
+	"escape": true,
+},
+
+"custom/updater": {
+	"format": " {}",
+	"exec": "checkupdates | wc -l",
+	"exec-if": "[[ $(checkupdates | wc -l) ]]",
+	"interval": 43200, // (schedule 12 hours)
+	"tooltip": true,
+	"tooltip-format": "Update",
+},
+
+"custom/separator#dot-line": {
+	"format": "",
+	"interval": "once",
+	"tooltip": false
+},
+"custom/separator#line": {
+	"format": "|",
+	"interval": "once",
+	"tooltip": false
+},
+"custom/separator#blank": {
+	"format": "",
+	"interval": "once",
+	"tooltip": false
+},
+}
