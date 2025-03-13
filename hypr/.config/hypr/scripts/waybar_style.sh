@@ -20,7 +20,7 @@ menu() {
 
 apply_style() {
     ln -sf "$opts/$1.css" "$current_style"
-    "${scripts}/killwaybar.sh" &
+    "${scripts}/restart_daemon.sh" &
 }
 
 main() {
