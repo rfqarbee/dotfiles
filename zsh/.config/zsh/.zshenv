@@ -6,21 +6,20 @@ export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 export LOCAL_DIR=$HOME/.local
-export TMPDIR=/tmp
 export FREEZE_OUT=$HOME/Pictures/tui
 export DEVDIR=$HOME/dev
 export WORK=$HOME/work
 export REPOS=$HOME/repos
 export PROBEDIR=$HOME/probe
-export DOCUMENTS=$HOME/Documents
 export DOTFILES=$HOME/dotfiles
+export TMPDIR=/tmp
 
 export PROMPT_EOL_MARK=''
 export TMUX_TMPDIR=/tmp
 export BROWSER=firefox
 export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 export ASDF_DATA_DIR=$XDG_CONFIG_HOME/asdf # mise plugin; asdf
-export GRIM_DEFAULT_DIR=$HOME/Media/Pictures/screenshot
+export GRIM_DEFAULT_DIR=$HOME/Pictures/Screenshots
 
 # changing defaults
 # export MARIADB_HISTFILE=$XDG_CACHE_HOME/mariadb_history

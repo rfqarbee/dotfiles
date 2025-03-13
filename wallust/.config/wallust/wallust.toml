@@ -1,5 +1,4 @@
-# /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  #
-# wallust configuration - for wallust version 3.0
+# jakoolits
 
 # How the image is parse, in order to get the colors:
 # full - resized - wal - thumb -  fastresize - kmeans
@@ -51,12 +50,3 @@ kitty.target = '~/.config/kitty/kitty-colors.conf'
 
 #swaync.template = 'colors-swaync.css'
 #swaync.target = '~/.config/swaync/wallust/colors-wallust.css'
-
-#macchina.template = 'colors-macchina.toml'
-#macchina.target = '~/.config/macchina/themes/wallust.toml'
-
-#wezterm.template = 'colors-wezterm.toml'
-#wezterm.target = '~/.config/wezterm/colors/wallust.toml'
-
-#zathura.template = 'colors-zathura'
-#zathura.target = '~/.config/zathura/zathurarc'

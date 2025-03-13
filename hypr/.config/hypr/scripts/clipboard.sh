@@ -1,5 +1,5 @@
 #!/bin/env bash
-rofi_theme="$HOME/.config/rofi/config-clipboard.rasi"
+theme="$HOME/.config/rofi/launchers/clipboard/clipboard.rasi"
 msg='Ctrl+Delete | Alt+Delete (all)'
 
 if pidof rofi > /dev/null; then
@@ -11,8 +11,8 @@ while true; do
         rofi -i -dmenu -p "Clipboard"\
             -kb-custom-1 "Control-Delete" \
             -kb-custom-2 "Alt-Delete" \
-            -config $rofi_theme < <(cliphist list) \
-			-mesg "$msg"
+            -config $theme < <(cliphist list) \
+	    -mesg "$msg"
     )
 
     case "$?" in

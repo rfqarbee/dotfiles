@@ -1,24 +1,17 @@
 #!/bin/env bash
-# /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
-# Scripts for refreshing ags, waybar, rofi, swaync, wallust
 
-SCRIPTSDIR=$HOME/.config/hypr/scripts
-UserScripts=$HOME/.config/hypr/UserScripts
-
-# Define file_exists function
 file_exists() {
     if [ -e "$1" ]; then
-        return 0  # File exists
+        return 0
     else
-        return 1  # File does not exist
+        return 1
     fi
 }
 
-# Kill already running processes
-_ps=(waybar rofi swaync ags)
-for _prs in "${_ps[@]}"; do
-    if pidof "${_prs}" >/dev/null; then
-        pkill "${_prs}"
+process=(waybar rofi swaync ags)
+for ps in "${process[@]}"; do
+    if pidof "${ps}" >/dev/null; then
+        pkill "${ps}"
     fi
 done
 
@@ -26,11 +19,10 @@ done
 killall -SIGUSR2 waybar
 killall -SIGUSR2 swaync
 
-# quit ags & relaunch ags
 #ags -q && ags &
 
 # some process to kill
-for pid in $(pidof waybar rofi swaync ags swaybg); do
+for pid in $(pidof waybar rofi swaync swaybg); do
     kill -SIGUSR1 "$pid"
 done
 
@@ -41,11 +33,5 @@ waybar &
 # relaunch swaync
 sleep 0.5
 swaync > /dev/null 2>&1 &
-
-# Relaunching rainbow borders if the script exists
-sleep 1
-if file_exists "${UserScripts}/RainbowBorders.sh"; then
-    ${UserScripts}/RainbowBorders.sh &
-fi
 
 exit 0

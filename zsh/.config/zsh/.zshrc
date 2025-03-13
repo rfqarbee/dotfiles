@@ -77,6 +77,8 @@ if [[ -z $(oh-my-posh notice) ]]; then
     elif [[ -z $TMUX ]]; then
         echo "Existing Tmux Session, tma to reattach"
     fi
+else
+    oh-my-posh notice
 fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
