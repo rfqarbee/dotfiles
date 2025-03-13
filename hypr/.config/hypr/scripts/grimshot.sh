@@ -34,7 +34,7 @@ notification() {
             resp=$(timeout 5 ${screenshotted} " Screenshot" " Saved")
 			case "$resp" in
 				action1)
-					nsxiv "${check_file}" &
+					loupe "${check_file}" &
 					;;
 				action2)
 					rm "${check_file}" &
