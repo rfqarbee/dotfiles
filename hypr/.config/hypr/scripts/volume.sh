@@ -1,6 +1,6 @@
 #!/bin/env bash
-iDIR="$HOME/.config/swaync/icons"
-sDIR="$HOME/.config/hypr/scripts"
+icons="$HOME/.config/swaync/icons"
+scripts="$HOME/.config/hypr/scripts"
 
 # Get Volume
 get_volume() {
@@ -16,13 +16,13 @@ get_volume() {
 get_icon() {
     current=$(get_volume)
     if [[ "$current" == "Muted" ]]; then
-        echo "$iDIR/volume-mute.png"
+        echo "$icons/volume-mute.png"
     elif [[ "${current%\%}" -le 30 ]]; then
-        echo "$iDIR/volume-low.png"
+        echo "$icons/volume-low.png"
     elif [[ "${current%\%}" -le 60 ]]; then
-        echo "$iDIR/volume-mid.png"
+        echo "$icons/volume-mid.png"
     else
-        echo "$iDIR/volume-high.png"
+        echo "$icons/volume-high.png"
     fi
 }
 
@@ -32,7 +32,7 @@ notify_user() {
         notify-send -e -h string:x-canonical-private-synchronous:volume_notif -u low -i "$(get_icon)" " Volume:" " Muted"
     else
         notify-send -e -h int:value:"$(get_volume | sed 's/%//')" -h string:x-canonical-private-synchronous:volume_notif -u low -i "$(get_icon)" " Volume Level:" " $(get_volume)" &&
-        "$sDIR/systemsound.sh" --volume
+        "$scripts/systemsound.sh" --volume
     fi
 }
 
@@ -57,7 +57,7 @@ dec_volume() {
 # Toggle Mute
 toggle_mute() {
 	if [ "$(pamixer --get-mute)" == "false" ]; then
-		pamixer -m && notify-send -e -u low -i "$iDIR/volume-mute.png" " Mute"
+		pamixer -m && notify-send -e -u low -i "$icons/volume-mute.png" " Mute"
 	elif [ "$(pamixer --get-mute)" == "true" ]; then
 		pamixer -u && notify-send -e -u low -i "$(get_icon)" " Volume:" " Switched ON"
 	fi
@@ -66,18 +66,18 @@ toggle_mute() {
 # Toggle Mic
 toggle_mic() {
 	if [ "$(pamixer --default-source --get-mute)" == "false" ]; then
-		pamixer --default-source -m && notify-send -e -u low -i "$iDIR/microphone-mute.png" " Microphone:" " Switched OFF"
+		pamixer --default-source -m && notify-send -e -u low -i "$icons/microphone-mute.png" " Microphone:" " Switched OFF"
 	elif [ "$(pamixer --default-source --get-mute)" == "true" ]; then
-		pamixer -u --default-source u && notify-send -e -u low -i "$iDIR/microphone.png" " Microphone:" " Switched ON"
+		pamixer -u --default-source u && notify-send -e -u low -i "$icons/microphone.png" " Microphone:" " Switched ON"
 	fi
 }
 # Get Mic Icon
 get_mic_icon() {
     current=$(pamixer --default-source --get-volume)
     if [[ "$current" -eq "0" ]]; then
-        echo "$iDIR/microphone-mute.png"
+        echo "$icons/microphone-mute.png"
     else
-        echo "$iDIR/microphone.png"
+        echo "$icons/microphone.png"
     fi
 }
 

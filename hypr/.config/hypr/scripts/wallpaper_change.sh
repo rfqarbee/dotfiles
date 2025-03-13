@@ -1,20 +1,16 @@
 #!/bin/bash
-# /* ---- 💫 https://github.com/JaKooLit 💫 ---- */
-# This script for selecting wallpapers (SUPER W)
 
-# WALLPAPERS PATH
 terminal=kitty
-wallDIR="$HOME/Pictures/wallpapers"
+wallpaper="$HOME/Pictures/wallpapers"
 SCRIPTSDIR="$HOME/.config/hypr/scripts"
 wallpaper_current="$HOME/.config/hypr/wallpaper_effects/.wallpaper_current"
 
-# Directory for swaync
-iDIR="$HOME/.config/swaync/images"
-iDIRi="$HOME/.config/swaync/icons"
+images="$HOME/.config/swaync/images"
+icons="$HOME/.config/swaync/icons"
 
 # Check if package bc exists
 if ! command -v bc &>/dev/null; then
-notify-send -i "$iDIR/ja.png" "bc missing" "Install package bc first"
+notify-send -i "$images/notif.png" "bc missing" "Install package bc first"
 exit 1
 fi
 
@@ -47,7 +43,7 @@ if pidof swaybg > /dev/null; then
 fi
 
 # Retrieve image files using null delimiter to handle spaces in filenames
-mapfile -d '' PICS < <(find -L "${wallDIR}" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.pnm" -o -iname "*.tga" -o -iname "*.tiff" -o -iname "*.webp" -o -iname "*.bmp" -o -iname "*.farbfeld" -o -iname "*.png" -o -iname "*.gif" \) -print0)
+mapfile -d '' PICS < <(find -L "${wallpaper}" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.pnm" -o -iname "*.tga" -o -iname "*.tiff" -o -iname "*.webp" -o -iname "*.bmp" -o -iname "*.farbfeld" -o -iname "*.png" -o -iname "*.gif" \) -print0)
 
 RANDOM_PIC="${PICS[$((RANDOM % ${#PICS[@]}))]}"
 RANDOM_PIC_NAME=". random"
@@ -155,14 +151,14 @@ if [[ -n "$choice" ]]; then
 
     # Check if terminal exists
     if ! command -v "$terminal" &>/dev/null; then
-    notify-send -i "$iDIR/ja.png" "Missing $terminal" "Install $terminal to enable setting of wallpaper background"
+    notify-send -i "$images/notif.png" "Missing $terminal" "Install $terminal to enable setting of wallpaper background"
     exit 1
     fi
 
     # Open terminal to enter password
     $terminal -e bash -c "echo 'Enter your password to set wallpaper as SDDM Background'; \
     sudo cp -r $wallpaper_current '$sddm_sequoia/backgrounds/default' && \
-    notify-send -i '$iDIR/ja.png' 'SDDM' 'Background SET'"
+    notify-send -i '$images/notif.png' 'SDDM' 'Background SET'"
     fi
   fi
 fi

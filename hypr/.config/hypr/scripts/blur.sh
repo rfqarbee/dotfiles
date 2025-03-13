@@ -1,6 +1,6 @@
 #!/bin/bash
 
-notif="$HOME/.config/swaync/images/ja.png"
+notif="$HOME/.config/swaync/images/notif.png"
 
 cur=$(hyprctl -j getoption decoration:blur:passes | jq ".int")
 

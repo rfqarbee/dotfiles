@@ -14,7 +14,7 @@ active_window_path="${GRIM_DEFAULT_DIR}/${active_window_file}"
 notify_cmd_base="notify-send -t 10000 -A action1=Open -A action2=Delete -h string:x-canonical-private-synchronous:shot-notify"
 notify_cmd_shot="${notify_cmd_base} -i ${icons}/picture.png "
 notify_cmd_shot_win="${notify_cmd_base} -i ${icons}/picture.png "
-notify_cmd_NOT="notify-send -u low -i ${img}/ja.png "
+notify_cmd_NOT="notify-send -u low -i ${img}/notif.png "
 
 # notify and view screenshot
 notify_view() {
