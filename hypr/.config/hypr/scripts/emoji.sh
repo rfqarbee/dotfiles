@@ -1,6 +1,6 @@
 #!/bin/env bash
-# Variables
-theme="$HOME/.config/rofi/launchers/applaunch/applaunch.rasi"
+
+theme="$XDG_CONFIG_HOME/rofi/launchers/util/search-list.rasi"
 
 if pidof rofi > /dev/null; then
   pkill rofi
@@ -16,20 +16,20 @@ wl-copy
 exit
 
 # # DATA # #
-😀 grinning face face smile happy joy :D grin
-😃 grinning face with big eyes face happy joy haha :D :) smile funny
-😄 grinning face with smiling eyes face happy joy funny haha laugh like :D :) smile
-😁 beaming face with smiling eyes face happy smile joy kawaii
-😆 grinning squinting face happy joy lol satisfied haha face glad XD laugh
-😅 grinning face with sweat face hot happy laugh sweat smile relief
-🤣 rolling on the floor laughing face rolling floor laughing lol haha rofl
-😂 face with tears of joy face cry tears weep happy happytears haha
-🙂 slightly smiling face face smile
-🙃 upside down face face flipped silly smile
-😉 winking face face happy mischievous secret ;) smile eye
-😊 smiling face with smiling eyes face smile happy flushed crush embarrassed shy joy
-😇 smiling face with halo face angel heaven halo
-🥰 smiling face with hearts face love like affection valentines infatuation crush hearts adore
+😀 :D smiel grin
+😃 =D smile grin
+😄 |D smile grin
+😁 unwilling smile
+😆 xD smile
+🤣 rofl
+😂 laugh
+😅 nervous smile
+🙂 content smile
+🙃 upside smile
+😉 wink smile
+😊 smirk smile
+😇 halo smile
+🥰 heart
 😍 smiling face with heart eyes face love like affection valentines infatuation crush heart
 🤩 star struck face smile starry eyes grinning
 😘 face blowing a kiss face love like affection valentines infatuation kiss

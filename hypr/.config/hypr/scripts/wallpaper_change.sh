@@ -2,20 +2,19 @@
 
 terminal=kitty
 wallpaper="$HOME/Pictures/wallpapers"
-SCRIPTSDIR="$HOME/.config/hypr/scripts"
-wallpaper_current="$HOME/.config/hypr/wallpaper_effects/.wallpaper_current"
+scripts="$XDG_CONFIG_HOME/hypr/scripts"
+wallpaper_current="$XDG_CONFIG_HOME/hypr/wallpaper_effects/.wallpaper_current"
 
-images="$HOME/.config/swaync/images"
-icons="$HOME/.config/swaync/icons"
+images="$XDG_CONFIG_HOME/swaync/images/notif.png"
 
 # Check if package bc exists
 if ! command -v bc &>/dev/null; then
-notify-send -i "$images/notif.png" "bc missing" "Install package bc first"
-exit 1
+  notify-send -i "$images" "bc missing" "Install package bc first"
+  exit 1
 fi
 
 # variables
-rofi_theme="$HOME/.config/rofi/config-wallpaper.rasi"
+theme="$XDG_CONFIG_HOME/rofi/launchers/util/search-wallpaper.rasi"
 focused_monitor=$(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name')
 
 # Monitor details
@@ -49,7 +48,7 @@ RANDOM_PIC="${PICS[$((RANDOM % ${#PICS[@]}))]}"
 RANDOM_PIC_NAME=". random"
 
 # Rofi command
-rofi_command="rofi -i -show -dmenu -config $rofi_theme -theme-str $rofi_override"
+rofi_command="rofi -i -show -dmenu -config $theme -theme-str $rofi_override"
 
 # Sorting Wallpapers
 menu() {
@@ -91,9 +90,9 @@ main() {
   if [[ "$choice" == "$RANDOM_PIC_NAME" ]]; then
 	swww img -o "$focused_monitor" "$RANDOM_PIC" $SWWW_PARAMS;
     sleep 2
-    "$SCRIPTSDIR/WallustSwww.sh"
+    "$scripts/WallustSwww.sh"
     sleep 0.5
-    "$SCRIPTSDIR/Refresh.sh"
+    "$scripts/Refresh.sh"
     exit 0
   fi
 
@@ -123,11 +122,11 @@ fi
 main
 
 wait $!
-"$SCRIPTSDIR/WallustSwww.sh" &&
+"$scripts/WallustSwww.sh" &&
 
 wait $!
 sleep 2
-"$SCRIPTSDIR/Refresh.sh"
+"$scripts/Refresh.sh"
 
 sleep 1
 # Check if user selected a wallpaper
@@ -151,14 +150,14 @@ if [[ -n "$choice" ]]; then
 
     # Check if terminal exists
     if ! command -v "$terminal" &>/dev/null; then
-    notify-send -i "$images/notif.png" "Missing $terminal" "Install $terminal to enable setting of wallpaper background"
+    notify-send -i "$images" "Missing $terminal" "Install $terminal to enable setting of wallpaper background"
     exit 1
     fi
 
     # Open terminal to enter password
     $terminal -e bash -c "echo 'Enter your password to set wallpaper as SDDM Background'; \
     sudo cp -r $wallpaper_current '$sddm_sequoia/backgrounds/default' && \
-    notify-send -i '$images/notif.png' 'SDDM' 'Background SET'"
+    notify-send -i '$images' 'SDDM' 'Background SET'"
     fi
   fi
 fi

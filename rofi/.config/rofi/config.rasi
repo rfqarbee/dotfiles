@@ -8,9 +8,9 @@ configuration {
 	normalize-match: true;
 	show-icons: true;
 	icon-theme: "Papirus";
-/*	cache-dir: ;*/
+ /*	cache-dir: ;*/
 	steal-focus: false;
-/*	dpi: -1;*/
+ /*	dpi: -1;*/
 
 	/*---------- Matching setting ----------*/
 	matching: "normal";
@@ -172,4 +172,5 @@ configuration {
 */
 }
 
+@theme "~/.config/rofi/wallust/colors-rofi.rasi"
 @import "~/.config/rofi/launchers/default/default.rasi"

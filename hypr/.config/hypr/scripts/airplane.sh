@@ -1,6 +1,6 @@
 #!/bin/env bash
 
-notif="$HOME/.config/swaync/images/notif.png"
+notif="$XDG_CONFIG_HOME/swaync/images/notif.png"
 
 wifi_blocked=$(rfkill list wifi | grep -o "Soft blocked: yes")
 

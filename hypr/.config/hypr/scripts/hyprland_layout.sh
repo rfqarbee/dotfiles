@@ -1,6 +1,6 @@
 #!/bin/bash
 # copy from jakoolits
-notif="$HOME/.config/swaync/images/notif.png"
+notif="$XDG_CONFIG_HOME/swaync/images/notif.png"
 
 LAYOUT=$(hyprctl -j getoption general:layout | jq '.str' | sed 's/"//g')
 

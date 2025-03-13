@@ -1,23 +1,24 @@
 #!/bin/bash
 # copy from jakoolit with some tweaks
 
-icons="$HOME/.config/swaync/icons"
-# theme="$HOME/.config/rofi/launchers/applaunch/applaunch.rasi"
+icons="$XDG_CONFIG_HOME/swaync/icons"
+theme="$XDG_CONFIG_HOME/rofi/launchers/util/search-list.rasi"
 
 declare -A online_music=(
-  ["Radio - Lofi Girl 🎧🎶"]="https://play.streamafrica.net/lofiradio"
-  ["YT - lofi hip hop radio beats 📹🎶"]="https://www.youtube.com/live/jfKfPfyJRdk?si=PnJIA9ErQIAw6-qd"
-  ["YT - Relaxing Piano Music 🎹🎶"]="https://youtu.be/6H7hXzjFoVU?si=nZTPREC9lnK1JJUG"
-  ["YT - Relaxing Piano Jazz Music 🎹🎶"]="https://youtu.be/85UEqRat6E4?si=jXQL1Yp2VP_G6NSn"
+  ["Lofi Radio"]="https://play.streamafrica.net/lofiradio"
+  ["Lofi"]="https://www.youtube.com/live/jfKfPfyJRdk?si=PnJIA9ErQIAw6-qd"
+  ["Fav"]="https://music.youtube.com/playlist?list=PLE5fjN1ZGxpxG-vvx8WzJufxd8fzayOfY&si=hbapO9zewv48u_OM"
+  ["Chill"]="https://music.youtube.com/playlist?list=PLE5fjN1ZGxpy_VUBv00xVctGov2i3KZG7&si=yAjC-d_mbZkPdQgP"
+  ["Nice"]="https://music.youtube.com/playlist?list=PLE5fjN1ZGxpwidB73wS07Pjxc9s6ixnNc&si=T0Ok5m5FY1Pg2Jm5"
+  ["Jpop"]="https://music.youtube.com/playlist?list=PLE5fjN1ZGxpxOLNSPJknXIC8o48rZJGEj&si=kCNrOA222mq5_gl9"
 )
 
 notification() {
   notify-send -u normal -i "$icons/music.png" " Now Playing:" " $@"
 }
 
-play_online_music() {
+stream_music() {
   choice=$(for online in "${!online_music[@]}"; do
-      echo "$online"
     done | sort | rofi -i -dmenu)
 
   if [ -z "$choice" ]; then
@@ -25,10 +26,7 @@ play_online_music() {
   fi
 
   link="${online_music[$choice]}"
-
   notification "$choice"
-
-  # Play the selected online music using mpv
   mpv --shuffle --vid=no "$link"
 }
 
@@ -38,7 +36,7 @@ pkill mpv && notify-send -u low -i "$icons/music.png" "Music stopped" || {
 if pidof rofi > /dev/null; then
   pkill rofi
 fi
-play_online_music
+  stream_music
 }
 
 # local music

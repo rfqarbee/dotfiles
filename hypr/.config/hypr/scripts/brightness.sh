@@ -1,14 +1,11 @@
 #!/bin/env bash
-icons="$HOME/.config/swaync/icons"
+
+icons="$XDG_CONFIG_HOME/swaync/icons"
 notification_timeout=1000
 step=5
 
-get_backlight() {
-	brightnessctl -m | cut -d, -f4 | sed 's/%//'
-}
-
 get_icon() {
-	current=$(get_backlight)
+	current=$(brightnessctl -m | cut -d, -f4 | sed 's/%//')
 	if   [ "$current" -le "20" ]; then
 		icon="$icons/brightness-20.png"
 	elif [ "$current" -le "40" ]; then
@@ -20,10 +17,6 @@ get_icon() {
 	else
 		icon="$icons/brightness-100.png"
 	fi
-}
-
-notify_user() {
-	notify-send -e -h string:x-canonical-private-synchronous:brightness_notif -h int:value:$current -u low -i $icon "Screen" "Brightness:$current%"
 }
 
 change_backlight() {
@@ -47,7 +40,7 @@ change_backlight() {
 	brightnessctl set "${new_brightness}%"
 	get_icon
 	current=$new_brightness
-	notify_user
+	notify-send -e -h string:x-canonical-private-synchronous:brightness_notif -h int:value:$current -u low -i $icon "Screen" "Brightness:$current%"
 }
 
 case "$1" in
