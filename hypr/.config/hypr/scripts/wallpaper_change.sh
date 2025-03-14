@@ -1,66 +1,42 @@
 #!/bin/bash
 
-terminal=kitty
 wallpaper="$HOME/Pictures/wallpapers"
 scripts="$XDG_CONFIG_HOME/hypr/scripts"
-wallpaper_current="$XDG_CONFIG_HOME/hypr/wallpaper_effects/.wallpaper_current"
-
 images="$XDG_CONFIG_HOME/swaync/images/notif.png"
 
-# Check if package bc exists
-if ! command -v bc &>/dev/null; then
-  notify-send -i "$images" "bc missing" "Install package bc first"
-  exit 1
-fi
-
-# variables
 theme="$XDG_CONFIG_HOME/rofi/launchers/util/search-wallpaper.rasi"
 focused_monitor=$(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name')
 
-# Monitor details
 scale_factor=$(hyprctl monitors -j | jq -r --arg mon "$focused_monitor" '.[] | select(.name == $mon) | .scale')
 monitor_height=$(hyprctl monitors -j | jq -r --arg mon "$focused_monitor" '.[] | select(.name == $mon) | .height')
 
 icon_size=$(echo "scale=1; ($monitor_height * 3) / ($scale_factor * 150)" | bc)
 
-# Apply limit
-adjusted_icon_size=$(echo "$icon_size" | awk '{if ($1 < 15) $1 = 20; if ($1 > 25) $1 = 25; print $1}')
+if ! command -v bc &>/dev/null; then
+  notify-send -i "$images" "bc missing" "Install package bc first"
+  exit 1
+fi
 
-# Setting the rofi override with the adjusted icon size
-rofi_override="element-icon{size:${adjusted_icon_size}%;}"
-
-# swww transition config
 FPS=60
 TYPE="any"
 DURATION=2
 BEZIER=".43,1.19,1,.4"
 SWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration $DURATION --transition-bezier $BEZIER"
 
-# Check if swaybg is running
-if pidof swaybg > /dev/null; then
-  pkill swaybg
-fi
-
-# Retrieve image files using null delimiter to handle spaces in filenames
 mapfile -d '' PICS < <(find -L "${wallpaper}" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.pnm" -o -iname "*.tga" -o -iname "*.tiff" -o -iname "*.webp" -o -iname "*.bmp" -o -iname "*.farbfeld" -o -iname "*.png" -o -iname "*.gif" \) -print0)
 
 RANDOM_PIC="${PICS[$((RANDOM % ${#PICS[@]}))]}"
 RANDOM_PIC_NAME=". random"
 
-# Rofi command
-rofi_command="rofi -i -show -dmenu -config $theme -theme-str $rofi_override"
+launch="rofi -i -show -dmenu -config $theme"
 
-# Sorting Wallpapers
+# shameless copy from jakoolit
 menu() {
-  # Sort the PICS array
   IFS=$'\n' sorted_options=($(sort <<<"${PICS[*]}"))
-
   # Place ". random" at the beginning with the random picture as an icon
   printf "%s\x00icon\x1f%s\n" "$RANDOM_PIC_NAME" "$RANDOM_PIC"
-
   for pic_path in "${sorted_options[@]}"; do
     pic_name=$(basename "$pic_path")
-
     # Displaying .gif to indicate animated images
     if [[ ! "$pic_name" =~ \.gif$ ]]; then
       printf "%s\x00icon\x1f%s\n" "$(echo "$pic_name" | cut -d. -f1)" "$pic_path"
@@ -70,36 +46,33 @@ menu() {
   done
 }
 
-# initiate swww if not running
-swww query || swww-daemon --format xrgb
+[[ -z $(pidof swww-daemon) ]] && swww-daemon --format xrgb
 
-# Choice of wallpapers
 main() {
-  choice=$(menu | $rofi_command)
+  opts=$(menu | $launch)
 
-  choice=$(echo "$choice" | xargs)
+  opts=$(echo "$choice" | xargs)
   RANDOM_PIC_NAME=$(echo "$RANDOM_PIC_NAME" | xargs)
 
-  # No choice case
-  if [[ -z "$choice" ]]; then
-    echo "No choice selected. Exiting."
+  if [[ -z "$opts" ]]; then
     exit 0
   fi
 
-  # Random choice case
-  if [[ "$choice" == "$RANDOM_PIC_NAME" ]]; then
-	swww img -o "$focused_monitor" "$RANDOM_PIC" $SWWW_PARAMS;
-    sleep 2
-    "$scripts/WallustSwww.sh"
-    sleep 0.5
-    "$scripts/Refresh.sh"
-    exit 0
+  # Random opts case
+  if [[ "$opts" == "$RANDOM_PIC_NAME" ]]; then
+      swww img -o "$focused_monitor" "$RANDOM_PIC" $SWWW_PARAMS;
+      cp -r $RANDOM_PIC $XDG_CONFIG_HOME/hypr/.current_wallpaper
+      sleep 2
+      "$scripts/wallust.sh"
+      sleep 0.5
+      "$scripts/refresh_daemon.sh"
+      exit 0
   fi
 
   pic_index=-1
   for i in "${!PICS[@]}"; do
     filename=$(basename "${PICS[$i]}")
-    if [[ "$filename" == "$choice"* ]]; then
+    if [[ "$filename" == "$opts"* ]]; then
       pic_index=$i
       break
     fi
@@ -107,57 +80,21 @@ main() {
 
   if [[ $pic_index -ne -1 ]]; then
     swww img -o "$focused_monitor" "${PICS[$pic_index]}" $SWWW_PARAMS
+      cp -r $RANDOM_PIC $XDG_CONFIG_HOME/hypr/.current_wallpaper
   else
-    echo "Image not found."
     exit 1
   fi
 
 }
 
-# Check if rofi is already running
 if pidof rofi > /dev/null; then
   pkill rofi
 fi
 
 main
-
 wait $!
-"$scripts/WallustSwww.sh" &&
-
+"$scripts/wallust.sh" &&
 wait $!
 sleep 2
-"$scripts/Refresh.sh"
-
+"$scripts/refresh_daemon.sh"
 sleep 1
-# Check if user selected a wallpaper
-if [[ -n "$choice" ]]; then
-  sddm_sequoia="/usr/share/sddm/themes/sequoia_2"
-  if [ -d "$sddm_sequoia" ]; then
-
-	# Check if yad is running to avoid multiple yad notification
-	if pidof yad > /dev/null; then
-	  killall yad
-	fi
-
-    if yad --info --text="Set current wallpaper as SDDM background?\n\nNOTE: This only applies to SEQUOIA SDDM Theme" \
-    --text-align=left \
-    --title="SDDM Background" \
-    --timeout=5 \
-    --timeout-indicator=right \
-    --button="yad-yes:0" \
-    --button="yad-no:1" \
-    ; then
-
-    # Check if terminal exists
-    if ! command -v "$terminal" &>/dev/null; then
-    notify-send -i "$images" "Missing $terminal" "Install $terminal to enable setting of wallpaper background"
-    exit 1
-    fi
-
-    # Open terminal to enter password
-    $terminal -e bash -c "echo 'Enter your password to set wallpaper as SDDM Background'; \
-    sudo cp -r $wallpaper_current '$sddm_sequoia/backgrounds/default' && \
-    notify-send -i '$images' 'SDDM' 'Background SET'"
-    fi
-  fi
-fi

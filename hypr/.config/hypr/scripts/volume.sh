@@ -1,6 +1,4 @@
 #!/bin/env bash
-# yeah copy from jakoolit
-
 icons="$XDG_CONFIG_HOME/swaync/icons"
 scripts="$XDG_CONFIG_HOME/hypr/scripts"
 

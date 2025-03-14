@@ -1,0 +1,11 @@
+cava
+pyprland
+ttf-victor-mono
+wallust
+yay-bin
+nosqlbooster-mongodb
+dbeaver
+blender
+wlogout
+ani-cli
+freeze-bin

@@ -3,8 +3,8 @@
 echo "$PWD"
 root=$PWD
 stow_dirs=$(find $PWD -mindepth 1 -maxdepth 1 -not -path "*/.git" -type d)
-term="kitty" # change this if using other terminal
-prompt="ohmyposh" # change to starship if not using ohmyposh
+term="kitty"
+prompt="ohmyposh"
 ignore=""
 
 for folders in $stow_dirs; do
@@ -31,5 +31,6 @@ done
 cd $root
 echo -e "\nInit submodule"
 git submodule update --init --recursive --remote
-echo "Switch to HEAD branch"
+git submodule foreach git checkout main
 
+echo "Done"

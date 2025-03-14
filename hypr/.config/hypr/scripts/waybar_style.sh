@@ -1,5 +1,5 @@
-#!/bin/bash
-
+#!/bin/env bash
+# TODO: this
 IFS=$'\n\t'
 
 opts="$XDG_CONFIG_HOME/waybar/style"
