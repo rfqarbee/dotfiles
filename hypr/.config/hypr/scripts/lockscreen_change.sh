@@ -1,7 +1,28 @@
 #!/bin/env bash
-if [[ -n "$choice" ]]; then
-  sddm_sequoia="/usr/share/sddm/themes/sequoia_2"
-  if [ -d "$sddm_sequoia" ]; then
+theme="sequoia_2"
+sddm="/usr/share/sddm/themes/$theme"
+opts=$(menu | rofi -i -show -dmenu)
+notif="$HOME/.config/swaync/images/notif.png"
+
+mapfile -d '' PICS < <(find -L "$HOME/Pictures/wallpapers" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.pnm" -o -iname "*.tga" -o -iname "*.tiff" -o -iname "*.webp" -o -iname "*.bmp" -o -iname "*.farbfeld" -o -iname "*.png" -o -iname "*.gif" \) -print0)
+menu() {
+  # Sort the PICS array
+  IFS=$'\n' sorted_options=($(sort <<<"${PICS[*]}"))
+
+  for pic_path in "${sorted_options[@]}"; do
+    pic_name=$(basename "$pic_path")
+
+    # Displaying .gif to indicate animated images
+    if [[ ! "$pic_name" =~ \.gif$ ]]; then
+      printf "%s\x00icon\x1f%s\n" "$(echo "$pic_name" | cut -d. -f1)" "$pic_path"
+    else
+      printf "%s\n" "$pic_name"
+    fi
+  done
+}
+
+if [[ -n "$opts" ]]; then
+  if [ -d "$sddm" ]; then
 
 	# Check if yad is running to avoid multiple yad notification
 	if pidof yad > /dev/null; then
@@ -17,16 +38,10 @@ if [[ -n "$choice" ]]; then
     --button="yad-no:1" \
     ; then
 
-    # Check if terminal exists
-    if ! command -v "$terminal" &>/dev/null; then
-    notify-send -i "$images" "Missing $terminal" "Install $terminal to enable setting of wallpaper background"
-    exit 1
-    fi
-
-    # Open terminal to enter password
-    $terminal -e bash -c "echo 'Enter your password to set wallpaper as SDDM Background'; \
-    sudo cp -r $wallpaper_current '$sddm_sequoia/backgrounds/default' && \
-    notify-send -i '$images' 'SDDM' 'Background SET'"
+    val="$HOME/Pictures/wallpapers/$opts.png"
+      if sed -i "s#=\(.*\)#=${val}#g" $sddm/theme.conf.user 2>/dev/null; then
+	notify-send -i '$notif' 'SDDM' "Lockscreen changed $opts"
+      fi
     fi
   fi
 fi

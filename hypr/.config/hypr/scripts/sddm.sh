@@ -39,10 +39,11 @@ if [[ -n "$opts" ]]; then
     exit 1
     fi
 
-    # Open terminal to enter password
-    $terminal -e bash -c "echo 'Enter your password to set wallpaper as SDDM Background'; \
-    sudo cp -r $HOME/Pictures/wallpapers/$opts '$sddm_sequoia/backgrounds/default' && \
-    notify-send -i '$notif' 'SDDM' 'Background SET'"
+    val=$HOME/Pictures/wallpapers/$opts
+    sed -i "s/=\(.*\)/=$val/" $sddm_sequoia/theme.conf.user
+    if $?; then
+      notify-send -i '$notif' 'SDDM' 'Background SET'
+    fi
     fi
   fi
 fi
