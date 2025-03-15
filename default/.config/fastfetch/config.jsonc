@@ -1,0 +1,131 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "display" : {
+    "separator": " ➜  "
+  },
+  "modules": [
+    {
+     "type": "os",
+    "key": " DISTRO",
+     "keyColor" : "cyan"
+    },
+    {
+     "type": "kernel",
+     "key": " ├  Kernel",
+     "keyColor" : "cyan"
+    },
+    {
+      "type":"uptime",
+      "key" : " ├ 󰅐 Uptime",
+      "keyColor":"cyan"
+    },
+    {
+      "type":"packages",
+      "key" : " ├ 󰏖 Packages",
+      "keyColor":"cyan"
+    },
+    {
+      "type":"shell",
+      "key" : " └  Shell",
+      "keyColor":"cyan"
+    },
+    {
+     "type": "host",
+      "key" : "󰌢  Host",
+     "keyColor" : "green"
+    },
+    {
+      "type":"display",
+      "key" : " ├ 󰍹 Monitors",
+      "keyColor":"green"
+    },
+    {
+      "type":"cpu",
+      "key" : " ├  CPU",
+      "keyColor":"green"
+    },
+    {
+      "type":"gpu",
+      "key" : " ├ 󰢮 GPU",
+      "keyColor":"green"
+    },
+    {
+      "type":"memory",
+      "key" : " ├ 󰾆 Memory",
+      "keyColor":"green"
+    },
+    {
+      "type":"swap",
+      "key" : " ├ 󰓡 Swap",
+      "keyColor":"green"
+    },
+    {
+      "type":"disk",
+      "key" : " ├ 󰋊 Disk",
+      "keyColor":"green"
+    },
+    {
+      "type":"battery",
+      "key" : " ├  Battery",
+      "keyColor":"green"
+    },
+    {
+      "type":"locale",
+      "key" : " ├  Locale",
+      "keyColor":"green"
+    },
+    {
+    "type": "sound",
+    "key": " └  AUDIO",
+    "format": "{2}",
+    "keyColor": "green"
+    },
+    {
+      "type":"de",
+      "key" : "  DE",
+      "keyColor":"blue"
+    },
+    {
+      "type":"wm",
+      "key" : "  WM",
+      "keyColor":"blue"
+    },
+    {
+      "type":"wmtheme",
+      "key" : " ├ 󰉼 WM Theme",
+      "keyColor":"blue"
+    },
+    {
+      "type":"theme",
+      "key" : " ├ 󰉼 Theme",
+      "keyColor":"blue"
+    },
+    {
+      "type":"icons",
+      "key" : " ├ 󰀻 Icons",
+      "keyColor":"blue"
+    },
+    {
+      "type":"font",
+      "key" : " ├  Fonts",
+      "keyColor":"blue"
+    },
+    {
+      "type":"cursor",
+      "key" : " ├ 󰇀 Cursor",
+      "keyColor":"blue"
+    },
+    {
+      "type":"terminalfont",
+      "key" : " ├  Term Fonts",
+      "keyColor":"white"
+    },
+    {
+      "type":"terminal",
+      "key" : " └  Terminal",
+      "keyColor":"blue"
+    },
+      "break",
+       "colors"
+  ]
+}

@@ -27,9 +27,9 @@ bindkey -s '^f' "freeze -o $FREEZE_OUT/"
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
-# set options for history
 ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
 
+# set options for history
 HISTFILE=~/.config/zsh/.histfile
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE

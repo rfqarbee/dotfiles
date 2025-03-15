@@ -1,6 +1,5 @@
 #!/bin/bash
 
-terminal=kitty
 wallpaper="$HOME/Pictures/wallpapers"
 scripts="$XDG_CONFIG_HOME/hypr/scripts"
 wallpaper_current="$XDG_CONFIG_HOME/hypr/wallpaper_effects/.wallpaper_current"
@@ -70,30 +69,27 @@ menu() {
   done
 }
 
-# initiate swww if not running
-swww query || swww-daemon --format xrgb
+[[ -z $(pidof swww-daemon) ]] && swww-daemon --format xrgb
 
-# Choice of wallpapers
 main() {
   choice=$(menu | $rofi_command)
 
   choice=$(echo "$choice" | xargs)
   RANDOM_PIC_NAME=$(echo "$RANDOM_PIC_NAME" | xargs)
 
-  # No choice case
   if [[ -z "$choice" ]]; then
-    echo "No choice selected. Exiting."
     exit 0
   fi
 
   # Random choice case
   if [[ "$choice" == "$RANDOM_PIC_NAME" ]]; then
-	swww img -o "$focused_monitor" "$RANDOM_PIC" $SWWW_PARAMS;
-    sleep 2
-    "$scripts/WallustSwww.sh"
-    sleep 0.5
-    "$scripts/Refresh.sh"
-    exit 0
+      swww img -o "$focused_monitor" "$RANDOM_PIC" $SWWW_PARAMS;
+      cp -r $RANDOM_PIC $XDG_CONFIG_HOME/hypr/.current_wallpaper
+      sleep 2
+      "$scripts/wallust.sh"
+      sleep 0.5
+      "$scripts/refresh_daemon.sh"
+      exit 0
   fi
 
   pic_index=-1
@@ -107,6 +103,7 @@ main() {
 
   if [[ $pic_index -ne -1 ]]; then
     swww img -o "$focused_monitor" "${PICS[$pic_index]}" $SWWW_PARAMS
+      cp -r $RANDOM_PIC $XDG_CONFIG_HOME/hypr/.current_wallpaper
   else
     echo "Image not found."
     exit 1
@@ -114,50 +111,14 @@ main() {
 
 }
 
-# Check if rofi is already running
 if pidof rofi > /dev/null; then
   pkill rofi
 fi
 
 main
-
 wait $!
-"$scripts/WallustSwww.sh" &&
-
+"$scripts/wallust.sh" &&
 wait $!
 sleep 2
-"$scripts/Refresh.sh"
-
+"$scripts/refresh_daemon.sh"
 sleep 1
-# Check if user selected a wallpaper
-if [[ -n "$choice" ]]; then
-  sddm_sequoia="/usr/share/sddm/themes/sequoia_2"
-  if [ -d "$sddm_sequoia" ]; then
-
-	# Check if yad is running to avoid multiple yad notification
-	if pidof yad > /dev/null; then
-	  killall yad
-	fi
-
-    if yad --info --text="Set current wallpaper as SDDM background?\n\nNOTE: This only applies to SEQUOIA SDDM Theme" \
-    --text-align=left \
-    --title="SDDM Background" \
-    --timeout=5 \
-    --timeout-indicator=right \
-    --button="yad-yes:0" \
-    --button="yad-no:1" \
-    ; then
-
-    # Check if terminal exists
-    if ! command -v "$terminal" &>/dev/null; then
-    notify-send -i "$images" "Missing $terminal" "Install $terminal to enable setting of wallpaper background"
-    exit 1
-    fi
-
-    # Open terminal to enter password
-    $terminal -e bash -c "echo 'Enter your password to set wallpaper as SDDM Background'; \
-    sudo cp -r $wallpaper_current '$sddm_sequoia/backgrounds/default' && \
-    notify-send -i '$images' 'SDDM' 'Background SET'"
-    fi
-  fi
-fi
