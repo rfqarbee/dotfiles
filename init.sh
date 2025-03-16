@@ -14,6 +14,40 @@ init_install() {
 
 }
 
+pacman () {
+    opts=(
+	"Color"
+	"CheckSpace"
+	"VerbosePkgLists"
+	"ParallelDownloads"
+    )
+
+for line in "${opts[@]}"; do
+    if grep -q "^#$line" "$pacman_conf"; then
+        sudo sed -i "s/^#$line/$line/" "$pacman_conf"
+        echo -e "Uncommented: $line ${RESET}" 2>&1 | tee -a "$LOG"
+    else
+        echo -e "$line is already uncommented. ${RESET}" 2>&1 | tee -a "$LOG"
+    fi
+done
+
+# Add "ILoveCandy" below ParallelDownloads if it doesn't exist
+if grep -q "^ParallelDownloads" "$pacman_conf" && ! grep -q "^ILoveCandy" "$pacman_conf"; then
+    sudo sed -i "/^ParallelDownloads/a ILoveCandy" "$pacman_conf"
+    echo -e "${CAT} Added ${MAGENTA}ILoveCandy${RESET} after ${MAGENTA}ParallelDownloads${RESET}. ${RESET}" 2>&1 | tee -a "$LOG"
+else
+    echo -e "${CAT} It seems ${YELLOW}ILoveCandy${RESET} already exists ${RESET} moving on.." 2>&1 | tee -a "$LOG"
+fi
+
+echo -e "${CAT} ${MAGENTA}Pacman.conf${RESET} spicing up completed ${RESET}" 2>&1 | tee -a "$LOG"
+
+
+# updating pacman.conf
+printf "\n%s - ${SKY_BLUE}Synchronizing Pacman Repo${RESET}\n" "${INFO}"
+sudo pacman -Sy
+
+}
+
 init_hypr() {
     wallpaper=$HOME/.config/hypr/.current_wallpaper
     waybar="$HOME/.config/waybar/style/Dark-Half Moon.css"
@@ -61,8 +95,11 @@ init_dir() {
 }
 
 init_yay() {
-    yay -Y --gendb
-    yay -Syu --devel
+    if sudo pacman -Qs yay-bin >/dev/null; then
+	yay -Y --gendb
+	yay -Syu --devel
+    else
+	echo "Install yay-bin or build from souce"
+    fi
 }
 
-init_install

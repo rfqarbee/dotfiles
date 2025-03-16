@@ -6,6 +6,7 @@ stow_dirs=$(find $PWD -mindepth 1 -maxdepth 1 -not -path "*/.git" -type d)
 term="kitty"
 prompt="ohmyposh"
 ignore=""
+touch log
 
 for folders in $stow_dirs; do
     currentFolder=$(basename $folders)
