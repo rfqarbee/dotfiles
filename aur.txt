@@ -8,4 +8,3 @@ pyprland
 ttf-victor-mono
 wallust
 wlogout
-yay-bin

@@ -34,6 +34,7 @@ git-delta
 github-cli
 gnome-system-monitor
 go
+gnupg
 grim
 gtk-engine-murrine
 gvfs
