@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 notif="$XDG_CONFIG_HOME/swaync/images/notif.png"
 

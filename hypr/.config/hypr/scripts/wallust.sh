@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 cur_mon=$(hyprctl monitors | awk '/^Monitor/{name=$2} /focused: yes/{print name}')
 curr_file="$XDG_CACHE_HOME/swww/$cur_mon"

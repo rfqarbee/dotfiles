@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 # i aint doing all the color palettes
 # credits to jakoolit
 

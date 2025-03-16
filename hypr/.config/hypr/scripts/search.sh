@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 search="https://www.google.com/search?q={}"
 theme="$XDG_CONFIG_HOME/rofi/launchers/util/search-bar.rasi"

@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 theme="sequoia_2"
 sddm="/usr/share/sddm/themes/$theme"
 opts=$(menu | rofi -i -show -dmenu)

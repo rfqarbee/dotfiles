@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 scripts=$XDG_CONFIG_HOME/hypr/scripts
 

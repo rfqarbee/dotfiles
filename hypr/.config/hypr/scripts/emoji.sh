@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 theme="$XDG_CONFIG_HOME/rofi/launchers/util/search-list.rasi"
 

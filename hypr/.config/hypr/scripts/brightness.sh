@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 icons="$XDG_CONFIG_HOME/swaync/icons"
 notification_timeout=1000

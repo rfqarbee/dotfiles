@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # copy from jakoolit with some tweaks
 
 icons="$XDG_CONFIG_HOME/swaync/icons"

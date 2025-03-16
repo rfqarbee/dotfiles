@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 theme="$XDG_CONFIG_HOME/rofi/launchers/clipboard/clipboard-v1.rasi"
 msg='Ctrl+Delete | Alt+Delete (all)'
 

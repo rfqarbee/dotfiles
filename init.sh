@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 scripts=$HOME/.config/hypr/scripts
 logs="$DOTFILE/_logs/logs"
 

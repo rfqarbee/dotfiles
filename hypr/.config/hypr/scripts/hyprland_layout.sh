@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # copy from jakoolits
 notif="$XDG_CONFIG_HOME/swaync/images/notif.png"
 

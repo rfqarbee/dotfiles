@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 # shameless copy from jakoolit's config
 
 #----- Optimized bars animation without much CPU usage increase --------

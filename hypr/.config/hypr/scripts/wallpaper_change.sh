@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 wallpaper="$HOME/Pictures/wallpapers"
 scripts="$XDG_CONFIG_HOME/hypr/scripts"

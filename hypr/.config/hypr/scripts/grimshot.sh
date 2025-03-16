@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 if [[ ! -d "$GRIM_DEFAULT_DIR" ]]; then
 	mkdir -p "$GRIM_DEFAULT_DIR"

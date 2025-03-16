@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 # i aint doing all this, copy from jakoolit
 # just changed some variables
