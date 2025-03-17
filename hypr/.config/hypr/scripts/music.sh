@@ -4,7 +4,7 @@
 icons="$XDG_CONFIG_HOME/swaync/icons"
 theme="$XDG_CONFIG_HOME/rofi/launchers/util/search-list.rasi"
 
-declare -A online_music=(
+declare -A lists=(
   ["Lofi Radio"]="https://play.streamafrica.net/lofiradio"
   ["Lofi"]="https://www.youtube.com/live/jfKfPfyJRdk?si=PnJIA9ErQIAw6-qd"
   ["Fav"]="https://music.youtube.com/playlist?list=PLE5fjN1ZGxpxG-vvx8WzJufxd8fzayOfY&si=hbapO9zewv48u_OM"
@@ -18,14 +18,15 @@ notification() {
 }
 
 stream_music() {
-  choice=$(for online in "${!online_music[@]}"; do
+  choice=$(for list in "${!lists[@]}"; do
+      echo $list
     done | sort | rofi -i -dmenu)
 
   if [ -z "$choice" ]; then
     exit 1
   fi
 
-  link="${online_music[$choice]}"
+  link="${lists[$choice]}"
   notification "$choice"
   mpv --shuffle --vid=no "$link"
 }
