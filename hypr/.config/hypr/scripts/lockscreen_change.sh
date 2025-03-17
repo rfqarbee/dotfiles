@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-theme="sequoia_2"
+theme="sequoia"
+rofi_theme="$XDG_CONFIG_HOME/rofi/launchers/util/search-wallpaper.rasi"
 sddm="/usr/share/sddm/themes/$theme"
-opts=$(menu | rofi -i -show -dmenu)
 notif="$HOME/.config/swaync/images/notif.png"
 
 mapfile -d '' PICS < <(find -L "$HOME/Pictures/wallpapers" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.pnm" -o -iname "*.tga" -o -iname "*.tiff" -o -iname "*.webp" -o -iname "*.bmp" -o -iname "*.farbfeld" -o -iname "*.png" -o -iname "*.gif" \) -print0)
@@ -21,6 +21,7 @@ menu() {
   done
 }
 
+opts=$(menu | rofi -show -dmenu -theme $rofi_theme)
 if [[ -n "$opts" ]]; then
   if [ -d "$sddm" ]; then
 
@@ -29,16 +30,17 @@ if [[ -n "$opts" ]]; then
 	  killall yad
 	fi
 
-    if yad --info --text="Set current wallpaper as SDDM background?\n\nNOTE: This only applies to SEQUOIA SDDM Theme" \
+    if yad --info --text="Set current wallpaper as SDDM background?" \
     --text-align=left \
-    --title="SDDM Background" \
-    --timeout=5 \
+    --title="lockscreen" \
+    --timeout=10 \
     --timeout-indicator=right \
     --button="yad-yes:0" \
     --button="yad-no:1" \
     ; then
 
     val="$HOME/Pictures/wallpapers/$opts.png"
+    ln -sn $val $XDG_CONFIG_HOME/hypr/.sddm
       if sed -i "s#=\(.*\)#=${val}#g" $sddm/theme.conf.user 2>/dev/null; then
 	notify-send -i '$notif' 'SDDM' "Lockscreen changed $opts"
       fi

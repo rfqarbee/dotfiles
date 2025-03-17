@@ -28,7 +28,7 @@ mapfile -d '' PICS < <(find -L "${wallpaper}" -type f \( -iname "*.jpg" -o -inam
 RANDOM_PIC="${PICS[$((RANDOM % ${#PICS[@]}))]}"
 RANDOM_PIC_NAME=". random"
 
-launch="rofi -i -show -dmenu -config $theme"
+launch="rofi -show -dmenu -theme $theme"
 
 # shameless copy from jakoolit
 menu() {
@@ -49,9 +49,11 @@ menu() {
 [[ -z $(pidof swww-daemon) ]] && swww-daemon --format xrgb
 
 main() {
-  opts=$(menu | $launch)
+  wp=$(menu | $launch)
 
-  opts=$(echo "$choice" | xargs)
+
+  echo $wp
+  opts=$(echo "$wp" | xargs)
   RANDOM_PIC_NAME=$(echo "$RANDOM_PIC_NAME" | xargs)
 
   if [[ -z "$opts" ]]; then
