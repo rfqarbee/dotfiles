@@ -1,5 +1,4 @@
 # Remove the ; to change parameters.
-
 [general]
 
 # Smoothing mode. Can be 'normal', 'scientific' or 'waves'. DEPRECATED as of 0.6.0
@@ -239,14 +238,14 @@
 # for wallust
 gradient = 1
 gradient_count = 8
-gradient_color_1 = '#43444B'
-gradient_color_2 = '#333643'
-gradient_color_3 = '#433B3C'
-gradient_color_4 = '#605E60'
-gradient_color_5 = '#B8B7B9'
-gradient_color_6 = '#7C7A7E'
-gradient_color_7 = '#807D80'
-gradient_color_8 = '#B8B7B9'
+gradient_color_1 = '#4B4D53'
+gradient_color_2 = '#704A40'
+gradient_color_3 = '#1F5880'
+gradient_color_4 = '#687589'
+gradient_color_5 = '#E8CEC0'
+gradient_color_6 = '#A28479'
+gradient_color_7 = '#8B9CB6'
+gradient_color_8 = '#E8CEC0'
 
 
 [smoothing]
