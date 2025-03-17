@@ -72,6 +72,7 @@ main() {
   pic_index=-1
   for i in "${!PICS[@]}"; do
     filename=$(basename "${PICS[$i]}")
+    echo $filename
     if [[ "$filename" == "$opts"* ]]; then
       pic_index=$i
       break

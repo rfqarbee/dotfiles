@@ -172,5 +172,5 @@ configuration {
 */
 }
 
-@theme "~/.config/rofi/colors/wallust-colors-rofi.rasi"
+@theme "~/.config/rofi/colors/colors_wallust.rasi"
 @import "~/.config/rofi/launchers/default/default.rasi"

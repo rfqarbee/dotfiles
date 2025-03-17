@@ -3,14 +3,15 @@ scripts=$HOME/.config/hypr/scripts
 logs="$DOTFILE/_logs/logs"
 
 
-init_install() {
+init_install () {
     extras=()
     aur=()
     while read -r out; do
 	extras+=($out)
-    done < ./extras.txt
+    done < $DOTFILE/extras.txt
+    echo $extras
     if [[ ${#extras} -gt 0 ]]; then
-	yes | sudo pacman -Sp ${extras[@]}
+	yes | sudo pacman -S ${extras[@]}
     fi
 }
 
@@ -168,7 +169,7 @@ init_dir() {
 }
 
 init_yay() {
-    if [ $(command -v yay) ];then
+    if [ ! $(command -v yay) ];then
 	git clone https://aur.archlinux.org/yay-bin.git $HOME/repos/yay-bin
 	cd $HOME/repos/yay-bin
 	makepkg -si
@@ -179,7 +180,7 @@ init_yay() {
 	yay -Syu --devel
 	while read -r out; do
 	    aur+=($out)
-	done < ./aur.txt
+	done < $DOTFILE/aur.txt
 	    if [[ ${#aur} -gt 0 ]]; then
 		yes | yay -S ${aur[@]}
 	    fi
@@ -188,22 +189,22 @@ init_yay() {
     fi
 }
 
-echo "Creating directories and init git"
-init_dir
-echo "Pacman conf"
-pacman
-sleep 2
-echo "Init Yay"
-init_yay
-sleep 2
-echo "Install packages"
-init_intall
-sleep 2
-echo "Init services"
-init_daemon
-sleep 2
-echo "Nvidia nightmare"
-init_nvidia
-sleep 2
+# echo "Creating directories and init git"
+# init_dir
+# echo "Pacman conf"
+# pacman
+# sleep 2
+# echo "Init Yay"
+# init_yay
+# sleep 2
+# echo "Install packages"
+# init_install 
+# sleep 2
+# echo "Init services"
+# init_daemon
+# sleep 2
+# echo "Nvidia nightmare"
+# init_nvidia
+# sleep 2
 echo "Init hyprland defaults"
 init_hypr

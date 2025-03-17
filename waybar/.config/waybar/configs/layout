@@ -1,9 +1,9 @@
 {
     "include": [
-        "$HOME/.config/waybar/main",
-        "$HOME/.config/waybar/workspace",
-        "$HOME/.config/waybar/custom",
-        "$HOME/.config/waybar/groups",
+        "$HOME/.config/waybar/configs/modules/main",
+        "$HOME/.config/waybar/configs/modules/workspace",
+        "$HOME/.config/waybar/configs/modules/custom",
+        "$HOME/.config/waybar/configs/modules/groups"
     ],
     "layer": "top",
     //"mode": "dock",
@@ -18,18 +18,18 @@
     "margin-right": 10,
 
     "modules-left": [
-        "group/app_drawer",
+    "group/app_drawer",
     "custom/separator#dot-line",
     "hyprland/window",
-    "custom/separator#blank",
+    "custom/separator#blank"
     ],
 
     "modules-center": [
-        "group/system_stats",
+    "group/system_stats",
     "custom/separator#dot-line",
-    "hyprland/workspaces#rw",
+    "hyprland/workspaces",
     "custom/separator#dot-line",
-    "group/notify",
+    "group/notify"
     ],
 
     "modules-right": [
@@ -40,7 +40,7 @@
     "custom/separator#dot-line",
     "clock",
     "custom/separator#dot-line",
-    "group/power",
-    ],
+    "group/power"
+    ]
 }
 
