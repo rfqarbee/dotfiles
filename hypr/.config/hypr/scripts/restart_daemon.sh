@@ -4,13 +4,16 @@ scripts=$XDG_CONFIG_HOME/hypr/scripts
 
 if [[ $1 == '--all' ]]; then
     for pid in $(pidof waybar rofi swaync); do
-        kill -SIGUSR1 "$pid"
+        if [[ -n $pid ]]; then
+            kill -9 "$pid"
+        fi
     done
-    sleep 1
-    waybar &
+    waybar
 else
     for pid in $(pidof rofi swaync); do
-        kill -SIGUSR1 "$pid"
+        if [[ -n $pid ]]; then
+            kill -9 "$pid"
+        fi
     done
 fi
 

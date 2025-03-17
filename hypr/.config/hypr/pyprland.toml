@@ -6,9 +6,9 @@ plugins = [
   "magnify",
 ]
 
-[scratchpads.term]
+[scratchpads.ani-cli]
 animation = "fromTop"
 lazy = true
-command = "kitty --class float_term"
+command = "kitty --class float_term --title ani-cli -e ani-cli"
 class = "float_term"
 size = "75% 60%"
