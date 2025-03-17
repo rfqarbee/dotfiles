@@ -18,6 +18,7 @@ _logs/
 default/.config/cava/config
 default/.config/xfce4
 default/.config/Thunar
+hypr/.config/hypr/.current_wallpaper
 hypr/.config/hypr/wallust/wallust-hyprland.conf
 rofi/.config/rofi/wallust/colors_wallust.rasi
 rofi/.config/rofi/images/.current_wallpaper
