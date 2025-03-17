@@ -15,11 +15,10 @@ tmux/.config/tmux/plugins
 
 _logs/
 
-# ignore since only want the init state for default
-default/.config/cava/*
-default/.config/xfce4/*
-hypr/.config/hypr/.current_wallpaper
+default/.config/cava/config
+default/.config/xfce4
+default/.config/Thunar
 hypr/.config/hypr/wallust/wallust-hyprland.conf
-rofi/.config/rofi/colors/colors-wallust.conf
+rofi/.config/rofi/wallust/colors_wallust.rasi
 rofi/.config/rofi/images/.current_wallpaper
 waybar/.config/waybar/wallust/colors-waybar.css
