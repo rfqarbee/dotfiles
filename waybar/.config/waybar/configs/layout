@@ -33,7 +33,7 @@
     ],
 
     "modules-right": [
-        "custom/playerctl",
+    "custom/playerctl",
     "custom/separator#dot-line",
     "tray",
     "group/audio",
