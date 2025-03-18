@@ -20,7 +20,7 @@ opts=$(menu | rofi -i -show -dmenu)
 terminal=kitty
 notif="$HOME/.config/swaync/images/notif.png"
 if [[ -n "$opts" ]]; then
-  sddm="/usr/share/sddm/themes/sequoia_2"
+  sddm="/usr/share/sddm/themes/sequoia"
   if [ -d "$sddm" ]; then
 	if pidof yad > /dev/null; then
 	  killall yad
@@ -33,7 +33,7 @@ if [[ -n "$opts" ]]; then
     --button="yad-no:1" \
     ; then
 
-    val=$HOME/Pictures/wallpapers/$opts
+    val=$HOME/Pictures/wallpapers/$opts.png
     cp $val $sddm/backgrounds/default
     cp $val $XDG_CONFIG_HOME/hypr/.sddm
     notify-send -i '$notif' 'SDDM' 'Background SET'
