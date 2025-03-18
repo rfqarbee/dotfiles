@@ -24,7 +24,6 @@ window#waybar.empty #window {
     background-color: transparent;
 }
 
-#taskbar,
 #workspaces {
   background: #0F1419;
   margin: 5px;
@@ -35,7 +34,6 @@ window#waybar.empty #window {
   color: #0F1419;
 }
 
-#taskbar button,
 #workspaces button {
   padding: 0px 5px;
   margin: 4px 3px;
@@ -47,7 +45,6 @@ window#waybar.empty #window {
   transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
-#taskbar button.active,
 #workspaces button.active {
   padding: 0px 5px;
   margin: 4px 3px;
@@ -117,7 +114,6 @@ color: #F3F4F5;
 }
 
 #custom-light_dark,
-#custom-dot_update,
 #custom-swaync,
 #custom-hypridle,
 #idle_inhibitor,
@@ -146,6 +142,8 @@ color: #F3F4F5;
 #custom-playerctl,
 #power-profiles-daemon,
 #custom-cycle_wall,
+#custom-cava_mviz,
+#custom-updater,
 #cpu {
 	color: #F3F4F5;
 	background: #0F1419;
@@ -171,14 +169,6 @@ color: #F3F4F5;
 	padding: 2px 15px;
 }
 
-#mpris {
-	color: #F07178;
-	background: #0F1419;
-	border-radius: 50px 50px;
-	margin: 5px;
-	padding-left: 8px;
-	padding-right: 2px;
-}
 
 #backlight {
 	color: white;
@@ -229,9 +219,6 @@ color: #F3F4F5;
 	padding: 2px 15px;
 }
 
-#custom-browser,
-#custom-file_manager,
-#custom-tty,
 #custom-settings {
 	border-radius: 50px 50px;
 	margin: 5px;

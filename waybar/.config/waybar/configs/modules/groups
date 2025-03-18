@@ -7,7 +7,6 @@
         "idle_inhibitor",
 		"custom/light_dark",
         "custom/updater",
-        "custom/cava_mviz",
 	]
 },
 
