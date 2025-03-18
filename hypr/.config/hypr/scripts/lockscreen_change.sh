@@ -41,7 +41,7 @@ if [[ -n "$opts" ]]; then
 
     val="$HOME/Pictures/wallpapers/$opts.png"
     cp $val $sddm/backgrounds/default
-    ln -sn $val $XDG_CONFIG_HOME/hypr/.sddm
+    cp $val $XDG_CONFIG_HOME/hypr/.sddm
     notify-send -i '$notif' 'SDDM' "Lockscreen changed $opts"
     fi
   fi
