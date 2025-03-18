@@ -83,6 +83,7 @@
     "format": "{:%H:%M - %d/%b}", // 24H
     "format-alt" :"{:%H:%M:%S  %d/%b %a}",
 	"tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "on-click":"gnome-calendar",
 	"calendar": {
 		"mode": "year",
 		"mode-mon-col": 3,
