@@ -40,10 +40,9 @@ if [[ -n "$opts" ]]; then
     ; then
 
     val="$HOME/Pictures/wallpapers/$opts.png"
+    cp $val $sddm/backgrounds/default
     ln -sn $val $XDG_CONFIG_HOME/hypr/.sddm
-      if sed -i "s#=\(.*\)#=${val}#g" $sddm/theme.conf.user 2>/dev/null; then
-	notify-send -i '$notif' 'SDDM' "Lockscreen changed $opts"
-      fi
+    notify-send -i '$notif' 'SDDM' "Lockscreen changed $opts"
     fi
   fi
 fi
