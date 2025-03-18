@@ -26,3 +26,4 @@ waybar/.config/waybar/wallust/colors-waybar.css
 default/.config/cava/config
 default/.config/gtk-3.0/settings.ini
 default/.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
+hypr/.config/hypr/.sddm
