@@ -39,6 +39,7 @@ if [[ -n "$opts" ]]; then
     --button="yad-no:1" \
     ; then
 
+    # TODO: file extension
     val="$HOME/Pictures/wallpapers/$opts.png"
     cp $val $sddm/backgrounds/default
     cp $val $XDG_CONFIG_HOME/hypr/.sddm
