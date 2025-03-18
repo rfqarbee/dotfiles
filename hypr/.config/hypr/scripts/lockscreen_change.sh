@@ -21,7 +21,7 @@ menu() {
   done
 }
 
-opts=$(menu | rofi -show -dmenu -theme $rofi_theme)
+opts=$(menu | rofi -i -p "Lockscreen" -show -dmenu -theme $rofi_theme)
 if [[ -n "$opts" ]]; then
   if [ -d "$sddm" ]; then
 

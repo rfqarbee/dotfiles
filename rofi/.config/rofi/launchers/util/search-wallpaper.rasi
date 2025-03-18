@@ -1,8 +1,14 @@
 @import "~/.config/rofi/config.rasi"
+
 /* ---- Configuration ---- */
 configuration {
-  modi: "drun";
-  display-drun:"Images";
+    show-icons:true;
+    modi: "drun";
+    display-drun:"Images";
+	/*---------- Matching setting ----------*/
+	matching: "normal";
+	tokenize: true;
+
 }
 
 window {
@@ -17,10 +23,11 @@ mainbox {
 }
 
 entry {
-  expand: true;
-  placeholder: " 🎞️ Search / Choose Wallpaper";
-  horizontal-align: 0.5;
-  horizontal-align: 0.5;
+    enabled : true;
+    expand: true;
+    placeholder: " 🎞️ Search ";
+    horizontal-align: 0.5;
+    horizontal-align: 0.5;
 }
 
 /* ---- Listview ---- */
@@ -48,8 +55,9 @@ element {
 }
 
 element selected.normal {
-  background-color: transparent;
-}
+  background-color: #B89A67;
+  text-color: black;
+  }
 
 element-icon {
     text-color:                  inherit;

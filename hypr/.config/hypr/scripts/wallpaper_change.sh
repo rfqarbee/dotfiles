@@ -28,7 +28,7 @@ mapfile -d '' PICS < <(find -L "${wallpaper}" -type f \( -iname "*.jpg" -o -inam
 RANDOM_PIC="${PICS[$((RANDOM % ${#PICS[@]}))]}"
 RANDOM_PIC_NAME=". random"
 
-launch="rofi -show -dmenu -theme $theme"
+launch="rofi -p Wallpaper -i -show -dmenu -theme $theme"
 
 # shameless copy from jakoolit
 menu() {
