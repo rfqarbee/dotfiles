@@ -56,12 +56,12 @@ set_waybar_style() {
     if [ -n "$file" ]; then
         ln -sf "$file" "$current_style"
     else
-        notify-send -u low -i "$notif" " Theme Mode Failed " " No Style for $theme_mode mode"
+        notify-send -u low -i "$notif" "Theme Mode Failed " " No Style for $theme_mode mode"
     fi
 }
 
 set_waybar_style "$theme_mode"
-notify-send -u low -i "$notif" " Switching to" " $theme_mode mode"
+notify-send -u low -i "$notif" "Switching to" " $theme_mode mode"
 
 
 # swaync color change
@@ -113,7 +113,7 @@ set_custom_gtk_theme() {
         search_keywords="*Dark*"
         gsettings set $color_setting 'prefer-dark'
     else
-        notify-send -u low -i "$notif" " GTK Theme " " Mode Error"
+        notify-send -u low -i "$notif" "GTK Theme " " Mode Error"
         return 1
     fi
 
@@ -139,7 +139,7 @@ set_custom_gtk_theme() {
             flatpak --user override --env=GTK_THEME="$selected_theme"
         fi
     else
-        notify-send -u low -i "$notif" " GTK Theme " " No GTK theme found"
+        notify-send -u low -i "$notif" "GTK Theme " " No GTK theme found"
     fi
 
     if [ ${#icons[@]} -gt 0 ]; then
@@ -161,7 +161,7 @@ set_custom_gtk_theme() {
             flatpak --user override --env=ICON_THEME="$selected_icon"
         fi
     else
-        notify-send -u low -i "$notif" " GTK Theme " " No Icon theme found"
+        notify-send -u low -i "$notif" "GTK Theme " " No Icon theme found"
     fi
 }
 
@@ -173,5 +173,5 @@ sleep 1
 ${scripts}/restart_daemon.sh --all
 
 sleep 0.5
-notify-send -u low -i "$notif" " Theme:" " $theme_mode Mode"
+notify-send -u low -i "$notif" "Theme:" " $theme_mode Mode"
 exit 0

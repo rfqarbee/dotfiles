@@ -14,7 +14,7 @@ declare -A lists=(
 )
 
 notification() {
-  notify-send -u normal -i "$icons/music.png" " Now Playing:" " $@"
+  notify-send -u normal -i "$icons/music.png" "Now Playing:" "$@"
 }
 
 stream_music() {

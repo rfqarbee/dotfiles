@@ -31,7 +31,7 @@ notification() {
         local check_file="${GRIM_DEFAULT_DIR}/${file}"
         if [[ -e "$check_file" ]]; then
             "${scripts}/system_sound.sh" --screenshot
-            resp=$(timeout 5 ${screenshotted} " Screenshot" " Saved")
+            resp=$(timeout 5 ${screenshotted} "Screenshot" "Saved")
 			case "$resp" in
 				action1)
 					loupe "${check_file}" &
@@ -41,7 +41,7 @@ notification() {
 					;;
 			esac
         else
-	notify-send -u low -i $XDG_CONFIG_HOME/swaync/images/notif.png  " Screenshot " " Cancelled"
+	notify-send -u low -i $XDG_CONFIG_HOME/swaync/images/notif.png  "Screenshot " "Cancelled"
             "${scripts}/system_sound.sh" --error
         fi
     fi
