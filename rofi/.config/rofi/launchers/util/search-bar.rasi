@@ -9,14 +9,17 @@ window {
     location: north;
     children: [ "entry", "message" ];
     border: 2px;
+    border-radius: 20px;
     border-color: white/25%;
 }
 
 /* ---- Entry ---- */
 entry {
 	expand: true;
+    background-color: @background;
+    text-color: white;
 	placeholder: " 🔎 Google Search";
 	horizontal-align: 0.5;
 	padding: 15px;
-	border-radius: inherit;
 }
+
