@@ -58,6 +58,7 @@
 		"class<polkit-gnome-authentication-agent-1>": "󰒃 ",
 		"class<nwg-look>": " ",
 
+        "class<steam_app_.*>": " ",
         "class<steam>": " ",
         "class<thunar>": "󰝰 ",
         "class<gimp>": " ",
@@ -70,7 +71,6 @@
         "class<nwg-look>" : " GTK",
         "class<nm-connection-editor>" : " ",
 
-        "class<Display> title<.*ImageMagick.*>" : " ",
         "class<Display> title<.*ImageMagick.*>" : " ",
         "class<org.gnome.loupe>": " "
 		},
