@@ -29,3 +29,5 @@ default/.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
 hypr/.config/hypr/.sddm
 default/.config/gtk-3.0/bookmarks
 default/.config/Thunar/accels.scm
+default/.config/qt5ct/qt5ct.conf
+default/.config/qt6ct/qt6ct.conf

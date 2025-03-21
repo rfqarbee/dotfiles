@@ -3,9 +3,9 @@
 "group/app_drawer": {
 	"orientation": "inherit",
 	"modules": [
+        "custom/light_dark",
         "custom/cycle_wall",
         "idle_inhibitor",
-		"custom/light_dark",
         "custom/updater",
 	]
 },
