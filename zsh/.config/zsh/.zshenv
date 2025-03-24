@@ -57,6 +57,10 @@ export GOPATH="$XDG_DATA_HOME"/go
 export DOTNET_ROOT=$XDG_DATA_HOME/mise/installs/dotnet/latest # remove if not using mise
 export DOTNET_TELEMETRY_OPTOUT=1
 
+# taskwarriro
+export TASKRC=$XDG_CONFIG_HOME/taskrc
+export TASKDATA=$XDG_DATA_HOME/task task list
+
 # path
 typeset -U path PATH
 path=($HOME/bin $HOME/.config/pub_cache/bin /usr/local/bin $HOME/.local/bin $HOME/.local/scripts $DOTNET_ROOT $DOTNET_ROOT/tools $HOME/.local/share/go/bin $path)
