@@ -140,7 +140,8 @@
         "ignored-sinks": ["Easy Effects Sink"]
     },
 
-/*custom*/
+/*
+custom
     "custom/launcher" : {
         "format": " ",
         "on-click": "rofi -show drun -theme \"~/.config/rofi/launchers/sidebar/sidebar.rasi\" ",
@@ -157,6 +158,7 @@
        "exec-if": "which waybar-module-pacman-updates",
        "exec": "waybar-module-pacman-updates  --interval-seconds 5 --network-interval-seconds 300"
    },
+*/
 
  "custom/power":{
      "format":" ",

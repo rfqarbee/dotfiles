@@ -1,10 +1,12 @@
 ani-cli
 blender
+betterbird-bin
 cava
 dbeaver
 freeze-bin
 nosqlbooster-mongodb
 pyprland
+rose-pine-hyprcursor
 ttf-victor-mono
 wallust
 wlogout

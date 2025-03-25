@@ -104,8 +104,6 @@
 	"exec": "checkupdates | wc -l",
 	"exec-if": "[[ $(checkupdates | wc -l) ]]",
 	"interval": 43200, // (schedule 12 hours)
-	"tooltip": "checkupdates",
-	"tooltip-format": "{}",
 },
 
 "custom/separator#dot-line": {
