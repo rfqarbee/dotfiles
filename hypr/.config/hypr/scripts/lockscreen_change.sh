@@ -40,7 +40,7 @@ if [[ -n "$opts" ]]; then
     ; then
 
     val=$(rg --files $HOME/Pictures/wallpapers | rg -i $opts)
-    cp $val $sddm/backgrounds/default
+    cp $val $sddm/Backgrounds/default
     cp $val $XDG_CONFIG_HOME/hypr/.sddm
     notify-send -i '$notif' 'SDDM' "Lockscreen changed $(basename -- $val)"
     fi
