@@ -54,7 +54,7 @@
         },
 	"modules": [
 		"custom/power",
-        "keyboard-state",
+        /*"keyboard-state",*/
 		"custom/lock",
 	]
 },

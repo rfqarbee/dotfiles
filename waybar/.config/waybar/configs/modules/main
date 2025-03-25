@@ -128,7 +128,7 @@
 	}
 },
 
-"keyboard-state": {
+/* "keyboard-state": {
 	//"numlock": true,
 	"capslock": true,
 	"format": {
@@ -140,6 +140,7 @@
 		"unlocked": ""
 	},
 },
+*/
 
 "cpu": {
     "interval": 10,
