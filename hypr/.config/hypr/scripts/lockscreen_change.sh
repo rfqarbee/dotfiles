@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-theme="sequoia"
+theme="sugar-candy"
 rofi_theme="$XDG_CONFIG_HOME/rofi/launchers/util/search-wallpaper.rasi"
 sddm="/usr/share/sddm/themes/$theme"
 notif="$HOME/.config/swaync/images/notif.png"
@@ -39,11 +39,10 @@ if [[ -n "$opts" ]]; then
     --button="yad-no:1" \
     ; then
 
-    # TODO: file extension
-    val="$HOME/Pictures/wallpapers/$opts.png"
+    val=$(rg --files $HOME/Pictures/wallpapers | rg -i $opts)
     cp $val $sddm/backgrounds/default
     cp $val $XDG_CONFIG_HOME/hypr/.sddm
-    notify-send -i '$notif' 'SDDM' "Lockscreen changed $opts"
+    notify-send -i '$notif' 'SDDM' "Lockscreen changed $(basename -- $val)"
     fi
   fi
 fi
