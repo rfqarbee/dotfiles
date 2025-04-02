@@ -2,6 +2,9 @@ version = 3
 enable_cursor_positioning = true
 final_space = true
 
+[upgrade]
+auto = false
+
 [secondary_prompt]
   template = '▶ '
   foreground = 'green'

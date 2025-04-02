@@ -103,7 +103,8 @@
 	"format": " {}",
 	"exec": "checkupdates | wc -l",
 	"exec-if": "[[ $(checkupdates | wc -l) ]]",
-	"interval": 43200, // (schedule 12 hours)
+	"interval": 43200, // (schedule 12 hours),
+  "hide-empty-text" : true
 },
 
 "custom/separator#dot-line": {

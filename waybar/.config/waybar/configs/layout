@@ -5,7 +5,7 @@
         "$HOME/.config/waybar/configs/modules/custom",
         "$HOME/.config/waybar/configs/modules/groups"
     ],
-    "layer": "top",
+    "layer": "bottom",
     //"mode": "dock",
     "exclusive": true,
     "passthrough": false,
