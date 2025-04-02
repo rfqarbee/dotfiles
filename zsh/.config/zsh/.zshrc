@@ -20,8 +20,8 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q # reload all completion
 
 # key binds
-bindkey -s "^E" "tmux_session.sh\n"
-bindkey -s "^b" "backend.sh\n"
+# bindkey -s "^E" "tmux_session.sh\n"
+# bindkey -s "^b" "backend.sh\n"
 bindkey -s '^f' "freeze -o $FREEZE_OUT/"
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
@@ -70,14 +70,15 @@ run_tmux() {
 [ $(command -v mise) ] && eval "$(mise activate zsh)"
 # [ $(command -v direnv) ] && eval "$(direnv hook zsh)"
 
-if [[ -z $(oh-my-posh notice) ]]; then
-    if [ $(command -v tmux) ] && [[ -z $TMUX ]] && [[ -z $has_tmux ]]; then
+# if [[ -z $(oh-my-posh notice) ]]; then
+if [ $(command -v tmux) ] && [[ -z $TMUX ]] && [[ -z $has_tmux ]]; then
+    if [[ -n $(oh-my-posh notice) ]]; then
+        echo "Oh-my-posh updates"
+        exit
+    else
         run_tmux
-    elif [[ -z $TMUX ]]; then
-        echo "Existing Tmux Session, tma to reattach"
     fi
-else
-    oh-my-posh notice
+elif [[ -z $TMUX ]]; then
+    echo "Existing Tmux Session, tma to reattach"
 fi
 
-# . "$HOME/.local/share/../bin/env"
