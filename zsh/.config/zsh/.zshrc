@@ -72,11 +72,10 @@ run_tmux() {
 
 # if [[ -z $(oh-my-posh notice) ]]; then
 if [ $(command -v tmux) ] && [[ -z $TMUX ]] && [[ -z $has_tmux ]]; then
-    if [[ -n $(oh-my-posh notice) ]]; then
-        echo "Oh-my-posh updates"
-        exit
-    else
+    if [[ -z $(oh-my-posh notice) ]]; then
         run_tmux
+    else
+        oh-my-posh notice
     fi
 elif [[ -z $TMUX ]]; then
     echo "Existing Tmux Session, tma to reattach"

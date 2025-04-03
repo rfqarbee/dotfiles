@@ -1,3 +1,19 @@
+# defaults
+export XDG_CONFIG_DIRS=/etc/xdg
+export XDG_DATA_DIRS=/usr/local/share:/usr/share
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
+export LOCAL_DIR=$HOME/.local
+export FREEZE_OUT=$HOME/Pictures/Screenshots
+export DEVDIR=$HOME/dev
+export WORK=$HOME/work
+export REPOS=$HOME/repos
+export PROBEDIR=$HOME/probe
+export DOTFILES=$HOME/dotfiles
+export TMPDIR=/tmp
+
 # wine
 export WINEARCH=win64
 export MGFXC_WINE_PATH=/home/rafiq/.winemonogame
@@ -25,22 +41,6 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --color=fg:-1,bg:-1,hl:#c678dd,fg+:#ffffff,bg+:#4b5263,hl+:#d858fe
 --color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
 '
-
-# defaults
-export XDG_CONFIG_DIRS=/etc/xdg
-export XDG_DATA_DIRS=/usr/local/share:/usr/share
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_CACHE_HOME=$HOME/.cache
-export XDG_DATA_HOME=$HOME/.local/share
-export XDG_STATE_HOME=$HOME/.local/state
-export LOCAL_DIR=$HOME/.local
-export FREEZE_OUT=$HOME/Pictures/Screenshots
-export DEVDIR=$HOME/dev
-export WORK=$HOME/work
-export REPOS=$HOME/repos
-export PROBEDIR=$HOME/probe
-export DOTFILES=$HOME/dotfiles
-export TMPDIR=/tmp
 
 export PROMPT_EOL_MARK=''
 export TMUX_TMPDIR=/tmp

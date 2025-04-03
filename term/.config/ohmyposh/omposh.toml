@@ -3,7 +3,10 @@ enable_cursor_positioning = true
 final_space = true
 
 [upgrade]
+notice = true
+interval = "168h"
 auto = false
+source = "cdn"
 
 [secondary_prompt]
   template = '▶ '
