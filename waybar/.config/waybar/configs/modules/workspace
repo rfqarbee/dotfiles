@@ -29,9 +29,8 @@
         "class<NoSQLBooster for MongoDB>" : " NoSQLBooster",
         "class<[Tt]elegram-desktop|org.telegram.desktop|io.github.tdesktop_x64.TDesktop>": " ",
         "class<discord|[Ww]ebcord|Vesktop>": " ",
+        "class<.*discord.*>": " ",
         "title<.*whatsapp.*>": " ",
-        "title<.*messenger.*>": " ",
-        "title<.*facebook.*>": " ",
         "title<.*reddit.*>": " ",
 
         "class<mpv>": " ",
@@ -45,7 +44,6 @@
         "class<virtualbox manager>": "💽 ",
         "title<virtualbox>": "💽 ",
         "class<remmina>": "🖥️ ",
-
         "class<obsidian>": " ",
         "class<.*libreoffice-writer.*>":" ",
         "class<.*libreoffice-calc.*>":" ",
@@ -78,7 +76,8 @@
         "class<nm-connection-editor>" : " ",
 
         "class<Display> title<.*ImageMagick.*>" : " ",
-        "class<org.gnome.loupe>": " "
+        "class<org.gnome.loupe>": " ",
+        "class<ferdium>": "󱕕  ",
 		},
     "format-icons" : {
         "special" :" ",
