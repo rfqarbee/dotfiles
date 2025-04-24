@@ -11,20 +11,20 @@ listDP="$(hyprctl monitors | grep -i "monitor" | awk '{if(NR==1){s=$2}else{s=s "
 scripts="$XDG_CONFIG_HOME/hypr/scripts"
 
 notify_mes="notify-send -t 10000 -A action1=Open -A action2=Delete -h string:x-canonical-private-synchronous:shot-notify"
-screenshotted="${notify_mes} -i ${XDG_CONFIG_HOME}/picture.png "
+screenshotted="${notify_mes} -i ${XDG_CONFIG_HOME/swaync/icons/picture.png}"
 
 # notify and view screenshot
 notification() {
     if [[ "$1" == "swappy" ]]; then
 		"${scripts}/system_sound.sh" --screenshot
-		resp=$(${screenshotted} " Screenshot:" " Swappy")
+		resp=$(${screenshotted} " Screenshot: Swappy")
 		case "$resp" in
 			action1)
-				swappy -f - <"$tmpfile"
-				;;
+			swappy -f - < $tmpfile
+			;;
 			action2)
-				rm "$tmpfile"
-				;;
+			rm "$tmpfile"
+			;;
 		esac
 
     else
@@ -74,7 +74,11 @@ area() {
 
 swappy() {
 	tmpfile=$(mktemp)
-	grim -g "$(slurp)" - >"$tmpfile" && notification "swappy"
+	grim -g "$(slurp)" - >"$tmpfile"
+	if [[ -s "$tmpfile" ]]; then
+		wl-copy <"$tmpfile"
+		notification "swappy"
+	fi
 }
 
 monitor() {
