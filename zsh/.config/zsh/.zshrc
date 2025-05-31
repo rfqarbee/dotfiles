@@ -70,13 +70,8 @@ run_tmux() {
 [ $(command -v mise) ] && eval "$(mise activate zsh)"
 # [ $(command -v direnv) ] && eval "$(direnv hook zsh)"
 
-# if [[ -z $(oh-my-posh notice) ]]; then
 if [ $(command -v tmux) ] && [[ -z $TMUX ]] && [[ -z $has_tmux ]]; then
-    if [[ -z $(oh-my-posh notice) ]]; then
         run_tmux
-    else
-        oh-my-posh notice
-    fi
 elif [[ -z $TMUX ]]; then
     echo "Existing Tmux Session, tma to reattach"
 fi
