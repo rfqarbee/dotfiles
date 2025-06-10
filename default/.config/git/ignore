@@ -10,7 +10,9 @@ mise.*
 !.mise.local.toml
 
 # build files
+**/build/
 build/*
+**/dist/
 dist/*
 *.exe
 *.o
