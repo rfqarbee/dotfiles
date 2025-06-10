@@ -106,7 +106,7 @@ source = "cdn"
 
     [blocks.segments.properties]
       cache_duration = 'none'
-      extensions = ['*.cmake', 'CMakeLists.txt', 'Makefile']
+      extensions = ['*.cmake', 'CMakeLists.txt']
 
   [[blocks.segments]]
     template = ' ☸ {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}} '
