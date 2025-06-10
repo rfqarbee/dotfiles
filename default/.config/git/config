@@ -1,0 +1,8 @@
+[credential]
+	helper = store
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main
+[alias]
+	changes = diff-tree --no-commit-id --name-only -r

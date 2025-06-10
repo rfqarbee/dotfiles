@@ -1,0 +1,19 @@
+# env related
+.env
+.env.*
+!.env.sample
+!.env.example
+
+# pde tools
+.mise.*
+mise.*
+!.mise.local.toml
+
+# build files
+build/*
+dist/*
+*.exe
+*.o
+
+
+node_modules/*

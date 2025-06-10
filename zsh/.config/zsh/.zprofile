@@ -43,7 +43,7 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 '
 
 export PROMPT_EOL_MARK=''
-export TMUX_TMPDIR=/tmp
+# export TMUX_TMPDIR=/tmp
 export BROWSER=firefox
 export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 export ASDF_DATA_DIR=$XDG_CONFIG_HOME/asdf # mise plugin; asdf
