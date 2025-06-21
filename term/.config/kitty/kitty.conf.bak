@@ -24,7 +24,7 @@ enable_audio_bell no
 confirm_os_window_close 0
 
 # BEGIN_KITTY_THEME
-# Tomorrow Night
+# 1984 Dark
 include current-theme.conf
 # END_KITTY_THEME
 

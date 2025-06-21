@@ -16,6 +16,7 @@
         "class<firefox|org.mozilla.firefox": " ",
 
         "class<kitty>": " ",
+        "class<.*ghostty.*>": " ",
         "class<float-term>": " ",
 
         "class<org.kde.okular>": " ",

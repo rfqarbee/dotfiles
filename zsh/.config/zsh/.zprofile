@@ -36,6 +36,7 @@ export GNUPGHOME=$XDG_DATA_HOME/gnupg
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+--bind=ctrl-f:preview-half-page-down,ctrl-b:preview-half-page-up
 --ansi
 --color=dark
 --color=fg:-1,bg:-1,hl:#c678dd,fg+:#ffffff,bg+:#4b5263,hl+:#d858fe
