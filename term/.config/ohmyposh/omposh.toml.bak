@@ -25,8 +25,7 @@ source = "cdn"
 
   [[blocks.segments]]
     template = '{{ if .Segments.Git.RepoName}}󰜥 {{ if eq .Segments.Git.Dir .PWD }} {{.Segments.Git.RepoName}}{{else}} {{.Path}} {{end}} {{else}} {{if not .Writable}}🔒 {{end}}{{.Path}} {{end}}'
-    # foreground = '#51afef'
-    foreground = '#56b6c2'
+    foreground = '#51afef'
     type = 'path'
     style = 'plain'
 

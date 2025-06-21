@@ -1,5 +1,7 @@
 # Personal Dotfiles
 
+TODO: scripts is not yet complete
+
 - Clone to $HOME
 
 * `install.sh` to stow all
