@@ -1,45 +1,54 @@
 #!/usr/bin/env bash
-root=$PWD
-export DOTFILE=$root
-stow_dirs=$(find $PWD -mindepth 1 -maxdepth 1 -not -path "*/.git" -type d)
-term="kitty"
-prompt="ohmyposh"
-ignore=""
 
-if [[ -f "$DOTFILE/init_complete" ]]; then
-    exit
+sep="\n-----------------------------------------"
+ignore=""
+cur=$PWD
+export DOTFILES=$cur
+stow=$(find $PWD -mindepth 1 -maxdepth 1 -not -path "*/.git" -type d)
+deps=("stow" "git")
+reqdir=("repos" "dev" "work" "probe" "www")
+
+if [[ -f "$DOTFILES/.configured" ]]; then
+  echo "Nothing to do"
+  exit
 fi
 
-for folders in $stow_dirs; do
-    currentFolder=$(basename $folders)
-
-    if [[ $currentFolder == 'term' ]]; then
-        term_folder=$(find $currentFolder -mindepth 2 -maxdepth 2)
-        for folder in $term_folder; do
-            ignore_folder=$(basename $folder)
-            if [[ $ignore_folder != $term && $ignore_folder != $prompt ]]; then
-                ignore="$ignore${ignore_folder}|"
-            fi
-        done
-        ignore=$(echo $ignore | sed 's/|$//')
-        echo "Ignoring $(echo $ignore | sed 's/|/ /g')"
-        echo -e "Stowing $currentFolder"
-        stow $currentFolder --ignore "$ignore"
-    else
-        echo -e "Stowing $currentFolder"
-        stow $currentFolder
+for dir in "${reqdir[@]}";do
+    if ! find $HOME/$dir -maxdepth 1 -type d &>/dev/null;then
+        mkdir $HOME/$dir
     fi
 done
 
-# cd $root
-# echo -e "\nInit submodule"
-# git submodule update --init --recursive --remote
-# wait
-# git submodule foreach git checkout main
-# wait
-echo "Done clone"
+for dep in ${deps[@]}; do
+  command -v $dep &>/dev/null
+  if [[ $? -gt 0 ]]; then
+    echo "Install missing deps"
+    sudo pacman -S $dep
+  fi
+done
+
+for dirs in $stow; do
+  curDir=$(basename $dirs)
+  stow $curDir
+done
+
+cd $cur
+echo -e $sep
+echo "Path -> $cur"
+echo "init submodule scripts + nvim"
 sleep 1
-echo "Init script"
-./init.sh
-touch init_complete
-#echo "Done"
+git submodule update --init --recursive --remote
+git submodule foreach git fetch
+git submodule foreach git checkout main
+echo -e $sep
+echo "init all required shit in sys"
+sleep 1
+
+# ./init.sh
+
+if [[ $? -gt 0 ]]; then
+  echo "fail"
+  exit;
+fi
+
+echo "done"
