@@ -37,14 +37,14 @@ echo -e $sep
 echo "Path -> $cur"
 echo "init submodule scripts + nvim"
 sleep 1
-git submodule update --init --recursive --remote
-git submodule foreach git fetch
-git submodule foreach git checkout main
+#git submodule update --init --recursive --remote
+# git submodule foreach git fetch
+# git submodule foreach git checkout main
 echo -e $sep
 echo "init all required shit in sys"
 sleep 1
 
-# ./init.sh
+./init.sh
 
 if [[ $? -gt 0 ]]; then
   echo "fail"

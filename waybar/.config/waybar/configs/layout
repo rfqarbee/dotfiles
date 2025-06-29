@@ -19,21 +19,21 @@
 
     "modules-left": [
     "group/app_drawer",
+    "group/notify",
     "custom/separator#dot-line",
     "hyprland/window",
+    "custom/playerctl",
     "custom/separator#blank"
     ],
 
     "modules-center": [
-    "group/system_stats",
     "custom/separator#dot-line",
     "hyprland/workspaces",
     "custom/separator#dot-line",
-    "group/notify"
+    "group/system_stats",
     ],
 
     "modules-right": [
-    "custom/playerctl",
     "custom/separator#dot-line",
     "tray",
     "group/audio",

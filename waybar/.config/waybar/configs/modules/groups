@@ -3,9 +3,9 @@
 "group/app_drawer": {
 	"orientation": "inherit",
 	"modules": [
-        "custom/light_dark",
-        "custom/cycle_wall",
-        "idle_inhibitor",
+        //"custom/light_dark", // TODO
+        //"custom/cycle_wall",
+        //"idle_inhibitor",
         "custom/updater",
 	]
 },
@@ -36,7 +36,7 @@
 	"drawer": {
 		"transition-duration": 500,
 		"children-class": "pulseaudio",
-		"transition-left-to-right": true
+		"transition-left-to-right": false
         },
 	"modules": [
 		"pulseaudio",

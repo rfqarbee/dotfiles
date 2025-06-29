@@ -34,3 +34,4 @@ default/.config/Thunar/accels.scm
 default/.config/qt5ct/qt5ct.conf
 default/.config/qt6ct/qt6ct.conf
 default/.config/Kvantum/catppuccin-mocha-blue/catppuccin-mocha-blue.kvconfig
+default/.config/git/credentials

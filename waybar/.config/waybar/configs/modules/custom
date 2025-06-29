@@ -104,6 +104,7 @@
 	"exec": "checkupdates | wc -l",
 	"exec-if": "[[ $(checkupdates | wc -l) ]]",
 	"interval": 43200, // (schedule 12 hours),
+  //"on-click" : "ghostty", // TODO
   "hide-empty-text" : true
 },
 

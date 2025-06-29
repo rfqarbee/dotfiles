@@ -43,7 +43,7 @@ set -e
 # }
 
 init_user() {
-  sudo usermod -aG games,wheel,audio,input,kvm,video,docker,gamemode $whoami
+  sudo usermod -aG games,wheel,audio,input,kvm,video,docker $whoami
 }
 
 init_yay() {
@@ -166,16 +166,16 @@ init_hyprland() {
 #   sleep 2
 # }
 
-# init_user
-# echo "Current group"
-# echo $(groups $whoami)
-# sleep 1
+ # init_user
+ # echo "Current group"
+ # echo $(groups $whoami)
+ # sleep 1
 # init_pacman
 # echo -e "\npacman configured..."
 # sleep 1
-# init_yay
-# echo -e "\nyay configured..."
-# sleep 1
+ # init_yay
+ # echo -e "\nyay configured..."
+ # sleep 1
 # echo -e "\ninstall packages..."
 # ins_pkgs
 # echo -e "\nEnable services"
