@@ -23,7 +23,7 @@ export RUSTUP_HOME=$XDG_CONFIG_HOME/rustup
 export GOPATH=$XDG_DATA_HOME/go
 
 # ts
-export NODE_OPTIONS="--max-old-space-size=4096"
+export NODE_OPTIONS="--max-old-space-size=8192"
 
 # android
 # export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
