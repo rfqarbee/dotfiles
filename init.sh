@@ -46,18 +46,19 @@ init_user() {
   sudo usermod -aG games,wheel,audio,input,kvm,video,docker $whoami
 }
 
-init_yay() {
-  sudo pacman -S --needed base-devel git
-  git clone https://aur.archlinux.org/yay-bin.git $HOME/repos
-  cd $HOME/repos/yay-bin
-  makepkg -si
-  yay -Y --gendb
-  yay -Syu --devel
-  yay -Y --devel --save
-}
+# init_yay() {
+#   sudo pacman -S --needed base-devel git
+#   if $(command -v yay)
+#   git clone https://aur.archlinux.org/yay-bin.git $HOME/repos
+#   cd $HOME/repos/yay-bin
+#   makepkg -si
+#   yay -Y --gendb
+#   yay -Syu --devel
+#   yay -Y --devel --save
+# }
 
 ins_pkgs(){
-  yes | yay -S $(cat ./pkgs.txt) --needed
+  yay -S $(cat ./pkgs.txt) --needed
 }
 
 # init_pacman() {
@@ -176,8 +177,8 @@ init_hyprland() {
  # init_yay
  # echo -e "\nyay configured..."
  # sleep 1
-# echo -e "\ninstall packages..."
-# ins_pkgs
+echo -e "\ninstall packages..."
+ins_pkgs
 # echo -e "\nEnable services"
 # init_daemon
 echo -e "\ninit hyprland"

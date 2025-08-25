@@ -6,7 +6,7 @@ cur=$PWD
 export DOTFILES=$cur
 stow=$(find $PWD -mindepth 1 -maxdepth 1 -not -path "*/.git" -type d)
 deps=("stow" "git")
-reqdir=("repos" "dev" "work" "probe" "www")
+reqdir=("repos" "dev" "work" "probe")
 
 if [[ -f "$DOTFILES/.configured" ]]; then
   echo "Nothing to do"
@@ -37,14 +37,12 @@ echo -e $sep
 echo "Path -> $cur"
 echo "init submodule scripts + nvim"
 sleep 1
-#git submodule update --init --recursive --remote
-# git submodule foreach git fetch
-# git submodule foreach git checkout main
+git submodule update --init --recursive --remote
+git submodule foreach git fetch
+git submodule foreach git checkout main
 echo -e $sep
 echo "init all required shit in sys"
 sleep 1
-
-./init.sh
 
 if [[ $? -gt 0 ]]; then
   echo "fail"

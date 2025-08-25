@@ -1,7 +1,6 @@
 7zip
 amd-ucode
 ani-cli
-apidog-bin
 base
 base-devel
 bat
@@ -41,8 +40,6 @@ freeze-bin
 fuse2
 fzf
 galculator
-gamemode
-gamescope
 gammastep
 gdb
 ghostty
@@ -78,7 +75,6 @@ kvantum
 kwalletmanager
 lazygit
 less
-lib32-gamemode
 lib32-libpulse
 lib32-libva
 lib32-nvidia-utils
