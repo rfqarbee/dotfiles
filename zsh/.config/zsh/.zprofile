@@ -10,7 +10,7 @@ export FREEZE_OUT=$HOME/Pictures/Screenshots
 export DEVDIR=$HOME/dev
 export WORK=$HOME/work
 export REPOS=$HOME/repos
-export PROBEDIR=$HOME/probe
+export PROBE=$HOME/probe
 export DOTFILES=$HOME/dotfiles
 export TMPDIR=/tmp
 
@@ -30,8 +30,6 @@ export PULSE_COOKIE=$XDG_CONFIG_HOME/pulse/pulse-cookie
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/"
 export WWW_HOME="google.com"
 export W3M_DIR=$HOME/.cache/w3m
-export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv # nvidia
-export GNUPGHOME=$XDG_DATA_HOME/gnupg
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
@@ -44,7 +42,6 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 '
 
 export PROMPT_EOL_MARK=''
-# export TMUX_TMPDIR=/tmp
 export BROWSER=firefox
 export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 export ASDF_DATA_DIR=$XDG_CONFIG_HOME/asdf # mise plugin; asdf
