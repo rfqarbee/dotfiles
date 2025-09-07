@@ -81,7 +81,7 @@
 
 "clock": {
 	"interval": 1,
-    "format" :"{:%H:%M:%S  %d/%b %a}",
+    "format" :"{:%H:%M  %d/%b %a}",
 	"tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
     "on-click":"gnome-calendar",
 	"calendar": {
@@ -102,7 +102,7 @@
 "hyprland/window": {
 	"format": "{}",
 	"max-length": 30,
-	"separate-outputs": false,
+	"separate-outputs": true,
 	"offscreen-css": true,
 	"offscreen-css-text": "(inactive)",
      "rewrite": {

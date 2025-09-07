@@ -5,7 +5,7 @@ plugins = [
   "magnify",
 ]
 
-[scratchpads.tests]
+[scratchpads.task]
 animation = "fromTop"
 lazy = true
 command = "kitty --class float_term"

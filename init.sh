@@ -2,6 +2,10 @@
 
 set -e
 
+# sddm_theme(){
+#   git clone https://codeberg.org/minMelody/sddm-sequoia.git ~/sequoia && rm -rf ~/sequoia/.git
+#   sudo mv ~/sequoia /usr/share/sddm/themes/
+# }
 # TODO
 # init_nvidia() {
 #     sudo sed -Ei 's/^(MODULES=\([^\)]*)\)/\1 nvidia nvidia_modeset nvidia_uvm nvidia_drm)/' /etc/mkinitcpio.conf

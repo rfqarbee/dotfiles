@@ -20,9 +20,7 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q # reload all completion
 
 # key binds
-# bindkey -s "^E" "tmux_session.sh\n"
-# bindkey -s "^b" "backend.sh\n"
-bindkey -s '^f' "freeze -o $FREEZE_OUT/"
+# bindkey -s '^f' "freeze -o $FREEZE_OUT/"
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
@@ -58,21 +56,16 @@ zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
 export LESSOPEN="|/home/rafiq/.local/scripts/lessfilter.sh %s"
 
 source $ZDOTDIR/aliases.zsh
-has_tmux=$(pgrep tmux)
+source <(fzf --zsh)
+eval "$(zoxide init zsh --cmd cd)"
+eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/ohmyposh/omposh.toml)"
+eval "$(mise activate zsh)"
+eval "$(atuin init zsh)"
 
-run_tmux() {
+if [ $(command -v tmux) ]; then
+  if [[ -z $TMUX ]] && [[ -z $(pgrep tmux) ]]; then
     tmux_session.sh
-}
-
-[ $(command -v fzf) ] && source <(fzf --zsh)
-[ $(command -v zoxide) ] && eval "$(zoxide init zsh --cmd cd)"
-[ $(command -v oh-my-posh) ] && eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/ohmyposh/omposh.toml)"
-[ $(command -v mise) ] && eval "$(mise activate zsh)"
-# [ $(command -v direnv) ] && eval "$(direnv hook zsh)"
-
-if [ $(command -v tmux) ] && [[ -z $TMUX ]] && [[ -z $has_tmux ]]; then
-        run_tmux
-elif [[ -z $TMUX ]]; then
-    echo "Existing Tmux Session, tma to reattach"
+  elif [[ -z $TMUX ]]; then
+    echo "Exist tmux, tma"
+  fi
 fi
-

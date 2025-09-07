@@ -18,27 +18,21 @@
     "margin-right": 10,
 
     "modules-left": [
-    "group/app_drawer",
-    "group/notify",
+    "hyprland/workspaces",
     "custom/separator#dot-line",
-    "hyprland/window",
     "custom/playerctl",
     "custom/separator#blank"
     ],
 
     "modules-center": [
-    "custom/separator#dot-line",
-    "hyprland/workspaces",
-    "custom/separator#dot-line",
-    "group/system_stats",
+    "hyprland/window",
     ],
 
     "modules-right": [
-    "custom/separator#dot-line",
-    "tray",
     "group/audio",
     "custom/separator#dot-line",
-    "clock",
+    "group/notify",
+    "group/right",
     "custom/separator#dot-line",
     "group/power"
     ]

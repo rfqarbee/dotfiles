@@ -33,15 +33,29 @@
 
 "group/audio": {
 	"orientation": "inherit",
+	/* "drawer": {
+		"transition-duration": 500,
+		"children-class": "pulseaudio",
+		"transition-left-to-right": false
+        },
+        */
+	"modules": [
+    "pulseaudio#microphone",
+		"pulseaudio",
+	]
+},
+
+"group/right": {
+  "orientation": "inherit",
 	"drawer": {
 		"transition-duration": 500,
 		"children-class": "pulseaudio",
 		"transition-left-to-right": false
         },
-	"modules": [
-		"pulseaudio",
-		"pulseaudio#microphone",
-	]
+    "modules": [
+      "clock",
+    "tray"
+    ]
 },
 
 "group/power": {
@@ -53,14 +67,20 @@
         },
 	"modules": [
 		"custom/power",
-        /*"keyboard-state",*/
+    /*"keyboard-state",*/
 		"custom/lock",
 	]
 },
 "group/notify": {
 	"orientation": "inherit",
+	"drawer": {
+		"transition-duration": 500,
+		"children-class": "custom/power",
+		"transition-left-to-right": false
+        },
 	"modules": [
-		"custom/swaync",
+    "custom/swaync",
+    "custom/updater"
 	]
 },
 }
