@@ -177,8 +177,8 @@ init_hyprland() {
  # init_yay
  # echo -e "\nyay configured..."
  # sleep 1
-echo -e "\ninstall packages..."
-ins_pkgs
+# echo -e "\ninstall packages..."
+# ins_pkgs
 # echo -e "\nEnable services"
 # init_daemon
 echo -e "\ninit hyprland"

@@ -9,9 +9,9 @@ export NODE_OPTIONS="--max-old-space-size=8192"
 # .NET
 export DOTNET_ROOT=$XDG_DATA_HOME/mise/installs/dotnet/latest # remove if not using mise
 export DOTNET_TELEMETRY_OPTOUT=1
-
+export XDG_MENU_PREFIX="arch- kbuildsycoca6 --noincremental"
 # path
 typeset -U path PATH
-path=($HOME/bin $HOME/.config/pub_cache/bin /usr/local/bin $HOME/.local/bin $HOME/.local/scripts $DOTNET_ROOT $DOTNET_ROOT/tools $HOME/.local/share/go/bin $HOME/.config/cargo/bin $path)
+path=($HOME/bin $HOME/.config/pub_cache/bin /usr/local/bin $HOME/.local/bin $HOME/.local/scripts $DOTNET_ROOT $DOTNET_ROOT/tools $HOME/.local/share/go/bin $HOME/.cargo/bin $path)
 export PATH
 

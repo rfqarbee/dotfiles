@@ -1,4 +1,3 @@
-# copy from jakoolit
 [pyprland]
 
 plugins = [
@@ -6,9 +5,9 @@ plugins = [
   "magnify",
 ]
 
-[scratchpads.ani-cli]
+[scratchpads.tests]
 animation = "fromTop"
 lazy = true
-command = "kitty --class float_term --title ani-cli -e ani-cli"
+command = "kitty --class float_term"
 class = "float_term"
 size = "75% 60%"

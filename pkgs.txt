@@ -40,9 +40,7 @@ freeze-bin
 fuse2
 fzf
 galculator
-gammastep
 gdb
-ghostty
 gimp
 git
 git-delta

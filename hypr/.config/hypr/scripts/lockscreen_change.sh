@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-theme="eos-breeze"
+theme="breeze"
 rofi_theme="$XDG_CONFIG_HOME/rofi/launchers/util/search-wallpaper.rasi"
 sddm="/usr/share/sddm/themes/$theme"
 notif="$HOME/.config/swaync/images/notif.png"

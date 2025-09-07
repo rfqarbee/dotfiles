@@ -1,2 +1,5 @@
 [General]
 theme=catppuccin-mocha-blue
+
+[Applications]
+Default=dolphin

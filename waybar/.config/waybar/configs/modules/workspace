@@ -11,12 +11,11 @@
 	"on-scroll-up": "hyprctl dispatch workspace e+1",
 	"on-scroll-down": "hyprctl dispatch workspace e-1",
 	"format-window-separator": " ",
-	"window-rewrite-default": " ",
+	"window-rewrite-default": " ",
 	"window-rewrite": {
         "class<firefox|org.mozilla.firefox": " ",
 
         "class<kitty>": " ",
-        "class<.*ghostty.*>": " ",
         "class<float-term>": " ",
 
         "class<org.kde.okular>": " ",
@@ -78,6 +77,7 @@
 
         "class<Display> title<.*ImageMagick.*>" : " ",
         "class<org.gnome.loupe>": " ",
+        "class<org.kde.gwenview>": " ",
         "class<ferdium>": "󱕕  ",
 		},
     "format-icons" : {
