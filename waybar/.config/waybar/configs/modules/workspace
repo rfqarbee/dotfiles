@@ -14,7 +14,8 @@
 	"window-rewrite-default": " ",
 	"window-rewrite": {
         "class<firefox|org.mozilla.firefox": " ",
-
+        "class<brave-browser>": " ",
+        "class<superProductivity>": " ",
         "class<kitty>": " ",
         "class<float-term>": " ",
 

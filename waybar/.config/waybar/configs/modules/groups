@@ -53,7 +53,7 @@
 		"transition-left-to-right": false
         },
     "modules": [
-      "clock",
+    "clock",
     "tray"
     ]
 },
