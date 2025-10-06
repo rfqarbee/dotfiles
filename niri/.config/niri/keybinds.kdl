@@ -1,0 +1,117 @@
+binds {
+  Mod+Shift+Slash { show-hotkey-overlay; }
+
+  Mod+Return hotkey-overlay-title="Kitty" { spawn "kitty"; }
+  Mod+P hotkey-overlay-title="Rofi" { spawn "rofi" "-show" "drun" "-theme" "~/.config/rofi/launchers/applaunch/applaunch.rasi"; }
+  Mod+F hotkey-overlay-title="File Manager" { spawn "dolphin"; }
+  Super+Alt+L hotkey-overlay-title="Screenlock" { spawn "swaylock"; }
+
+  MOd+B hotkey-overlay-title="Brave" { spawn "brave" "--password-store=basic"; }
+
+  // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
+  // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
+  // For example, this is a standard bind to toggle the screen reader (orca).
+  // Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
+
+  // Example brightness key mappings for brightnessctl.
+  // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
+  // but you need to manually put each argument in separate "" quotes.
+  // XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+  // XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+
+  Mod+O repeat=false { toggle-overview; }
+
+  Mod+Q repeat=false { close-window; }
+
+  // focus
+  Mod+H     { focus-column-or-monitor-left; }
+  Mod+J     { focus-window-down; }
+  Mod+K     { focus-window-up; }
+  Mod+L     { focus-column-or-monitor-right; }
+  Mod+U     { focus-workspace-down; }
+  Mod+I     { focus-workspace-up; }
+  Mod+Home  { focus-column-first; }
+  Mod+End   { focus-column-last; }
+
+  // window only
+  Mod+Shift+H     { move-column-left; }
+  Mod+Shift+J     { move-window-down; }
+  Mod+Shift+K     { move-window-up; }
+  Mod+Shift+L     { move-column-right; }
+
+  // window + workspace
+  // Mod+Up       { move-window-up-or-to-workspace-up; }
+  // Mod+Down     { move-window-down-or-to-workspace-down; }
+  Mod+Left     { move-column-left-or-to-monitor-left; }
+  Mod+Right     { move-column-right-or-to-monitor-right; }
+
+  Mod+Ctrl+Home { move-column-to-first; }
+  Mod+Ctrl+End  { move-column-to-last; }
+
+  Mod+Shift+U         { move-window-down-or-to-workspace-down; }
+  Mod+Shift+I         { move-window-up-or-to-workspace-up; }
+  Mod+Shift+Left  { move-workspace-to-monitor-left; }
+  Mod+Shift+Right { move-workspace-to-monitor-right; }
+
+  Mod+WheelScrollUp cooldown-ms=150  { focus-column-left; }
+  Mod+WheelScrollDown cooldown-ms=150 { focus-column-right; }
+  Mod+Shift+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+  Mod+Shift+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+
+  Mod+1 { focus-workspace 1; }
+  Mod+2 { focus-workspace 2; }
+  Mod+3 { focus-workspace 3; }
+  Mod+4 { focus-workspace 4; }
+  Mod+5 { focus-workspace 5; }
+  Mod+6 { focus-workspace 6; }
+  Mod+7 { focus-workspace 7; }
+  Mod+8 { focus-workspace 8; }
+  Mod+9 { focus-workspace 9; }
+  Mod+Shift+1 { move-column-to-workspace 1; }
+  Mod+Shift+2 { move-column-to-workspace 2; }
+  Mod+Shift+3 { move-column-to-workspace 3; }
+  Mod+Shift+4 { move-column-to-workspace 4; }
+  Mod+Shift+5 { move-column-to-workspace 5; }
+  Mod+Shift+6 { move-column-to-workspace 6; }
+  Mod+Shift+7 { move-column-to-workspace 7; }
+  Mod+Shift+8 { move-column-to-workspace 8; }
+  Mod+Shift+9 { move-column-to-workspace 9; }
+
+  Alt+Tab { focus-workspace-previous; }
+
+  Mod+BracketLeft  { consume-or-expel-window-left; }
+  Mod+BracketRight { consume-or-expel-window-right; }
+  Mod+Comma  { consume-window-into-column; }
+  Mod+Period { expel-window-from-column; }
+
+  Mod+Tab { switch-preset-column-width; }
+  Mod+Shift+Tab { switch-preset-window-height; }
+  Mod+Ctrl+tab { reset-window-height; }
+  Mod+Shift+Return { maximize-column; }
+  F11 { fullscreen-window; }
+  Mod+Grave { expand-column-to-available-width; }
+
+  Mod+C { center-column; }
+
+  // Center all fully visible columns on screen.
+  Mod+Ctrl+C { center-visible-columns; }
+
+  Mod+Minus { set-column-width "-10%"; }
+  Mod+Equal { set-column-width "+10%"; }
+
+  Mod+Shift+Minus { set-window-height "-10%"; }
+  Mod+Shift+Equal { set-window-height "+10%"; }
+
+  Mod+V       { toggle-window-floating; }
+  Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+  Mod+W { toggle-column-tabbed-display; }
+
+  Print { screenshot; }
+  Ctrl+Print { screenshot-screen; }
+  Alt+Print { screenshot-window; }
+
+  Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+  Ctrl+Alt+Delete { quit; }
+}
