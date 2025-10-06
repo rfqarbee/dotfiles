@@ -13,7 +13,7 @@
 	"format-window-separator": " ",
 	"window-rewrite-default": " ",
 	"window-rewrite": {
-        "class<firefox|org.mozilla.firefox": " ",
+        "class<firefox|org.mozilla.firefox>": " ",
         "class<brave-browser>": " ",
         "class<superProductivity>": " ",
         "class<kitty>": " ",
@@ -85,4 +85,28 @@
         "special" :" ",
     }
 	},
+
+  "niri/workspaces": {
+      "all-outputs" : false,
+      "format": "{index} {icon} {name}",
+      "format-icons": {
+        "Dev" : "",
+        "PDE" :"<b><b>",
+        "Comm": "<b></b>",
+        "Media": "",
+        "General" :"",
+
+        // Icons by state
+        "active": "",
+        "default": ""
+      }
+    },
+
+    "niri/window": {
+      "format": "{}",
+      "rewrite" : {
+        "(.*) - zsh":"test $1",
+        "(.*) - Brave" :" Brave"
+      }
+    }
 }

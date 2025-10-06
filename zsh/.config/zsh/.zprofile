@@ -8,7 +8,6 @@ export XDG_STATE_HOME=$HOME/.local/state
 export LOCAL_DIR=$HOME/.local
 export FREEZE_OUT=$HOME/Pictures/Screenshots
 export DEVDIR=$HOME/dev
-export WORK=$HOME/work
 export REPOS=$HOME/repos
 export PROBE=$HOME/probe
 export DOTFILES=$HOME/dotfiles

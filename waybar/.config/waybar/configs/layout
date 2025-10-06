@@ -18,14 +18,14 @@
     "margin-right": 10,
 
     "modules-left": [
-    "hyprland/workspaces",
+    "niri/workspaces",
     "custom/separator#dot-line",
     "custom/playerctl",
     "custom/separator#blank"
     ],
 
     "modules-center": [
-    "hyprland/window",
+    "niri/window",
     ],
 
     "modules-right": [
