@@ -18,7 +18,7 @@ entry {
 	expand: true;
     background-color: @background;
     text-color: white;
-	placeholder: " 🔎 Google Search";
+	placeholder: " 🔎 Search";
 	horizontal-align: 0.5;
 	padding: 15px;
 }

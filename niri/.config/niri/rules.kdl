@@ -1,0 +1,140 @@
+workspace "Dev"{
+  open-on-output "DP-1"
+}
+
+workspace "General" {
+  open-on-output "DP-1"
+}
+
+workspace "PDE" {
+  open-on-output "DP-1"
+}
+
+workspace "Comm" {
+  open-on-output "DP-2"
+}
+
+workspace "Media" {
+  open-on-output "DP-2"
+}
+
+window-rule {
+  match app-id="kitty" title="zsh"
+  match app-id="DBeaver"
+  match app-id="HTTPie"
+  match app-id="NoSQLBooster for MongoDB"
+  match app-id="mgcb-editor-linux"
+  open-on-workspace "Dev"
+}
+
+window-rule {
+  match at-startup=true app-id="superProductivity"
+  match app-id="^gimp" title="^GIMP Startup$"
+
+  open-focused false
+  open-maximized true
+  open-on-workspace "PDE"
+}
+window-rule {
+  match app-id="superProductivity"
+  match app-id="ONLYOFFICE"
+  match app-id="com.obsproject.Studio"
+  match app-id="gimp"
+
+  open-maximized true
+  open-on-workspace "PDE"
+}
+
+window-rule {
+  match at-startup=true app-id="Yad" title="^Welcome"
+  match at-startup=true app-id="Electron"
+
+  open-focused false
+  open-floating true
+  open-on-workspace "General"
+}
+
+window-rule {
+  match app-id="waypaper"
+  match app-id="org.pulseaudio.pavucontrol"
+  match app-id="blueman-manager"
+  match app-id="java" title="Dbeaver"
+  open-floating true
+}
+
+window-rule {
+  match at-startup=true app-id="ferdium"
+  match at-startup=true app-id="vesktop"
+  open-focused false
+  open-maximized true
+  open-on-workspace "Comm"
+}
+
+window-rule {
+  match app-id="vesktop"
+  match app-id="ferdium"
+  open-maximized true
+  open-on-workspace "Comm"
+}
+window-rule {
+  match app-id="firefox"
+  open-maximized true
+  open-on-workspace "Media"
+}
+
+
+// https://yalter.github.io/niri/Configuration:-Window-Rules
+window-rule {
+  opacity 1.0
+  default-column-width { proportion 0.5; }
+}
+
+window-rule {
+    match is-window-cast-target=true
+
+    focus-ring {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+
+    border {
+        inactive-color "#7d0d2d"
+    }
+
+    shadow {
+        color "#7d0d2d70"
+    }
+
+    tab-indicator {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+}
+
+window-rule {
+  match app-id="brave"
+  open-maximized true
+}
+
+window-rule {
+  match app-id="kitty"
+  open-maximized true
+}
+
+window-rule {
+  match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+  open-floating true
+}
+
+window-rule {
+  match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+  match app-id=r#"^org\.gnome\.World\.Secrets$"#
+  block-out-from "screen-capture"
+  // Use this instead if you want them visible on third-party screenshot tools.
+  // block-out-from "screencast"
+}
+
+window-rule {
+  geometry-corner-radius 8
+  clip-to-geometry true
+}

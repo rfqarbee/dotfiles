@@ -1,7 +1,8 @@
 # docker
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export MACHINE_STORAGE_PATH="$XDG_DATA_HOME"/docker-machine
-
+export MISE_DEFAULT_CONFIG_FILENAME=".mise.local.toml"
+export BROWSER=firefox
 # go
 export GOPATH=$XDG_DATA_HOME/go
 # ts

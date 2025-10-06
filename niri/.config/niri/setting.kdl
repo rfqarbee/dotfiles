@@ -1,0 +1,29 @@
+input {
+  keyboard {
+    xkb {
+      layout "us"
+      options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
+    }
+  }
+  mouse {
+    accel-profile "flat"
+  }
+
+  warp-mouse-to-focus
+  focus-follows-mouse max-scroll-amount="0%"
+}
+
+output "DP-1" {
+  focus-at-startup
+  variable-refresh-rate on-demand=true
+  mode "1920x1080"
+  scale 1
+  transform "normal"
+  position x=1280 y=0
+}
+output "DP-2" {
+  variable-refresh-rate on-demand=true
+  mode "1920x1080"
+  scale 1
+  transform "normal"
+}
