@@ -12,13 +12,6 @@ alias egrep='egrep --color=always'
 alias fgrep='fgrep --color=always'
 alias zgrep='fgrep --color=always'
 alias lg=lazygit
-alias gs="git status"
-alias gb="git branch"
-alias gst="git_status.sh"
-alias gp="git pull"
-alias gP="git push"
-alias gf="git fetch"
-alias gl="git log --oneline -n"
 alias cat="bat"
 alias catt="/usr/bin/cat"
 alias t="task"
