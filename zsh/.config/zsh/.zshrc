@@ -60,7 +60,6 @@ source <(fzf --zsh)
 eval "$(zoxide init zsh --cmd cd)"
 eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/ohmyposh/omposh.toml)"
 eval "$(mise activate zsh)"
-eval "$(atuin init zsh)"
 
 if [ $(command -v tmux) ]; then
   if [[ -z $TMUX ]] && [[ -z $(pgrep tmux) ]]; then

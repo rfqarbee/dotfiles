@@ -124,7 +124,6 @@ environment {
   GBM_BACKEND "nvidia-drm"
   __GLX_VENDOR_LIBRARY_NAME "nvidia"
 
-  // firefox
   MOZ_DISABLE_RDD_SANDBOX "1"
   EGL_PLATFORM "wayland"
 }
@@ -162,7 +161,7 @@ window-rule {
 }
 
 window-rule {
-  // match app-id="kitty"
+  match app-id="zen" title="Zen Browser"
   match app-id="DBeaver"
   match app-id="HTTPie"
   match app-id="NoSQLBooster for MongoDB"
@@ -173,7 +172,7 @@ window-rule {
 
 window-rule {
   match at-startup=true app-id="superProductivity"
-  match app-id="^Gimp" title="^GIMP Startup$"
+  match app-id="^[Gg]imp" title="^[Gg]IMP Startup$"
 
   open-focused false
   open-maximized true
@@ -183,7 +182,7 @@ window-rule {
   match app-id="superProductivity"
   match app-id="ONLYOFFICE"
   match app-id="com.obsproject.Studio"
-  match app-id="Gimp"
+  match app-id="[Gg]imp"
 
   open-maximized true
   open-on-workspace "General"
@@ -208,7 +207,7 @@ window-rule {
 
 window-rule {
   match app-id="brave-browser"
-  match app-id="firefox"
+  match app-id="zen" title="Zen Browser"
   open-maximized true
 }
 
@@ -316,7 +315,7 @@ binds {
   Mod+End hotkey-overlay-title="Screenlock" { spawn "hyprlock"; }
 
   Mod+P hotkey-overlay-title="Rofi" { spawn-sh "rofi -show drun -theme ~/.config/rofi/launchers/applaunch/applaunch.rasi"; }
-  Mod+B hotkey-overlay-title="browser" { spawn "firefox"; }
+  Mod+B hotkey-overlay-title="browser" { spawn "zen-browser"; }
 
   // Mod+m allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
   // Mod+n allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
