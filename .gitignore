@@ -1,0 +1,8 @@
+zsh/.config/zsh/.histfile
+zsh/.config/zsh/.zsh_history
+zsh/.config/zsh/.zcompdump*
+
+tmux/.config/tmux/.tmux
+tmux/.config/tmux/plugins
+
+_logs/

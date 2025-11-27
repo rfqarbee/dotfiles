@@ -1,0 +1,62 @@
+{
+  "group/app_drawer": {
+    "orientation": "inherit",
+    "modules": [
+      "custom/updater",
+    ]
+  },
+
+  "group/system_stats": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "system_stats",
+      "transition-left-to-right": true
+    },
+    "modules": [
+      "memory",
+      "cpu",
+      "disk"
+    ]
+  },
+
+  "group/audio": {
+    "orientation": "inherit",
+    "modules": [
+      "pulseaudio",
+      "pulseaudio#microphone",
+    ]
+  },
+
+  "group/right": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "pulseaudio",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "clock",
+      "tray",
+    ]
+  },
+
+  "group/power": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "custom/power",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/power",
+      "custom/updater",
+    ]
+  },
+  "group/notify": {
+    "orientation": "inherit",
+    "modules": [
+      "custom/swaync",
+    ]
+  },
+}

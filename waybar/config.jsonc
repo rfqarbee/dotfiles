@@ -1,0 +1,36 @@
+{
+    "include": [
+        "$XDG_CONFIG_HOME/waybar/configs/main.json",
+        "$XDG_CONFIG_HOME/waybar/configs/workspace.json",
+        "$XDG_CONFIG_HOME/waybar/configs/custom.json",
+        "$XDG_CONFIG_HOME/waybar/configs/groups.json"
+    ],
+    "position" : "bottom",
+    "layer": "bottom",
+    "exclusive": true,
+    "passthrough": false,
+    "spacing": 5,
+    "fixed-center": true,
+    "ipc": true,
+    "margin-top": 5,
+    "margin-left": 5,
+    "margin-right": 5,
+
+    "modules-left": [
+      "niri/workspaces",
+      "group/system_stats"
+    ],
+
+    "modules-center": [
+      "niri/window",
+    ],
+
+    "modules-right": [
+      "custom/server",
+      "group/audio",
+      "group/notify",
+      "group/right",
+      "group/power"
+    ]
+}
+

@@ -1,0 +1,15 @@
+{
+  "niri/workspaces": {
+    "all-outputs" : false,
+    "format": "{index} {icon}",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    }
+  },
+  "niri/window": {
+    "format": "{title}",
+    "separate-outputs": true,
+    "icon": true,
+  },
+}
