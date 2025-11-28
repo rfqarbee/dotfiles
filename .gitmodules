@@ -1,6 +1,6 @@
 [submodule "personal/scripts"]
 	path = personal/scripts
-	url = https://github.com/rfqarbee/scripts.git
+	url = git@github.com:rfqarbee/scripts.git
 [submodule "personal/nvim"]
 	path = personal/nvim
-	url = https://github.com/rfqarbee/nvim.rb.git
+	url = git@github.com:rfqarbee/nvim.rb.git
