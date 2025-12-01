@@ -24,7 +24,6 @@
     "orientation": "inherit",
     "modules": [
       "pulseaudio",
-      "pulseaudio#microphone",
     ]
   },
 

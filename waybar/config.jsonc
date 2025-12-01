@@ -18,18 +18,19 @@
 
     "modules-left": [
       "niri/workspaces",
+      "custom/separator#line",
       "group/system_stats"
-    ],
-
-    "modules-center": [
-      "niri/window",
     ],
 
     "modules-right": [
       "custom/server",
-      "group/audio",
+      "custom/separator#line",
       "group/notify",
+      "custom/separator#line",
+      "group/audio",
+      "custom/separator#line",
       "group/right",
+      "custom/separator#line",
       "group/power"
     ]
 }
