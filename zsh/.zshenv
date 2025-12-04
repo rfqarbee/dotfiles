@@ -5,8 +5,6 @@ export MISE_DEFAULT_CONFIG_FILENAME=".mise.local.toml"
 export BROWSER=zen-browser
 # go
 export GOPATH=$XDG_DATA_HOME/go
-# ts
-export NODE_OPTIONS="--max-old-space-size=8192"
 # .NET
 export DOTNET_ROOT=$XDG_DATA_HOME/mise/installs/dotnet/latest # remove if not using mise
 export DOTNET_TELEMETRY_OPTOUT=1

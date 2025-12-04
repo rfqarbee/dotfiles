@@ -11,7 +11,6 @@ alias grep='grep --color=always'
 alias egrep='egrep --color=always'
 alias fgrep='fgrep --color=always'
 alias zgrep='fgrep --color=always'
-alias lg=lazygit
 alias cat="bat"
 alias catt="/usr/bin/cat"
 alias t="task"
