@@ -98,18 +98,18 @@ overview {
 
 spawn-at-startup "waybar"
 spawn-sh-at-startup "swww-daemon --format argb"
-spawn-sh-at-startup "systemctl --user start plasma-polkit-agent"
+spawn-sh-at-startup "systemctl --user start hyprpolkitagent"
 spawn-sh-at-startup "nm-applet --indicator"
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
 spawn-at-startup "swaync"
 spawn-at-startup "blueman-applet"
 spawn-at-startup "udiskie"
-spawn-at-startup "hypridle"
 
 spawn-at-startup "ferdium"
 spawn-at-startup "vesktop"
 spawn-at-startup "steam"
+spawn-at-startup "superproductivity"
 
 hotkey-overlay {
   skip-at-startup
@@ -170,7 +170,6 @@ window-rule {
   match at-startup=true app-id="superProductivity"
   match app-id="^[Gg]imp" title="^[Gg]IMP Startup$"
 
-  open-focused false
   open-maximized true
   open-on-workspace "gen"
 }
@@ -178,7 +177,9 @@ window-rule {
   match app-id="superProductivity"
   match app-id="com.obsproject.Studio"
   match app-id="[Gg]imp"
+  match title="Kraken"
 
+  open-focused true
   open-maximized true
   open-on-workspace "gen"
 }
@@ -193,7 +194,6 @@ window-rule {
 }
 
 window-rule {
-  match app-id="brave-browser"
   match app-id="zen" title="Zen Browser"
   open-maximized true
 }
