@@ -6,13 +6,13 @@
         "$XDG_CONFIG_HOME/waybar/configs/groups.json"
     ],
     "position" : "bottom",
-    "layer": "bottom",
+    "layer": "top",
     "exclusive": true,
     "passthrough": false,
-    "spacing": 5,
+    "spacing": 0,
     "fixed-center": true,
     "ipc": true,
-    "margin-top": 5,
+    "margin-top": 0,
     "margin-left": 5,
     "margin-right": 5,
 

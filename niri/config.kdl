@@ -199,7 +199,7 @@ window-rule {
 }
 
 window-rule {
-  match app-id="kitty"
+  match app-id="foot"
   match app-id="steam" title="Steam"
   open-maximized true
 }
@@ -290,10 +290,10 @@ binds {
   Mod+Shift+W {spawn-sh "$LOCAL_DIR/scripts/wallpaper_change.sh"; }
   Mod+F7 {spawn-sh "$LOCAL_DIR/scripts/watchwaybar.sh"; }
   Mod+F8 {spawn-sh "$LOCAL_DIR/scripts/clipboard.sh"; }
-  Mod+F10 { spawn-sh "kitty --title BTOP -e htop"; }
+  Mod+F10 { spawn-sh "foot --title BTOP -e htop"; }
 
 
-  Mod+Return hotkey-overlay-title="Kitty" { spawn "kitty"; }
+  Mod+Return hotkey-overlay-title="Foot" { spawn "foot"; }
   Mod+F hotkey-overlay-title="File Manager" { spawn "thunar"; }
   Mod+End hotkey-overlay-title="Screenlock" { spawn "hyprlock"; }
 

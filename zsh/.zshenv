@@ -11,6 +11,6 @@ export DOTNET_TELEMETRY_OPTOUT=1
 export XDG_MENU_PREFIX="arch- kbuildsycoca6 --noincremental"
 # path
 typeset -U path PATH
-path=($HOME/bin $HOME/.config/pub_cache/bin /usr/local/bin $HOME/.local/bin $HOME/.local/scripts $DOTNET_ROOT $DOTNET_ROOT/tools $HOME/.local/share/go/bin $HOME/.cargo/bin $HOME/.dotnet/tools $path)
+path=($HOME/bin $HOME/.config/pub_cache/bin /usr/local/bin $HOME/.local/bin $HOME/.local/scripts $DOTNET_ROOT $DOTNET_ROOT/tools $HOME/.local/share/go/bin $HOME/.cargo/bin $HOME/.dotnet/tools $HOME/repos/kraken-desktop $path)
 export PATH
 

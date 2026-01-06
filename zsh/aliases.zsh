@@ -13,7 +13,6 @@ alias fgrep='fgrep --color=always'
 alias zgrep='fgrep --color=always'
 alias cat="bat"
 alias catt="/usr/bin/cat"
-alias t="task"
 
 function vimssh() {
   nvim oil-ssh://$1

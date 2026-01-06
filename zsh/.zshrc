@@ -21,7 +21,12 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q # reload all completion
 
 # key binds
-bindkey -s ^f "tmux_session.sh\n"
+tmux_session() {
+  tmux_session.sh
+}
+zle -N tmux_session
+
+bindkey ^f tmux_session
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
@@ -54,17 +59,10 @@ zstyle ':fzf-tab:*' fzf-min-height 100
 zstyle ':fzf-tab:complete:*:options' fzf-preview
 zstyle ':fzf-tab:complete:*:argument-1' fzf-preview
 zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
-# export LESSOPEN="|/home/rafiq/.local/scripts/lessfilter.sh %s"
+export LESSOPEN="|/home/rafiq/.local/scripts/lessfilter.sh %s"
 
 source $ZDOTDIR/aliases.zsh
 source <(fzf --zsh)
 eval "$(zoxide init zsh --cmd cd)"
 eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/ohmyposh/config.toml)"
 eval "$(mise activate zsh)"
-if [ $(command -v tmux) ]; then
-  if [[ -z $TMUX ]] && [[ -z $(pgrep tmux) ]]; then
-    tmux_session.sh
-  elif [[ -z $TMUX ]]; then
-    echo "Exist tmux, tma"
-  fi
-fi
