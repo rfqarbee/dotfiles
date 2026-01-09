@@ -20,13 +20,32 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 autoload -Uz compinit && compinit
 zinit cdreplay -q # reload all completion
 
-# key binds
-tmux_session() {
-  tmux_session.sh
+autoload -Uz add-zsh-hook
+typeset -g __tmux_session_pending=0
+tmux_session_widget() {
+  # If already inside tmux, you can run immediately (this usually works)
+  if [[ -n "$TMUX" ]]; then
+    tmux_session.sh
+    zle reset-prompt
+    return
+  fi
+  # Outside tmux: schedule it to run *after* ZLE returns, without printing anything
+  __tmux_session_pending=1
+  zle -I
+  BUFFER=""          # make sure nothing is on the line
+  zle accept-line    # run an "empty" command (just a newline)
 }
-zle -N tmux_session
+zle -N tmux_session_widget
+_tmux_session_precmd() {
+  if (( __tmux_session_pending )); then
+    __tmux_session_pending=0
+    tmux_session.sh
+    zle && zle reset-prompt 2>/dev/null
+  fi
+}
+add-zsh-hook precmd _tmux_session_precmd
+bindkey ^f tmux_session_widget
 
-bindkey ^f tmux_session
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
@@ -66,3 +85,8 @@ source <(fzf --zsh)
 eval "$(zoxide init zsh --cmd cd)"
 eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/ohmyposh/config.toml)"
 eval "$(mise activate zsh)"
+# if [ $(command -v tmux) ]; then
+#   if [[ -z $TMUX ]] && [[ -z $(pgrep tmux) ]]; then
+#     tmux_session.sh
+#   fi
+# fi
