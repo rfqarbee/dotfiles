@@ -37,8 +37,8 @@ layout {
    // border {
   // }
   tab-indicator {
-    position "left"
-    active-color "#fdc55a"
+    position "top"
+    active-color "#34eba8"
     width 10
     length total-proportion=1.0
     gap 6
