@@ -37,8 +37,8 @@ layout {
    // border {
   // }
   tab-indicator {
-    position "left"
-    active-color "#fdc55a"
+    position "top"
+    active-color "#fcba03"
     width 10
     length total-proportion=1.0
     gap 6
@@ -105,6 +105,7 @@ spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
 spawn-at-startup "swaync"
 spawn-at-startup "blueman-applet"
 spawn-at-startup "udiskie"
+spawn-at-startup "protonvpn-app"
 
 spawn-at-startup "ferdium"
 spawn-at-startup "vesktop"
@@ -185,15 +186,6 @@ window-rule {
 }
 
 window-rule {
-  match app-id="io.github.celluloid_player.Celluloid"
-  match app-id="mpv"
-
-  open-focused true
-  open-maximized true
-  open-on-workspace "gen"
-}
-
-window-rule {
   match app-id="zen" title="Zen Browser"
   open-maximized true
 }
@@ -215,6 +207,9 @@ window-rule {
   match app-id="feh"
   match app-id="yad" title="lockscreen"
   match app-id="steam" title="Friends List"
+  match app-id="Bitwarden"
+  match app-id="io.ente.auth"
+  match app-id="proton.vpn.app.gtk"
   open-floating true
 }
 
