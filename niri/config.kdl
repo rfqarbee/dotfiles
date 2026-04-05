@@ -86,7 +86,7 @@ layout {
 
 
 layer-rule {
-  match namespace="swww-daemon"
+  match namespace="awww-daemon"
   place-within-backdrop true
 }
 
@@ -97,7 +97,7 @@ overview {
 }
 
 spawn-at-startup "waybar"
-spawn-sh-at-startup "swww-daemon --format argb"
+spawn-sh-at-startup "awww-daemon --format argb"
 spawn-sh-at-startup "systemctl --user start hyprpolkitagent"
 spawn-sh-at-startup "nm-applet --indicator"
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
@@ -210,6 +210,7 @@ window-rule {
   match app-id="Bitwarden"
   match app-id="io.ente.auth"
   match app-id="proton.vpn.app.gtk"
+  match app-id="galculator"
   open-floating true
 }
 
