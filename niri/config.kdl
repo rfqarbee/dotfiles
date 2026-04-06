@@ -106,6 +106,7 @@ spawn-at-startup "swaync"
 spawn-at-startup "blueman-applet"
 spawn-at-startup "udiskie"
 spawn-at-startup "protonvpn-app"
+spawn-at-startup "bitwarden-desktop"
 
 spawn-at-startup "ferdium"
 spawn-at-startup "vesktop"
@@ -211,6 +212,7 @@ window-rule {
   match app-id="io.ente.auth"
   match app-id="proton.vpn.app.gtk"
   match app-id="galculator"
+  match app-id="io.github.celluloid_player.Celluloid"
   open-floating true
 }
 
@@ -388,6 +390,7 @@ binds {
   Mod+G { toggle-column-tabbed-display; }
 
   Print { screenshot; }
+  Mod+Print { spawn-sh "screen_record.sh"; }
   Mod+Shift+S { spawn-sh "grimshot.sh --swappy";}
   Mod+Shift+Print { screenshot-screen; }
   Ctrl+Print { screenshot-window; }
