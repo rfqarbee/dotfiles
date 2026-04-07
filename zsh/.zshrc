@@ -1,5 +1,3 @@
-# test
-# zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
@@ -23,17 +21,15 @@ zinit cdreplay -q # reload all completion
 autoload -Uz add-zsh-hook
 typeset -g __tmux_session_pending=0
 tmux_session_widget() {
-  # If already inside tmux, you can run immediately (this usually works)
   if [[ -n "$TMUX" ]]; then
     tmux_session.sh
     zle reset-prompt
     return
   fi
-  # Outside tmux: schedule it to run *after* ZLE returns, without printing anything
   __tmux_session_pending=1
   zle -I
-  BUFFER=""          # make sure nothing is on the line
-  zle accept-line    # run an "empty" command (just a newline)
+  BUFFER=""
+  zle accept-line
 }
 zle -N tmux_session_widget
 _tmux_session_precmd() {
@@ -51,13 +47,11 @@ bindkey '^n' history-search-forward
 
 ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
 
-# set options for history
 HISTFILE=~/.config/zsh/.histfile
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
 
-# options
 setopt autocd notify
 setopt appendhistory
 setopt sharehistory
@@ -85,8 +79,8 @@ source <(fzf --zsh)
 eval "$(zoxide init zsh --cmd cd)"
 eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/ohmyposh/config.toml)"
 eval "$(mise activate zsh)"
-# if [ $(command -v tmux) ]; then
-#   if [[ -z $TMUX ]] && [[ -z $(pgrep tmux) ]]; then
-#     tmux_session.sh
-#   fi
-# fi
+if [ $(command -v tmux) ]; then
+  if [[ -z $TMUX ]] && [[ -z $(pgrep tmux) ]]; then
+    tmux_session.sh
+  fi
+fi

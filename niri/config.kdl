@@ -90,10 +90,41 @@ layer-rule {
   place-within-backdrop true
 }
 
+layer-rule {
+  match namespace="swaync"
+
+  block-out-from "screencast"
+}
+
 overview {
   // workspace-shadow {
   //   off
   // }
+}
+recent-windows {
+    // off
+    debounce-ms 750
+
+    open-delay-ms 150
+
+    highlight {
+        active-color "#999999ff"
+        urgent-color "#ff9999ff"
+        padding 30
+        corner-radius 0
+    }
+
+    previews {
+        max-height 480
+        max-scale 0.5
+    }
+
+    binds {
+        Mod+Tab         { next-window; }
+        Mod+Shift+Tab   { previous-window; }
+        Mod+grave       { next-window     scope="all" filter="app-id"; }
+        Mod+Shift+grave { previous-window scope="all" filter="app-id"; }
+    }
 }
 
 spawn-at-startup "waybar"
@@ -110,8 +141,6 @@ spawn-at-startup "bitwarden-desktop"
 
 spawn-at-startup "ferdium"
 spawn-at-startup "vesktop"
-spawn-at-startup "steam"
-spawn-at-startup "superproductivity"
 
 hotkey-overlay {
   skip-at-startup
@@ -141,62 +170,13 @@ animations {
   slowdown 2.0
 }
 
-workspace "dev"{
-  open-on-output "DP-1"
-}
-
-workspace "gen" {
-  open-on-output "DP-1"
-}
-
-workspace "dp2" {
-  open-on-output "DP-2"
-}
-
 window-rule {
-    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
-    default-floating-position x=10 y=10 relative-to="bottom-right"
-}
-
-window-rule {
-  match app-id="zen" title="Zen Browser"
-  match app-id="DBeaver"
-  match app-id="HTTPie"
-  match app-id="NoSQLBooster for MongoDB"
-  match app-id="mgcb-editor-linux"
-  open-on-workspace "dev"
-  default-column-width { proportion 0.5; }
-}
-
-window-rule {
-  match at-startup=true app-id="superProductivity"
-  match app-id="^[Gg]imp" title="^[Gg]IMP Startup$"
-
-  open-maximized true
-  open-on-workspace "gen"
-}
-window-rule {
+  match app-id="zen"
   match app-id="superProductivity"
-  match app-id="com.obsproject.Studio"
-  match app-id="[Gg]imp"
-  match title="Kraken"
-
-  open-focused true
-  open-maximized true
-  open-on-workspace "gen"
-}
-
-window-rule {
-  match app-id="zen" title="Zen Browser"
-  open-maximized true
-}
-
-window-rule {
   match app-id="foot"
-  match app-id="steam" title="Steam"
+  match app-id="jetbrains-idea"
   open-maximized true
 }
-
 
 window-rule {
   match app-id="org.pulseaudio.pavucontrol"
@@ -207,7 +187,6 @@ window-rule {
   match app-id="[Tt]hunar"
   match app-id="feh"
   match app-id="yad" title="lockscreen"
-  match app-id="steam" title="Friends List"
   match app-id="Bitwarden"
   match app-id="io.ente.auth"
   match app-id="proton.vpn.app.gtk"
@@ -221,21 +200,16 @@ window-rule {
   match at-startup=true app-id="vesktop"
   open-focused false
   open-maximized true
-  open-on-workspace "dp2"
+  open-on-output "DP-2"
 }
 
 window-rule {
   match app-id="vesktop"
   match app-id="ferdium"
   open-maximized true
-  open-on-workspace "dp2"
+  open-on-output "DP-2"
 }
 
-window-rule {
-  match app-id="Minecraft Launcher"
-  match app-id="steam"
-  open-on-workspace "dp2"
-}
 
 // https://yalter.github.io/niri/Configuration:-Window-Rules
 window-rule {
@@ -260,17 +234,15 @@ window-rule {
     }
 
     tab-indicator {
-        // active-color "#f38ba8"
-        // inactive-color "#7d0d2d"
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
     }
 }
 
 window-rule {
-  match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-  match app-id=r#"^org\.gnome\.World\.Secrets$"#
-  block-out-from "screen-capture"
-  // Use this instead if you want them visible on third-party screenshot tools.
-  // block-out-from "screencast"
+  match app-id="Bitwarden"
+  match app-id="io.ente.auth"
+  block-out-from "screencast"
 }
 
 window-rule {
@@ -390,9 +362,9 @@ binds {
   Mod+G { toggle-column-tabbed-display; }
 
   Print { screenshot; }
-  Mod+Print { spawn-sh "screen_record.sh"; }
+  Mod+Shift+Print { spawn-sh "screen_record.sh"; }
+  Mod+Print { screenshot-screen; }
   Mod+Shift+S { spawn-sh "grimshot.sh --swappy";}
-  Mod+Shift+Print { screenshot-screen; }
   Ctrl+Print { screenshot-window; }
 
   Mod+BackSlash allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }

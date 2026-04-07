@@ -18,8 +18,8 @@ fi
 
 # yay
 init_yay() {
-  mkdir $HOME/repos
-  cd $HOME/repos
+  mkdir $HOME/repo
+  cd $HOME/repo
   git clone https://aur.archlinux.org/yay-bin.git
   cd  yay-bin
   echo "Building yay-bin"
@@ -144,7 +144,15 @@ if [ $(command -v docker) ]; then
   systemctl enable docker.service && systemctl start docker.service
 fi
 
-cd $HOME/repos
-git clone https://github.com/nakst/gf.git
-./build.sh
+# cd $HOME/repo
+# git clone https://github.com/nakst/gf.git
+# ./build.sh
 
+
+# reflector
+# reflector --protocol https --country Singapore,Indonesia,Australia --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
+
+##/boot/loader/entries/windows.conf
+# title Windows
+# efi /shellx64.efi
+# options -nointerrupt -nomap -noversion HD0b:EFI\Microsoft\Boot\Bootmgfw.efi
