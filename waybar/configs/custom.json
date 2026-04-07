@@ -1,6 +1,9 @@
 {
   "custom/server": {
-    "format": "server ",
+    "format": " {} ",
+    "return-type":"json",
+    "exec": "server_status.sh",
+    "interval": 30
   },
   "custom/cycle_wall": {
     "format": " ",
