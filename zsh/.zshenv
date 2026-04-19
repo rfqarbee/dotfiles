@@ -8,8 +8,9 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export MACHINE_STORAGE_PATH="$XDG_DATA_HOME"/docker-machine
 # java
 export JAVA_HOME=$HOME/.local/share/mise/shims/java
-export ANDROID_HOME=$HOME/Android/sdk
+export ANDROID_HOME=$HOME/Android/Sdk
 export ANDROID_USER_HOME=$HOME/.android
+export FLUTTER=$HOME/repo/flutter/bin
 # go
 export GOPATH=$XDG_DATA_HOME/go
 # .NET
@@ -32,6 +33,7 @@ path=(
   $ANDROID_HOME/tools
   $ANDROID_HOME/tools/bin
   $ANDROID_HOME/platform-tools
+  $FLUTTER
   $path)
 export PATH
 

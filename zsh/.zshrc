@@ -79,8 +79,8 @@ source <(fzf --zsh)
 eval "$(zoxide init zsh --cmd cd)"
 eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/ohmyposh/config.toml)"
 eval "$(mise activate zsh)"
-if [ $(command -v tmux) ]; then
-  if [[ -z $TMUX ]] && [[ -z $(pgrep tmux) ]]; then
-    tmux_session.sh
-  fi
-fi
+# if [ $(command -v tmux) ]; then
+#   if [[ -z $TMUX ]] && [[ -z $(pgrep tmux) ]]; then
+#     tmux_session.sh
+#   fi
+# fi
