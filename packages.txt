@@ -65,7 +65,7 @@ noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
-nvidia
+nvidia-open
 nvidia-settings
 nvidia-utils
 nwg-look
@@ -93,6 +93,7 @@ superproductivity
 swappy
 swaync
 tailscale
+tumbler
 thunar
 thunar-shares-plugin
 tmux
@@ -103,7 +104,6 @@ ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-common
 ttf-nerd-fonts-symbols-mono
 ttf-ubuntu-mono-nerd
-thumbler
 udiskie
 unrar
 unzip
