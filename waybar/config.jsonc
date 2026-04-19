@@ -29,6 +29,8 @@
       "custom/separator#line",
       "group/audio",
       "custom/separator#line",
+      "tray",
+      "custom/separator#line",
       "group/right",
       "custom/separator#line",
       "group/power"

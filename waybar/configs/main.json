@@ -51,9 +51,7 @@
 
   "clock": {
     "interval": 1,
-    "format-alt-click" : "click",
-    "format" :"{:%H:%M  %d/%b %a}",
-    "format-alt": "{ %d/%b %a}",
+    "format" :"{:%d/%b %a %H:%M }",
     "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode": "year",

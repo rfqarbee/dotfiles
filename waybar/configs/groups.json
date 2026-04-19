@@ -29,14 +29,8 @@
 
   "group/right": {
     "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 500,
-      "children-class": "pulseaudio",
-      "transition-left-to-right": false
-    },
     "modules": [
-      "clock",
-      "tray",
+      "clock"
     ]
   },
 

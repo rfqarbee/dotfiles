@@ -59,7 +59,7 @@ layout {
 
   }
 
-  default-column-width { proportion 0.5; }
+  default-column-width { proportion 1.0; }
   focus-ring {
     width 1
     active-gradient from="#9d00e0" to="#d64971" angle=45 relative-to="workspace-view"
@@ -174,9 +174,11 @@ window-rule {
   match app-id="zen"
   match app-id="superProductivity"
   match app-id="foot"
-  match app-id="jetbrains-idea"
+  match app-id="kitty"
+  match app-id="jetbrains-studio"
   open-maximized true
 }
+
 
 window-rule {
   match app-id="org.pulseaudio.pavucontrol"
@@ -189,6 +191,7 @@ window-rule {
   match app-id="yad" title="lockscreen"
   match app-id="Bitwarden"
   match app-id="io.ente.auth"
+  match app-id="steam" title="Friends List"
   match app-id="proton.vpn.app.gtk"
   match app-id="galculator"
   match app-id="io.github.celluloid_player.Celluloid"
@@ -206,6 +209,7 @@ window-rule {
 window-rule {
   match app-id="vesktop"
   match app-id="ferdium"
+  match app-id="steam" title="Steam"
   open-maximized true
   open-on-output "DP-2"
 }
@@ -215,6 +219,11 @@ window-rule {
 window-rule {
   opacity 1.0
   default-column-width { proportion 0.5; }
+}
+
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
 }
 
 window-rule {
@@ -263,7 +272,7 @@ binds {
   Mod+F10 { spawn-sh "foot --title BTOP -e htop"; }
 
 
-  Mod+Return hotkey-overlay-title="Foot" { spawn "foot"; }
+  Mod+Return hotkey-overlay-title="Kitty" { spawn "kitty"; }
   Mod+F hotkey-overlay-title="File Manager" { spawn "thunar"; }
   Mod+End hotkey-overlay-title="Screenlock" { spawn "hyprlock"; }
 
