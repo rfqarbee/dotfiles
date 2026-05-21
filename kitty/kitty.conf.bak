@@ -20,23 +20,27 @@ tab_bar_edge top
 tab_bar_margin_width 2.0
 tab_bar_style powerline
 tab_bar_align left
+tab_bar_min_tabs 1
 tab_powerline_style round
 tab_title_template "{session_name} {fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{tab.last_focused_progress_percent}{title}"
 # active_tab_foreground   #191724
 # active_tab_background   #51afef
 # tab_bar_background none
 # background #000000
-background_opacity 0.90
+background_opacity 1.00
 # selection_background #c1c1c1
-enabled_layouts splits
+enabled_layouts splits:split_axis=horizontal
+
 scrollback_pager nvim --cmd 'set eventignore=FileType' +'nnoremap q ZQ' +'call nvim_open_term(0, {})' +'set nomodified nolist' +'$' -
 
+# sessions in 1 single kitty window
+tab_bar_filter session:~ or session:^$
 
-# example 
+# example
 # action_alias launch_tab launch --type=tab --cwd=current
-# map f1 launch_tab nvim
 
-map kitty_mod+t no_op
+startup_session $XDG_CONFIG_HOME/kitty/sessions/home.session
+
 map kitty_mod+e pass_selection_to_program
 map alt+shift+= launch --location=vsplit --cwd=current
 map alt+shift+- launch --location=hsplit --cwd=current
@@ -49,13 +53,14 @@ map ctrl+down resize_window shorter 3
 # reset all windows in the tab to default sizes
 map ctrl+home resize_window reset
 
-map alt+[ previous_window
-map alt+] next_window
+map ctrl+j previous_window
+map ctrl+k next_window
 map alt+shift+k move_window up
 map alt+shift+h move_window left
 map alt+shift+l move_window right
 map alt+shift+j move_window down
 
+map alt+. set_tab_title
 map alt+1 goto_tab 1
 map alt+2 goto_tab 2
 map alt+3 goto_tab 3
@@ -64,13 +69,23 @@ map alt+5 goto_tab 5
 map alt+6 goto_tab 6
 map alt+7 goto_tab 7
 map alt+8 goto_tab 8
-map kitty_mod+n new_tab_with_cwd
-map kitty_mod+m next_layout
+
+map kitty_mod+enter new_os_window
+map kitty_mod+n new_tab
+map kitty_mod+t new_tab_with_cwd
 map kitty_mod+o open_url_with_hints
 map kitty_mod+f5 load_config_file
 
+map alt+shift+= combine | launch --location=vsplit --cwd=current | save_as_session --save-only --base-dir $XDG_CONFIG_HOME/kitty/sessions --use-foreground-process --match=session:. .
+map alt+shift+- combine | launch --location=hsplit --cwd=current | save_as_session --save-only --base-dir $XDG_CONFIG_HOME/kitty/sessions --use-foreground-process --match=session:. .
+map kitty_mod+tab goto_session ./sessions
+map kitty_mod+s save_as_session --save-only --use-foreground-process --base-dir $XDG_CONFIG_HOME/kitty/sessions
+map alt+\ goto_session -1
+map ctrl+1 goto_session $XDG_CONFIG_HOME/kitty/sessions/home.session
+map ctrl+2 goto_session $XDG_CONFIG_HOME/kitty/sessions/ecard.session
+map ctrl+0 goto_session $XDG_CONFIG_HOME/kitty/sessions/config.session
 
 # BEGIN_KITTY_THEME
-# Tomorrow Night
+# Idle Toes
 include current-theme.conf
 # END_KITTY_THEME

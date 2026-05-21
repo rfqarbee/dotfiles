@@ -1,0 +1,21 @@
+
+new_tab config
+layout splits:split_axis=horizontal
+enabled_layouts splits:split_axis=horizontal
+set_layout_state {"pairs": {"one": 4}, "opts": {"default_axis_is_horizontal": true}, "class": "Splits", "all_windows": {"active_group_idx": 0, "active_group_history": [6, 4], "window_groups": [{"id": 4, "window_ids": [6]}]}}
+cd /home/rafiq/dotfiles/personal/nvim
+
+launch 'kitty-unserialize-data={"id": 6, "cmd_at_shell_startup": ["/usr/bin/nvim"]}'
+focus
+
+new_tab
+layout splits:split_axis=horizontal
+enabled_layouts splits:split_axis=horizontal
+set_layout_state {"pairs": {"one": 13, "two": 15}, "opts": {"default_axis_is_horizontal": true}, "class": "Splits", "all_windows": {"active_group_idx": 1, "active_group_history": [13], "window_groups": [{"id": 13, "window_ids": [15]}, {"id": 15, "window_ids": [18]}]}}
+cd /home/rafiq/dotfiles/zsh
+
+launch 'kitty-unserialize-data={"id": 15, "cmd_at_shell_startup": ["/usr/bin/nvim"]}'
+launch 'kitty-unserialize-data={"id": 18}'
+focus
+
+focus_tab 2

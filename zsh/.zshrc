@@ -1,9 +1,14 @@
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
 # plugins
+zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit light Aloxaf/fzf-tab # before plugsins wrap widgets
 
 source $ZDOTDIR/zsh-vi-mode.zsh # zsh-vi-mode options
@@ -18,29 +23,30 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 autoload -Uz compinit && compinit
 zinit cdreplay -q # reload all completion
 
-autoload -Uz add-zsh-hook
-typeset -g __tmux_session_pending=0
-tmux_session_widget() {
-  if [[ -n "$TMUX" ]]; then
-    tmux_session.sh
-    zle reset-prompt
-    return
-  fi
-  __tmux_session_pending=1
-  zle -I
-  BUFFER=""
-  zle accept-line
-}
-zle -N tmux_session_widget
-_tmux_session_precmd() {
-  if (( __tmux_session_pending )); then
-    __tmux_session_pending=0
-    tmux_session.sh
-    zle && zle reset-prompt 2>/dev/null
-  fi
-}
-add-zsh-hook precmd _tmux_session_precmd
-bindkey ^f tmux_session_widget
+# autoload -Uz add-zsh-hook
+# typeset -g __tmux_session_pending=0
+# tmux_session_widget() {
+#   if [[ -n "$TMUX" ]]; then
+#     tmux_session.sh
+#     zle reset-prompt
+#     return
+#   fi
+#   __tmux_session_pending=1
+#   zle -I
+#   BUFFER=""
+#   zle accept-line
+# }
+# zle -N tmux_session_widget
+# _tmux_session_precmd() {
+#   if (( __tmux_session_pending )); then
+#     __tmux_session_pending=0
+#     tmux_session.sh
+#     zle && zle reset-prompt 2>/dev/null
+#   fi
+# }
+# add-zsh-hook precmd _tmux_session_precmd
+#
+# bindkey ^f tmux_session_widget
 
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
@@ -62,25 +68,30 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 # completion styling
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+# zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+#
+# zstyle ':completion:*' menu no # if use fzf-tab
+# zstyle ':fzf-tab:*' fzf-bindings 'ctrl-f:accept' 'ctrl-o:select'
+# zstyle ':fzf-tab:*' switch-group ',' '.'
+# zstyle ':fzf-tab:*' fzf-min-height 100
+# zstyle ':fzf-tab:complete:*:options' fzf-preview
+# zstyle ':fzf-tab:complete:*:argument-1' fzf-preview
+# zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
+# export LESSOPEN="|/home/rafiq/.local/scripts/lessfilter.sh %s"
 
-zstyle ':completion:*' menu no # if use fzf-tab
-zstyle ':fzf-tab:*' fzf-bindings 'ctrl-f:accept' 'ctrl-o:select'
-zstyle ':fzf-tab:*' switch-group ',' '.'
-zstyle ':fzf-tab:*' fzf-min-height 100
-zstyle ':fzf-tab:complete:*:options' fzf-preview
-zstyle ':fzf-tab:complete:*:argument-1' fzf-preview
-zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
-export LESSOPEN="|/home/rafiq/.local/scripts/lessfilter.sh %s"
+# pnpm
+export PNPM_HOME="/home/rafiq/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
 
-source $ZDOTDIR/aliases.zsh
 source <(fzf --zsh)
+eval "$(atuin init zsh)"
 eval "$(zoxide init zsh --cmd cd)"
-eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/ohmyposh/config.toml)"
 eval "$(mise activate zsh)"
-# if [ $(command -v tmux) ]; then
-#   if [[ -z $TMUX ]] && [[ -z $(pgrep tmux) ]]; then
-#     tmux_session.sh
-#   fi
-# fi
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

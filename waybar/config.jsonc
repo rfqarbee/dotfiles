@@ -5,7 +5,7 @@
         "$XDG_CONFIG_HOME/waybar/configs/custom.json",
         "$XDG_CONFIG_HOME/waybar/configs/groups.json"
     ],
-    "position" : "bottom",
+    "position" : "top",
     "layer": "top",
     "exclusive": true,
     "passthrough": false,

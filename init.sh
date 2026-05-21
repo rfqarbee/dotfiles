@@ -1,3 +1,4 @@
+# TODO: create a better script
 #!/bin/env bash
 # fmod studio
 set -euo pipefail
@@ -6,47 +7,47 @@ DOTFILES=$PWD
 XDG_CONFIG_HOME=$HOME/.config
 
 # set zsh path
-# echo "Set ZDOTDIR to $HOME/.config/zsh"
-# echo "ZDOTDIR=$HOME/.config/zsh" | doas tee /etc/zsh/zshenv >/dev/null
-# if ! [[ -d $XDG_CONFIG_HOME ]]; then
-#   echo "~/.config not found,creating one..."
-#   mkdir $HOME/.config
-# fi
-# if ! [[ -d $HOME/.local ]]; then
-#   echo "~/.local not found,creating one..."
-#   mkdir $HOME/.local
-# fi
+echo "Set ZDOTDIR to $HOME/.config/zsh"
+echo "ZDOTDIR=$HOME/.config/zsh" | doas tee /etc/zsh/zshenv >/dev/null
+if ! [[ -d $XDG_CONFIG_HOME ]]; then
+  echo "~/.config not found,creating one..."
+  mkdir $HOME/.config
+fi
+if ! [[ -d $HOME/.local ]]; then
+  echo "~/.local not found,creating one..."
+  mkdir $HOME/.local
+fi
 
 # yay
-# init_yay() {
-#   mkdir $HOME/repo
-#   cd $HOME/repo
-#   git clone https://aur.archlinux.org/yay-bin.git
-#   cd  yay-bin
-#   echo "Building yay-bin"
-#   makepkg -si
-#   yay -Y --gendb
-# }
-#
-# gen_ssh() {
-#   read -p "Email: " email
-#   if [[ -z $email ]]; then
-#     echo "Email required"
-#     gen_ssh
-#   fi
-#   if ! [[ $email =~ ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$ ]]; then
-#     echo "Must be valid email address"
-#     gen_ssh
-#   fi
-# }
-#
-# gen_gpg() {
-#   echo "Generate GPG"
-#   gpg --full-generate-key
-#   echo "GPG created"
-#   gpg --list-secret-keys --keyid-format=long
-#   echo "Copy from sec after / and run : gpg --armor --export KEYSTRING"
-# }
+init_yay() {
+  mkdir $HOME/repo
+  cd $HOME/repo
+  git clone https://aur.archlinux.org/yay-bin.git
+  cd  yay-bin
+  echo "Building yay-bin"
+  makepkg -si
+  yay -Y --gendb
+}
+
+gen_ssh() {
+  read -p "Email: " email
+  if [[ -z $email ]]; then
+    echo "Email required"
+    gen_ssh
+  fi
+  if ! [[ $email =~ ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$ ]]; then
+    echo "Must be valid email address"
+    gen_ssh
+  fi
+}
+
+gen_gpg() {
+  echo "Generate GPG"
+  gpg --full-generate-key
+  echo "GPG created"
+  gpg --list-secret-keys --keyid-format=long
+  echo "Copy from sec after / and run : gpg --armor --export KEYSTRING"
+}
 
 init_git(){
   # mkdir $XDG_CONFIG_HOME/git
@@ -73,15 +74,24 @@ init_git(){
   done
   touch $XDG_CONFIG_HOME/git/config
   git config --global init.defaultBranch main
+  git config --global push.autoSetupRemote true
+  git config --global push.followTags true
   git config --global pull.rebase true
+  git config --global fetch.prune true
+  git config --global fetch.all true
+  git config --global rerere.enabled true
+  git config --global rerere.autoupdate true
+
   git config --global user.email $git_email
   git config --global user.name $git_name
+
   git config --global alias.last "log -n1"
   git config --global alias.logs "log --oneline -n 25"
   git config --global alias.changes "diff-tree --no-commit-id --name-only -r"
   git config --global alias.co "checkout"
   git config --global alias.ss "status"
   git config --global alias.pushf "push --force-with-lease"
+  git config --global alias.review  "!git fetch origin && git difftool -d origin/HEAD...HEAD"
   echo -e ".env\n\
 .env.*\n\
 !.env.example\n\
