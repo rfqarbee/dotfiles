@@ -13,8 +13,8 @@ export LOCAL_DIR=$HOME/.local
 export FREEZE_OUT=$HOME/Pictures/Screenshots
 export DEV=$HOME/programming/dev
 export REPO=$HOME/programming/repo
-export PROBE=$HOME/programmin/probe
-export WORK=$HOME/programmin/work
+export PROBE=$HOME/programming/probe
+export WORK=$HOME/programming/work
 export DOTFILES=$HOME/dotfiles
 export TMPDIR=/tmp
 

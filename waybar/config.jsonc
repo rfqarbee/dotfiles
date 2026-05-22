@@ -9,10 +9,11 @@
     "layer": "top",
     "exclusive": true,
     "passthrough": false,
-    "spacing": 0,
+    "spacing": 5,
     "fixed-center": true,
     "ipc": true,
     "margin-top": 0,
+    "margin-bottom": 10,
     "margin-left": 5,
     "margin-right": 5,
 

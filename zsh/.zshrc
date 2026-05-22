@@ -11,9 +11,16 @@ source "${ZINIT_HOME}/zinit.zsh"
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit light Aloxaf/fzf-tab # before plugsins wrap widgets
 
-source $ZDOTDIR/zsh-vi-mode.zsh # zsh-vi-mode options
-zinit ice depth=1 # zsh-vi-mode
-zinit light jeffreytse/zsh-vi-mode
+function zvm_config() {
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+}
+ZVM_INIT_MODE=sourcing
+ZVM_VI_HIGHLIGHT_FOREGROUND=black
+ZVM_VI_HIGHLIGHT_BACKGROUND=white
+ZVM_VI_HIGHLIGHT_EXTRASTYLE=bold,underline    # bold and underline
+
+zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
 
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
@@ -23,33 +30,8 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 autoload -Uz compinit && compinit
 zinit cdreplay -q # reload all completion
 
-# autoload -Uz add-zsh-hook
-# typeset -g __tmux_session_pending=0
-# tmux_session_widget() {
-#   if [[ -n "$TMUX" ]]; then
-#     tmux_session.sh
-#     zle reset-prompt
-#     return
-#   fi
-#   __tmux_session_pending=1
-#   zle -I
-#   BUFFER=""
-#   zle accept-line
-# }
-# zle -N tmux_session_widget
-# _tmux_session_precmd() {
-#   if (( __tmux_session_pending )); then
-#     __tmux_session_pending=0
-#     tmux_session.sh
-#     zle && zle reset-prompt 2>/dev/null
-#   fi
-# }
-# add-zsh-hook precmd _tmux_session_precmd
-#
-# bindkey ^f tmux_session_widget
-
-bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
+bindkey '^p' history-search-backward
 
 ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
 
@@ -61,24 +43,11 @@ HISTDUP=erase
 setopt autocd notify
 setopt appendhistory
 setopt sharehistory
-setopt hist_ignore_space # wont save any input that starts with space
+setopt hist_ignore_space
 setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
-
-# completion styling
-# zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-# zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-#
-# zstyle ':completion:*' menu no # if use fzf-tab
-# zstyle ':fzf-tab:*' fzf-bindings 'ctrl-f:accept' 'ctrl-o:select'
-# zstyle ':fzf-tab:*' switch-group ',' '.'
-# zstyle ':fzf-tab:*' fzf-min-height 100
-# zstyle ':fzf-tab:complete:*:options' fzf-preview
-# zstyle ':fzf-tab:complete:*:argument-1' fzf-preview
-# zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
-# export LESSOPEN="|/home/rafiq/.local/scripts/lessfilter.sh %s"
 
 # pnpm
 export PNPM_HOME="/home/rafiq/.local/share/pnpm"
