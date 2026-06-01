@@ -201,6 +201,7 @@ window-rule {
 window-rule {
   match at-startup=true app-id="ferdium"
   match at-startup=true app-id="vesktop"
+  match at-startup=true app-id="superproductivity-bin"
   open-focused false
   open-maximized true
   open-on-output "DP-2"
@@ -343,6 +344,8 @@ binds {
   Mod+Shift+7 { move-column-to-workspace 7; }
   Mod+Shift+8 { move-column-to-workspace 8; }
   Mod+Shift+9 { move-column-to-workspace 9; }
+  Mod+Ctrl+H { move-column-left-or-to-monitor-left;}
+  Mod+Ctrl+L { move-column-right-or-to-monitor-right;}
 
 
   Mod+BracketLeft  { consume-or-expel-window-left; }
