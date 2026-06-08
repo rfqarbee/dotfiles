@@ -172,10 +172,11 @@ animations {
 window-rule {
   match app-id="zen"
   match app-id="superproductivity-bin"
-  match app-id="foot"
   match app-id="kitty"
+  match app-id="com.mitchellh.ghostty"
   match app-id="jetbrains-studio"
   match app-id="Emacs"
+  match app-id="ZenNotes"
   open-maximized true
 }
 
@@ -205,6 +206,11 @@ window-rule {
   open-focused false
   open-maximized true
   open-on-output "DP-2"
+}
+
+window-rule{
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    open-focused false
 }
 
 window-rule {
@@ -268,7 +274,8 @@ binds {
   Mod+Slash {spawn-sh "$LOCAL_DIR/scripts/search.sh"; }
   Mod+M {spawn-sh "$LOCAL_DIR/scripts/music.sh"; }
   Mod+Shift+W {spawn-sh "$LOCAL_DIR/scripts/wallpaper_change.sh"; }
-  Mod+F7 {spawn-sh "$LOCAL_DIR/scripts/watchwaybar.sh"; }
+  Mod+F6 {spawn-sh "$LOCAL_DIR/scripts/watchwaybar.sh"; }
+  Mod+F7 {spawn-sh "killall -SIGUSR1 waybar"; }
   Mod+F8 {spawn-sh "$LOCAL_DIR/scripts/clipboard.sh"; }
   Mod+F10 { spawn-sh "foot --title BTOP -e htop"; }
 
@@ -283,6 +290,7 @@ binds {
   // Mod+m allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
   // Mod+n allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
+  Mod+n { spawn "zennotes";}
   Mod+O repeat=false { toggle-overview; }
   Mod+Q repeat=false { close-window; }
 

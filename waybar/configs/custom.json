@@ -5,12 +5,6 @@
     "exec": "server_status.sh",
     "interval": 30
   },
-  "custom/cycle_wall": {
-    "format": " ",
-    "on-click": "$LOCAL_DIR/scripts/wallpaper_change.sh",
-    "tooltip": true,
-    "tooltip-format": "Change wallpaper"
-  },
 
   "custom/power": {
     "format": " ⏻ ",
@@ -41,27 +35,8 @@
     "escape": true,
   },
 
-  "custom/updater": {
-    "format": " {}",
-    "exec": "checkupdates | wc -l",
-    "exec-if": "[[ $(checkupdates | wc -l) ]]",
-    "interval": 43200, // (schedule 12 hours),
-    "on-click" : "kitty --class update-eos -e yay", // TODO
-    "hide-empty-text" : true
-  },
-
-  "custom/separator#dot-line": {
-    "format": "",
-    "interval": "once",
-    "tooltip": false
-  },
   "custom/separator#line": {
     "format": "|",
-    "interval": "once",
-    "tooltip": false
-  },
-  "custom/separator#blank": {
-    "format": "",
     "interval": "once",
     "tooltip": false
   },

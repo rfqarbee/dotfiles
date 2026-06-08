@@ -1,42 +1,4 @@
 {
-  "pulseaudio/slider": {
-    "min": 0,
-    "max": 100,
-    "orientation": "horizontal"
-  },
-
-  "disk": {
-    "interval": 3600,
-    "format": "{specific_free:0.0f}GB/{specific_total:0.0f}GB",
-    "unit": "GB",
-    "path": "/home"
-  },
-
-  "backlight": {
-    "interval": 2,
-    "align": 0,
-    "rotate": 0,
-    "format-icons": [
-      " ",
-      " ",
-      " ",
-      "󰃝 ",
-      "󰃞 ",
-      "󰃟 ",
-      "󰃠 "
-    ],
-    "format": "{icon}",
-    //"format-icons": ["","","","","","","","","","","","","","",""],
-    "tooltip-format": "backlight {percent}%",
-    "icon-size": 10,
-    "on-click": "",
-    "on-click-middle": "",
-    "on-click-right": "",
-    "on-update": "",
-    "on-scroll-up": "$LOCAL_DIR/scripts/brightness.sh --inc",
-    "on-scroll-down": "$LOCAL_DIR/scripts/brightness.sh --dec",
-    "smooth-scrolling-threshold": 1,
-  },
 
   "bluetooth": {
     "format": " ",
@@ -51,7 +13,7 @@
 
   "clock": {
     "interval": 1,
-    "format" :"{:%d/%b %a %H:%M }",
+    "format" :"{:%H:%M }",
     "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode": "year",
@@ -66,21 +28,6 @@
         "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
       }
     }
-  },
-
-  "cpu": {
-    "interval": 10,
-    "format": "{}% ",
-    "max-length": 10
-  },
-
-  "memory": {
-    "interval": 10,
-    "format": "{percentage}% 󰾆",
-    "format-alt": "{used:0.1f}G 󰾆",
-    "format-alt-click": "click",
-    "tooltip": true,
-    "tooltip-format": "{used:0.1f}GB/{total:0.1f}G",
   },
 
   "network": {
@@ -110,6 +57,25 @@
       "balanced": "",
       "power-saver": ""
     }
+  },
+
+  "wireplumber": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰖁 0%",
+    "scroll-step": 5.0,
+    "on-click-right": "$LOCAL_DIR/scripts/volume.sh --toggle",
+    "on-click": "pavucontrol -t 3",
+    "on-scroll-up": "$LOCAL_DIR/scripts/volume.sh --inc",
+    "on-scroll-down": "$LOCAL_DIR/scripts/volume.sh --dec",
+    "format-icons": ["󰖁 ", " ", " ", " "]
+  },
+
+  "wireplumber#source": {
+    "node-type": "Audio/Source",
+    "format": "󰍬 {volume}%",
+    "format-muted": "󰍭 0%",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "scroll-step": 5,
   },
 
   "pulseaudio": {
@@ -152,9 +118,25 @@
   },
 
   "tray": {
-    "icon-size": 20,
+    "icon-size": 15,
     "spacing": 4,
   },
 
+  "backlight": {
+    "interval": 2,
+    "align": 0,
+    "rotate": 0,
+    "format-icons": [ " ", " ", " ", "󰃝 ", "󰃞 ", "󰃟 ", "󰃠 " ],
+    "format": "{icon}",
+    "tooltip-format": "backlight {percent}%",
+    "icon-size": 10,
+    "on-click": "",
+    "on-click-middle": "",
+    "on-click-right": "",
+    "on-update": "",
+    "on-scroll-up": "$LOCAL_DIR/scripts/brightness.sh --inc",
+    "on-scroll-down": "$LOCAL_DIR/scripts/brightness.sh --dec",
+    "smooth-scrolling-threshold": 1,
+  },
 }
 

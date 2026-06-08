@@ -3,38 +3,32 @@
         "$XDG_CONFIG_HOME/waybar/configs/main.json",
         "$XDG_CONFIG_HOME/waybar/configs/workspace.json",
         "$XDG_CONFIG_HOME/waybar/configs/custom.json",
-        "$XDG_CONFIG_HOME/waybar/configs/groups.json"
+        "$XDG_CONFIG_HOME/waybar/configs/group.json"
     ],
     "position" : "top",
-    "layer": "top",
+    "layer": "bottom",
     "exclusive": true,
     "passthrough": false,
-    "spacing": 5,
+    "spacing": 0,
     "fixed-center": true,
     "ipc": true,
-    "margin-top": 0,
-    "margin-bottom": 10,
-    "margin-left": 5,
-    "margin-right": 5,
+    "width": 1680,
+    "height": 25,
+    "margin" : "5 0",
+    "on-sigusr1" : "toggle",
 
     "modules-left": [
-      "niri/workspaces",
-      "custom/separator#line",
-      "group/system_stats"
+      "group/groupwindow"
+    ],
+
+    "modules-center": [
+      "group/mid"
     ],
 
     "modules-right": [
-      "custom/server",
-      "custom/separator#line",
-      "group/notify",
-      "custom/separator#line",
       "group/audio",
-      "custom/separator#line",
-      "tray",
-      "custom/separator#line",
-      "group/right",
-      "custom/separator#line",
-      "group/power"
+      "group/grouptray",
+      "group/misc"
     ]
 }
 

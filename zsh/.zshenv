@@ -1,5 +1,5 @@
 export WINEARCH=win64
-export MGFXC_WINE_PATH=$HOME/repo/.winemonogame
+export MGFXC_WINE_PATH=$HOME/.winemonogame
 # docker
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export MACHINE_STORAGE_PATH="$XDG_DATA_HOME"/docker-machine

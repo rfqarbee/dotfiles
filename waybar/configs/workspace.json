@@ -12,4 +12,25 @@
     "separate-outputs": true,
     "icon": true,
   },
+
+  "hyprland/workspaces": {
+    "format": "{name} {icon}",
+    "persistent-workspaces": {
+      "DP-1": [ 1,2 ],
+      "DP-2": [ 4,5 ],
+    },
+    "format-icons": {
+      "active": " ",
+      "special": ">",
+      "default": " "
+    },
+    "all-outputs": false,
+    "show-special": true,
+    "special-visible-only": true
+  },
+
+  "hyprland/window":{
+    "icon":true,
+    "separate-outputs" : true
+  }
 }
