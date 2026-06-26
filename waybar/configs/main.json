@@ -13,7 +13,7 @@
 
   "clock": {
     "interval": 1,
-    "format" :"{:%H:%M }",
+    "format" :"{:%H:%M %d/%m %a }",
     "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode": "year",
@@ -60,7 +60,7 @@
   },
 
   "wireplumber": {
-    "format": "{icon} {volume}%",
+    "format": "{icon} {node_name} {volume}%",
     "format-muted": "󰖁 0%",
     "scroll-step": 5.0,
     "on-click-right": "$LOCAL_DIR/scripts/volume.sh --toggle",

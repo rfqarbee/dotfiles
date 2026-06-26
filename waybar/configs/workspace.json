@@ -26,7 +26,8 @@
     },
     "all-outputs": false,
     "show-special": true,
-    "special-visible-only": true
+    "special-visible-only": true,
+    "on-click":"activate"
   },
 
   "hyprland/window":{

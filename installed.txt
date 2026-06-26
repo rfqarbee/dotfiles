@@ -9,6 +9,7 @@ bind
 bitwarden
 blender
 blueman
+bluez
 bluez-utils
 breeze
 breeze-gtk
@@ -30,7 +31,7 @@ ffmpegthumbnailer
 firewalld
 fuse2
 fzf
-galculator
+gnome-calculator
 gdb
 gimp
 git
@@ -54,11 +55,9 @@ man-db
 man-pages
 mise
 mpv
-nautilus
 neovim
 network-manager-applet
 networkmanager
-niri
 nm-connection-editor
 nmap
 noto-fonts
@@ -117,7 +116,6 @@ wine
 wlogout
 woff2-font-awesome
 xdg-desktop-portal-gnome
-xwayland-satellite
 yad
 yay-bin
 yt-dlp

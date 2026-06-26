@@ -1,0 +1,9 @@
+bruno-bin
+ente-auth-bin
+ferdium-bin
+superproductivity-bin
+vesktop-bin
+wlogout
+yay # use paru
+zen-browser-bin
+zennotes-bin
