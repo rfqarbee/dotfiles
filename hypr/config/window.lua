@@ -98,7 +98,8 @@ hl.window_rule({
 	workspace = "4",
 })
 
-hl.window_rule({ name = "terminal", workspace = "1", match = { class = "kitty" } })
+hl.window_rule({ workspace = "1", match = { class = "kitty" } })
+hl.window_rule({ workspace = "1", match = { class = "com.mitchellh.ghostty" } })
 
 hl.window_rule({ match = { class = "gimp", title = "GNU Image Manipulation Program" }, tag = "+apps" })
 hl.window_rule({ match = { class = "fmodstudio" }, tag = "+apps" })

@@ -1,6 +1,6 @@
 local mainMod = "SUPER"
-local terminal = "kitty"
-local fileManager = "kitty --title=Yazi -e yazi"
+local terminal = "ghostty"
+local fileManager = "ghostty --title=Yazi -e yazi"
 local menu = "rofi -show drun -theme ~/.config/rofi/applaunch.rasi"
 
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
