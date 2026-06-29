@@ -98,7 +98,8 @@ hl.window_rule({
 	workspace = "4",
 })
 
-hl.window_rule({ name = "terminal", workspace = "1", match = { class = "kitty" } })
+hl.window_rule({ workspace = "1", match = { class = "kitty" } })
+hl.window_rule({ workspace = "1", match = { class = "com.mitchellh.ghostty" } })
 
 hl.window_rule({ match = { class = "gimp", title = "GNU Image Manipulation Program" }, tag = "+apps" })
 hl.window_rule({ match = { class = "fmodstudio" }, tag = "+apps" })
@@ -121,7 +122,7 @@ hl.window_rule({
 	size = { 1200, 900 },
 	tag = "+appgroup",
 })
-hl.window_rule({ match = { class = "vesktop" }, tag = "+appgroup" })
+hl.window_rule({ match = { class = "vesktop" }, tag = "+appgroup", no_blur = true, opacity = "1.0 override" })
 
 hl.window_rule({ match = { class = "org.kde.okular" }, tag = "+file" })
 hl.window_rule({ match = { class = "libreoffice.*" }, tag = "+file" })
@@ -163,14 +164,6 @@ hl.window_rule({
 	confine_pointer = true,
 })
 
--- TODO: not working, not sure why
--- hl.window_rule({
--- 	match = { tag = "game", content = "game", fullscreen = true },
--- 	workspace = "10",
--- 	no_blur = true,
--- 	no_anim = true,
--- 	confine_pointer = true,
--- })
 hl.window_rule({ match = { tag = "apps" }, workspace = "2" })
 hl.window_rule({ match = { tag = "file" }, workspace = "3" })
 hl.window_rule({ match = { tag = "appgroup" }, workspace = "4" })

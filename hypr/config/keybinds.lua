@@ -1,7 +1,11 @@
 local mainMod = "SUPER"
-local terminal = "kitty"
-local fileManager = "kitty --title=Yazi -e yazi"
+local terminal = "ghostty"
+local fileManager = "ghostty --title=Yazi -e yazi"
 local menu = "rofi -show drun -theme ~/.config/rofi/applaunch.rasi"
+local function isGroup()
+	local isGroupWindow = hl.get_active_window().group
+	return isGroupWindow ~= nil
+end
 
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
@@ -33,16 +37,29 @@ hl.bind(mainMod .. " + comma", hl.dsp.group.lock())
 hl.bind(mainMod .. " + period", hl.dsp.window.move({ out_of_group = true }))
 hl.bind(mainMod .. "+ Left", hl.dsp.group.move_window({ forward = false }))
 hl.bind(mainMod .. "+ Right", hl.dsp.group.move_window({ forward = true }))
-hl.bind("ALT + Grave", hl.dsp.group.next())
-hl.bind("ALT + SHIFT + Grave", hl.dsp.group.prev())
 hl.bind("ALT + Escape", hl.dsp.focus({ workspace = "previous" }))
-hl.bind("ALT + Tab", hl.dsp.focus({ last = true }))
+hl.bind("ALT + Grave", hl.dsp.focus({ last = true }))
+
+hl.bind("ALT + Tab", function()
+	if isGroup() then
+		hl.dispatch(hl.dsp.group.next())
+	else
+		hl.dispatch(hl.dsp.window.cycle_next({ next = true }))
+	end
+end)
+hl.bind("ALT + SHIFT + Tab", function()
+	if isGroup() then
+		hl.dispatch(hl.dsp.group.prev())
+	else
+		hl.dispatch(hl.dsp.window.cycle_next({ next = false }))
+	end
+end)
 
 hl.bind(mainMod .. " + b", hl.dsp.exec_cmd("zen-browser"))
 hl.bind(mainMod .. " + Slash", hl.dsp.exec_cmd("$LOCAL_DIR/scripts/search.sh"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("$LOCAL_DIR/scripts/wallpaper_change.sh")) -- hard restart
+hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("killall -SIGUSR1 waybar"))
 hl.bind(mainMod .. " + F6", hl.dsp.exec_cmd("$LOCAL_DIR/scripts/watchwaybar.sh")) -- hard restart
-hl.bind(mainMod .. " + F7", hl.dsp.exec_cmd("killall -SIGUSR1 waybar"))
 hl.bind(mainMod .. " + F8", hl.dsp.exec_cmd("$LOCAL_DIR/scripts/clipboard.sh"))
 
 hl.bind("Print", hl.dsp.exec_cmd("$LOCAL_DIR/scripts/grimshot.sh --monitor"))
@@ -56,14 +73,25 @@ for i = 1, 10 do
 end
 
 -- scratchpad
-hl.bind(mainMod .. " + s", hl.dsp.workspace.toggle_special("todo"))
+hl.bind(mainMod .. " + t", hl.dsp.workspace.toggle_special("todo"))
 hl.bind(mainMod .. " + n", hl.dsp.workspace.toggle_special("notes"))
+hl.bind(mainMod .. " + d", hl.dsp.workspace.toggle_special("draw"))
 
 -- mouse binding
 hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+hl.bind(mainMod .. " + mouse:275", function()
+	local current = hl.get_config("cursor.zoom_factor")
+	if current == 6 then
+		current = 1
+	else
+		current = current + 1
+	end
+	current = math.max(1, math.min(6, current))
+	hl.config({ cursor = { zoom_factor = current } })
+end)
 hl.bind(mainMod .. " + mouse:276", function()
 	local current = hl.get_config("cursor.zoom_factor")
 	if current ~= 1 then
@@ -71,7 +99,6 @@ hl.bind(mainMod .. " + mouse:276", function()
 	else
 		current = 6
 	end
-	current = math.max(1, math.min(6, current))
 	hl.config({ cursor = { zoom_factor = current } })
 end)
 

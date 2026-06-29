@@ -7,3 +7,4 @@ hl.workspace_rule({ workspace = "10", monitor = "DP-1" })
 
 hl.workspace_rule({ workspace = "special:todo", on_created_empty = "superproductivity" })
 hl.workspace_rule({ workspace = "special:notes", on_created_empty = "zennotes" })
+hl.workspace_rule({ workspace = "special:draw", on_created_empty = "rnote" })

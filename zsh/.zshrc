@@ -30,6 +30,30 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 autoload -Uz compinit && compinit
 zinit cdreplay -q # reload all completion
 
+autoload -Uz add-zsh-hook
+typeset -g __pending=0
+session_widget() {
+  if [[ -n "$TMUX" ]]; then
+    session.sh
+    zle reset-prompt
+    return
+  fi
+  __pending=1
+  zle -I
+  BUFFER=""
+  zle accept-line
+}
+zle -N session_widget
+_session_precmd() {
+  if (( __pending )); then
+    __pending=0
+    session.sh
+    zle && zle reset-prompt 2>/dev/null
+  fi
+}
+add-zsh-hook precmd _session_precmd
+
+bindkey '^\\' session_widget
 bindkey '^n' history-search-forward
 bindkey '^p' history-search-backward
 
@@ -43,12 +67,13 @@ HISTDUP=erase
 setopt autocd notify
 setopt appendhistory
 setopt sharehistory
+setopt NO_CASE_GLOB
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
-
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 # pnpm
 export PNPM_HOME="/home/rafiq/.local/share/pnpm"
 case ":$PATH:" in

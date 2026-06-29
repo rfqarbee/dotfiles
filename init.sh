@@ -6,6 +6,13 @@ set -euo pipefail
 DOTFILES=$PWD
 XDG_CONFIG_HOME=$HOME/.config
 
+# TODO: init folder
+# ss=$HOME/Pictures/Screenshots
+# progroot="$HOME/programming"
+# doc=$HOME/Documents
+#
+# mkdir -p $doc/personal $progroot/dev $progroot/repo $progroot/probe $progroot/work $ss
+
 # set zsh path
 echo "Set ZDOTDIR to $HOME/.config/zsh"
 echo "ZDOTDIR=$HOME/.config/zsh" | doas tee /etc/zsh/zshenv >/dev/null

@@ -42,3 +42,5 @@ export PROMPT_EOL_MARK=''
 export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 export ASDF_DATA_DIR=$XDG_CONFIG_HOME/asdf # mise plugin; asdf
 export GRIM_DEFAULT_DIR=$HOME/Pictures/Screenshots
+
+eval "$(mise activate zsh --shims)"
