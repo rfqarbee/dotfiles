@@ -1,4 +1,5 @@
 local mainMod = "SUPER"
+local browser = "vivaldi"
 local terminal = "ghostty"
 local fileManager = "ghostty --title=Yazi -e yazi"
 local menu = "rofi -show drun -theme ~/.config/rofi/applaunch.rasi"
@@ -55,7 +56,7 @@ hl.bind("ALT + SHIFT + Tab", function()
 	end
 end)
 
-hl.bind(mainMod .. " + b", hl.dsp.exec_cmd("zen-browser"))
+hl.bind(mainMod .. " + b", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + Slash", hl.dsp.exec_cmd("$LOCAL_DIR/scripts/search.sh"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("$LOCAL_DIR/scripts/wallpaper_change.sh")) -- hard restart
 hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("killall -SIGUSR1 waybar"))
@@ -73,6 +74,7 @@ for i = 1, 10 do
 end
 
 -- scratchpad
+hl.bind(mainMod .. " + F10", hl.dsp.workspace.toggle_special("sys"))
 hl.bind(mainMod .. " + t", hl.dsp.workspace.toggle_special("todo"))
 hl.bind(mainMod .. " + n", hl.dsp.workspace.toggle_special("notes"))
 hl.bind(mainMod .. " + d", hl.dsp.workspace.toggle_special("draw"))

@@ -29,7 +29,6 @@ path=(
   $ANDROID_HOME/tools/bin
   $ANDROID_HOME/platform-tools
   $FLUTTER
-  $XDG_CONFIG_HOME/emacs/bin
   $path)
 export PATH
 

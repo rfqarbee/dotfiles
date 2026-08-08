@@ -6,3 +6,7 @@ tmux/.tmux
 tmux/plugins
 
 _logs/
+
+auto-save-list/*
+tramp
+emacs/eln-cache/**

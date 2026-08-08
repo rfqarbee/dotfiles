@@ -18,6 +18,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("udiskie")
 	hl.exec_cmd("protonvpn-app")
 	hl.exec_cmd("bitwarden-desktop")
+	hl.exec_cmd("vesktop")
 	hl.exec_cmd("ferdium", { workspace = 4 })
 end)
 
@@ -54,7 +55,7 @@ hl.config({
 			enabled = true,
 			range = 4,
 			render_power = 3,
-			color = 0xee1a1a1a,
+			color = "0xee1a1a1a",
 		},
 
 		blur = {

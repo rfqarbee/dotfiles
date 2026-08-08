@@ -1,5 +1,5 @@
 export HISTFILE=$HOME/.config/zsh/.histfile
-export BROWSER=zen-browser
+export BROWSER=vivaldi
 # dev
 export MISE_DEFAULT_CONFIG_FILENAME=".mise.local.toml"
 # defaults local

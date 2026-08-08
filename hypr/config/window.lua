@@ -89,18 +89,24 @@ hl.window_rule({
 })
 hl.window_rule({ match = { class = "yad" }, float = true, size = { 650, 700 }, center = true })
 hl.window_rule({ match = { class = "blueman-manager" }, float = true, size = { 650, 700 }, center = true })
-hl.window_rule({ match = { class = "thunar" }, float = true, size = { 1000, 900 }, center = true })
+hl.window_rule({ match = { class = "[Tt]hunar" }, float = true, size = { 1000, 900 }, center = true })
 hl.window_rule({ match = { class = "org.pulseaudio.pavucontrol" }, float = true, size = { 1000, 900 }, center = true })
 hl.window_rule({ match = { class = "zen" }, opacity = "1.0 1.1" })
+hl.window_rule({ match = { class = "vivaldi-stable" }, opacity = "1.0 1.1" })
 hl.window_rule({
-	match = { title = "Picture-in-Picture", class = "zen" },
+	match = { title = "Picture-in-Picture" },
 	maximize = true,
-	workspace = "4",
+})
+hl.window_rule({
+	match = { title = "Picture in picture" },
+	float = true,
+	size = { 1536, 864 },
 })
 
 hl.window_rule({ workspace = "1", match = { class = "kitty" } })
 hl.window_rule({ workspace = "1", match = { class = "com.mitchellh.ghostty" } })
 
+hl.window_rule({ match = { class = "PenTablet" }, float = true, center = true, tag = "+apps", no_initial_focus = true })
 hl.window_rule({ match = { class = "gimp", title = "GNU Image Manipulation Program" }, tag = "+apps" })
 hl.window_rule({ match = { class = "fmodstudio" }, tag = "+apps" })
 hl.window_rule({ match = { class = "lmms" }, tag = "+apps" })
@@ -125,7 +131,7 @@ hl.window_rule({
 hl.window_rule({ match = { class = "vesktop" }, tag = "+appgroup", no_blur = true, opacity = "1.0 override" })
 
 hl.window_rule({ match = { class = "org.kde.okular" }, tag = "+file" })
-hl.window_rule({ match = { class = "libreoffice.*" }, tag = "+file" })
+hl.window_rule({ match = { class = "libreoffice.*" }, tag = "+documents" })
 
 -- game related
 hl.window_rule({
@@ -164,6 +170,11 @@ hl.window_rule({
 	confine_pointer = true,
 })
 
+hl.window_rule({ match = { class = "hyprland-share-picker" }, float = true })
 hl.window_rule({ match = { tag = "apps" }, workspace = "2" })
-hl.window_rule({ match = { tag = "file" }, workspace = "3" })
+hl.window_rule({ match = { tag = "documents" }, workspace = "3" })
 hl.window_rule({ match = { tag = "appgroup" }, workspace = "4" })
+hl.window_rule({ match = { tag = "file" }, workspace = "5" })
+
+hl.window_rule({ match = { title = "HTOP" }, workspace = "special:sys" })
+hl.window_rule({ match = { title = "BTOP" }, workspace = "special:sys" })
