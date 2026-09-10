@@ -2,11 +2,13 @@ zsh/.histfile
 zsh/.zsh_history
 zsh/.zcompdump*
 
+kitty/default.session
+
 tmux/.tmux
 tmux/plugins
 
 _logs/
 
-auto-save-list/*
 tramp
+emacs/auto-save-list/*
 emacs/eln-cache/**

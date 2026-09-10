@@ -32,28 +32,7 @@ zinit cdreplay -q # reload all completion
 
 autoload -Uz add-zsh-hook
 typeset -g __pending=0
-session_widget() {
-  if [[ -n "$TMUX" ]]; then
-    session.sh
-    zle reset-prompt
-    return
-  fi
-  __pending=1
-  zle -I
-  BUFFER=""
-  zle accept-line
-}
-zle -N session_widget
-_session_precmd() {
-  if (( __pending )); then
-    __pending=0
-    session.sh
-    zle && zle reset-prompt 2>/dev/null
-  fi
-}
-add-zsh-hook precmd _session_precmd
 
-bindkey '^\\' session_widget
 bindkey '^n' history-search-forward
 bindkey '^p' history-search-backward
 
@@ -74,18 +53,11 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-# pnpm
-export PNPM_HOME="/home/rafiq/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME/bin:"*) ;;
-  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
-esac
-# pnpm end
 
 source <(fzf --zsh)
 eval "$(atuin init zsh)"
 eval "$(zoxide init zsh --cmd cd)"
-eval "$(mise activate zsh)"
+eval "$(mise activate zsh --shims)"
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

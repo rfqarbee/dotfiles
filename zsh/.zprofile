@@ -1,4 +1,3 @@
-export HISTFILE=$HOME/.config/zsh/.histfile
 export BROWSER=vivaldi
 # dev
 export MISE_DEFAULT_CONFIG_FILENAME=".mise.local.toml"
@@ -9,8 +8,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
-export LOCAL_DIR=$HOME/.local
-export FREEZE_OUT=$HOME/Pictures/Screenshots
+
 export DEV=$HOME/programming/dev
 export REPO=$HOME/programming/repo
 export PROBE=$HOME/programming/probe
@@ -39,8 +37,6 @@ export PAGER='less'
 export MANPAGER="nvim +Man!"
 export MANWIDTH=200
 export PROMPT_EOL_MARK=''
-export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
-export ASDF_DATA_DIR=$XDG_CONFIG_HOME/asdf # mise plugin; asdf
+export ASDF_DATA_DIR=$XDG_CONFIG_HOME/asdf
 export GRIM_DEFAULT_DIR=$HOME/Pictures/Screenshots
 
-eval "$(mise activate zsh --shims)"

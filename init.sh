@@ -6,6 +6,13 @@ set -euo pipefail
 DOTFILES=$PWD
 XDG_CONFIG_HOME=$HOME/.config
 
+# kitty default session
+if ! [[ -d $XDG_STATE_HOME/kitty/sessions ]]; then
+  mkdir -p $XDG_STATE_HOME/kitty/sessions
+fi
+echo -e "new_tab\n\
+cd ~" > $XDG_STATE_HOME/kitty/sessions/default.session
+
 # TODO: init folder
 # ss=$HOME/Pictures/Screenshots
 # progroot="$HOME/programming"
@@ -81,16 +88,36 @@ init_git(){
   done
   touch $XDG_CONFIG_HOME/git/config
   git config --global init.defaultBranch main
+
+  git config --global commit.verbose true
+  git config --global commit.gpgsign true
+
+  git config --global pull.rebase true
+
   git config --global push.autoSetupRemote true
   git config --global push.followTags true
-  git config --global pull.rebase true
+
+  git config --global diff.tool nvim_difftool
+  git config --global diff.algorithm histogram
+  git config --global diff.colorMoved true
+  git config --global diff.colorMovedWS allow-indentation-change
+  git config --global diff.mnemonicPrefix true
+
   git config --global fetch.prune true
   git config --global fetch.all true
+
+  git config --global mergetool.keepBackup false
+  git config --global mergetool.trustExitCode true
+  git config --global mergetool.hideResolved true
+  git config --global mergetool.prompt true
+
   git config --global rerere.enabled true
   git config --global rerere.autoupdate true
 
-  git config --global user.email $git_email
-  git config --global user.name $git_name
+  git config --global include.path "./gitlocal.config"
+  git config --global include.path "./gitwork.config"
+
+  git config --global credential.helper store
 
   git config --global alias.last "log -n1"
   git config --global alias.logs "log --oneline -n 25"
@@ -99,6 +126,7 @@ init_git(){
   git config --global alias.ss "status"
   git config --global alias.pushf "push --force-with-lease"
   git config --global alias.review  "!git fetch origin && git difftool -d origin/HEAD...HEAD"
+
   echo -e ".env\n\
 .env.*\n\
 !.env.example\n\
@@ -117,7 +145,19 @@ dist/\n\
 \n\
 #craps\n\
 *.vim\n\
-node_modules/*" > $XDG_CONFIG_HOME/git/ignore
+node_modules/*\n\
+\n\
+\*#*#\n\
+.#*#" > $XDG_CONFIG_HOME/git/ignore
+
+  echo -e "[user]\n
+email = $git_email\n\
+name = $git_name" > $XDG_CONFIG_HOME/git/gitlocal.config
+
+  echo -e "[user]\n
+email = $git_email\n\
+name = $git_name" > $XDG_CONFIG_HOME/git/gitwork.config
+
 }
 
 # echo "------------------------------------------------"
