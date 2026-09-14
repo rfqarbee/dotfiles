@@ -1,0 +1,37 @@
+{
+  "niri/workspaces": {
+    "all-outputs" : false,
+    "format": "{index} {icon}",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    }
+  },
+  "niri/window": {
+    "format": "{title}",
+    "separate-outputs": true,
+    "icon": true,
+  },
+
+  "hyprland/workspaces": {
+    "format": "{name} {icon}",
+    "persistent-workspaces": {
+      "DP-1": [ 1,2 ],
+      "DP-2": [ 4,5 ],
+    },
+    "format-icons": {
+      "active": " ",
+      "special": ">",
+      "default": " "
+    },
+    "all-outputs": false,
+    "show-special": true,
+    "special-visible-only": true,
+    "on-click":"activate"
+  },
+
+  "hyprland/window":{
+    "icon":true,
+    "separate-outputs" : true
+  }
+}

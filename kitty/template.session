@@ -1,0 +1,4 @@
+new_tab
+cd @@session-path@@
+launch zsh
+focus_tab 0

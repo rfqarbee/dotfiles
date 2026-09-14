@@ -1,0 +1,14 @@
+zsh/.histfile
+zsh/.zsh_history
+zsh/.zcompdump*
+
+kitty/default.session
+
+tmux/.tmux
+tmux/plugins
+
+_logs/
+
+tramp
+emacs/auto-save-list/*
+emacs/eln-cache/**

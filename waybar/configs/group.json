@@ -1,0 +1,41 @@
+{
+  "group/groupwindow": {
+    "orientation": "horizontal",
+    "modules": [
+      "hyprland/workspaces",
+      "hyprland/window"
+    ]
+  },
+  "group/mid": {
+    "orientation": "horizontal",
+    "modules": [
+      "wlr/taskbar",
+      "clock",
+      "custom/swaync"
+    ]
+  },
+  "group/grouptray": {
+    "orientation": "horizontal",
+    "modules": [
+      "privacy",
+      "temperature",
+      "battery",
+      "power-profiles-daemon",
+      "tray",
+    ]
+  },
+
+  "group/audio": {
+    "orientation": "horizontal",
+    "modules": [
+      "wireplumber",
+      "wireplumber#source",
+    ]
+  },
+  "group/misc": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/power"
+    ]
+  }
+}
