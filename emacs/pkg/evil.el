@@ -17,8 +17,6 @@
 						 (dired-copy-filename-as-kill 0)))
   (evil-global-set-key 'normal "-" 'dired-jump)
   (evil-global-set-key 'normal "gs" 'magit)
-  (evil-global-set-key 'visual "gc" 'comment-dwim)
-  (evil-global-set-key 'normal "gcc" 'comment-line)
   (evil-global-set-key 'visual (kbd "C-p") "\"_dP")
   (evil-global-set-key 'insert (kbd "C-y") nil)
   (evil-global-set-key 'motion "L" 'evil-end-of-line-or-visual-line)
@@ -48,6 +46,11 @@
   :config
   (global-evil-surround-mode 1))
 
+(use-package evil-commentary
+  :after evil-collection
+  :config
+  (evil-commentary-mode 1))
+
 (use-package general
   :ensure t
   :after evil-collection
@@ -67,11 +70,12 @@
     "po"  'ff-find-other-file-other-window
     "pp" 'project-switch-project
     "pa" 'project-remember-project
-    "pc" 'project-compile
+    "cc" 'project-compile
+    "cC" 'project-recompile
     "pd" 'project-dired
     "pr"  'project-query-replace-regexp
-    "ps"  'project-find-regexp
-    "pS"  'project-or-external-find-regexp
+    "/"  'project-find-regexp
+    "ps"  'project-or-external-find-regexp
     "pb" 'project-switch-to-buffer
     "pB" 'project-display-buffer ;; open buffer in another window
     "pk" 'project-kill-buffers
