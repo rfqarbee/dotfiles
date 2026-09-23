@@ -2,7 +2,7 @@ local mainMod = "SUPER"
 local browser = "vivaldi"
 local terminal = "kitty"
 local emacs = "emacsclient -c -a ''"
-local fileManager = "ghostty --title=Yazi -e yazi"
+local fileManager = "kitty --title=Yazi -e yazi"
 local menu = "rofi -show drun -theme ~/.config/rofi/applaunch.rasi"
 local function isGroup()
 	local isGroupWindow = hl.get_active_window().group

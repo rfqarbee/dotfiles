@@ -27,15 +27,13 @@
  '(make-backup-files nil)
  '(menu-bar-mode nil)
  '(package-selected-packages
-   '(## apheleia apropospriate-theme ayu-theme cape cond-let corfu
-        darktooth-theme dash diminish doom-modeline doom-themes
-        ef-themes evil evil-collection evil-commentary evil-matchit
-        evil-surround exec-path-from-shell flatland-theme flycheck
-        general goto-chg heroku-theme llama magit magit-section
-        marginalia markdown-mode nord-theme orderless org-evil queue
-        reformatter soothe-theme subatomic-theme treesit treesit-auto
-        undo-tree unimpaired vertico vterm wgrep with-editor
-        yasnippet-capf yasnippet-snippets zig-mode))
+   '(## apheleia cape cond-let corfu dash diminish doom-modeline evil
+        evil-collection evil-commentary evil-matchit evil-surround f
+        flycheck general goto-chg llama magit magit-section marginalia
+        markdown-mode orderless org-evil queue reformatter svelte-mode
+        treesit treesit-auto undo-tree unimpaired vertico vterm
+        web-mode wgrep with-editor yasnippet yasnippet-capf
+        yasnippet-snippets zig-mode))
  '(package-user-dir "~/.local/share/emacs/elpa")
  '(project-buffers-viewer 'project-list-buffers-ibuffer)
  '(project-list-file "~/.local/state/emacs/projects.eld")

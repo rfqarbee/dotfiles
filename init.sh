@@ -1,3 +1,4 @@
+
 # # TODO: create a better script
 # #!/bin/env bash
 # # fmod studio

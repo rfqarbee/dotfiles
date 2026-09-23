@@ -43,6 +43,15 @@ HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
 
+alias cat=/usr/bin/bat
+alias catt=/usr/bin/cat
+alias l="eza -lA --group --color=always --sort=type"
+alias la="eza -a --color=always --sort=type"
+alias ls=eza
+alias lt="eza --tree -lA --color=always --icons=always --sort=type"
+alias vi=/usr/bin/vim
+alias vim=/usr/bin/nvim
+
 setopt autocd notify
 setopt appendhistory
 setopt sharehistory
@@ -55,7 +64,6 @@ setopt hist_find_no_dups
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 source <(fzf --zsh)
-eval "$(atuin init zsh)"
 eval "$(zoxide init zsh --cmd cd)"
 eval "$(mise activate zsh --shims)"
 
@@ -69,3 +77,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 # pnpm end
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

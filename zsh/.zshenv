@@ -22,6 +22,7 @@ export GUM_WINE_PREFIX_PATH="$HOME/.wine_gum_prefix"
 export MGFXC_WINE_PATH="$HOME/.winemonogame"
 export DOTNET_TELEMETRY_OPTOUT=1
 export MISE_DEFAULT_CONFIG_FILENAME=".mise.local.toml"
+export GIT_EDITOR=/usr/bin/nvim
 
 typeset -U path PATH
 path=(
