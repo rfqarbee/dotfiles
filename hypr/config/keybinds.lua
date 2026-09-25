@@ -1,9 +1,7 @@
 local mainMod = "SUPER"
-local browser = "vivaldi"
 local terminal = "kitty"
 local emacs = "emacsclient -c -a ''"
 local fileManager = "kitty --title=Yazi -e yazi"
-local menu = "rofi -show drun -theme ~/.config/rofi/applaunch.rasi"
 local function isGroup()
 	local isGroupWindow = hl.get_active_window().group
 	return isGroupWindow ~= nil
@@ -19,7 +17,7 @@ hl.bind(
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + SHIFT+ F", hl.dsp.exec_cmd("thunar"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("fuzzel"))
 
 hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
@@ -56,9 +54,8 @@ hl.bind("ALT + SHIFT + Tab", function()
 	end
 end)
 
-hl.bind(mainMod .. " + b", hl.dsp.exec_cmd(browser))
+hl.bind(mainMod .. " + b", hl.dsp.exec_cmd("$BROWSER"))
 hl.bind(mainMod .. " + Slash", hl.dsp.exec_cmd("$XDG_DATA_HOME/scripts/search.sh"))
-hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("$XDG_DATA_HOME/scripts/wallpaper_change.sh")) -- hard restart
 hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("killall -SIGUSR1 waybar"))
 hl.bind(mainMod .. " + F6", hl.dsp.exec_cmd("$XDG_DATA_HOME/scripts/watchwaybar.sh")) -- hard restart
 hl.bind(mainMod .. " + F8", hl.dsp.exec_cmd("$XDG_DATA_HOME/scripts/clipboard.sh"))
