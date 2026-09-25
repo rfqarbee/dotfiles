@@ -8,7 +8,7 @@
 
 (setq auto-save-file-name-transforms
       `((".*" ,(expand-file-name "~/.local/state/emacs/auto-saves/" ) t)))
-(setq custom-file (expand-file-name "custom.el" user-emacs-director))
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file 'noerror)
 
 (dolist (mode '(vterm-mode-hook term-mode-hook shell-mode-hook eshell-mode-hook))

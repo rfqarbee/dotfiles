@@ -1,3 +1,4 @@
+[[ -f ~/.zprofile ]] && source ~/.zprofile
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -30,15 +31,12 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 autoload -Uz compinit && compinit
 zinit cdreplay -q # reload all completion
 
-autoload -Uz add-zsh-hook
-typeset -g __pending=0
-
 bindkey '^n' history-search-forward
 bindkey '^p' history-search-backward
 
 ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
 
-HISTFILE=~/.config/zsh/.histfile
+HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
@@ -49,12 +47,11 @@ alias l="eza -lA --group --color=always --sort=type"
 alias la="eza -a --color=always --sort=type"
 alias ls=eza
 alias lt="eza --tree -lA --color=always --icons=always --sort=type"
-alias vi=/usr/bin/vim
 alias vim=/usr/bin/nvim
 
 setopt autocd notify
-setopt appendhistory
-setopt sharehistory
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
 setopt NO_CASE_GLOB
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
@@ -62,6 +59,15 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+autoload -Uz add-zsh-hook
+typeset -g __pending=0
+
+reload-history() {
+  fc -R
+}
+
+add-zsh-hook precmd reload-history
 
 source <(fzf --zsh)
 eval "$(zoxide init zsh --cmd cd)"
